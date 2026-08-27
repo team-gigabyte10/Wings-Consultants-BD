@@ -1,0 +1,60 @@
+{
+  "entities": {
+    "User": {
+      "collection": "users",
+      "fields": {
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "role": { "type": "string" },
+        "company": { "type": "string" },
+        "phone": { "type": "string" },
+        "createdAt": { "type": "string" }
+      }
+    },
+    "ConsultationLead": {
+      "collection": "leads",
+      "fields": {
+        "fullName": { "type": "string" },
+        "company": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "serviceRequired": { "type": "string" },
+        "participantCount": { "type": "string" },
+        "projectDescription": { "type": "string" },
+        "preferredContactMethod": { "type": "string" },
+        "status": { "type": "string" },
+        "userId": { "type": "string" },
+        "createdAt": { "type": "string" }
+      }
+    },
+    "CourseRegistration": {
+      "collection": "registrations",
+      "fields": {
+        "userId": { "type": "string" },
+        "courseTitle": { "type": "string" },
+        "streamId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "userPhone": { "type": "string" },
+        "companyName": { "type": "string" },
+        "participantCount": { "type": "string" },
+        "preferredDate": { "type": "string" },
+        "notes": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" }
+      }
+    },
+    "ClientReview": {
+      "collection": "reviews",
+      "fields": {
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "company": { "type": "string" },
+        "streamId": { "type": "string" },
+        "rating": { "type": "number" },
+        "comment": { "type": "string" },
+        "createdAt": { "type": "string" }
+      }
+    }
+  }
+}
