@@ -1,46 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useCms } from '../context/CmsContext';
-import { useAuth } from '../context/AuthContext';
-import { X, Send, CheckCircle2, BookOpen, Building, Phone, Mail, User, ShieldCheck } from 'lucide-react';
+import {
+  X,
+  Calendar,
+  Clock,
+  Send,
+  CheckCircle2,
+  ShieldCheck,
+  Building,
+  Sparkles,
+  Phone
+} from 'lucide-react';
 
 interface ConsultationModalProps {
   isOpen: boolean;
   onClose: () => void;
-  initialCourse?: string;
+  initialService?: string;
 }
 
 export const ConsultationModal: React.FC<ConsultationModalProps> = ({
   isOpen,
   onClose,
-  initialCourse
+  initialService = 'Income Tax Consultancy'
 }) => {
-  const { addLead } = useCms();
-  const { user, userProfile } = useAuth();
+  const { services, addLead, companyInfo } = useCms();
 
-  const [fullName, setFullName] = useState(userProfile?.displayName || user?.displayName || '');
-  const [company, setCompany] = useState(userProfile?.company || '');
-  const [email, setEmail] = useState(userProfile?.email || user?.email || '');
-  const [phone, setPhone] = useState(userProfile?.phone || '');
-  const [serviceRequired, setServiceRequired] = useState(initialCourse || 'Sales and Customer Service');
-  const [participantCount, setParticipantCount] = useState('15-20 Participants');
-  const [projectDescription, setProjectDescription] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [company, setCompany] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [selectedService, setSelectedService] = useState(initialService);
+  const [preferredDate, setPreferredDate] = useState('');
+  const [preferredTime, setPreferredTime] = useState('Morning (10:00 AM - 01:00 PM)');
+  const [details, setDetails] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
-  useEffect(() => {
-    if (initialCourse) {
-      setServiceRequired(initialCourse);
-    }
-  }, [initialCourse]);
-
-  useEffect(() => {
-    if (user || userProfile) {
-      if (!fullName) setFullName(userProfile?.displayName || user?.displayName || '');
-      if (!email) setEmail(userProfile?.email || user?.email || '');
-      if (!company && userProfile?.company) setCompany(userProfile.company);
-      if (!phone && userProfile?.phone) setPhone(userProfile.phone);
-    }
-  }, [user, userProfile]);
 
   if (!isOpen) return null;
 
@@ -50,19 +44,18 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
     setIsSubmitting(true);
     try {
-      await addLead(
-        {
-          fullName,
-          company,
-          email,
-          phone,
-          serviceRequired,
-          participantCount,
-          projectDescription,
-          preferredContactMethod: 'Phone'
-        },
-        user?.uid
-      );
+      await addLead({
+        fullName,
+        company,
+        phone,
+        email,
+        serviceRequired: selectedService,
+        preferredContactMethod: 'Phone',
+        preferredDate: preferredDate || undefined,
+        preferredTime: preferredTime || undefined,
+        projectDescription: details || `Consultation appointment requested for ${selectedService}`
+      });
+
       setIsSuccess(true);
     } catch (err) {
       console.error(err);
@@ -71,185 +64,221 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
     }
   };
 
-  const handleClose = () => {
+  const handleResetAndClose = () => {
     setIsSuccess(false);
+    setFullName('');
+    setCompany('');
+    setPhone('');
+    setEmail('');
+    setDetails('');
     onClose();
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-fadeIn">
-      <div className="bg-white rounded-3xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200">
-        
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/75 backdrop-blur-xs flex items-center justify-center p-3 sm:p-6 animate-in fade-in">
+      <div
+        className="relative bg-white rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header */}
-        <div className="bg-slate-900 text-white p-6 rounded-t-3xl flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">
-              <BookOpen className="w-4 h-4" />
-            </div>
-            <div>
-              <h3 className="text-lg font-serif font-bold text-white">
-                Book Corporate Training / Advisory
-              </h3>
-              <p className="text-xs text-slate-300">
-                Wings Consultants — "Sky is not the Limit, It’s an Opportunity"
-              </p>
-            </div>
-          </div>
-
+        <div className="bg-gradient-to-r from-[#0f2c59] to-[#0284c7] text-white p-6 sm:p-7 rounded-t-2xl relative">
           <button
-            onClick={handleClose}
-            className="p-1.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer"
+            onClick={handleResetAndClose}
+            className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
+
+          <div className="flex items-center gap-2 text-amber-300 text-xs font-bold uppercase tracking-wider mb-1">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>25 Years Advisory Experience</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white">
+            Schedule a Consultation
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-200 mt-1">
+            Connect with our senior partners in Dhaka for customized business guidance.
+          </p>
         </div>
 
-        {/* Content */}
-        <div className="p-6">
+        {/* Form Body */}
+        <div className="p-6 sm:p-7">
           {isSuccess ? (
-            <div className="py-8 text-center space-y-3">
-              <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
-                <CheckCircle2 className="w-8 h-8" />
+            <div className="py-8 text-center space-y-4 animate-in fade-in">
+              <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+                <CheckCircle2 className="w-10 h-10" />
               </div>
-              <h4 className="text-xl font-serif font-bold text-slate-900">
-                Inquiry Received Successfully!
-              </h4>
-              <p className="text-xs sm:text-sm text-slate-600 max-w-sm mx-auto">
-                Thank you, <strong>{fullName}</strong>. Your request has been securely recorded. Our senior training coordinator will contact you at <strong>{phone}</strong>.
+              <h3 className="text-2xl font-serif font-bold text-[#0f2c59]">
+                Consultation Request Confirmed
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 max-w-sm mx-auto leading-relaxed">
+                Thank you, <strong className="text-slate-800">{fullName}</strong>. Our senior consultant will review your parameters and call you at <strong className="text-slate-800">{phone}</strong>.
               </p>
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-500">
+                <p>Hotline: {companyInfo.phones[0]} • Email: {companyInfo.email}</p>
+              </div>
               <button
-                onClick={handleClose}
-                className="mt-4 px-6 py-2 bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold rounded-lg shadow cursor-pointer"
+                onClick={handleResetAndClose}
+                className="mt-4 px-6 py-2.5 rounded-xl bg-[#0f2c59] text-white font-bold text-xs hover:bg-[#0284c7] transition-colors cursor-pointer"
               >
                 Done
               </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">
-                  Full Name *
-                </label>
-                <div className="relative">
-                  <User className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+              
+              {/* Full Name & Company */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
+                    Your Name <span className="text-rose-500">*</span>
+                  </label>
                   <input
                     type="text"
                     required
+                    placeholder="Full name"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    placeholder="e.g. Md. Anisur Rahman"
-                    className="w-full pl-9 pr-3.5 py-2 text-xs sm:text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none"
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-sky-500"
                   />
                 </div>
-              </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1">
                     Company / Organization
                   </label>
-                  <div className="relative">
-                    <Building className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                    <input
-                      type="text"
-                      value={company}
-                      onChange={(e) => setCompany(e.target.value)}
-                      placeholder="e.g. City Bank / Renata"
-                      className="w-full pl-9 pr-3.5 py-2 text-xs sm:text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none"
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    placeholder="Company or Individual"
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-sky-500"
+                  />
+                </div>
+              </div>
+
+              {/* Phone & Email */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
+                    Phone Number <span className="text-rose-500">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    placeholder="+880 17XX-XXXXXX"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-sky-500"
+                  />
                 </div>
 
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1">
-                    Phone Number *
+                    Email Address <span className="text-rose-500">*</span>
                   </label>
-                  <div className="relative">
-                    <Phone className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                    <input
-                      type="tel"
-                      required
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      placeholder="01711-XXXXXX"
-                      className="w-full pl-9 pr-3.5 py-2 text-xs sm:text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">
-                  Official E-mail *
-                </label>
-                <div className="relative">
-                  <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
                   <input
                     type="email"
                     required
+                    placeholder="name@mail.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="name@company.com"
-                    className="w-full pl-9 pr-3.5 py-2 text-xs sm:text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none"
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-sky-500"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {/* Service Required */}
+              <div>
+                <label className="block text-xs font-bold text-slate-700 mb-1">
+                  Primary Consulting Practice
+                </label>
+                <select
+                  value={selectedService}
+                  onChange={(e) => setSelectedService(e.target.value)}
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-sky-500"
+                >
+                  {services.map((s) => (
+                    <option key={s.id} value={s.title}>
+                      {s.title}
+                    </option>
+                  ))}
+                  <option value="General Strategic Business Advisory">General Strategic Business Advisory</option>
+                </select>
+              </div>
+
+              {/* Preferred Date & Time Slot */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
-                    Selected Course or Stream
+                  <label className="block text-xs font-bold text-slate-700 mb-1 flex items-center gap-1">
+                    <Calendar className="w-3.5 h-3.5 text-slate-500" />
+                    <span>Preferred Date</span>
                   </label>
                   <input
-                    type="text"
-                    value={serviceRequired}
-                    onChange={(e) => setServiceRequired(e.target.value)}
-                    className="w-full px-3 py-2 text-xs sm:text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none"
+                    type="date"
+                    value={preferredDate}
+                    onChange={(e) => setPreferredDate(e.target.value)}
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-sky-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
-                    Participants
+                  <label className="block text-xs font-bold text-slate-700 mb-1 flex items-center gap-1">
+                    <Clock className="w-3.5 h-3.5 text-slate-500" />
+                    <span>Preferred Time Window</span>
                   </label>
                   <select
-                    value={participantCount}
-                    onChange={(e) => setParticipantCount(e.target.value)}
-                    className="w-full px-3 py-2 text-xs sm:text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none"
+                    value={preferredTime}
+                    onChange={(e) => setPreferredTime(e.target.value)}
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-sky-500"
                   >
-                    <option value="1-10 Executives">1-10 Executives</option>
-                    <option value="15-25 Participants">15-25 Participants</option>
-                    <option value="30-50 Participants">30-50 Participants</option>
-                    <option value="50+ Full Organization">50+ Organization Wide</option>
+                    <option value="Morning (10:00 AM - 01:00 PM)">Morning (10:00 AM - 01:00 PM)</option>
+                    <option value="Afternoon (02:00 PM - 05:00 PM)">Afternoon (02:00 PM - 05:00 PM)</option>
+                    <option value="Evening (05:00 PM - 07:00 PM)">Evening (05:00 PM - 07:00 PM)</option>
                   </select>
                 </div>
               </div>
 
+              {/* Details */}
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1">
-                  Brief Requirements / Preferred Dates
+                  Brief Overview of Requirement / Objectives
                 </label>
                 <textarea
-                  rows={2}
-                  value={projectDescription}
-                  onChange={(e) => setProjectDescription(e.target.value)}
-                  placeholder="e.g. 2-day session for sales force in late September..."
-                  className="w-full px-3 py-2 text-xs sm:text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none"
+                  rows={3}
+                  placeholder="Outline key questions or background information..."
+                  value={details}
+                  onChange={(e) => setDetails(e.target.value)}
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-sky-500"
                 />
               </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold py-2.5 rounded-xl text-xs sm:text-sm shadow flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <Send className="w-4 h-4" />
-                <span>{isSubmitting ? 'Submitting Request...' : 'Confirm Request'}</span>
-              </button>
+              {/* Submit button */}
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#0f2c59] to-[#0284c7] hover:from-[#081a33] hover:to-[#0369a1] shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                >
+                  {isSubmitting ? (
+                    <span>Booking Appointment...</span>
+                  ) : (
+                    <>
+                      <span>Confirm & Book Consultation</span>
+                      <Send className="w-4 h-4" />
+                    </>
+                  )}
+                </button>
+
+                <div className="mt-3 flex items-center justify-center gap-2 text-[11px] text-slate-500">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>Confidential Advisory • No Obligation Initial Discussion</span>
+                </div>
+              </div>
+
             </form>
           )}
         </div>
-
       </div>
     </div>
   );

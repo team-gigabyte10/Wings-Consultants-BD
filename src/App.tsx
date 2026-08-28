@@ -1,40 +1,38 @@
 import React, { useState } from 'react';
-import { AuthProvider, useAuth } from './context/AuthContext';
 import { CmsProvider, useCms } from './context/CmsContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { TrustStats } from './components/TrustStats';
 import { AboutSection } from './components/AboutSection';
-import { CoursesCatalog } from './components/CoursesCatalog';
-import { MethodologySection } from './components/MethodologySection';
-import { TeamSection } from './components/TeamSection';
-import { ClientsSection } from './components/ClientsSection';
-import { ReviewsSection } from './components/ReviewsSection';
-import { QuotesSection } from './components/QuotesSection';
+import { ServicesSection } from './components/ServicesSection';
+import { IndustriesSection } from './components/IndustriesSection';
+import { WhyChooseUs } from './components/WhyChooseUs';
+import { ConsultingProcess } from './components/ConsultingProcess';
+import { ProjectsPortfolio } from './components/ProjectsPortfolio';
+import { CaseStudiesSection } from './components/CaseStudiesSection';
+import { TestimonialsSection } from './components/TestimonialsSection';
+import { ResourcesSection } from './components/ResourcesSection';
+import { FAQSection } from './components/FAQSection';
+import { CTASection } from './components/CTASection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { CourseDetailModal } from './components/CourseDetailModal';
-import { TeamDetailModal } from './components/TeamDetailModal';
+import { ServiceDetailModal } from './components/ServiceDetailModal';
 import { ConsultationModal } from './components/ConsultationModal';
 import { AdminDashboardModal } from './components/AdminDashboardModal';
-import { AuthModal } from './components/AuthModal';
-import { UserProfileModal } from './components/UserProfileModal';
-import { TrainingStream, TeamMember } from './types';
-import { MessageCircle, ArrowUp, Phone } from 'lucide-react';
+import { ServiceItem } from './types';
+import { Phone, MessageCircle, ArrowUp } from 'lucide-react';
 
 const MainAppContent: React.FC = () => {
-  const { companyInfo, trainingStreams } = useCms();
-  const { user, setIsAuthModalOpen } = useAuth();
+  const { companyInfo, services } = useCms();
 
   // Modals state
-  const [selectedStreamForDetail, setSelectedStreamForDetail] = useState<TrainingStream | null>(null);
-  const [selectedTeamMember, setSelectedTeamMember] = useState<TeamMember | null>(null);
+  const [selectedServiceForDetail, setSelectedServiceForDetail] = useState<ServiceItem | null>(null);
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
-  const [selectedCourseForBooking, setSelectedCourseForBooking] = useState<string>('Sales Techniques for Better Performance');
+  const [consultationServicePreselect, setConsultationServicePreselect] = useState<string>('Income Tax Consultancy');
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
-  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
-  // Track window scroll
+  // Track window scroll for scroll-to-top button
   React.useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 400) {
@@ -58,85 +56,105 @@ const MainAppContent: React.FC = () => {
     }
   };
 
-  const handleOpenBooking = (courseName?: string) => {
-    if (courseName) {
-      setSelectedCourseForBooking(courseName);
+  const handleOpenConsultation = (serviceTitle?: string) => {
+    if (serviceTitle) {
+      setConsultationServicePreselect(serviceTitle);
     }
     setIsConsultationModalOpen(true);
   };
 
-  const handleSelectStreamFromNav = (streamId: string) => {
-    const stream = trainingStreams.find((s) => s.id === streamId);
-    if (stream) {
-      setSelectedStreamForDetail(stream);
+  const handleSelectServiceFromNav = (serviceId: string) => {
+    const s = services.find((srv) => srv.id === serviceId);
+    if (s) {
+      setSelectedServiceForDetail(s);
     } else {
-      scrollToSection('courses');
+      scrollToSection('services');
     }
   };
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-amber-400 selection:text-slate-950 font-sans antialiased">
       
-      {/* Top Header & Navbar */}
+      {/* Top Navbar */}
       <Navbar
-        onBookConsultation={() => handleOpenBooking()}
-        onSelectCourseStream={handleSelectStreamFromNav}
+        onBookConsultation={() => handleOpenConsultation()}
+        onSelectService={handleSelectServiceFromNav}
         onOpenAdmin={() => setIsAdminModalOpen(true)}
-        onOpenProfile={() => {
-          if (user) {
-            setIsProfileModalOpen(true);
-          } else {
-            setIsAuthModalOpen(true);
-          }
-        }}
       />
 
       {/* Main Content Sections */}
       <main className="flex-1">
-        {/* 1. Hero Section (Motto & Overview) */}
+        {/* 1. Hero Section */}
         <Hero
-          onExploreCourses={() => scrollToSection('courses')}
-          onMeetTeam={() => scrollToSection('team')}
-          onBookTraining={() => handleOpenBooking()}
+          onExploreServices={() => scrollToSection('services')}
+          onBookConsultation={() => handleOpenConsultation()}
         />
 
-        {/* 2. About Us & The Inside Story (Pages 2 & 5) */}
-        <AboutSection />
+        {/* 2. Trust Statistics Bar */}
+        <TrustStats />
 
-        {/* 3. Specialized Training Courses Catalog (Page 4: 7 Streams, 60+ Modules) */}
-        <CoursesCatalog
-          onSelectStream={(stream) => setSelectedStreamForDetail(stream)}
-          onBookCourse={(courseTitle) => handleOpenBooking(courseTitle)}
+        {/* 3. About Us & 25-Year Heritage */}
+        <AboutSection
+          onBookConsultation={() => handleOpenConsultation('Strategic Corporate Planning')}
         />
 
-        {/* 4. Methodology, Objectives & Learning Outcomes (Page 3) */}
-        <MethodologySection />
-
-        {/* 5. The Building Blocks: Our People & Consultants (Pages 5, 7–14) */}
-        <TeamSection
-          onSelectMember={(member) => setSelectedTeamMember(member)}
+        {/* 4. Core Services (6 Primary Practices) */}
+        <ServicesSection
+          onSelectService={(srv) => setSelectedServiceForDetail(srv)}
+          onBookConsultationForService={(srvTitle) => handleOpenConsultation(srvTitle)}
         />
 
-        {/* 6. Valued Corporate Customers (Page 6) */}
-        <ClientsSection />
+        {/* 5. Industries We Serve */}
+        <IndustriesSection
+          onBookConsultation={(indName) => handleOpenConsultation(indName)}
+        />
 
-        {/* 7. Client Reviews & Feedback (Firestore Real-time) */}
-        <ReviewsSection />
+        {/* 6. Why Choose Wings Consultants BD */}
+        <WhyChooseUs />
 
-        {/* 8. Words of Wisdom & Guiding Quotes */}
-        <QuotesSection />
+        {/* 7. 5-Step Consulting Process */}
+        <ConsultingProcess
+          onBookConsultation={() => handleOpenConsultation()}
+        />
 
-        {/* 9. Official Contact & Headquarters Directory (Pages 1, 14) */}
+        {/* 8. Projects & Portfolio */}
+        <ProjectsPortfolio
+          onBookConsultation={(topic) => handleOpenConsultation(topic)}
+        />
+
+        {/* 9. Case Studies & Proven Results */}
+        <CaseStudiesSection
+          onBookConsultation={(topic) => handleOpenConsultation(topic)}
+        />
+
+        {/* 10. Client Testimonials */}
+        <TestimonialsSection />
+
+        {/* 11. Knowledge Base & Guides */}
+        <ResourcesSection />
+
+        {/* 12. FAQ Section */}
+        <FAQSection
+          onBookConsultation={() => handleOpenConsultation()}
+        />
+
+        {/* 13. Call To Action Banner */}
+        <CTASection
+          onBookConsultation={() => handleOpenConsultation()}
+          onContactClick={() => scrollToSection('contact')}
+        />
+
+        {/* 14. Contact Form & Headquarters Directory */}
         <ContactSection />
       </main>
 
       {/* Global Footer */}
       <Footer
+        onNavigateToSection={scrollToSection}
         onOpenAdmin={() => setIsAdminModalOpen(true)}
-        onSelectCourseStream={handleSelectStreamFromNav}
       />
 
-      {/* Floating Action Buttons */}
+      {/* Floating Quick Contact & WhatsApp Widget */}
       <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-2.5">
         {showScrollTop && (
           <button
@@ -157,41 +175,27 @@ const MainAppContent: React.FC = () => {
         >
           <MessageCircle className="w-6 h-6 fill-current" />
           <span className="absolute right-15 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md whitespace-nowrap hidden group-hover:block transition-all">
-            Chat on WhatsApp: 01730-349633
+            Chat on WhatsApp
           </span>
         </a>
       </div>
 
-      {/* Interactive Detail Modals */}
-      <CourseDetailModal
-        stream={selectedStreamForDetail}
-        onClose={() => setSelectedStreamForDetail(null)}
-        onBookCourse={(course) => handleOpenBooking(course)}
-      />
-
-      <TeamDetailModal
-        member={selectedTeamMember}
-        onClose={() => setSelectedTeamMember(null)}
-        onBookConsultant={(name) => handleOpenBooking(`Consultation with ${name}`)}
+      {/* Modals */}
+      <ServiceDetailModal
+        service={selectedServiceForDetail}
+        onClose={() => setSelectedServiceForDetail(null)}
+        onBookConsultation={(srvTitle) => handleOpenConsultation(srvTitle)}
       />
 
       <ConsultationModal
         isOpen={isConsultationModalOpen}
         onClose={() => setIsConsultationModalOpen(false)}
-        initialCourse={selectedCourseForBooking}
+        initialService={consultationServicePreselect}
       />
 
       <AdminDashboardModal
         isOpen={isAdminModalOpen}
         onClose={() => setIsAdminModalOpen(false)}
-      />
-
-      <AuthModal />
-
-      <UserProfileModal
-        isOpen={isProfileModalOpen}
-        onClose={() => setIsProfileModalOpen(false)}
-        onSelectCourseForBooking={(course) => handleOpenBooking(course)}
       />
 
     </div>
@@ -200,11 +204,9 @@ const MainAppContent: React.FC = () => {
 
 export function App() {
   return (
-    <AuthProvider>
-      <CmsProvider>
-        <MainAppContent />
-      </CmsProvider>
-    </AuthProvider>
+    <CmsProvider>
+      <MainAppContent />
+    </CmsProvider>
   );
 }
 

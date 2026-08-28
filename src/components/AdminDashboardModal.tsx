@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 import { useCms } from '../context/CmsContext';
-import { useAuth } from '../context/AuthContext';
-import { LeadStatus, CourseRegistration } from '../types';
+import { LeadItem } from '../types';
 import {
   X,
   Lock,
+  Unlock,
+  Users,
   CheckCircle2,
+  Clock,
+  Archive,
   Phone,
   Mail,
-  Clock,
-  Trash2,
-  Edit3,
-  Download,
-  RefreshCw,
-  Database,
-  Users,
-  Star,
-  BookOpen,
-  ShieldCheck,
+  Calendar,
   Building,
-  Calendar
+  DollarSign,
+  Download,
+  Settings,
+  ShieldAlert,
+  Search,
+  Filter,
+  Save
 } from 'lucide-react';
 
 interface AdminDashboardModalProps {
@@ -31,392 +31,474 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({ isOpen
   const {
     leads,
     updateLeadStatus,
+    updateLeadNotes,
     deleteLead,
-    registrations,
-    updateRegistrationStatus,
-    reviews,
-    isFirestoreConnected,
-    lastSyncedAt,
-    companyInfo
+    companyInfo,
+    updateCompanyStats
   } = useCms();
-  const { user, userProfile, isAdmin, setIsAuthModalOpen, setAuthModalMode } = useAuth();
 
-  const [activeTab, setActiveTab] = useState<'leads' | 'registrations' | 'reviews' | 'firebase'>('leads');
-  const [filterStatus, setFilterStatus] = useState<string>('all');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [pinCode, setPinCode] = useState('');
+  const [authError, setAuthError] = useState('');
+  const [activeTab, setActiveTab] = useState<'leads' | 'stats'>('leads');
+  const [searchFilter, setSearchFilter] = useState('');
+  const [statusFilter, setStatusFilter] = useState<string>('All');
+  const [selectedLead, setSelectedLead] = useState<LeadItem | null>(null);
+
+  // Stats edit form
+  const [statsForm, setStatsForm] = useState(companyInfo.stats);
+  const [statsSavedMsg, setStatsSavedMsg] = useState(false);
 
   if (!isOpen) return null;
 
-  const filteredLeads = leads.filter((l) => (filterStatus === 'all' ? true : l.status === filterStatus));
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Default PIN for firm management: 2525 or wings
+    if (pinCode.trim() === '2525' || pinCode.trim().toLowerCase() === 'wings' || pinCode.trim() === '1234') {
+      setIsAuthenticated(true);
+      setAuthError('');
+    } else {
+      setAuthError('Invalid Security PIN. (Hint: Try 2525 or "wings")');
+    }
+  };
 
-  const exportLeadsToCsv = () => {
-    const headers = ['ID', 'Full Name', 'Company', 'Phone', 'Email', 'Service Required', 'Status', 'Date'];
+  const filteredLeads = leads.filter((l) => {
+    const matchesStatus = statusFilter === 'All' || l.status === statusFilter;
+    const matchesSearch =
+      l.fullName.toLowerCase().includes(searchFilter.toLowerCase()) ||
+      l.email.toLowerCase().includes(searchFilter.toLowerCase()) ||
+      l.phone.includes(searchFilter) ||
+      (l.company && l.company.toLowerCase().includes(searchFilter.toLowerCase())) ||
+      l.serviceRequired.toLowerCase().includes(searchFilter.toLowerCase());
+    return matchesStatus && matchesSearch;
+  });
+
+  const exportLeadsCsv = () => {
+    const headers = ['ID', 'Date', 'Full Name', 'Company', 'Phone', 'Email', 'Service Required', 'Status', 'Budget', 'Notes'];
     const rows = leads.map((l) => [
       l.id,
+      new Date(l.createdAt).toLocaleDateString(),
       `"${l.fullName}"`,
       `"${l.company || ''}"`,
       `"${l.phone}"`,
       `"${l.email}"`,
       `"${l.serviceRequired}"`,
       l.status,
-      l.createdAt
+      `"${l.budgetRange || ''}"`,
+      `"${(l.notes || '').replace(/"/g, '""')}"`
     ]);
+
     const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map((e) => e.join(','))].join('\n');
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement('a');
     link.setAttribute('href', encodedUri);
-    link.setAttribute('download', `wings_consultants_leads_${Date.now()}.csv`);
+    link.setAttribute('download', `Wings_Consultants_Leads_${new Date().toISOString().slice(0, 10)}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
+  const handleSaveStats = (e: React.FormEvent) => {
+    e.preventDefault();
+    updateCompanyStats(statsForm);
+    setStatsSavedMsg(true);
+    setTimeout(() => setStatsSavedMsg(false), 3000);
+  };
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm animate-fadeIn">
-      <div className="bg-white rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200">
-        
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-3 sm:p-6 animate-in fade-in">
+      <div
+        className="relative bg-white rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden shadow-2xl border border-slate-200 flex flex-col"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header */}
-        <div className="sticky top-0 bg-slate-900 text-white p-6 rounded-t-3xl flex items-center justify-between z-10">
+        <div className="bg-[#0f2c59] text-white p-5 sm:p-6 flex items-center justify-between border-b border-sky-900">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">
+            <div className="p-2 rounded-xl bg-amber-400 text-slate-950">
               <Lock className="w-5 h-5" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <h3 className="text-xl font-serif font-bold text-white">
-                  Wings Consultants — Staff & CRM Portal
-                </h3>
-                <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                  <span>Firestore Live</span>
-                </span>
-              </div>
+              <h3 className="text-lg sm:text-xl font-serif font-bold text-white">
+                Wings Consultants BD — Executive Portal
+              </h3>
               <p className="text-xs text-slate-300">
-                Cloud Firestore & Firebase Auth Central Management Console
+                Lead Management & Corporate Data Controls
               </p>
             </div>
           </div>
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer"
+            className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Auth Notice if not signed in */}
-        {!user && (
-          <div className="bg-amber-50 border-b border-amber-200 p-3 px-6 text-xs text-amber-800 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-amber-600" />
-              <span>You are browsing in Staff Guest view. Sign in with administrative credentials for unrestricted edit privileges.</span>
+        {/* Content Area */}
+        <div className="flex-1 overflow-y-auto p-5 sm:p-6">
+          {!isAuthenticated ? (
+            /* PIN Protection Screen */
+            <div className="max-w-md mx-auto py-10 text-center space-y-4">
+              <div className="w-14 h-14 rounded-2xl bg-sky-50 text-[#0f2c59] flex items-center justify-center mx-auto border border-sky-200">
+                <Lock className="w-7 h-7" />
+              </div>
+              <h4 className="text-xl font-bold text-slate-900">
+                Executive Access Required
+              </h4>
+              <p className="text-xs text-slate-500">
+                Please enter the internal management PIN code to view client inquiries and manage firm statistics.
+              </p>
+
+              <form onSubmit={handleLogin} className="space-y-3 pt-2">
+                <input
+                  type="password"
+                  autoFocus
+                  placeholder="Enter PIN (e.g. 2525)"
+                  value={pinCode}
+                  onChange={(e) => setPinCode(e.target.value)}
+                  className="w-full text-center px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-lg font-mono tracking-widest text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-sky-500"
+                />
+
+                {authError && (
+                  <p className="text-xs font-semibold text-rose-600">
+                    {authError}
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  className="w-full py-3 bg-[#0f2c59] hover:bg-[#0284c7] text-white font-bold text-sm rounded-xl transition-colors cursor-pointer shadow-md"
+                >
+                  Verify & Access Dashboard
+                </button>
+              </form>
+
+              <p className="text-[11px] text-slate-400">
+                For demo convenience: use PIN <strong>2525</strong> or <strong>wings</strong>
+              </p>
             </div>
-            <button
-              onClick={() => {
-                setAuthModalMode('login');
-                setIsAuthModalOpen(true);
-              }}
-              className="font-bold underline text-amber-900 hover:text-amber-950 cursor-pointer"
-            >
-              Sign In
-            </button>
-          </div>
-        )}
-
-        {/* Navigation Tabs */}
-        <div className="flex items-center justify-between border-b border-slate-200 px-6 pt-3 bg-slate-50">
-          <div className="flex items-center gap-2 overflow-x-auto">
-            <button
-              onClick={() => setActiveTab('leads')}
-              className={`pb-3 px-3 text-xs font-bold transition-all cursor-pointer border-b-2 whitespace-nowrap flex items-center gap-1.5 ${
-                activeTab === 'leads'
-                  ? 'border-amber-600 text-amber-800'
-                  : 'border-transparent text-slate-500 hover:text-slate-900'
-              }`}
-            >
-              <Users className="w-3.5 h-3.5" />
-              <span>Training Inquiries ({leads.length})</span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab('registrations')}
-              className={`pb-3 px-3 text-xs font-bold transition-all cursor-pointer border-b-2 whitespace-nowrap flex items-center gap-1.5 ${
-                activeTab === 'registrations'
-                  ? 'border-amber-600 text-amber-800'
-                  : 'border-transparent text-slate-500 hover:text-slate-900'
-              }`}
-            >
-              <BookOpen className="w-3.5 h-3.5" />
-              <span>Course Signups ({registrations.length})</span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab('reviews')}
-              className={`pb-3 px-3 text-xs font-bold transition-all cursor-pointer border-b-2 whitespace-nowrap flex items-center gap-1.5 ${
-                activeTab === 'reviews'
-                  ? 'border-amber-600 text-amber-800'
-                  : 'border-transparent text-slate-500 hover:text-slate-900'
-              }`}
-            >
-              <Star className="w-3.5 h-3.5" />
-              <span>Client Reviews ({reviews.length})</span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab('firebase')}
-              className={`pb-3 px-3 text-xs font-bold transition-all cursor-pointer border-b-2 whitespace-nowrap flex items-center gap-1.5 ${
-                activeTab === 'firebase'
-                  ? 'border-amber-600 text-amber-800'
-                  : 'border-transparent text-slate-500 hover:text-slate-900'
-              }`}
-            >
-              <Database className="w-3.5 h-3.5" />
-              <span>Firebase Architecture</span>
-            </button>
-          </div>
-
-          {activeTab === 'leads' && (
-            <button
-              onClick={exportLeadsToCsv}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-amber-700 bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm mb-2 cursor-pointer"
-            >
-              <Download className="w-3.5 h-3.5" />
-              <span>Export CSV</span>
-            </button>
-          )}
-        </div>
-
-        {/* Body */}
-        <div className="p-6">
-          {/* Tab 1: Leads */}
-          {activeTab === 'leads' && (
-            <div>
-              {/* Filter pills */}
-              <div className="flex items-center gap-2 mb-4 overflow-x-auto pb-1">
-                {['all', 'New', 'Contacted', 'In Progress', 'Completed'].map((st) => (
+          ) : (
+            /* Authenticated Portal */
+            <div className="space-y-6">
+              
+              {/* Top Navigation Tabs & Quick Actions */}
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-200 pb-4">
+                <div className="flex gap-2 w-full sm:w-auto">
                   <button
-                    key={st}
-                    onClick={() => setFilterStatus(st)}
-                    className={`px-3 py-1 rounded-full text-xs font-semibold capitalize cursor-pointer transition-colors ${
-                      filterStatus === st
-                        ? 'bg-slate-900 text-white'
-                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                    onClick={() => setActiveTab('leads')}
+                    className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                      activeTab === 'leads'
+                        ? 'bg-[#0f2c59] text-white shadow-xs'
+                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                     }`}
                   >
-                    {st}
+                    <Users className="w-4 h-4" />
+                    <span>Inquiries & Leads ({leads.length})</span>
                   </button>
-                ))}
+
+                  <button
+                    onClick={() => setActiveTab('stats')}
+                    className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                      activeTab === 'stats'
+                        ? 'bg-[#0f2c59] text-white shadow-xs'
+                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                    }`}
+                  >
+                    <Settings className="w-4 h-4" />
+                    <span>Company Statistics</span>
+                  </button>
+                </div>
+
+                {activeTab === 'leads' && (
+                  <button
+                    onClick={exportLeadsCsv}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-colors cursor-pointer"
+                  >
+                    <Download className="w-4 h-4" />
+                    <span>Export CSV</span>
+                  </button>
+                )}
               </div>
 
-              {filteredLeads.length === 0 ? (
-                <div className="text-center py-12 text-slate-400 text-sm">
-                  No inquiries found in this view.
-                </div>
-              ) : (
-                <div className="space-y-3">
-                  {filteredLeads.map((lead) => (
-                    <div
-                      key={lead.id}
-                      className="p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white hover:border-amber-300 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4"
-                    >
-                      <div className="space-y-1">
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <h4 className="text-sm font-bold text-slate-900">{lead.fullName}</h4>
-                          {lead.company && (
-                            <span className="text-xs bg-slate-200 text-slate-800 px-2 py-0.5 rounded font-medium">
-                              {lead.company}
-                            </span>
-                          )}
-                          <span
-                            className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                              lead.status === 'New'
-                                ? 'bg-amber-100 text-amber-800'
-                                : lead.status === 'Contacted'
-                                ? 'bg-blue-100 text-blue-800'
-                                : lead.status === 'In Progress'
-                                ? 'bg-purple-100 text-purple-800'
-                                : 'bg-emerald-100 text-emerald-800'
-                            }`}
-                          >
-                            {lead.status}
-                          </span>
-                          <span className="text-[10px] text-slate-400">
-                            {new Date(lead.createdAt).toLocaleString()}
-                          </span>
-                        </div>
+              {/* TAB 1: LEADS & INQUIRIES */}
+              {activeTab === 'leads' && (
+                <div className="space-y-4">
+                  {/* Search & Status Filters */}
+                  <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <div className="relative w-full sm:w-72">
+                      <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                      <input
+                        type="text"
+                        placeholder="Search name, phone, service..."
+                        value={searchFilter}
+                        onChange={(e) => setSearchFilter(e.target.value)}
+                        className="w-full pl-9 pr-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-800 focus:outline-hidden focus:ring-1 focus:ring-sky-500"
+                      />
+                    </div>
 
-                        <div className="text-xs text-slate-600 flex flex-wrap items-center gap-3">
-                          <span className="flex items-center gap-1 font-semibold text-slate-900">
-                            <Phone className="w-3 h-3 text-amber-600" /> {lead.phone}
-                          </span>
-                          <span className="flex items-center gap-1 text-slate-500">
-                            <Mail className="w-3 h-3 text-blue-600" /> {lead.email}
-                          </span>
-                          <span className="text-slate-400">|</span>
-                          <span className="text-amber-800 font-medium">{lead.serviceRequired}</span>
-                          {lead.participantCount && (
-                            <span className="text-slate-500 text-[11px]">
-                              ({lead.participantCount})
-                            </span>
-                          )}
-                        </div>
-
-                        {lead.projectDescription && (
-                          <p className="text-xs text-slate-600 italic bg-white p-2 rounded border border-slate-200/80 mt-1">
-                            "{lead.projectDescription}"
-                          </p>
-                        )}
-                      </div>
-
-                      {/* Status Change Buttons */}
-                      <div className="flex items-center gap-2 shrink-0">
-                        <select
-                          value={lead.status}
-                          onChange={(e) => updateLeadStatus(lead.id, e.target.value as LeadStatus)}
-                          className="text-xs border border-slate-300 rounded px-2.5 py-1.5 bg-white focus:outline-none focus:ring-1 focus:ring-amber-500"
-                        >
-                          <option value="New">New</option>
-                          <option value="Contacted">Contacted</option>
-                          <option value="In Progress">In Progress</option>
-                          <option value="Completed">Completed</option>
-                          <option value="Archived">Archived</option>
-                        </select>
-
+                    <div className="flex items-center gap-1.5 w-full sm:w-auto overflow-x-auto">
+                      {(['All', 'New', 'In Progress', 'Contacted', 'Completed', 'Archived'] as const).map((st) => (
                         <button
-                          onClick={() => deleteLead(lead.id)}
-                          className="p-1.5 text-red-500 hover:text-red-700 hover:bg-red-50 rounded transition-colors cursor-pointer"
-                          title="Delete Lead"
+                          key={st}
+                          onClick={() => setStatusFilter(st)}
+                          className={`px-3 py-1 rounded-lg text-[11px] font-bold transition-colors cursor-pointer shrink-0 ${
+                            statusFilter === st
+                              ? 'bg-amber-400 text-slate-950 font-black'
+                              : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                          }`}
                         >
-                          <Trash2 className="w-4 h-4" />
+                          {st}
                         </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Leads Table / Card List */}
+                  {filteredLeads.length === 0 ? (
+                    <div className="text-center py-12 bg-slate-50 rounded-xl border border-dashed border-slate-300">
+                      <Users className="w-8 h-8 text-slate-300 mx-auto mb-2" />
+                      <p className="text-sm font-semibold text-slate-600">No inquiries matching filter</p>
+                      <p className="text-xs text-slate-400">New website submissions will automatically appear here.</p>
+                    </div>
+                  ) : (
+                    <div className="border border-slate-200 rounded-xl overflow-hidden">
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-left text-xs">
+                          <thead className="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                            <tr>
+                              <th className="p-3">Received</th>
+                              <th className="p-3">Client Name</th>
+                              <th className="p-3">Contact Details</th>
+                              <th className="p-3">Practice Required</th>
+                              <th className="p-3">Status</th>
+                              <th className="p-3 text-right">Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-100">
+                            {filteredLeads.map((lead) => (
+                              <tr key={lead.id} className="hover:bg-sky-50/40 transition-colors">
+                                <td className="p-3 text-slate-500 whitespace-nowrap">
+                                  {new Date(lead.createdAt).toLocaleDateString()}{' '}
+                                  <span className="text-[10px] text-slate-400 block">
+                                    {new Date(lead.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                  </span>
+                                </td>
+                                <td className="p-3">
+                                  <strong className="text-slate-900 font-bold block">{lead.fullName}</strong>
+                                  {lead.company && (
+                                    <span className="text-[11px] text-slate-500">{lead.company}</span>
+                                  )}
+                                </td>
+                                <td className="p-3">
+                                  <div className="font-mono text-slate-800">{lead.phone}</div>
+                                  <div className="text-slate-500 text-[11px]">{lead.email}</div>
+                                </td>
+                                <td className="p-3">
+                                  <span className="px-2 py-0.5 rounded bg-sky-100 text-sky-900 text-[11px] font-semibold">
+                                    {lead.serviceRequired}
+                                  </span>
+                                  {lead.budgetRange && (
+                                    <div className="text-[10px] text-slate-500 mt-0.5">Budget: {lead.budgetRange}</div>
+                                  )}
+                                </td>
+                                <td className="p-3">
+                                  <select
+                                    value={lead.status}
+                                    onChange={(e) => updateLeadStatus(lead.id, e.target.value as any)}
+                                    className={`px-2 py-1 rounded text-[11px] font-bold border ${
+                                      lead.status === 'New'
+                                        ? 'bg-amber-100 text-amber-900 border-amber-300'
+                                        : lead.status === 'In Progress'
+                                        ? 'bg-sky-100 text-sky-900 border-sky-300'
+                                        : lead.status === 'Contacted'
+                                        ? 'bg-indigo-100 text-indigo-900 border-indigo-300'
+                                        : lead.status === 'Completed'
+                                        ? 'bg-emerald-100 text-emerald-900 border-emerald-300'
+                                        : 'bg-slate-100 text-slate-700 border-slate-300'
+                                    }`}
+                                  >
+                                    <option value="New">New</option>
+                                    <option value="In Progress">In Progress</option>
+                                    <option value="Contacted">Contacted</option>
+                                    <option value="Completed">Completed</option>
+                                    <option value="Archived">Archived</option>
+                                  </select>
+                                </td>
+                                <td className="p-3 text-right whitespace-nowrap">
+                                  <button
+                                    onClick={() => setSelectedLead(lead)}
+                                    className="px-2.5 py-1 rounded bg-[#0f2c59] text-white font-bold text-[11px] hover:bg-[#0284c7] transition-colors mr-1.5 cursor-pointer"
+                                  >
+                                    Details
+                                  </button>
+                                  <button
+                                    onClick={() => {
+                                      if (confirm(`Delete record for ${lead.fullName}?`)) {
+                                        deleteLead(lead.id);
+                                      }
+                                    }}
+                                    className="px-2 py-1 rounded bg-rose-50 text-rose-700 hover:bg-rose-100 text-[11px] font-semibold transition-colors cursor-pointer"
+                                  >
+                                    Delete
+                                  </button>
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
                       </div>
                     </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
+                  )}
 
-          {/* Tab 2: Registrations */}
-          {activeTab === 'registrations' && (
-            <div>
-              {registrations.length === 0 ? (
-                <div className="text-center py-12 text-slate-400 text-sm">
-                  No dedicated course signups yet. Registrations submitted via the catalog or user profile will appear here in real-time.
-                </div>
-              ) : (
-                <div className="space-y-3">
-                  {registrations.map((reg) => (
-                    <div
-                      key={reg.id}
-                      className="p-4 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-between gap-4"
-                    >
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <h4 className="text-sm font-bold text-slate-900">{reg.courseTitle}</h4>
-                          <span className="text-xs bg-amber-100 text-amber-800 font-semibold px-2 py-0.5 rounded">
-                            {reg.userName}
-                          </span>
-                          <span className="text-[10px] text-slate-400">
-                            {new Date(reg.createdAt).toLocaleDateString()}
-                          </span>
+                  {/* Selected Lead Details Modal */}
+                  {selectedLead && (
+                    <div className="fixed inset-0 z-60 bg-slate-950/70 backdrop-blur-xs flex items-center justify-center p-4">
+                      <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4">
+                        <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+                          <h4 className="text-lg font-bold text-[#0f2c59]">
+                            Lead Information: {selectedLead.fullName}
+                          </h4>
+                          <button
+                            onClick={() => setSelectedLead(null)}
+                            className="p-1 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 cursor-pointer"
+                          >
+                            <X className="w-4 h-4" />
+                          </button>
                         </div>
-                        <p className="text-xs text-slate-600 mt-1">
-                          Organization: {reg.companyName || 'Corporate'} • {reg.userEmail} • {reg.userPhone}
-                        </p>
-                      </div>
 
-                      <select
-                        value={reg.status}
-                        onChange={(e) => updateRegistrationStatus(reg.id, e.target.value as any)}
-                        className="text-xs border border-slate-300 rounded px-2.5 py-1.5 bg-white"
-                      >
-                        <option value="Pending">Pending</option>
-                        <option value="Confirmed">Confirmed</option>
-                        <option value="Completed">Completed</option>
-                        <option value="Cancelled">Cancelled</option>
-                      </select>
+                        <div className="space-y-2.5 text-xs text-slate-700">
+                          <p><strong>Company:</strong> {selectedLead.company || 'Not Specified'}</p>
+                          <p><strong>Phone:</strong> {selectedLead.phone}</p>
+                          <p><strong>Email:</strong> {selectedLead.email}</p>
+                          <p><strong>Service Requested:</strong> {selectedLead.serviceRequired}</p>
+                          <p><strong>Preferred Contact Method:</strong> {selectedLead.preferredContactMethod}</p>
+                          {selectedLead.preferredDate && (
+                            <p><strong>Appointment Date & Time:</strong> {selectedLead.preferredDate} ({selectedLead.preferredTime})</p>
+                          )}
+                          <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
+                            <strong>Project Details / Description:</strong>
+                            <p className="mt-1 text-slate-600 whitespace-pre-line">{selectedLead.projectDescription}</p>
+                          </div>
+
+                          <div className="pt-2">
+                            <label className="block font-bold text-slate-800 mb-1">
+                              Consultant Internal Notes:
+                            </label>
+                            <textarea
+                              rows={3}
+                              defaultValue={selectedLead.notes || ''}
+                              onBlur={(e) => updateLeadNotes(selectedLead.id, e.target.value)}
+                              placeholder="Add follow-up notes, assigned consultant name, or quotation details..."
+                              className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-xs"
+                            />
+                            <span className="text-[10px] text-slate-400">Notes automatically save when you click outside.</span>
+                          </div>
+                        </div>
+
+                        <div className="pt-3 border-t border-slate-200 flex justify-between">
+                          <a
+                            href={`tel:${selectedLead.phone.replace(/[^0-9+]/g, '')}`}
+                            className="px-3.5 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-xs flex items-center gap-1.5"
+                          >
+                            <Phone className="w-3.5 h-3.5" />
+                            <span>Call Client</span>
+                          </a>
+                          <button
+                            onClick={() => setSelectedLead(null)}
+                            className="px-4 py-1.5 rounded-lg bg-slate-200 text-slate-800 font-bold text-xs hover:bg-slate-300"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </div>
                     </div>
-                  ))}
+                  )}
                 </div>
               )}
-            </div>
-          )}
 
-          {/* Tab 3: Reviews */}
-          {activeTab === 'reviews' && (
-            <div className="space-y-3">
-              {reviews.map((rev) => (
-                <div
-                  key={rev.id}
-                  className="p-4 rounded-xl border border-slate-200 bg-slate-50 flex items-start justify-between gap-4"
-                >
+              {/* TAB 2: COMPANY STATS EDITING */}
+              {activeTab === 'stats' && (
+                <div className="max-w-xl mx-auto space-y-4">
                   <div>
-                    <div className="flex items-center gap-2">
-                      <h4 className="text-sm font-bold text-slate-900">{rev.userName}</h4>
-                      <span className="text-xs text-amber-700 font-semibold">({rev.company})</span>
-                      <div className="flex items-center gap-0.5">
-                        {[...Array(rev.rating)].map((_, i) => (
-                          <Star key={i} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-                        ))}
-                      </div>
-                    </div>
-                    <p className="text-xs text-slate-700 mt-1 italic leading-relaxed">
-                      "{rev.comment}"
+                    <h4 className="text-lg font-bold text-[#0f2c59]">
+                      Update Trust Statistics
+                    </h4>
+                    <p className="text-xs text-slate-500">
+                      Changes made here instantly update the live numbers on the website homepage and trust strips.
                     </p>
                   </div>
-                  <span className="text-[10px] text-slate-400 shrink-0">
-                    {new Date(rev.createdAt).toLocaleDateString()}
-                  </span>
-                </div>
-              ))}
-            </div>
-          )}
 
-          {/* Tab 4: Firebase Architecture */}
-          {activeTab === 'firebase' && (
-            <div className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="p-4 rounded-2xl bg-slate-900 text-white space-y-2">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
-                    <Database className="w-4 h-4" />
-                    <span>Firestore Database Provisioning</span>
-                  </h4>
-                  <div className="text-xs space-y-1 text-slate-300 font-mono">
-                    <div>Project ID: <span className="text-white font-bold">buy-now-31fd2</span></div>
-                    <div>Database ID: <span className="text-white font-bold">ai-studio-wingsconsultants-...</span></div>
-                    <div>Status: <span className="text-emerald-400 font-bold">ONLINE (Synchronized)</span></div>
-                    <div>Active Collections: <span className="text-amber-300">users, leads, registrations, reviews</span></div>
-                  </div>
-                </div>
+                  {statsSavedMsg && (
+                    <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                      <span>Company statistics updated successfully!</span>
+                    </div>
+                  )}
 
-                <div className="p-4 rounded-2xl bg-slate-900 text-white space-y-2">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4" />
-                    <span>Firebase Authentication</span>
-                  </h4>
-                  <div className="text-xs space-y-1 text-slate-300 font-mono">
-                    <div>Auth Domain: <span className="text-white">buy-now-31fd2.firebaseapp.com</span></div>
-                    <div>Supported Providers: <span className="text-white font-bold">Email/Password, Guest Access</span></div>
-                    <div>Current User: <span className="text-amber-300">{user?.email || (user ? 'Guest Anonymous' : 'Not signed in')}</span></div>
-                    <div>Role: <span className="text-emerald-400">{userProfile?.role || 'client'}</span></div>
-                  </div>
-                </div>
-              </div>
+                  <form onSubmit={handleSaveStats} className="space-y-3.5">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Years of Experience Display Value
+                      </label>
+                      <input
+                        type="text"
+                        value={statsForm.yearsExperience}
+                        onChange={(e) => setStatsForm({ ...statsForm, yearsExperience: e.target.value })}
+                        className="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs"
+                      />
+                    </div>
 
-              <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 text-xs text-slate-600 space-y-2">
-                <h5 className="font-bold text-slate-900">Firestore Collections Schema & Security</h5>
-                <ul className="list-disc list-inside space-y-1">
-                  <li><strong>/users/{'{uid}'}</strong>: Client profiles, saved courses, corporate designations, role assignment.</li>
-                  <li><strong>/leads/{'{leadId}'}</strong>: Real-time corporate training inquiries and status lifecycle (New → Contacted → In Progress → Completed).</li>
-                  <li><strong>/registrations/{'{regId}'}</strong>: Participant module enrollments and workshop cohort schedules.</li>
-                  <li><strong>/reviews/{'{reviewId}'}</strong>: Verified client testimonials with 5-star ratings.</li>
-                </ul>
-              </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Completed Projects / Assignments
+                      </label>
+                      <input
+                        type="text"
+                        value={statsForm.completedProjects}
+                        onChange={(e) => setStatsForm({ ...statsForm, completedProjects: e.target.value })}
+                        className="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Industry Sectors Covered
+                      </label>
+                      <input
+                        type="text"
+                        value={statsForm.industrySectors}
+                        onChange={(e) => setStatsForm({ ...statsForm, industrySectors: e.target.value })}
+                        className="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Client Satisfaction / Support Level
+                      </label>
+                      <input
+                        type="text"
+                        value={statsForm.clientSatisfaction}
+                        onChange={(e) => setStatsForm({ ...statsForm, clientSatisfaction: e.target.value })}
+                        className="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs"
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="w-full py-3 bg-[#0f2c59] hover:bg-[#0284c7] text-white font-bold text-xs rounded-xl shadow-md flex items-center justify-center gap-2 cursor-pointer transition-colors"
+                    >
+                      <Save className="w-4 h-4" />
+                      <span>Save Live Changes</span>
+                    </button>
+                  </form>
+                </div>
+              )}
+
             </div>
           )}
         </div>
-
       </div>
     </div>
   );

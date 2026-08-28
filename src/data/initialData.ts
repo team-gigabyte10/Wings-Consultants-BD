@@ -1,509 +1,703 @@
 import {
   CompanyInfo,
-  TrainingStream,
-  TeamMember,
-  ClientPartner,
-  TrainingObjective,
-  TrainingMethod,
-  LearningOutcome,
-  InspirationalQuote,
+  ServiceItem,
+  IndustryItem,
+  WhyChoosePillar,
+  ConsultingStep,
+  ProjectItem,
+  CaseStudyItem,
+  TestimonialItem,
+  ResourceArticle,
+  FaqItem,
   ConsultationLead
 } from '../types';
 
 export const initialCompanyInfo: CompanyInfo = {
-  name: "Wings Consultants",
-  tagline: "For Training and Development",
-  motto: "Sky is not the Limit- It's an Opportunity",
-  positioning: "A Dynamic Training & Development Consulting Firm",
-  subTitle: "Delivering Advanced Management Solutions",
-  mainAddress: "7/9 Eastern Commercial Complex, 73 Kakrail, Dhaka",
-  liaisonAddress: "76 Mohakhali, Dhaka",
-  phones: ["01730-349633", "01313-362633"],
+  name: "Wings Consultants BD",
+  tagline: "Your Vision, Our Expertise",
+  brandMessage: "Your Success, Our Commitment",
+  positioning: "A Professional Consultancy Firm",
+  experienceYears: 25,
+  experienceBadge: "25 YEARS OF EXPERIENCE YOU CAN TRUST",
+  location: "Dhaka, Bangladesh",
+  address: "Motijheel / Gulshan Commercial Area, Dhaka, Bangladesh",
+  phones: ["+880 1730-349633", "+880 1914-502714"],
   email: "wingsconsultantsbd@gmail.com",
   website: "www.wingsconsultantsbd.com",
-  businessHours: "Saturday – Thursday: 9:00 AM – 7:00 PM",
+  businessHours: "Saturday – Thursday: 9:00 AM – 6:00 PM (Friday Closed)",
   stats: {
-    corporateClients: "50+",
-    trainingModules: "60+",
-    keyConsultants: "10+",
-    satisfactionRate: "99%"
+    yearsExperience: "25+",
+    completedProjects: "100+",
+    industrySectors: "Multiple",
+    clientSatisfaction: "100%"
   },
   socialLinks: {
     facebook: "https://facebook.com/wingsconsultantsbd",
-    linkedin: "https://linkedin.com/company/wings-consultants-bd",
-    whatsapp: "https://wa.me/8801730349633"
+    linkedin: "https://linkedin.com/company/wingsconsultantsbd",
+    whatsapp: "+8801730349633"
   }
 };
 
-export const initialTrainingStreams: TrainingStream[] = [
+export const initialServices: ServiceItem[] = [
   {
-    id: "sales-customer-service",
-    title: "Sales and Customer Service",
-    shortDesc: "High-impact salesmanship, retail conversations, client negotiation, and exceptional customer retention strategies.",
-    icon: "TrendingUp",
-    tag: "Revenue & Client Growth",
-    color: "from-blue-600 to-sky-700",
-    courses: [
-      "Sales Techniques for Better Performance",
-      "Excellence in Sales Leadership",
-      "Salesmanship for Professional and Personal Growth",
-      "Selling Skill Development and Salesmanship",
-      "Innovation in Sales Techniques",
-      "Selling Excellence: Know to grow-as you sow",
-      "Effective and Productive Sales Call",
-      "Managing Sales for Growth Opportunities",
-      "Corporate Sales Excellence",
-      "Positive Conversations with Challenging Customers",
-      "Asking Great Sales Questions",
-      "Mastering Conversations in Retail Sales",
-      "Successful Sales Call Habits",
-      "Customer Acquisition and Retention Techniques",
-      "Customer Service Excellence"
+    id: "income-tax-consultancy",
+    slug: "income-tax-consultancy",
+    title: "Income Tax Consultancy",
+    tag: "Taxation & Compliance",
+    shortDesc: "TIN Registration, Tax Return, Tax Clearance, Tax Advice for Individuals & Organizations.",
+    fullDesc: "Comprehensive taxation management ensuring statutory compliance, tax optimization, hassle-free filings, and proactive audit advisory for companies, executives, and high-net-worth individuals in Bangladesh under the Income Tax Act.",
+    icon: "Receipt",
+    keyServices: [
+      "e-TIN Registration & Amendments",
+      "Individual & Corporate Tax Return Preparation",
+      "Tax Clearance Certificate (TCC) Processing",
+      "NBR Audit Representation & Appeal Support",
+      "Withholding Tax & TDS Advisory",
+      "Tax Planning & Wealth Statement Compilation",
+      "Corporate Tax Assessment & Settlement",
+      "Annual Regulatory Tax Compliance Filing"
     ],
     deliverables: [
-      "Field Sales Conversion Playbook",
-      "Objection Handling Frameworks",
-      "Retail & Corporate Pitch Templates",
-      "Customer Lifetime Value (LTV) Toolkits"
+      "Accurate Computation Sheets & e-Filing Acknowledgements",
+      "Official Tax Clearance Certificates",
+      "Audit Defense Dossier & NBR Representation",
+      "Year-round Corporate Withholding Tax Schedules"
     ],
-    targetAudience: ["Territory Sales Managers", "Corporate Account Executives", "Retail Sales Teams", "Customer Experience Leads"]
+    industriesServed: ["Corporate Businesses", "SMEs & Startups", "High-Net-Worth Individuals", "NGOs & Non-Profits", "Exporters & Importers"],
+    benefits: [
+      "Zero penalty risk through timely regulatory compliance",
+      "Optimized allowable deductions & legal rebates",
+      "Full representation before Taxes Zones and appellate tribunals"
+    ],
+    ctaText: "Explore Tax Services",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80"
   },
   {
-    id: "marketing-branding",
-    title: "Marketing and Branding",
-    shortDesc: "Comprehensive market mapping, strategic brand positioning, segmentation, and modern digital trends.",
-    icon: "Megaphone",
-    tag: "Market Penetration",
-    color: "from-amber-600 to-orange-700",
-    courses: [
-      "Marketing for Non-Marketing Professionals",
-      "Market Mapping and Planning for Growth",
-      "Customer Identification by Market Segmentation",
-      "Building Brand from Scratch",
-      "Strategic Brand Management",
-      "Brand Extensions Techniques for Sustainability",
-      "Trade and Retail Marketing with Distribution Ideas",
-      "Capturing Customer Mindset",
-      "Maintain Customer Expectation and Satisfaction",
-      "Service Marketing",
-      "Digital Marketing Trends",
-      "Planning and Implementing Marketing Instruments",
-      "Marketing Plan: Need for Business Gain",
-      "Developing Effective Marketing Strategy",
-      "Strategies for Market Growth",
-      "Marketing is Everything",
-      "Market Access Map: A Tool to Sustain"
+    id: "company-profile-pitch-deck",
+    slug: "company-profile-pitch-deck",
+    title: "Company Profile & Pitch Deck",
+    tag: "Investment & Documentation",
+    shortDesc: "For Investment, Business Proposals, Financial Projections & Feasibility.",
+    fullDesc: "Strategic corporate profile writing and high-impact investor pitch decks designed for securing institutional funding, bank credit facilities, joint venture partnerships, and vendor pre-qualifications.",
+    icon: "Presentation",
+    keyServices: [
+      "Corporate Company Profiles (Print & Digital)",
+      "High-Conversion Investor Pitch Decks",
+      "5-Year Financial Projections & Valuation Models",
+      "Comprehensive Business Feasibility Studies",
+      "Institutional Business Proposals & Bid Proposals",
+      "Executive Summaries & Investment Memorandums",
+      "Joint Venture & Partnership Proposals",
+      "Corporate Identity & Presentation Collaterals"
     ],
     deliverables: [
-      "Go-To-Market Blueprint",
-      "Customer Persona Matrices",
-      "Trade Distribution Route Planning",
-      "Brand Identity Guidelines"
+      "Executive PDF & Interactive Pitch Decks",
+      "Editable Multi-Scenario Financial Excel Models",
+      "Comprehensive Bankable Feasibility Reports",
+      "Vendor Enlistment & Pre-Qualification Dossiers"
     ],
-    targetAudience: ["Brand Managers", "Product Marketing Officers", "Entrepreneurs", "Trade Marketing Specialists"]
+    industriesServed: ["Commercial Enterprises", "Tech & Logistics Startups", "Industrial Manufacturers", "Hospitality & Healthcare", "Agro-processing"],
+    benefits: [
+      "Built according to international investment banking standards",
+      "Clear financial payback period, IRR, ROI, and sensitivity analyses",
+      "Strong corporate storytelling that commands stakeholder confidence"
+    ],
+    ctaText: "Build Your Business Profile",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
   },
   {
-    id: "management-leadership",
-    title: "Management and Leadership",
-    shortDesc: "Strategic enterprise leadership, Blue Ocean Strategy, Game Theory, and visionary team execution.",
-    icon: "ShieldCheck",
-    tag: "Executive Excellence",
-    color: "from-slate-800 to-slate-950",
-    courses: [
-      "Strategic Business Management",
-      "Blue Ocean Strategy: In Search of Excellence",
-      "Managerial Skills Development",
-      "Managerial Effectiveness through Leadership",
-      "Enterprise Competitiveness",
-      "Effective Team Management",
-      "Game Theory to Shape Strategy",
-      "Entrepreneurship Development",
-      "Team Building Excellence",
-      "Lead Excellence: Drive the Way",
-      "Social Marketing and Enterprises",
-      "Swarm Behavior and Intelligence",
-      "Good to Great: Why Some Companies Make the Leap",
-      "Built to Last: Habits of Visionary Companies",
-      "Setting Team and Employee Goals",
-      "Where to Focus: Weaknesses or Strengths?"
+    id: "ngo-programme-consultancy",
+    slug: "ngo-programme-consultancy",
+    title: "NGO Programme Consultancy",
+    tag: "Development & Non-Profit",
+    shortDesc: "Project Proposal, Programme Design, Budget, Donor Documentation & Monitoring.",
+    fullDesc: "Specialized consultancy for national and international non-governmental organizations, foundations, and civil society bodies across Bangladesh. We craft donor-winning grant proposals, logical frameworks (LogFrames), and transparent financial budgets.",
+    icon: "Users2",
+    keyServices: [
+      "Donor-Aligned Grant Proposal Writing",
+      "Logical Framework (LogFrame) & Theory of Change Formulation",
+      "Programme Multi-Year Budgeting & Cost Allocation",
+      "NGO Affairs Bureau (NGOAB) FD-6 / FD-7 Approval Documentation",
+      "Monitoring, Evaluation, Accountability and Learning (MEAL) Frameworks",
+      "Community Baseline Studies & Needs Assessments",
+      "Donor Reporting & Mid-Term Evaluation Reports",
+      "Institutional Capacity Building & Governance Compliance"
     ],
     deliverables: [
-      "Leadership Capability Index",
-      "Blue Ocean Strategy Matrix",
-      "OKRs & KPI Cascading Systems",
-      "Executive Decision Matrix"
+      "Complete Donor-Ready Project Proposals (USAID, EU, UN, DFID format)",
+      "Detailed Activity-Based Budgets & Cashflow Forecasts",
+      "NGOAB Compliance Dossiers & Approval Files",
+      "MEAL Indicator Tracking Matrix"
     ],
-    targetAudience: ["C-Suite Executives", "Department Heads", "Mid-Level Managers", "Aspiring Leaders"]
+    industriesServed: ["National NGOs", "International Development Agencies", "Charitable Foundations", "Microfinance Institutions", "Community Trust Funds"],
+    benefits: [
+      "Deep familiarity with donor compliance and NGO Affairs Bureau protocols",
+      "Data-driven baseline framing ensuring high grant success rates",
+      "Rigorous financial transparency and audit-ready documentation"
+    ],
+    ctaText: "Discuss Your NGO Project",
+    image: "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=800&q=80"
   },
   {
-    id: "personality-development",
-    title: "Personality Development",
-    shortDesc: "Emotional intelligence, attitude elevation, change management, and time-stress mastery for workplace success.",
+    id: "project-profile-development",
+    slug: "project-profile-development",
+    title: "Project Profile Development",
+    tag: "Bank Loan & Project Finance",
+    shortDesc: "Bank Loan, Industrial, Agro, Food & Other Projects.",
+    fullDesc: "Bankable project profile creation for commercial banks, financial institutions (IDCOL, BIFFL), and private equity investors. Includes rigorous market sizing, civil and machinery cost estimations, financial modeling, and DSCR analysis.",
+    icon: "ClipboardCheck",
+    keyServices: [
+      "Bank Loan Project Profiles (Term Loan & Working Capital)",
+      "Technical & Financial Feasibility Studies",
+      "Capex, Opex & Break-even Financial Analyses",
+      "Debt Service Coverage Ratio (DSCR) & Internal Rate of Return (IRR) Computation",
+      "Sensitivity & Risk Assessment Matrix",
+      "Industrial Infrastructure & Equipment Estimation",
+      "Environmental Impact Assessment (EIA) Support Documentation",
+      "SME Foundation & Bangladesh Bank Refinance Scheme Profiles"
+    ],
+    deliverables: [
+      "Comprehensive Bankable Project Profile (Spiral & Digital Bound)",
+      "Audited Assumptions & Financial Model Sheets",
+      "Bank Loan Presentation Support & Query Resolution",
+      "Site & Machinery Verification Technical Summary"
+    ],
+    industriesServed: ["Light Engineering & Manufacturing", "Agro-Food Processing & Cold Storage", "Packaging & Paper Mills", "Garments & Textiles", "Hospital & Diagnostic Facilities"],
+    benefits: [
+      "Endorsed and trusted by major commercial banks & non-bank financial institutions",
+      "Accurate realistic budgeting avoiding project cost overruns",
+      "Direct advisory on debt structuring and government incentive schemes"
+    ],
+    ctaText: "Develop Your Project Profile",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: "raw-materials-packaging-supply",
+    slug: "raw-material-packaging-supply",
+    title: "Raw Materials & Packaging Supply",
+    tag: "Sourcing & Industrial Supply",
+    shortDesc: "Supply of Quality Raw Materials, Chemicals & Packaging Materials.",
+    fullDesc: "Strategic industrial sourcing and reliable supply chain advisory for premium raw materials, active botanical extracts, industrial chemicals, high-grade glass/PET containers, foil packaging, and custom labels for manufacturers.",
+    icon: "PackageCheck",
+    keyServices: [
+      "Industrial Raw Material Procurement & Sourcing",
+      "Chemicals, Emulsifiers, Preservatives & Ingredients",
+      "Custom Packaging Sourcing (PET Bottles, Glass Vials, Caps, Pumps)",
+      "Printed Mono-cartons, Blister Foils & Barrier Lamination Films",
+      "Vendor Quality Audits & Certificate of Analysis (CoA) Verification",
+      "Import Sourcing, LC Support & Port Clearance Advisory",
+      "Buffer Stock Planning & Industrial Inventory Optimization",
+      "Sustainable & Eco-friendly Packaging Alternatives"
+    ],
+    deliverables: [
+      "Verified Certificate of Analysis (CoA) & Material Safety Data Sheets (MSDS)",
+      "Pre-shipment Sample Batches for Laboratory Trial",
+      "Guaranteed Quality Supply Agreements with Batch Traceability",
+      "Optimized Material Cost Benchmarking Reports"
+    ],
+    industriesServed: ["Manufacturing Units", "Food & Beverage Processors", "Household Chemical Manufacturers", "Industrial Laboratories"],
+    benefits: [
+      "Strict quality control and authenticated botanical/chemical origins",
+      "Cost reduction through bulk sourcing and verified manufacturing direct links",
+      "Consistency in supply ensuring zero factory downtime"
+    ],
+    ctaText: "Request Material Sourcing",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80"
+  }
+];
+
+export const initialIndustries: IndustryItem[] = [
+  {
+    id: "tax-financial-services",
+    title: "Tax & Financial Services",
+    subtitle: "Corporate taxation, audits, financial projections, and statutory compliance",
+    description: "Assisting corporate entities, financial institutions, and business owners navigate complex regulatory tax codes, wealth reporting, and statutory filings.",
+    icon: "Coins",
+    image: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80",
+    keyConsultingAreas: ["Corporate Income Tax", "Withholding Tax Audits", "TIN & Wealth Filings", "Tax Optimization"],
+    caseHighlight: "Successfully resolved long-standing tax assessments for 35+ corporate clients with 100% compliance."
+  },
+  {
+    id: "manufacturing",
+    title: "Manufacturing & Industrial",
+    subtitle: "Factory establishment, layout engineering, and production optimization",
+    description: "End-to-end consulting for industrial machinery installation, greenfield factory development, utility planning, and statutory licensing across Bangladesh.",
+    icon: "Factory",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80",
+    keyConsultingAreas: ["Factory Blueprints", "DoE & Fire Licensing", "Machine Sourcing", "Process SOPs"],
+    caseHighlight: "Designed and facilitated setup of 18+ medium and large-scale manufacturing units in Dhaka and regional industrial parks."
+  },
+  {
+    id: "consumer-goods-fmcg",
+    title: "Consumer Goods & FMCG",
+    subtitle: "Product launches, brand profiles, and quality compliance",
+    description: "Strategic consulting for fast-moving consumer goods, personal care brands, and packaged products navigating BSTI compliance and market distribution.",
     icon: "Sparkles",
-    tag: "Human Potential",
-    color: "from-violet-700 to-purple-900",
-    courses: [
-      "Delivering Beyond Yourself",
-      "Emotional Intelligence for Success",
-      "Workplace Communication",
-      "Behavior & Attitude for a Better Workplace",
-      "Right Attitude for Right Business",
-      "Dream, Hope and Passion to be Successful",
-      "Change Management",
-      "Stress and Time Management",
-      "Motivation for Success",
-      "When: The Scientific Secrets of Perfect Timing"
-    ],
-    deliverables: [
-      "Personal Productivity System",
-      "Emotional Agility Roadmap",
-      "Workplace Stress Audit Tool",
-      "Effective Communication Habits"
-    ],
-    targetAudience: ["All Corporate Professionals", "Frontline Staff", "HR Professionals", "Project Teams"]
+    image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80",
+    keyConsultingAreas: ["BSTI Quality Certification", "Packaging & Label Standards", "Project Feasibility Profiles", "Supply Chain Sourcing"],
+    caseHighlight: "Supported 25+ consumer brands and manufacturing ventures from concept to retail distribution."
   },
   {
-    id: "advertising-pr",
-    title: "Advertising and PR",
-    shortDesc: "Media analysis, innovative PR campaigns, promotional strategies, and corporate brand advocacy.",
-    icon: "Radio",
-    tag: "Brand Visibility",
-    color: "from-rose-600 to-red-800",
-    courses: [
-      "What to do: Advertising, Promotion or PR?",
-      "Advertising Media Analysis",
-      "New Advertising and PR Ideas",
-      "Trade and Consumer Promotion"
-    ],
-    deliverables: [
-      "Media Budget Optimization Matrix",
-      "PR Crisis Management Protocols",
-      "Campaign ROI Evaluation Guide"
-    ],
-    targetAudience: ["PR Officers", "Media Planners", "Communications Directors", "Creative Directors"]
+    id: "food-agro",
+    title: "Food, Agro & Cold Chain",
+    subtitle: "Agro-processing plants, cold storage setups, and food safety standards",
+    description: "Developing high-feasibility project profiles, technical blueprints, and government subsidy filings for food processing, automated rice mills, and agro infrastructure.",
+    icon: "Wheat",
+    image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80",
+    keyConsultingAreas: ["Agro Project Profiles", "Cold Storage Financing", "BSTI Food Licensing", "Supply Chain Design"],
+    caseHighlight: "Prepared bank loan project documentation for major agro-processing facilities totaling over BDT 150 Crore in sanctioned funds."
   },
   {
-    id: "communication-relationship",
-    title: "Communication and Relationship",
-    shortDesc: "Win-win negotiation, corporate dialogue mastery, and long-term customer relationship ecosystems.",
-    icon: "MessagesSquare",
-    tag: "Strategic Dialogue",
-    color: "from-teal-600 to-emerald-800",
-    courses: [
-      "Customer Relationship Management (CRM)",
-      "Effective Corporate Communication Skills",
-      "Developing Win-Win Negotiation Skills",
-      "Communication: Connecting to Go Beyond",
-      "Communication and Relationship Management"
-    ],
-    deliverables: [
-      "Corporate Communication Protocol",
-      "Win-Win Negotiation Cheat Sheet",
-      "Stakeholder Engagement Blueprint"
-    ],
-    targetAudience: ["Key Account Managers", "Procurement Officers", "Client Relations Leads", "Negotiators"]
+    id: "ngo-development",
+    title: "NGO & Development Sector",
+    subtitle: "Donor grant proposals, NGOAB documentation, and MEAL frameworks",
+    description: "Partnering with civil society organizations to design sustainable social programs, donor budgets, and fulfill NGO Affairs Bureau requirements.",
+    icon: "HeartHandshake",
+    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80",
+    keyConsultingAreas: ["Donor Proposal Writing", "FD-6/FD-7 Bureau Filing", "Budget Planning", "Project Impact Evaluation"],
+    caseHighlight: "Facilitated grant approvals and NGOAB documentation for over 40+ community development initiatives."
   },
   {
-    id: "operations-management",
-    title: "Operations Management",
-    shortDesc: "Total Quality Management (TQM) in light of Toyota Production System (TPS) and lead time optimization.",
-    icon: "Settings",
-    tag: "Operational Efficiency",
-    color: "from-cyan-700 to-blue-900",
-    courses: [
-      "Production and Lead Time Management",
-      "TQM in light of TPS (Toyota Production System)"
-    ],
-    deliverables: [
-      "Lean Production Flow Assessment",
-      "Waste Elimination (Muda) Checklist",
-      "Lead Time Compression Plan"
-    ],
-    targetAudience: ["Factory Managers", "Operations Heads", "Supply Chain Specialists", "Quality Assurance Teams"]
+    id: "sme-entrepreneurs",
+    title: "SME & Entrepreneurship",
+    subtitle: "Startup documentation, investor pitch decks, and SME loans",
+    description: "Empowering emerging entrepreneurs with solid business plans, Bangladesh Bank SME refinance documentation, and investor-ready pitch materials.",
+    icon: "Rocket",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
+    keyConsultingAreas: ["SME Business Plans", "Investor Pitch Decks", "Bank Credit Proposals", "Trade License & Setup"],
+    caseHighlight: "Helped 60+ SMEs secure seed funding and commercial bank working capital loans."
+  },
+  {
+    id: "investors-joint-ventures",
+    title: "Investors & Corporate Groups",
+    subtitle: "Feasibility studies, market entry analysis, and investment advisory",
+    description: "Providing high-level market feasibility studies, joint venture documentation, and risk mitigation strategies for local and international investors entering Bangladesh.",
+    icon: "TrendingUp",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
+    keyConsultingAreas: ["Bankable Feasibility Studies", "JV Agreements", "BIDA Investment Guidance", "Financial Valuations"],
+    caseHighlight: "Conducted market feasibility assessments for multiple industrial expansion projects across high-growth corridors."
   }
 ];
 
-export const initialTeamMembers: TeamMember[] = [
+export const initialWhyChoose: WhyChoosePillar[] = [
   {
-    id: "monirul-hasan",
-    name: "Md Monirul Hasan",
-    designation: "Executive Director and Lead Consultant",
-    role: "Social Business Specialist, Soft Skill, Lifeskill, Theory of Change, Personality Development and Motivational Trainer",
-    qualifications: "MBA in Marketing, Military Institute of Science and Technology (MIST) under Dhaka University | Post Graduate Diploma in Personnel Management (PGDPM)",
-    specialization: "Experiential Learning, Leadership, Blue Ocean Strategy, Market Feasibility & Training Facilitation",
-    bioParagraphs: [
-      "Mr Monirul Hasan, the ED and Lead Consultant of Wings Consultants, brings with him over 15 years of working experience in a variety of fields, including Social Marketing, Business and Enterprises, Marketing, Market Mapping and Planning, Training and Workshop, Category Management, Customer Excellence, Forecasting, Market Research and Feasibility Study, Operations Management and Demand-Supply analysis in BATB, one of the leading MNCs in Bangladesh; BRAC, World's No 1 NGO; and BDJOBS Training, the country's leading job and training portal.",
-      "Mr Hasan is the Managing Director of Pure Enterprise Private Limited, a fast moving consumer goods (FMCG) company. He is a big picture thinker, talented and driven to impact, while ensuring compliance to policies and procedures. He is a skilled provider of advanced leadership, guidance and motivation. He has extensive facilitation skills on Teambuilding and Leadership, Blue Ocean Strategy, Game Theory and Personality Development.",
-      "He has participated in more than 50 trainings and workshops, 100 recruitments and took such opportunities as learning processes on related industries. He has consultation experience on FAO (Rome), NDDB (India), BEPZA, DLS and Bangladesh Railway projects. He has survey, analytical research and baseline study experience across RMG, agriculture and FMCG sectors, visiting extensively in most upazillas of all 64 districts of Bangladesh."
-    ],
-    quote: "Never give up. Today is hard, tomorrow will be worse, but the day after tomorrow will be sunshine.",
-    quoteAuthor: "Jack Ma",
-    image: "/images/monirul_hasan.jpg",
-    affiliations: ["Executive Member, BUPBGA", "Member, MIST MBA Association", "Deputy Director, Jakat Foundation", "Advisor, Prerona Kallyan Sangstha"]
+    id: "expertise",
+    title: "Proven Expertise",
+    subtitle: "Technical & Regulatory Mastery",
+    description: "Quarter-century of deep domain mastery across taxation laws, industrial engineering, cGMP compliance, and institutional project financing in Bangladesh.",
+    icon: "Award"
   },
   {
-    id: "a-saleque",
-    name: "Md A Saleque",
-    designation: "Chief Technical Advisor / Senior Consultant",
-    role: "Agri-Business, Livestock, Microfinance & Sustainable Rural Enterprise Specialist",
-    qualifications: "MBA in Marketing | Doctor of Veterinary Medicine (DVM)",
-    specialization: "Livestock & Dairy Development, Food Security, SME Planning & International Donor Projects",
-    bioParagraphs: [
-      "Md A Saleque is the Chief Technical Advisor, ACI Animal Health. He worked in different capacities in various organizations as Adviser, AFSL, BRAC International; Programme Head, Agro & Salt Industry of BRAC; and Country Team Coordinator for SAPPLPP.",
-      "His experience includes working with government, private sector and international organizations (IFAD, DANIDA, UNDP, USAID, WFP, ADB, World Bank) as Moderator, Consultant, resource person, Guest Speaker on food security and food aid, planning and designing of various SMEs for the poor and marginal farmer, rural development, agriculture (Poultry, Dairy, Fisheries, seed), and microfinance. He has led about 2,000 staff handling project implementation, management, administration and finance.",
-      "Mr Saleque has more than 20 publications in reputed journals in Denmark, Indonesia, Malaysia, and India on Microfinance, Poultry Industry, Poultry health and Biosecurity, and Small scale dairy development. He is Co-chairman of FBCCI standing committee on Livestock & Poultry."
-    ],
-    quote: "It is hard to accept fail, but it is worse never to have tried to succeed.",
-    quoteAuthor: "Theodore Roosevelt",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
-    affiliations: ["Co-chairman, FBCCI Standing Committee", "Secretary, WPSA", "Treasurer, Poultry Breeder Association"]
+    id: "reliability",
+    title: "Unwavering Reliability",
+    subtitle: "Dependable Long-Term Support",
+    description: "Consistent, dependable guidance from project inception through licensing, documentation, and operational scale. We stand by our clients at every step.",
+    icon: "ShieldCheck"
   },
   {
-    id: "mokarrom-hossain",
-    name: "Md Mokarrom Hossain",
-    designation: "Senior Consultant & Technical Advisor",
-    role: "Aquaculture, Rural Development, Baseline Surveys & Agro-Production Specialist",
-    qualifications: "PhD in Brood Science | M.Sc in Aquaculture | B.Sc. Fisheries (Hons.)",
-    specialization: "Natural Resources Management, Agro-Enterprises, Project Proposals & Feasibility Studies",
-    bioParagraphs: [
-      "Mr Mokarrom Hossain has worked in local and international NGOs as Deputy Chief of Party at Winrock International, Project Leader at WorldFish, Program Manager (Agro Production) of BRAC, and Program Manager (Fisheries Enterprise) of BRAC.",
-      "He has professional achievements across Fisheries Enterprises, Seed Enterprises, Horticulture Nurseries, Tissue Culture Laboratories, and Soil Analysis Laboratories. He has vast capacity in mobilizing community people for rural development initiatives and preparing training manuals, feasibility reports, survey questionnaires, and baseline surveys.",
-      "Mr Mokarrom has supported as Consultant at FAO, ActionAid, DANIDA-GOB-CODEC, WINROCK INTERNATIONAL, IFAD, DFID, Ford Foundation, and World Bank supported projects across the UK, Scotland, Malaysia, Philippines, Thailand, India and Nepal."
-    ],
-    quote: "Genius is one percent inspiration and ninety-nine percent perspiration.",
-    quoteAuthor: "Thomas A Edison",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
-    affiliations: ["Consultant, FAO & World Bank Projects", "Former Deputy Chief of Party, Winrock International", "Former Program Manager, BRAC"]
+    id: "quality",
+    title: "Gold-Standard Quality",
+    subtitle: "Precision Documentation",
+    description: "Bankable reports, mathematically sound financial models, and error-free regulatory dossiers recognized and accepted by banks, donors, and government bodies.",
+    icon: "FileCheck"
   },
   {
-    id: "kamrun-nessa-ahmed",
-    name: "Kamrun Nessa Ahmed",
-    designation: "Consultant & HR Specialist",
-    role: "Human Resource Development, Organizational Policy & Leadership Mentoring",
-    qualifications: "Honours and Masters, Major in Sociology from Dhaka University | Post Graduate Diploma in Personnel Management (PGDPM), BIM",
-    specialization: "HR Policy Formulation, Talent Acquisition, Employee Welfare & Corporate Culture Transformation",
-    bioParagraphs: [
-      "Kamrun Nessa Ahmed is the Joint Director heading the HR Department of National Health Care Network (NHN), a premier venture of the Diabetic Association of Bangladesh (DAB). She has been working with NHN for more than 20 years, dedicated to enhancing organizational capabilities in complex healthcare environments.",
-      "She has extensive exposure in developing and implementing HR operations, resource mobilization, and quality of operations. She has ability to mentor staff, provide guidance for achieving goals, work with multi-cultural groups, and establish effective reporting and presentation systems.",
-      "She is an expert in building company policies that harmonize corporate objectives with employee benefits within national labor laws and best practices, championing HR as a strategic pillar for institutional longevity."
-    ],
-    quote: "The best way to predict the future is to create it.",
-    quoteAuthor: "Peter Drucker",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
-    affiliations: ["Joint Director, HR Department NHN (DAB)", "Member, NHN Recruitment & Policy Committee"]
+    id: "results",
+    title: "Measurable Results",
+    subtitle: "Business Growth Driven",
+    description: "Solutions designed specifically around commercial viability, loan sanctions, smooth factory commissioning, and tangible enterprise expansion.",
+    icon: "TrendingUp"
   },
   {
-    id: "kawser-uddin-ahmed",
-    name: "Kawser Uddin Ahmed",
-    designation: "Director, Finance and Consultant",
-    role: "Banker & Leader in Pro-Poor, Environment Friendly and Gender Sensitive Development",
-    qualifications: "Honours and Masters in Geography from Jahangirnagar University | 28 Years Banking Leadership",
-    specialization: "Credit Administration, Risk Management, Central Collection, Recovery & Financial Compliance",
-    bioParagraphs: [
-      "Mr Kawser Uddin Ahmed brings with him about 28 years of experience in renowned banks in Bangladesh, covering training, performance management, mentoring, succession planning, credit administration, monitoring, recovery, and compliance.",
-      "His professional journey includes senior leadership roles at Mercantile Bank Limited, Prime Bank Limited, Al-Arafah Islami Bank Limited, and National Credit & Commerce Bank Limited. He has served as Executive Vice President, Head of Monitoring & Early Alert Division, and Head of Branch.",
-      "Mr Ahmed has attended extensive executive programs at BIBM, MBTI, and ABB on Credit Management, Asset Liability Management, Corporate Governance, and Anti-Money Laundering. He has travelled across the UK, USA, Canada, France, UAE, Singapore, Malaysia, and China."
-    ],
-    quote: "Try to be fearful when others are greedy and greedy only when others are fearful.",
-    quoteAuthor: "Warren Buffett",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80",
-    affiliations: ["Former EVP, Banking Sector Bangladesh", "Fellow, Bangladesh Institute of Bank Management (BIBM)"]
+    id: "experience",
+    title: "25 Years of Experience",
+    subtitle: "A Heritage of Trust",
+    description: "With 25 years of continuous consultancy operations in Dhaka, our seasoned perspective protects clients from costly missteps and delays.",
+    icon: "History"
   },
   {
-    id: "vaskar-saha",
-    name: "Vaskar Saha",
-    designation: "Consultant and Director, Finance",
-    role: "Corporate Sales Trainer, Agro-Industry Commercial Specialist & Dynamic Speaker",
-    qualifications: "MBA in Marketing (IBA-DU, Valedictorian EMBA 19th Batch) | B.Sc in Fisheries from Dhaka University",
-    specialization: "Corporate Sales Strategy, B2B Key Account Management, Sales Motivation & Market Analysis",
-    bioParagraphs: [
-      "Vaskar Saha is a dynamic speaker, corporate sales trainer, and commercial strategist who has trained and motivated hundreds of sales executives across Bangladesh.",
-      "Mr Saha has more than 8 years of experience at BRAC (the largest development organization in the world), where he was promoted to Manager, Sales and Marketing in the Enterprises wing, ensuring revenue of BDT 10 to 12 crore per month with a nationwide 50-member sales force.",
-      "In 2018, he joined P&L International Ltd as Head of Sales and Marketing, managing corporate accounts for food-grade and industrial chemicals with major conglomerates including Abul Khair Group, Perfetti Van Melle BD Ltd, Nabisco, ACME, and Ispahani Foods."
-    ],
-    quote: "If the rate of change on the outside exceeds the rate of change on the inside, the end is near.",
-    quoteAuthor: "Jack Welch",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
-    affiliations: ["Valedictorian, IBA-DU EMBA", "Head of Sales & Marketing, P&L International Ltd", "Former Sales Manager, BRAC Enterprises"]
-  },
-  {
-    id: "suman-chowdhury",
-    name: "Suman Chowdhury",
-    designation: "Consultant and Director, HR & Training",
-    role: "Certified Master Trainer, Soft Skills, Leadership & Sales Performance Architect",
-    qualifications: "MBA in Marketing, University of Chittagong | Certified in Theory of Change | Certified Master Trainer, BRAC & Cent International",
-    specialization: "Experiential Facilitation, 'Boost Your Sales: Good to Great', Emotional Intelligence & Team Building",
-    bioParagraphs: [
-      "Mr Suman Chowdhury has vast experience in training sales, marketing, soft skills, and leadership for over 12 years in leading international and national companies. He applies interactive exercises, simulations, and activities to create learning environments full of engagement and lasting behavioral change.",
-      "Mr Chowdhury has facilitated numerous premier programs including 'Boost Your Sales: Good to Great', 'Grit for Selling Excellence', 'High Performance Team Building', 'Essential Habits for Managers', 'Stress Management', and 'Managerial Leadership Courses'.",
-      "He currently serves as Manager & In-Charge, Training & Development at Impress-Newtex Composite Textiles Ltd, with previous career experience at Abul Khair Tobacco, Lubna Trading, and Well Group, alongside advanced international training at IIM, IMA International (UK), and Cent International (UK)."
-    ],
-    quote: "Your attitude, not your aptitude, will determine your altitude.",
-    quoteAuthor: "Zig Ziglar",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80",
-    affiliations: ["Master Trainer, Cent International (UK)", "Manager, T&D Impress-Newtex Composite Textiles Ltd"]
-  },
-  {
-    id: "rubaiat-bin-tarik",
-    name: "Rubaiat Bin Tarik",
-    designation: "Consultant and Director, Marketing and Sales",
-    role: "Corporate Sales Leader, Brand Strategist & Commercial Operations Expert",
-    qualifications: "BBA & MBA in Marketing and Finance from Independent University, Bangladesh (IUB)",
-    specialization: "B2B & Government Sales, Channel Distribution, Brand Development & Team Leadership",
-    bioParagraphs: [
-      "Rubaiat Bin Tarik has more than 10 years of experience in sales and marketing across high-growth corporations. He started his career at IFIC Bank Ltd and advanced through Impress Group (IPOST Services), Bay Developments, Core Knowledge Ltd, Sonic Group (leading 100+ sales personnel), and Super Star Group (SSG).",
-      "At Super Star Group (SSG), he managed corporate and government clients across Bangladesh for industrial lighting and low-voltage electrical systems. He subsequently joined BRAC Enterprises as Corporate Sales Manager and currently serves as Head of Sales at Platform Solutions Limited.",
-      "His key strengths include client relationship development, market analysis, workplace communication, sales force motivation, and strategic brand pricing management."
-    ],
-    quote: "If we hire people who are smaller, we shall become a company of dwarfs.",
-    quoteAuthor: "David Ogilvy",
-    image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=600&q=80",
-    affiliations: ["Head of Sales, Platform Solutions Ltd", "Former Corporate Sales Manager, BRAC Enterprises", "Former Corporate Manager, SSG"]
+    id: "client-centric",
+    title: "Client-Centric Approach",
+    subtitle: "Tailored Solutions",
+    description: "Every business has unique operational realities. We reject generic templates, delivering bespoke strategies aligned with your specific commercial goals.",
+    icon: "Users"
   }
 ];
 
-export const initialClientPartners: ClientPartner[] = [
-  { id: "brac", name: "BRAC", category: "World's #1 Development Organization", tagline: "Empowering People" },
-  { id: "brac-fisheries", name: "BRAC Fisheries", category: "BRAC Social Enterprise", tagline: "Sustainable Aquaculture" },
-  { id: "brac-chicken", name: "BRAC Chicken", category: "Poultry & Agro Enterprise", tagline: "Quality Nutrition" },
-  { id: "brac-solar", name: "BRAC Solar", category: "Renewable Energy", tagline: "Green Power for Bangladesh" },
-  { id: "aarong-dairy", name: "Aarong Dairy", category: "Dairy & FMCG", tagline: "Milk for Good" },
-  { id: "bank-asia", name: "Bank Asia", category: "Commercial Banking", tagline: "Pioneering Agent Banking" },
-  { id: "city-bank", name: "City Bank", category: "Financial Services", tagline: "Making Sense of Money" },
-  { id: "bengal", name: "Bengal Group", category: "Conglomerate & Polymers", tagline: "আস্থা শতভাগ" },
-  { id: "bengal-solar", name: "Bengal Solar", category: "Clean Energy Enterprise", tagline: "Solar Solutions" },
-  { id: "paragon-group", name: "Paragon Group", category: "Agro, Feed & Farming", tagline: "Agricultural Excellence" },
-  { id: "rupayan", name: "Rupayan Group", category: "Real Estate & Infrastructure", tagline: "Building The Nation" },
-  { id: "renata-agro", name: "Renata Agro", category: "Animal Health & Nutrition", tagline: "Scientific Farming" },
-  { id: "aman-cem", name: "Aman Cem", category: "Heavy Industry & Cement", tagline: "Safe & Save" },
-  { id: "anchor-cement", name: "Anchor Cement", category: "Construction Materials", tagline: "Strength & Durability" },
-  { id: "fareast-life", name: "Fareast Islami Life Insurance", category: "Islamic Insurance & Takaful", tagline: "Financial Security" },
-  { id: "axon", name: "Axon Limited", category: "Technology & Communications", tagline: "Connected Solutions" },
-  { id: "eat-fast", name: "eat@", category: "Food & Hospitality", tagline: "food. fun. fast" },
-  { id: "ab-corp", name: "AB Corporation Ltd", category: "Industrial Solutions", tagline: "www.abcorporation.net" },
-  { id: "provet", name: "Provet Resources Ltd", category: "Veterinary & Agro Science", tagline: "Best Additives for Best Feed" },
-  { id: "rel-furniture", name: "REL Furniture Ltd", category: "Commercial & Office Furniture", tagline: "Quality Living" }
-];
-
-export const initialTrainingObjectives: TrainingObjective[] = [
-  { title: "Practicing Planning", description: "Instilling structured workflow roadmaps and foresight in everyday execution.", icon: "Calendar" },
-  { title: "Approach & Presentation Techniques", description: "Elevating executive presence, speech structure, and dynamic audience engagement.", icon: "Presentation" },
-  { title: "Ensuring Positive Reinforcement", description: "Building team trust and sustaining motivational momentum through constructive feedback.", icon: "ThumbsUp" },
-  { title: "Effective Communication & Responses", description: "Mastering empathetic listening, persuasive delivery, and handling tough questions.", icon: "MessagesSquare" },
-  { title: "Analytical Work & Reasoned Decisions", description: "Deploying data-driven evaluation tools to eliminate cognitive bias.", icon: "BarChart3" },
-  { title: "Working with Professionals", description: "Harmonizing cross-functional teams and managing diverse workplace dynamics.", icon: "Users" },
-  { title: "Acting and Doing Ethically", description: "Anchoring all corporate actions to integrity, compliance, and mutual respect.", icon: "ShieldCheck" },
-  { title: "Qualitative, Quantitative & Strategic Reasoning", description: "Balancing creative vision with rigorous numerical and economic analysis.", icon: "Compass" }
-];
-
-export const initialTrainingMethods: TrainingMethod[] = [
-  { title: "Interactive Lectures (Bangla & English)", description: "Bilingual delivery ensuring total conceptual clarity across all organizational ranks.", icon: "Languages" },
-  { title: "Participative & Group Discussion", description: "Dynamic peer brainstorming, interactive breakout sessions, and consensus building.", icon: "Users" },
-  { title: "Question-Answer Sessions", description: "Dedicated open-floor dialogue addressing real operational bottlenecks.", icon: "HelpCircle" },
-  { title: "Case Studies & Role Play", description: "Simulating authentic Bangladeshi corporate challenges and high-stakes negotiations.", icon: "Briefcase" },
-  { title: "“Learning by Doing” Methodology", description: "Direct experiential exercises that convert abstract theory into muscle memory.", icon: "Sparkles" },
-  { title: "Visual & Multi-Media Toolkits", description: "Interactive PowerPoint, cards, flip charts, structured worksheets, and whiteboard maps.", icon: "MonitorPlay" }
-];
-
-export const initialLearningOutcomes: LearningOutcome[] = [
-  { action: "Realize", outcome: "Professionalism and executive demeanor in every client touchpoint" },
-  { action: "Identify", outcome: "Knowledge, Skill, Discipline & Leadership traits within teams" },
-  { action: "Understand", outcome: "Modern management concepts and global business frameworks" },
-  { action: "Enlarge", outcome: "A proactive, solutions-oriented positive approach to challenges" },
-  { action: "Familiarize", outcome: "Background dynamics in professional and stakeholder relationships" },
-  { action: "Increase", outcome: "The defining qualities, ethics, and poise of a true corporate professional" },
-  { action: "Build", outcome: "Idea, Service, and tailor-made strategies that create sustainable competitive advantage" },
-  { action: "Plan", outcome: "Effective operational workflows for dramatically enhanced enterprise productivity" },
-  { action: "Appraise", outcome: "Prospective opportunities and retrospective lessons for continuous organizational growth" },
-  { action: "Develop", outcome: "A constructive mindset that consistently delivers Win-Win outcomes" }
-];
-
-export const initialInspirationalQuotes: InspirationalQuote[] = [
+export const initialConsultingSteps: ConsultingStep[] = [
   {
-    quote: "Your attitude, not your aptitude, will determine your altitude.",
-    author: "Zig Ziglar"
+    step: "01",
+    title: "Consultation & Discovery",
+    subtitle: "Requirement Understanding",
+    description: "We initiate an in-depth dialogue to thoroughly comprehend your business objectives, operational challenges, regulatory scope, and timeline expectations.",
+    deliverable: "Initial Scope Document & Engagement Roadmap"
   },
   {
-    quote: "Nothing is impossible; the word itself says, 'I’m possible!'",
-    author: "Audrey Hepburn"
+    step: "02",
+    title: "Comprehensive Assessment",
+    subtitle: "Technical & Financial Analysis",
+    description: "Our senior consultants analyze regulatory criteria, site conditions, taxation parameters, financial viability, and statutory prerequisites.",
+    deliverable: "Gap Analysis & Feasibility Check Report"
   },
   {
-    quote: "The world is full of magical things patiently waiting for our wits to grow sharper.",
-    author: "Bertrand Russell"
+    step: "03",
+    title: "Strategic Blueprint",
+    subtitle: "Bespoke Solution Formulation",
+    description: "We develop a tailor-made consulting strategy, encompassing detailed architectural layouts, financial models, proposal structures, or compliance pathways.",
+    deliverable: "Strategic Action Plan & Execution Matrix"
   },
   {
-    quote: "No axe is sharp enough to cut the soul who keeps on trying.",
-    author: "Nelson Mandela"
+    step: "04",
+    title: "Documentation & Execution",
+    subtitle: "Precision Delivery",
+    description: "We prepare bankable project profiles, investor pitch decks, donor proposals, or DGDA/BSTI regulatory dossiers with rigorous multi-tier quality checks.",
+    deliverable: "Final Bankable Dossier & Regulatory Filings"
   },
   {
-    quote: "High achievement always takes place in the framework of high expectations.",
-    author: "Charles Kettering"
-  },
-  {
-    quote: "Never give up. Today is hard, tomorrow will be worse, but the day after tomorrow will be sunshine.",
-    author: "Jack Ma"
-  },
-  {
-    quote: "It is hard to accept fail, but it is worse never to have tried to succeed.",
-    author: "Theodore Roosevelt"
-  },
-  {
-    quote: "Genius is one percent inspiration and ninety-nine percent perspiration.",
-    author: "Thomas A Edison"
-  },
-  {
-    quote: "The best way to predict the future is to create it.",
-    author: "Peter Drucker"
-  },
-  {
-    quote: "Try to be fearful when others are greedy and greedy only when others are fearful.",
-    author: "Warren Buffett"
-  },
-  {
-    quote: "If the rate of change on the outside exceeds the rate of change on the inside, the end is near.",
-    author: "Jack Welch"
-  },
-  {
-    quote: "If we hire people who are smaller, we shall become a company of dwarfs.",
-    author: "David Ogilvy"
+    step: "05",
+    title: "Follow-up & Ongoing Support",
+    subtitle: "Sustained Success",
+    description: "Our commitment extends beyond delivery. We assist during bank presentations, regulatory inspections, donor reviews, and operational scale-up.",
+    deliverable: "Audit Defense, Query Support & Expansion Advisory"
   }
 ];
 
-export const initialLeads: ConsultationLead[] = [
+export const initialProjects: ProjectItem[] = [
   {
-    id: "lead-201",
-    fullName: "Sayed Anwarul Islam",
-    company: "Bengal Polymer Wares Ltd.",
-    email: "anwar@bengalgroup.com",
-    phone: "01713-112233",
-    serviceRequired: "Sales and Customer Service (Excellence in Sales Leadership)",
-    participantCount: "25-30 Executives",
-    budgetRange: "Corporate Training Package",
-    projectDescription: "Looking to conduct a 2-day experiential sales leadership workshop for our regional territory managers.",
-    preferredDate: "2026-09-12",
-    preferredTime: "10:00 AM",
+    id: "proj-1",
+    title: "Turnkey Industrial Manufacturing Unit Project Profile & Setup",
+    industry: "Industrial Manufacturing",
+    clientCategory: "Industrial Manufacturer",
+    servicesProvided: ["Factory Layout Plan", "BSTI & DoE Compliance", "Machinery Sourcing", "Operational SOPs"],
+    description: "Complete turnkey consulting for a 15,000 sq.ft. modern light industrial manufacturing facility in Gazipur, including compliant airflow layout, environmental clearances, and machinery commissioning.",
+    completionYear: "2024",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=700&q=80",
+    isFeatured: true,
+    confidentialNotice: "Client identity protected under professional NDA"
+  },
+  {
+    id: "proj-2",
+    title: "Bank Loan Project Profile for Automatic Agro-Food Processing Plant",
+    industry: "Agro & Food Processing",
+    clientCategory: "Corporate Agro Business",
+    servicesProvided: ["Bankable Project Profile", "Financial Modeling", "DSCR Analysis", "Bank Presentation Support"],
+    description: "Formulation of a comprehensive feasibility study and financial projection for a BDT 45 Crore automated flour and grain processing plant, successfully sanctioned by a leading commercial bank.",
+    completionYear: "2024",
+    image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=700&q=80",
+    isFeatured: true
+  },
+  {
+    id: "proj-3",
+    title: "Corporate Income Tax Optimization & NBR Audit Settlement",
+    industry: "Taxation & Finance",
+    clientCategory: "Import & Export Enterprise",
+    servicesProvided: ["Corporate Tax Assessment", "Withholding Tax Planning", "TCC Processing", "Taxes Zone Representation"],
+    description: "Structured multi-year tax planning and resolved complex withholding tax queries, securing clean Tax Clearance Certificates and substantial allowable rebates under prevailing tax legislation.",
+    completionYear: "2025",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=700&q=80",
+    isFeatured: true
+  },
+  {
+    id: "proj-4",
+    title: "Multi-Year Donor Grant Proposal & NGOAB Approval Dossier",
+    industry: "NGO & Social Development",
+    clientCategory: "National Non-Profit Organization",
+    servicesProvided: ["Grant Proposal Writing", "LogFrame & MEAL Design", "Budgeting", "FD-6 Filing Support"],
+    description: "Developed a comprehensive 3-year community healthcare and skill-development proposal for an international donor consortium, securing approval and full NGO Affairs Bureau clearance.",
+    completionYear: "2023",
+    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=700&q=80",
+    isFeatured: false
+  },
+  {
+    id: "proj-5",
+    title: "Investor Pitch Deck & Corporate Profile for Tech Logistics Venture",
+    industry: "Technology & Logistics",
+    clientCategory: "Growth-Stage Startup",
+    servicesProvided: ["Investor Pitch Deck", "Financial Model & Valuation", "Market Feasibility", "Corporate Profile"],
+    description: "Crafted an executive investor presentation, 5-year unit economic projection, and commercial pitch deck that assisted the client in securing strategic Series-A seed capital.",
+    completionYear: "2024",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80",
+    isFeatured: false
+  },
+  {
+    id: "proj-6",
+    title: "Industrial Raw Material & Chemical Supply Chain Agreement",
+    industry: "Chemicals & Materials",
+    clientCategory: "Consumer Goods Brand",
+    servicesProvided: ["Raw Material Sourcing", "CoA Verification", "Packaging Supply", "Batch Quality Audits"],
+    description: "Established continuous, certified sourcing channels for industrial grade ingredients, emulsifiers, and imported amber glass/PET packaging with zero batch rejection.",
+    completionYear: "2025",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=700&q=80",
+    isFeatured: false
+  }
+];
+
+export const initialCaseStudies: CaseStudyItem[] = [
+  {
+    id: "case-1",
+    title: "Accelerating Factory Licensing & Quality Compliance for a Consumer Goods Unit",
+    industry: "Consumer Goods Manufacturing",
+    challenge: "A newly established manufacturing facility faced severe regulatory delays due to non-compliant factory ventilation layout and unverified product quality dossiers required by BSTI and DoE standards.",
+    approach: "Wings Consultants BD conducted an on-site engineering audit, redesigned the floorplan blueprint to satisfy safety norms, formulated operational SOPs, and represented the client across statutory inspections.",
+    solution: "Delivered compliant architectural drawings, standardized quality dossiers, and facilitated direct technical verification with licensing inspectors.",
+    outcome: "Secured operational certifications within 60 days without structural rebuilding penalties, enabling commercial production ahead of schedule.",
+    metrics: [
+      { label: "Approval Time", value: "60 Days" },
+      { label: "Cost Saved", value: "35%" },
+      { label: "Compliance Score", value: "100% Validated" }
+    ]
+  },
+  {
+    id: "case-2",
+    title: "Securing BDT 350 Million Term Loan for Light Engineering Expansion",
+    industry: "Industrial Manufacturing",
+    challenge: "An established engineering firm required significant debt financing for automated CNC machinery import, but their internal financial projections failed the bank's strict DSCR sensitivity tests.",
+    approach: "Our financial consulting team reconstructed a bankable project profile, factoring in multi-shift production capacity, localized raw material pricing, and 7-year cashflow projections.",
+    solution: "Produced an audited, highly detailed Bank Project Profile and assisted management throughout the bank's credit risk committee evaluations.",
+    outcome: "Full term loan facility approved by the lead commercial bank with competitive interest rates and structured moratorium.",
+    metrics: [
+      { label: "Sanctioned Amount", value: "BDT 35 Cr" },
+      { label: "DSCR Ratio", value: "1.82x" },
+      { label: "Bank Approval", value: "Unanimous" }
+    ]
+  }
+];
+
+export const initialTestimonials: TestimonialItem[] = [
+  {
+    id: "test-1",
+    clientName: "Engr. M. A. Rahman",
+    position: "Managing Director",
+    company: "Industrial Engineering & Agro Ltd.",
+    industry: "Manufacturing & Agro",
+    testimonial: "Wings Consultants BD prepared our bank project profile with extraordinary thoroughness. Their 25 years of domain experience is clearly visible in the financial precision and technical clarity that satisfied the bank's credit committee on the very first submission.",
+    rating: 5,
+    date: "January 2025"
+  },
+  {
+    id: "test-2",
+    clientName: "Dr. K. H. Hossain",
+    position: "Founder & Managing Director",
+    company: "Apex Consumer Products Ltd.",
+    industry: "Consumer Goods & Manufacturing",
+    testimonial: "Navigating regulatory clearances and factory setup for industrial manufacturing is challenging in Bangladesh. Wings Consultants BD guided our facility layout, quality documentation, and licensing seamlessly. Highly recommended for corporate and industrial consulting.",
+    rating: 5,
+    date: "November 2024"
+  },
+  {
+    id: "test-3",
+    clientName: "Syeda Farhana Kabir",
+    position: "Executive Director",
+    company: "Development Action Bangladesh (NGO)",
+    industry: "Non-Profit & NGO",
+    testimonial: "Their NGO programme consulting team developed a winning donor grant proposal for our community initiative. The LogFrame and budget structures were world-class, and their support with NGO Affairs Bureau documentation was invaluable.",
+    rating: 5,
+    date: "August 2024"
+  },
+  {
+    id: "test-4",
+    clientName: "Tanvir Ahmed",
+    position: "Director of Finance",
+    company: "Apex Global Trading & Imports",
+    industry: "Corporate Trade & Taxation",
+    testimonial: "We have entrusted our corporate tax compliance, annual tax returns, and advisory to Wings Consultants BD for several years. Their team is prompt, reliable, and provides proactive solutions that give us complete peace of mind.",
+    rating: 5,
+    date: "February 2025"
+  }
+];
+
+export const initialResources: ResourceArticle[] = [
+  {
+    id: "res-1",
+    title: "Essential Guide to Corporate Tax Return Filing & Compliance in Bangladesh",
+    slug: "corporate-tax-return-filing-guide-bangladesh",
+    category: "Tax & Compliance",
+    excerpt: "A comprehensive breakdown of the Income Tax Act requirements, mandatory filing deadlines, withholding tax audit preparation, and legal deduction strategies for businesses.",
+    content: `Filing corporate tax returns in Bangladesh requires strict adherence to the latest Income Tax legislation. This guide outlines key provisions:
+
+1. Mandatory Corporate Documentation
+Every registered company in Bangladesh must submit audited financial statements, a computed tax calculation sheet, withholding tax certificates (TDS/VDS), and bank reconciliation statements alongside Form 35(B).
+
+2. Important Tax Deadlines & Penalties
+Corporate returns must be filed on or before Tax Day (the 15th day of the 7th month following the end of the income year). Late filings attract statutory penalties and interest under the Income Tax Act.
+
+3. Maximizing Allowable Deductions
+Learn how proper documentation of business expenditures, depreciation allowances on plant & machinery, and amortizations can legitimately reduce taxable profit while maintaining full statutory compliance.
+
+For dedicated assistance with your company's tax assessment, contact Wings Consultants BD.`,
+    readTime: "6 min read",
+    publishDate: "January 2025",
+    author: "Wings Tax Advisory Team",
+    downloadableDocName: "Corporate_Tax_Filing_Checklist_BD.pdf",
+    tags: ["Income Tax", "NBR Compliance", "Corporate Tax", "Tax Returns"]
+  },
+  {
+    id: "res-2",
+    title: "Step-by-Step Guide: Setting Up a Modern Industrial Manufacturing Plant in Bangladesh",
+    slug: "industrial-plant-setup-guide-bangladesh",
+    category: "Industry Setup",
+    excerpt: "From land zoning and industrial factory layout design to DoE clearance and BSTI quality approvals — an authoritative roadmap for prospective industrialists.",
+    content: `The light manufacturing and consumer goods sector in Bangladesh is experiencing rapid domestic growth and export demand.
+
+Key Milestones for Factory Setup:
+1. Architectural & Floor Layout: Designing unidirectional material and personnel flows to optimize productivity and comply with industrial safety guidelines.
+2. Department of Environment (DoE) & Fire Safety Clearance: Securing site clearance, effluent treatment plant (ETP) plans, and structural fire safety approvals.
+3. Quality & Standard Licensing: Preparing standard product dossiers, batch manufacturing records (BMR), and equipment qualification files for BSTI certification.
+4. Machinery Procurement & Trial Commissioning: Sourcing high-efficiency machinery, calibration, and conducting trial production runs.
+
+Wings Consultants BD provides turnkey industrial consultancy from blueprint design to trial batch commissioning.`,
+    readTime: "8 min read",
+    publishDate: "December 2024",
+    author: "Industrial Consultancy Wing",
+    downloadableDocName: "Industrial_Factory_Setup_Checklist.pdf",
+    tags: ["Factory Setup", "Manufacturing", "Industrial", "BSTI", "DoE Clearance"]
+  },
+  {
+    id: "res-3",
+    title: "Key Elements of a Bankable Project Profile for Commercial Bank Loans",
+    slug: "bankable-project-profile-guide",
+    category: "Project Development",
+    excerpt: "Understand what credit risk officers and bank appraisal committees scrutinize in your project feasibility report, from DSCR ratios to realistic break-even analyses.",
+    content: `When commercial banks and financial institutions appraise a project loan, they prioritize repayment capacity, promoter background, and financial realism.
+
+Core Sections Every Project Profile Must Contain:
+- Executive Summary & Promoters' Track Record
+- Technical Assessment: Machinery capacity, utility balance, site accessibility
+- Market Demand & Pricing Sensitivity Analysis
+- Comprehensive Financial Modeling: 5 to 7-year Projected Income Statements, Balance Sheets, Cash Flow Statements
+- Key Financial Ratios: Debt Service Coverage Ratio (DSCR), Break-Even Analysis, Internal Rate of Return (IRR), and Payback Period.
+
+Wings Consultants BD has formulated over 100+ bankable profiles accepted across leading banks in Bangladesh.`,
+    readTime: "7 min read",
+    publishDate: "November 2024",
+    author: "Project Finance Advisory",
+    downloadableDocName: "Bank_Loan_Project_Profile_Template_Guide.pdf",
+    tags: ["Bank Loan", "Project Profile", "Feasibility Study", "Financial Model"]
+  },
+  {
+    id: "res-4",
+    title: "How to Structure an NGO Project Proposal for International Donors",
+    slug: "ngo-project-proposal-writing-guide",
+    category: "NGO Consultancy",
+    excerpt: "A practical guide to crafting winning grant proposals, Logical Frameworks (LogFrames), and fulfilling NGO Affairs Bureau (FD-6) requirements in Bangladesh.",
+    content: `International grant competition demands compelling problem statements supported by verified baseline data and watertight budget allocations.
+
+Key Proposal Components:
+1. Situational Analysis & Problem Justification: Backed by empirical research and community need.
+2. Logical Framework (LogFrame): Aligning inputs, outputs, outcomes, and verifiable indicators.
+3. Activity-Based Multi-Year Budgeting: Ensuring full cost transparency and compliance with donor ceiling guidelines.
+4. NGO Affairs Bureau Alignment: Preparing documentation for swift FD-6 or FD-7 project approvals.
+
+Consult with Wings Consultants BD for professional NGO proposal writing and donor compliance support.`,
+    readTime: "5 min read",
+    publishDate: "October 2024",
+    author: "Development Services Group",
+    downloadableDocName: "NGO_Grant_Proposal_LogFrame_Template.pdf",
+    tags: ["NGO", "Grant Proposal", "LogFrame", "NGO Affairs Bureau"]
+  }
+];
+
+export const initialFaqs: FaqItem[] = [
+  {
+    id: "faq-1",
+    question: "What consultancy services does Wings Consultants BD provide?",
+    answer: "Wings Consultants BD provides comprehensive corporate solutions across five core practices: (1) Income Tax Consultancy, (2) Company Profile & Investor Pitch Decks, (3) NGO Programme Consultancy, (4) Bankable Project Profile Development, and (5) Raw Materials & Packaging Supply.",
+    category: "General"
+  },
+  {
+    id: "faq-2",
+    question: "Do you provide income tax consultancy for both individuals and companies?",
+    answer: "Yes. We offer complete tax services including e-TIN registration, annual income tax return preparation, wealth statements, withholding tax (TDS) management, tax clearance certificates (TCC), and representation before the National Board of Revenue (NBR) for assessment and audit settlement.",
+    category: "Taxation"
+  },
+  {
+    id: "faq-3",
+    question: "How do you help with company profiles and investor pitch decks?",
+    answer: "We craft strategic corporate profiles and investor-grade pitch decks. Our team conducts business model analysis, develops 5-year financial projections (including NPV, IRR, and payback calculations), and creates compelling presentations tailored to secure venture capital, bank facilities, or corporate partnerships.",
+    category: "Business Planning"
+  },
+  {
+    id: "faq-4",
+    question: "Can you prepare bankable project profiles for bank loan approvals?",
+    answer: "Yes. With 25 years of experience in project documentation, we develop detailed, bank-compliant feasibility studies and project profiles for industrial factories, agro-food processors, SME loans, cold storage setups, and manufacturing units. Our profiles are widely recognized by commercial banks and financial institutions in Bangladesh.",
+    category: "Project Finance"
+  },
+  {
+    id: "faq-5",
+    question: "What support do you provide for industrial project profiles and bank financing?",
+    answer: "We offer comprehensive project modeling including Capex/Opex forecasting, technical infrastructure planning, Debt Service Coverage Ratio (DSCR) calculations, break-even analysis, and presentation support during bank appraisal committee evaluations.",
+    category: "Project Finance"
+  },
+  {
+    id: "faq-6",
+    question: "Do you provide consultancy support for NGOs and donor projects?",
+    answer: "Yes. We assist NGOs, foundations, and civil society organizations with donor-aligned grant proposal writing, Logical Framework (LogFrame) design, multi-year budget formulation, and statutory documentation for the NGO Affairs Bureau (FD-6 / FD-7 filings).",
+    category: "NGO Services"
+  },
+  {
+    id: "faq-7",
+    question: "Can you supply quality raw materials and packaging materials for manufacturers?",
+    answer: "Yes. We assist manufacturers in sourcing authenticated raw ingredients, industrial chemicals, laboratory tested materials, and customized packaging materials (bottles, glass vials, barrier foil, mono-cartons) with verified Certificates of Analysis (CoA).",
+    category: "Raw Materials"
+  },
+  {
+    id: "faq-8",
+    question: "How can I book a consultation with Wings Consultants BD?",
+    answer: "You can schedule a consultation directly on this website using our 'Get a Consultation' booking form, or call us at +880 1730-349633 / +880 1914-502714, or email us at wingsconsultantsbd@gmail.com. We also welcome scheduled in-person meetings at our Dhaka office.",
+    category: "General"
+  }
+];
+
+export const initialSampleLeads: ConsultationLead[] = [
+  {
+    id: "lead-101",
+    fullName: "Kazi Nazmul Huda",
+    company: "Green Horizon Agro Industries",
+    email: "nazmul@greenhorizonbd.com",
+    phone: "+880 1819-234567",
+    serviceRequired: "Project Profile Development",
+    budgetRange: "BDT 50,000 - 100,000",
+    projectDescription: "Require bankable project profile for an automated seed processing plant seeking BDT 25 Crore loan from a commercial bank.",
+    preferredDate: "2026-09-02",
+    preferredTime: "11:00 AM",
     preferredContactMethod: "Phone",
     status: "New",
-    notes: "Requested customized syllabus on 'Selling Excellence: Know to grow-as you sow'.",
-    assignedStaff: "Md Monirul Hasan",
-    createdAt: "2026-08-27T08:15:00.000Z"
+    notes: "Follow-up required on initial technical machinery cost estimate.",
+    assignedStaff: "Senior Financial Consultant",
+    createdAt: "2026-08-27T04:15:00.000Z"
   },
   {
-    id: "lead-202",
-    fullName: "Nusrat Jahan",
-    company: "Bank Asia Ltd.",
-    email: "nusrat.jahan@bankasia-bd.com",
-    phone: "01819-445566",
-    serviceRequired: "Personality Development (Emotional Intelligence & Workplace Communication)",
-    participantCount: "40 Officers",
-    budgetRange: "Standard Banking Workshop",
-    projectDescription: "Need an executive session on stress management and proactive customer dialogue for branch service officers.",
-    preferredDate: "2026-09-18",
-    preferredTime: "02:30 PM",
-    preferredContactMethod: "Email",
+    id: "lead-102",
+    fullName: "Begum Dilruba Akhter",
+    company: "Apex Consumer Goods Ltd.",
+    email: "dilruba@apexconsumer.com",
+    phone: "+880 1711-987654",
+    serviceRequired: "Project Profile Development",
+    budgetRange: "BDT 100,000 - 250,000",
+    projectDescription: "Need complete bankable project profile and 5-year financial model for our automated manufacturing unit in Gazipur.",
+    preferredDate: "2026-09-03",
+    preferredTime: "03:30 PM",
+    preferredContactMethod: "WhatsApp",
     status: "Contacted",
-    notes: "Proposal and facilitator profile sent to HR Head.",
-    assignedStaff: "Suman Chowdhury",
-    createdAt: "2026-08-26T14:30:00.000Z"
+    notes: "Sent financial model questionnaire. Client confirmed meeting for Wednesday.",
+    assignedStaff: "Financial Advisory Lead",
+    createdAt: "2026-08-26T09:30:00.000Z"
+  },
+  {
+    id: "lead-103",
+    fullName: "Rafiqul Islam",
+    company: "Delta Trade Corporation",
+    email: "rafiq@deltatrade.com.bd",
+    phone: "+880 1912-345678",
+    serviceRequired: "Income Tax Consultancy",
+    budgetRange: "BDT 25,000 - 50,000",
+    projectDescription: "Annual corporate tax return preparation, withholding tax schedule, and NBR tax clearance certificate processing for FY 2025-26.",
+    preferredDate: "2026-09-01",
+    preferredTime: "02:00 PM",
+    preferredContactMethod: "Email",
+    status: "In Progress",
+    notes: "Reviewing draft audit report and previous assessment orders.",
+    assignedStaff: "Senior Tax Consultant",
+    createdAt: "2026-08-25T14:20:00.000Z"
   }
 ];

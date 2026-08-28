@@ -5,20 +5,21 @@ export type LeadItem = ConsultationLead;
 export interface CompanyInfo {
   name: string;
   tagline: string;
-  motto: string;
+  brandMessage: string;
   positioning: string;
-  subTitle: string;
-  mainAddress: string;
-  liaisonAddress: string;
+  experienceYears: number;
+  experienceBadge: string;
+  location: string;
+  address: string;
   phones: string[];
   email: string;
   website: string;
   businessHours: string;
   stats: {
-    corporateClients: string;
-    trainingModules: string;
-    keyConsultants: string;
-    satisfactionRate: string;
+    yearsExperience: string;
+    completedProjects: string;
+    industrySectors: string;
+    clientSatisfaction: string;
   };
   socialLinks: {
     facebook?: string;
@@ -27,62 +28,103 @@ export interface CompanyInfo {
   };
 }
 
-export interface TrainingStream {
+export interface ServiceItem {
   id: string;
+  slug: string;
   title: string;
   shortDesc: string;
+  fullDesc: string;
   icon: string;
   tag: string;
-  color: string;
-  courses: string[];
-  deliverables?: string[];
-  targetAudience?: string[];
-}
-
-export interface TeamMember {
-  id: string;
-  name: string;
-  designation: string;
-  role: string;
-  qualifications: string;
-  specialization: string;
-  bioParagraphs: string[];
-  quote?: string;
-  quoteAuthor?: string;
+  keyServices: string[];
+  deliverables: string[];
+  industriesServed: string[];
+  benefits: string[];
+  ctaText: string;
   image: string;
-  affiliations?: string[];
 }
 
-export interface ClientPartner {
+export interface IndustryItem {
   id: string;
-  name: string;
-  category: string;
-  tagline?: string;
-  logoText?: string;
-  colorTheme?: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  icon: string;
+  image: string;
+  keyConsultingAreas: string[];
+  caseHighlight?: string;
 }
 
-export interface TrainingObjective {
+export interface WhyChoosePillar {
+  id: string;
   title: string;
+  subtitle: string;
   description: string;
   icon: string;
 }
 
-export interface TrainingMethod {
+export interface ConsultingStep {
+  step: string;
   title: string;
+  subtitle: string;
   description: string;
-  icon: string;
+  deliverable: string;
 }
 
-export interface LearningOutcome {
-  action: string;
+export interface ProjectItem {
+  id: string;
+  title: string;
+  industry: string;
+  clientCategory: string;
+  servicesProvided: string[];
+  description: string;
+  completionYear: string;
+  image: string;
+  isFeatured?: boolean;
+  confidentialNotice?: string;
+}
+
+export interface CaseStudyItem {
+  id: string;
+  title: string;
+  industry: string;
+  challenge: string;
+  approach: string;
+  solution: string;
   outcome: string;
+  metrics: { label: string; value: string }[];
 }
 
-export interface InspirationalQuote {
-  quote: string;
+export interface TestimonialItem {
+  id: string;
+  clientName: string;
+  position: string;
+  company: string;
+  industry: string;
+  testimonial: string;
+  rating: number;
+  date?: string;
+}
+
+export interface ResourceArticle {
+  id: string;
+  title: string;
+  slug: string;
+  category: 'Tax & Compliance' | 'Business Setup' | 'Industry Setup' | 'Investment' | 'Project Development' | 'NGO Consultancy' | 'Manufacturing' | 'Business Growth';
+  excerpt: string;
+  content: string;
+  readTime: string;
+  publishDate: string;
   author: string;
-  category?: string;
+  downloadableDocName?: string;
+  tags: string[];
+}
+
+export interface FaqItem {
+  id: string;
+  question: string;
+  answer: string;
+  category: string;
 }
 
 export interface ConsultationLead {
@@ -92,7 +134,6 @@ export interface ConsultationLead {
   email: string;
   phone: string;
   serviceRequired: string;
-  participantCount?: string;
   budgetRange?: string;
   projectDescription: string;
   preferredDate?: string;
@@ -101,48 +142,5 @@ export interface ConsultationLead {
   status: LeadStatus;
   notes?: string;
   assignedStaff?: string;
-  userId?: string;
-  createdAt: string;
-  syncedToFirebase?: boolean;
-}
-
-export interface UserProfile {
-  uid: string;
-  email: string;
-  displayName: string;
-  role: 'admin' | 'client';
-  company?: string;
-  phone?: string;
-  savedCourses?: string[];
-  photoURL?: string;
   createdAt: string;
 }
-
-export interface CourseRegistration {
-  id: string;
-  userId?: string;
-  courseTitle: string;
-  streamId?: string;
-  userName: string;
-  userEmail: string;
-  userPhone: string;
-  companyName?: string;
-  participantCount: string;
-  preferredDate?: string;
-  notes?: string;
-  status: 'Pending' | 'Confirmed' | 'Completed' | 'Cancelled';
-  createdAt: string;
-}
-
-export interface ClientReview {
-  id: string;
-  userId?: string;
-  userName: string;
-  company?: string;
-  streamId: string;
-  courseTitle?: string;
-  rating: number;
-  comment: string;
-  createdAt: string;
-}
-
