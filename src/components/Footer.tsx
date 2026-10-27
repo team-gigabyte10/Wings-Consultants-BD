@@ -65,14 +65,14 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
             <ul className="space-y-2 text-xs">
               {[
-                { id: 'hero', label: 'প্রচ্ছদ' },
-                { id: 'about', label: 'কোম্পানি পরিচিতি' },
-                { id: 'products', label: 'পণ্য ও ব্র্যান্ড' },
-                { id: 'board', label: 'পরিচালনা পর্ষদ' },
-                { id: 'sister-concern', label: 'সহযোগী প্রতিষ্ঠান' },
-                { id: 'compliance', label: 'মান ও সনদ' },
-                { id: 'dealership', label: 'ডিলার নেটওয়ার্ক' },
-                { id: 'contact', label: 'যোগাযোগ' }
+                { id: 'hero', label: 'Home' },
+                { id: 'about', label: 'About Us' },
+                { id: 'products', label: 'Products & Brands' },
+                { id: 'board', label: 'Board of Directors' },
+                { id: 'sister-concern', label: 'Sister Concern' },
+                { id: 'compliance', label: 'Compliance & Quality' },
+                { id: 'dealership', label: 'Dealer Network' },
+                { id: 'contact', label: 'Contact Us' }
               ].map((link) => (
                 <li key={link.id}>
                   <button

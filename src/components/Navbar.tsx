@@ -35,15 +35,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
   }, []);
 
   const navLinks = [
-    { id: 'hero', label: 'প্রচ্ছদ' },
-    { id: 'about', label: 'কোম্পানি পরিচিতি' },
-    { id: 'products', label: 'পণ্য ও ব্র্যান্ড' },
-    { id: 'board', label: 'পরিচালনা পর্ষদ' },
-    { id: 'sister-concern', label: 'সহযোগী প্রতিষ্ঠান' },
-    { id: 'compliance', label: 'মান ও লাইসেন্স' },
-    { id: 'dealership', label: 'ডিলার নেটওয়ার্ক' },
-    { id: 'faq', label: 'প্রশ্নোত্তর' },
-    { id: 'contact', label: 'যোগাযোগ' }
+    { id: 'hero', label: 'Home' },
+    { id: 'about', label: 'About Us' },
+    { id: 'products', label: 'Products & Brands' },
+    { id: 'board', label: 'Board of Directors' },
+    { id: 'sister-concern', label: 'Sister Concern' },
+    { id: 'compliance', label: 'Compliance & Quality' },
+    { id: 'dealership', label: 'Dealer Network' },
+    { id: 'faq', label: 'FAQ' },
+    { id: 'contact', label: 'Contact Us' }
   ];
 
   const handleNavClick = (id: string) => {
