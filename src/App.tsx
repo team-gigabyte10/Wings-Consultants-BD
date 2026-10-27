@@ -1,39 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CmsProvider, useCms } from './context/CmsContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { TrustStats } from './components/TrustStats';
 import { AboutSection } from './components/AboutSection';
-import { ServicesSection } from './components/ServicesSection';
-import { IndustriesSection } from './components/IndustriesSection';
-import { WhyChooseUs } from './components/WhyChooseUs';
-import { ConsultingProcess } from './components/ConsultingProcess';
-import { ProjectsPortfolio } from './components/ProjectsPortfolio';
-import { CaseStudiesSection } from './components/CaseStudiesSection';
-import { TestimonialsSection } from './components/TestimonialsSection';
-import { ResourcesSection } from './components/ResourcesSection';
+import { ProductsSection } from './components/ProductsSection';
+import { BoardOfDirectors } from './components/BoardOfDirectors';
+import { SisterConcernSection } from './components/SisterConcernSection';
+import { ComplianceSection } from './components/ComplianceSection';
+import { DealerNetworkSection } from './components/DealerNetworkSection';
 import { FAQSection } from './components/FAQSection';
-import { CTASection } from './components/CTASection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { ServiceDetailModal } from './components/ServiceDetailModal';
-import { ConsultationModal } from './components/ConsultationModal';
+
+import { ProductDetailModal } from './components/ProductDetailModal';
+import { DealerModal } from './components/DealerModal';
+import { SisterConcernModal } from './components/SisterConcernModal';
 import { AdminDashboardModal } from './components/AdminDashboardModal';
-import { ServiceItem } from './types';
-import { Phone, MessageCircle, ArrowUp } from 'lucide-react';
+import { ProductItem } from './types';
+import { ArrowUp, MessageCircle } from 'lucide-react';
 
 const MainAppContent: React.FC = () => {
-  const { companyInfo, services } = useCms();
+  const {
+    companyInfo,
+    selectedProduct,
+    setSelectedProduct,
+    isDealerModalOpen,
+    setIsDealerModalOpen,
+    dealerModalPreselectProduct,
+    setDealerModalPreselectProduct,
+    isSisterConcernModalOpen,
+    setIsSisterConcernModalOpen,
+    isAdminModalOpen,
+    setIsAdminModalOpen
+  } = useCms();
 
-  // Modals state
-  const [selectedServiceForDetail, setSelectedServiceForDetail] = useState<ServiceItem | null>(null);
-  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
-  const [consultationServicePreselect, setConsultationServicePreselect] = useState<string>('Income Tax Consultancy');
-  const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
-  // Track window scroll for scroll-to-top button
-  React.useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 400) {
         setShowScrollTop(true);
@@ -46,7 +50,7 @@ const MainAppContent: React.FC = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    if (sectionId === 'top') {
+    if (sectionId === 'hero' || sectionId === 'top') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
@@ -56,141 +60,123 @@ const MainAppContent: React.FC = () => {
     }
   };
 
-  const handleOpenConsultation = (serviceTitle?: string) => {
-    if (serviceTitle) {
-      setConsultationServicePreselect(serviceTitle);
-    }
-    setIsConsultationModalOpen(true);
-  };
-
-  const handleSelectServiceFromNav = (serviceId: string) => {
-    const s = services.find((srv) => srv.id === serviceId);
-    if (s) {
-      setSelectedServiceForDetail(s);
+  const handleOpenDealership = (productName?: string) => {
+    if (productName) {
+      setDealerModalPreselectProduct(productName);
     } else {
-      scrollToSection('services');
+      setDealerModalPreselectProduct('');
     }
+    setIsDealerModalOpen(true);
   };
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-amber-400 selection:text-slate-950 font-sans antialiased">
       
-      {/* Top Navbar */}
-      <Navbar
-        onBookConsultation={() => handleOpenConsultation()}
-        onSelectService={handleSelectServiceFromNav}
-        onOpenAdmin={() => setIsAdminModalOpen(true)}
-      />
+      {/* 1. Global Navigation Bar */}
+      <Navbar onNavigate={scrollToSection} />
 
-      {/* Main Content Sections */}
+      {/* 2. Main Sections */}
       <main className="flex-1">
-        {/* 1. Hero Section */}
+        
+        {/* Hero Section */}
         <Hero
-          onExploreServices={() => scrollToSection('services')}
-          onBookConsultation={() => handleOpenConsultation()}
+          onExploreProducts={() => scrollToSection('products')}
+          onOpenDealership={() => handleOpenDealership()}
+          onOpenSisterConcern={() => setIsSisterConcernModalOpen(true)}
         />
 
-        {/* 2. Trust Statistics Bar */}
+        {/* Trust & Key Performance Metrics */}
         <TrustStats />
 
-        {/* 3. About Us & 25-Year Heritage */}
+        {/* About Company, Origin & Mission */}
         <AboutSection
-          onBookConsultation={() => handleOpenConsultation('Strategic Corporate Planning')}
+          onOpenDealership={() => handleOpenDealership()}
+          onOpenSisterConcern={() => setIsSisterConcernModalOpen(true)}
         />
 
-        {/* 4. Core Services (6 Primary Practices) */}
-        <ServicesSection
-          onSelectService={(srv) => setSelectedServiceForDetail(srv)}
-          onBookConsultationForService={(srvTitle) => handleOpenConsultation(srvTitle)}
+        {/* 4 Core Brands & Products Portfolio */}
+        <ProductsSection
+          onSelectProduct={(p: ProductItem) => setSelectedProduct(p)}
+          onOpenDealershipForProduct={(pName: string) => handleOpenDealership(pName)}
         />
 
-        {/* 5. Industries We Serve */}
-        <IndustriesSection
-          onBookConsultation={(indName) => handleOpenConsultation(indName)}
+        {/* Management Board (8 Members) */}
+        <BoardOfDirectors />
+
+        {/* Dedicated Sister Concern: Wings Consultants BD */}
+        <SisterConcernSection
+          onOpenSisterConcernModal={() => setIsSisterConcernModalOpen(true)}
         />
 
-        {/* 6. Why Choose Wings Consultants BD */}
-        <WhyChooseUs />
+        {/* Quality, Licenses & Scientific Compliance */}
+        <ComplianceSection />
 
-        {/* 7. 5-Step Consulting Process */}
-        <ConsultingProcess
-          onBookConsultation={() => handleOpenConsultation()}
+        {/* Supply Chain & 64-District Dealership */}
+        <DealerNetworkSection
+          onOpenDealershipModal={() => handleOpenDealership()}
         />
 
-        {/* 8. Projects & Portfolio */}
-        <ProjectsPortfolio
-          onBookConsultation={(topic) => handleOpenConsultation(topic)}
-        />
-
-        {/* 9. Case Studies & Proven Results */}
-        <CaseStudiesSection
-          onBookConsultation={(topic) => handleOpenConsultation(topic)}
-        />
-
-        {/* 10. Client Testimonials */}
-        <TestimonialsSection />
-
-        {/* 11. Knowledge Base & Guides */}
-        <ResourcesSection />
-
-        {/* 12. FAQ Section */}
+        {/* Frequently Asked Questions (FAQ) */}
         <FAQSection
-          onBookConsultation={() => handleOpenConsultation()}
+          onOpenDealership={() => handleOpenDealership()}
         />
 
-        {/* 13. Call To Action Banner */}
-        <CTASection
-          onBookConsultation={() => handleOpenConsultation()}
-          onContactClick={() => scrollToSection('contact')}
-        />
-
-        {/* 14. Contact Form & Headquarters Directory */}
+        {/* Contact & Inquiry Directory */}
         <ContactSection />
+
       </main>
 
-      {/* Global Footer */}
+      {/* 3. Global Footer */}
       <Footer
         onNavigateToSection={scrollToSection}
         onOpenAdmin={() => setIsAdminModalOpen(true)}
+        onOpenSisterConcern={() => setIsSisterConcernModalOpen(true)}
       />
 
-      {/* Floating Quick Contact & WhatsApp Widget */}
-      <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-2.5">
+      {/* 4. Floating WhatsApp & Scroll-to-Top Widgets */}
+      <div className="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-2.5">
         {showScrollTop && (
           <button
             onClick={() => scrollToSection('top')}
-            className="w-11 h-11 rounded-full bg-slate-900 text-white flex items-center justify-center shadow-lg hover:bg-slate-800 transition-all cursor-pointer"
-            aria-label="Scroll to top"
+            className="w-11 h-11 rounded-full bg-[#0b1e3b] text-white flex items-center justify-center shadow-lg hover:bg-sky-900 transition-all cursor-pointer"
+            aria-label="উপরে যান"
+            title="উপরে যান"
           >
             <ArrowUp className="w-5 h-5" />
           </button>
         )}
 
         <a
-          href="https://wa.me/8801730349633"
+          href={companyInfo.socialLinks.whatsapp}
           target="_blank"
           rel="noreferrer"
-          className="w-13 h-13 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center shadow-xl hover:scale-105 transition-all duration-200 cursor-pointer group"
-          aria-label="Chat on WhatsApp"
+          className="w-13 h-13 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center shadow-xl hover:scale-105 transition-all duration-200 cursor-pointer group relative"
+          aria-label="WhatsApp-এ যোগাযোগ করুন"
+          title="WhatsApp-এ যোগাযোগ করুন"
         >
           <MessageCircle className="w-6 h-6 fill-current" />
           <span className="absolute right-15 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md whitespace-nowrap hidden group-hover:block transition-all">
-            Chat on WhatsApp
+            হোয়াটসঅ্যাপে কথা বলুন
           </span>
         </a>
       </div>
 
-      {/* Modals */}
-      <ServiceDetailModal
-        service={selectedServiceForDetail}
-        onClose={() => setSelectedServiceForDetail(null)}
-        onBookConsultation={(srvTitle) => handleOpenConsultation(srvTitle)}
+      {/* 5. Modals */}
+      <ProductDetailModal
+        product={selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+        onOrderOrDealership={(productName) => handleOpenDealership(productName)}
       />
 
-      <ConsultationModal
-        isOpen={isConsultationModalOpen}
-        onClose={() => setIsConsultationModalOpen(false)}
-        initialService={consultationServicePreselect}
+      <DealerModal
+        isOpen={isDealerModalOpen}
+        onClose={() => setIsDealerModalOpen(false)}
+        preselectedProduct={dealerModalPreselectProduct}
+      />
+
+      <SisterConcernModal
+        isOpen={isSisterConcernModalOpen}
+        onClose={() => setIsSisterConcernModalOpen(false)}
       />
 
       <AdminDashboardModal

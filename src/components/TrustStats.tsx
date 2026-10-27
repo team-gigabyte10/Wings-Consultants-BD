@@ -1,72 +1,60 @@
 import React from 'react';
 import { useCms } from '../context/CmsContext';
-import { ShieldCheck, Briefcase, Building2, UserCheck } from 'lucide-react';
+import { Users, Award, ShieldCheck, MapPin } from 'lucide-react';
 
 export const TrustStats: React.FC = () => {
   const { companyInfo } = useCms();
 
-  const statsItems = [
+  const stats = [
     {
-      value: companyInfo.stats.yearsExperience,
-      label: 'Years of Experience',
-      sublabel: 'Decades of trusted consulting excellence',
+      id: 'employment',
+      icon: Users,
+      value: companyInfo.stats.saltIndustryEmployment,
+      label: 'লবণ শিল্পে কর্মসংস্থান',
+      subtext: 'উপকূলীয় প্রান্তিক চাষী ও শ্রমিকদের প্রত্যক্ষ অংশীদার'
+    },
+    {
+      id: 'shelflife',
+      icon: Award,
+      value: companyInfo.stats.shelfLifeYears,
+      label: 'ল্যাব পরীক্ষিত শেল্ফ লাইফ',
+      subtext: 'ব্যাকটেরিয়া প্রতিরোধী মান ও দীর্ঘস্থায়ী স্থায়িত্ব'
+    },
+    {
+      id: 'blri',
       icon: ShieldCheck,
-      color: 'text-amber-500',
-      bgColor: 'bg-amber-500/10'
+      value: 'BLRI ও DLS',
+      label: 'সরকারি প্রযুক্তি ও লাইসেন্স',
+      subtext: 'বাংলাদেশ প্রাণিসম্পদ গবেষণা ইনস্টিটিউটের বৈজ্ঞানিক সহায়তা'
     },
     {
-      value: companyInfo.stats.completedProjects,
-      label: 'Projects & Assignments',
-      sublabel: 'Profiles, tax files & factory setups',
-      icon: Briefcase,
-      color: 'text-sky-500',
-      bgColor: 'bg-sky-500/10'
-    },
-    {
-      value: companyInfo.stats.industrySectors,
-      label: 'Industry Sectors',
-      sublabel: 'Manufacturing, agro, trade & finance',
-      icon: Building2,
-      color: 'text-emerald-500',
-      bgColor: 'bg-emerald-500/10'
-    },
-    {
-      value: companyInfo.stats.clientSatisfaction,
-      label: 'Consultancy Support',
-      sublabel: 'Professional, reliable & confidential',
-      icon: UserCheck,
-      color: 'text-indigo-400',
-      bgColor: 'bg-indigo-500/10'
+      id: 'dealers',
+      icon: MapPin,
+      value: companyInfo.stats.nationwideDealers,
+      label: 'দেশব্যাপী সরবরাহ চেইন',
+      subtext: 'কক্সবাজার কারখানা থেকে সারাদেশের বিস্তৃত ডিলার নেটওয়ার্ক'
     }
   ];
 
   return (
-    <section className="bg-[#0f2c59] text-white py-10 sm:py-12 border-y border-sky-950 relative overflow-hidden">
-      {/* Subtle Pattern */}
-      <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px]" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {statsItems.map((stat, idx) => {
-            const IconComp = stat.icon;
+    <section className="bg-slate-900 border-y border-slate-800 text-white py-10 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 divide-y lg:divide-y-0 lg:divide-x divide-slate-800/80">
+          {stats.map((item) => {
+            const Icon = item.icon;
             return (
-              <div
-                key={idx}
-                className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3.5 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-amber-400/40 transition-colors"
-              >
-                <div className={`p-3 rounded-lg ${stat.bgColor} shrink-0`}>
-                  <IconComp className={`w-6 h-6 ${stat.color}`} />
+              <div key={item.id} className="pt-4 lg:pt-0 lg:px-6 flex flex-col items-center text-center">
+                <div className="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-400/20 text-sky-400 flex items-center justify-center mb-3">
+                  <Icon className="w-6 h-6 text-amber-400" />
                 </div>
-                <div>
-                  <div className="text-2xl sm:text-3xl lg:text-4xl font-serif font-extrabold tracking-tight text-amber-300">
-                    {stat.value}
-                  </div>
-                  <p className="text-sm font-bold text-white tracking-wide mt-0.5">
-                    {stat.label}
-                  </p>
-                  <p className="text-xs text-slate-300 mt-1 hidden sm:block">
-                    {stat.sublabel}
-                  </p>
+                <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                  {item.value}
+                </div>
+                <div className="text-sm sm:text-base font-bold text-sky-200 mt-1">
+                  {item.label}
+                </div>
+                <div className="text-xs text-slate-400 mt-1 max-w-[200px]">
+                  {item.subtext}
                 </div>
               </div>
             );

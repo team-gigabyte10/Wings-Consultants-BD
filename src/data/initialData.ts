@@ -1,703 +1,403 @@
 import {
   CompanyInfo,
-  ServiceItem,
-  IndustryItem,
-  WhyChoosePillar,
-  ConsultingStep,
-  ProjectItem,
-  CaseStudyItem,
-  TestimonialItem,
-  ResourceArticle,
+  BoardMember,
+  ProductItem,
+  ComplianceCertification,
+  SisterConcernInfo,
   FaqItem,
-  ConsultationLead
+  DealerInquiryLead
 } from '../types';
 
 export const initialCompanyInfo: CompanyInfo = {
-  name: "Wings Consultants BD",
-  tagline: "Your Vision, Our Expertise",
-  brandMessage: "Your Success, Our Commitment",
-  positioning: "A Professional Consultancy Firm",
-  experienceYears: 25,
-  experienceBadge: "25 YEARS OF EXPERIENCE YOU CAN TRUST",
-  location: "Dhaka, Bangladesh",
-  address: "Motijheel / Gulshan Commercial Area, Dhaka, Bangladesh",
-  phones: ["+880 1730-349633", "+880 1914-502714"],
-  email: "wingsconsultantsbd@gmail.com",
-  website: "www.wingsconsultantsbd.com",
-  businessHours: "Saturday – Thursday: 9:00 AM – 6:00 PM (Friday Closed)",
+  name: 'Pure Enterprise Limited',
+  nameBn: 'পিওর এন্টারপ্রাইজ লিমিটেড',
+  tagline: 'Committed to Health, Nutrition and Sustainable Growth',
+  taglineBn: 'জাতির সুস্বাস্থ্য, সঠিক পুষ্টি ও টেকসই শিল্প উন্নয়নে অঙ্গীকারবদ্ধ',
+  brandMessage: 'Pioneering USI compliant salt and livestock mineral nutrition across Bangladesh',
+  brandMessageBn: 'কক্সবাজারের আধুনিক ল্যাব ও উৎপাদন কেন্দ্র থেকে দেশজুড়ে বিশুদ্ধ আয়োডিনযুক্ত লবণ এবং প্রাণিসম্পদের শীর্ষ খনিজ খাদ্য মিনামিক্স সরবরাহকারী নির্ভরযোগ্য প্রতিষ্ঠান।',
+  positioningBn: 'বাংলাদেশ কোম্পানি আইন ১৯৯৪-এর অধীনে RJSC নিবন্ধিত একটি আধুনিক প্রাইভেট লিমিটেড কোম্পানি। আমরা প্রান্তিক লবণচাষীদের টেকসই উন্নয়ন ও দেশব্যাপী আয়োডিনের ঘাটতি দূরীকরণে নিরলসভাবে কাজ করে যাচ্ছি।',
+  establishmentYear: 2020,
+  operationStartDate: '০১ জানুয়ারি ২০২০',
+  registrationNumber: 'RJSC Reg. Compliant (Company Law 1994)',
+  governingLaw: 'কোম্পানি আইন ১৯৯৪',
+  productionCenter: 'লবণ শিল্পাঞ্চল, কক্সবাজার, বাংলাদেশ',
+  corporateOffice: 'ঢাকা কর্পোরেট কার্যালয় ও রেজিস্টার্ড অফিস, বাংলাদেশ',
+  phones: ['+880 1730-349633', '+880 1912-345678'],
+  email: 'info@pureenterpriseltd.com',
+  website: 'www.pureenterpriseltd.com',
+  businessHoursBn: 'শনিবার - বৃহস্পতিবার: সকাল ৯:০০ টা - সন্ধ্যা ৬:০০ টা (শুক্রবার বন্ধ)',
   stats: {
-    yearsExperience: "25+",
-    completedProjects: "100+",
-    industrySectors: "Multiple",
-    clientSatisfaction: "100%"
+    saltIndustryEmployment: '৫ লক্ষ+',
+    shelfLifeYears: '২ বছর',
+    blriPartnership: 'BLRI সনদপ্রাপ্ত',
+    nationwideDealers: '৬৪ জেলা'
   },
   socialLinks: {
-    facebook: "https://facebook.com/wingsconsultantsbd",
-    linkedin: "https://linkedin.com/company/wingsconsultantsbd",
-    whatsapp: "+8801730349633"
+    facebook: 'https://facebook.com/pureenterpriselimited',
+    linkedin: 'https://linkedin.com/company/pure-enterprise-limited',
+    whatsapp: 'https://wa.me/8801730349633'
   }
 };
 
-export const initialServices: ServiceItem[] = [
+export const initialBoardMembers: BoardMember[] = [
   {
-    id: "income-tax-consultancy",
-    slug: "income-tax-consultancy",
-    title: "Income Tax Consultancy",
-    tag: "Taxation & Compliance",
-    shortDesc: "TIN Registration, Tax Return, Tax Clearance, Tax Advice for Individuals & Organizations.",
-    fullDesc: "Comprehensive taxation management ensuring statutory compliance, tax optimization, hassle-free filings, and proactive audit advisory for companies, executives, and high-net-worth individuals in Bangladesh under the Income Tax Act.",
-    icon: "Receipt",
-    keyServices: [
-      "e-TIN Registration & Amendments",
-      "Individual & Corporate Tax Return Preparation",
-      "Tax Clearance Certificate (TCC) Processing",
-      "NBR Audit Representation & Appeal Support",
-      "Withholding Tax & TDS Advisory",
-      "Tax Planning & Wealth Statement Compilation",
-      "Corporate Tax Assessment & Settlement",
-      "Annual Regulatory Tax Compliance Filing"
-    ],
-    deliverables: [
-      "Accurate Computation Sheets & e-Filing Acknowledgements",
-      "Official Tax Clearance Certificates",
-      "Audit Defense Dossier & NBR Representation",
-      "Year-round Corporate Withholding Tax Schedules"
-    ],
-    industriesServed: ["Corporate Businesses", "SMEs & Startups", "High-Net-Worth Individuals", "NGOs & Non-Profits", "Exporters & Importers"],
-    benefits: [
-      "Zero penalty risk through timely regulatory compliance",
-      "Optimized allowable deductions & legal rebates",
-      "Full representation before Taxes Zones and appellate tribunals"
-    ],
-    ctaText: "Explore Tax Services",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80"
+    id: 'board-1',
+    name: 'Md Jinnatul Islam',
+    nameBn: 'মো: জিন্নাতুল ইসলাম',
+    role: 'Chairman',
+    roleBn: 'চেয়ারম্যান',
+    designationBn: 'চেয়ারম্যান, পিওর এন্টারপ্রাইজ লিমিটেড',
+    bioBn: 'প্রতিষ্ঠানের দূরদর্শী নীতি নির্ধারণ, কৌশলগত ব্যবসায়িক নেতৃত্ব এবং দেশীয় শিল্প উন্নয়নে দীর্ঘদিনের অভিজ্ঞতা সম্পন্ন অভিভাবক।',
+    avatarBg: 'bg-gradient-to-br from-blue-700 to-indigo-900'
   },
   {
-    id: "company-profile-pitch-deck",
-    slug: "company-profile-pitch-deck",
-    title: "Company Profile & Pitch Deck",
-    tag: "Investment & Documentation",
-    shortDesc: "For Investment, Business Proposals, Financial Projections & Feasibility.",
-    fullDesc: "Strategic corporate profile writing and high-impact investor pitch decks designed for securing institutional funding, bank credit facilities, joint venture partnerships, and vendor pre-qualifications.",
-    icon: "Presentation",
-    keyServices: [
-      "Corporate Company Profiles (Print & Digital)",
-      "High-Conversion Investor Pitch Decks",
-      "5-Year Financial Projections & Valuation Models",
-      "Comprehensive Business Feasibility Studies",
-      "Institutional Business Proposals & Bid Proposals",
-      "Executive Summaries & Investment Memorandums",
-      "Joint Venture & Partnership Proposals",
-      "Corporate Identity & Presentation Collaterals"
-    ],
-    deliverables: [
-      "Executive PDF & Interactive Pitch Decks",
-      "Editable Multi-Scenario Financial Excel Models",
-      "Comprehensive Bankable Feasibility Reports",
-      "Vendor Enlistment & Pre-Qualification Dossiers"
-    ],
-    industriesServed: ["Commercial Enterprises", "Tech & Logistics Startups", "Industrial Manufacturers", "Hospitality & Healthcare", "Agro-processing"],
-    benefits: [
-      "Built according to international investment banking standards",
-      "Clear financial payback period, IRR, ROI, and sensitivity analyses",
-      "Strong corporate storytelling that commands stakeholder confidence"
-    ],
-    ctaText: "Build Your Business Profile",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+    id: 'board-2',
+    name: 'Md Monirul Hasan',
+    nameBn: 'মো: মনিরুল হাসান',
+    role: 'Managing Director',
+    roleBn: 'ব্যবস্থাপনা পরিচালক',
+    designationBn: 'ব্যবস্থাপনা পরিচালক, পিওর এন্টারপ্রাইজ লিমিটেড',
+    bioBn: 'কক্সবাজার কারখানা পরিচালনা, সরবরাহ চেইন তত্ত্বাবধান, মিনামিক্সের গবেষণা ও দেশব্যাপী ডিস্ট্রিবিউশন নেটওয়ার্কের প্রত্যক্ষ নেতৃত্ব দিচ্ছেন।',
+    avatarBg: 'bg-gradient-to-br from-emerald-700 to-teal-900'
   },
   {
-    id: "ngo-programme-consultancy",
-    slug: "ngo-programme-consultancy",
-    title: "NGO Programme Consultancy",
-    tag: "Development & Non-Profit",
-    shortDesc: "Project Proposal, Programme Design, Budget, Donor Documentation & Monitoring.",
-    fullDesc: "Specialized consultancy for national and international non-governmental organizations, foundations, and civil society bodies across Bangladesh. We craft donor-winning grant proposals, logical frameworks (LogFrames), and transparent financial budgets.",
-    icon: "Users2",
-    keyServices: [
-      "Donor-Aligned Grant Proposal Writing",
-      "Logical Framework (LogFrame) & Theory of Change Formulation",
-      "Programme Multi-Year Budgeting & Cost Allocation",
-      "NGO Affairs Bureau (NGOAB) FD-6 / FD-7 Approval Documentation",
-      "Monitoring, Evaluation, Accountability and Learning (MEAL) Frameworks",
-      "Community Baseline Studies & Needs Assessments",
-      "Donor Reporting & Mid-Term Evaluation Reports",
-      "Institutional Capacity Building & Governance Compliance"
-    ],
-    deliverables: [
-      "Complete Donor-Ready Project Proposals (USAID, EU, UN, DFID format)",
-      "Detailed Activity-Based Budgets & Cashflow Forecasts",
-      "NGOAB Compliance Dossiers & Approval Files",
-      "MEAL Indicator Tracking Matrix"
-    ],
-    industriesServed: ["National NGOs", "International Development Agencies", "Charitable Foundations", "Microfinance Institutions", "Community Trust Funds"],
-    benefits: [
-      "Deep familiarity with donor compliance and NGO Affairs Bureau protocols",
-      "Data-driven baseline framing ensuring high grant success rates",
-      "Rigorous financial transparency and audit-ready documentation"
-    ],
-    ctaText: "Discuss Your NGO Project",
-    image: "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=800&q=80"
+    id: 'board-3',
+    name: 'Ershad Ali Hero, FCA',
+    nameBn: 'এরশাদ আলী হিরো, এফসিএ',
+    role: 'Director',
+    roleBn: 'পরিচালক',
+    designationBn: 'পরিচালক (অর্থ ও নিরীক্ষা)',
+    qualificationBn: 'FCA (Fellow Chartered Accountant)',
+    bioBn: 'দেশের স্বনামধন্য চার্টার্ড অ্যাকাউন্ট্যান্ট। প্রাতিষ্ঠানিক অডিট, আর্থিক টেকসই মডেল এবং কর্পোরেট কমপ্লায়েন্স নীতিতে বিশেষজ্ঞ।',
+    avatarBg: 'bg-gradient-to-br from-slate-700 to-slate-900'
   },
   {
-    id: "project-profile-development",
-    slug: "project-profile-development",
-    title: "Project Profile Development",
-    tag: "Bank Loan & Project Finance",
-    shortDesc: "Bank Loan, Industrial, Agro, Food & Other Projects.",
-    fullDesc: "Bankable project profile creation for commercial banks, financial institutions (IDCOL, BIFFL), and private equity investors. Includes rigorous market sizing, civil and machinery cost estimations, financial modeling, and DSCR analysis.",
-    icon: "ClipboardCheck",
-    keyServices: [
-      "Bank Loan Project Profiles (Term Loan & Working Capital)",
-      "Technical & Financial Feasibility Studies",
-      "Capex, Opex & Break-even Financial Analyses",
-      "Debt Service Coverage Ratio (DSCR) & Internal Rate of Return (IRR) Computation",
-      "Sensitivity & Risk Assessment Matrix",
-      "Industrial Infrastructure & Equipment Estimation",
-      "Environmental Impact Assessment (EIA) Support Documentation",
-      "SME Foundation & Bangladesh Bank Refinance Scheme Profiles"
-    ],
-    deliverables: [
-      "Comprehensive Bankable Project Profile (Spiral & Digital Bound)",
-      "Audited Assumptions & Financial Model Sheets",
-      "Bank Loan Presentation Support & Query Resolution",
-      "Site & Machinery Verification Technical Summary"
-    ],
-    industriesServed: ["Light Engineering & Manufacturing", "Agro-Food Processing & Cold Storage", "Packaging & Paper Mills", "Garments & Textiles", "Hospital & Diagnostic Facilities"],
-    benefits: [
-      "Endorsed and trusted by major commercial banks & non-bank financial institutions",
-      "Accurate realistic budgeting avoiding project cost overruns",
-      "Direct advisory on debt structuring and government incentive schemes"
-    ],
-    ctaText: "Develop Your Project Profile",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
+    id: 'board-4',
+    name: 'Adv. AKM Manjurul Haq',
+    nameBn: 'অ্যাডভোকেট এ.কে.এম মঞ্জুরুল হক',
+    role: 'Director',
+    roleBn: 'পরিচালক',
+    designationBn: 'পরিচালক (আইন ও করপোরেট অ্যাফেয়ার্স)',
+    qualificationBn: 'অ্যাডভোকেট, বাংলাদেশ সুপ্রিম কোর্ট',
+    bioBn: 'কোম্পানি আইন, রাজস্ব ব্যবস্থাপনা এবং আইনগত দিকনির্দেশনায় অভিজ্ঞ প্রবীণ আইনজ্ঞ।',
+    avatarBg: 'bg-gradient-to-br from-amber-700 to-amber-950'
   },
   {
-    id: "raw-materials-packaging-supply",
-    slug: "raw-material-packaging-supply",
-    title: "Raw Materials & Packaging Supply",
-    tag: "Sourcing & Industrial Supply",
-    shortDesc: "Supply of Quality Raw Materials, Chemicals & Packaging Materials.",
-    fullDesc: "Strategic industrial sourcing and reliable supply chain advisory for premium raw materials, active botanical extracts, industrial chemicals, high-grade glass/PET containers, foil packaging, and custom labels for manufacturers.",
-    icon: "PackageCheck",
-    keyServices: [
-      "Industrial Raw Material Procurement & Sourcing",
-      "Chemicals, Emulsifiers, Preservatives & Ingredients",
-      "Custom Packaging Sourcing (PET Bottles, Glass Vials, Caps, Pumps)",
-      "Printed Mono-cartons, Blister Foils & Barrier Lamination Films",
-      "Vendor Quality Audits & Certificate of Analysis (CoA) Verification",
-      "Import Sourcing, LC Support & Port Clearance Advisory",
-      "Buffer Stock Planning & Industrial Inventory Optimization",
-      "Sustainable & Eco-friendly Packaging Alternatives"
-    ],
-    deliverables: [
-      "Verified Certificate of Analysis (CoA) & Material Safety Data Sheets (MSDS)",
-      "Pre-shipment Sample Batches for Laboratory Trial",
-      "Guaranteed Quality Supply Agreements with Batch Traceability",
-      "Optimized Material Cost Benchmarking Reports"
-    ],
-    industriesServed: ["Manufacturing Units", "Food & Beverage Processors", "Household Chemical Manufacturers", "Industrial Laboratories"],
-    benefits: [
-      "Strict quality control and authenticated botanical/chemical origins",
-      "Cost reduction through bulk sourcing and verified manufacturing direct links",
-      "Consistency in supply ensuring zero factory downtime"
-    ],
-    ctaText: "Request Material Sourcing",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80"
+    id: 'board-5',
+    name: 'Adv. MHM Shihab Ahmed Shirajee',
+    nameBn: 'অ্যাডভোকেট এম.এইচ.এম শিহাব আহমেদ শিরাজি',
+    role: 'Director',
+    roleBn: 'পরিচালক',
+    designationBn: 'পরিচালক (আইনি কমপ্লায়েন্স)',
+    qualificationBn: 'অ্যাডভোকেট',
+    bioBn: 'বাণিজ্যিক চুক্তি, নিয়ন্ত্রণকারী সংস্থার অনুমোদন ও আইনি ঝুঁকি ব্যবস্থাপনায় দক্ষ দায়িত্বশীল পরিচালক।',
+    avatarBg: 'bg-gradient-to-br from-indigo-800 to-blue-950'
+  },
+  {
+    id: 'board-6',
+    name: 'Abdul Alim',
+    nameBn: 'আব্দুল আলিম',
+    role: 'Director',
+    roleBn: 'পরিচালক',
+    designationBn: 'পরিচালক (বাণিজ্যিক কার্যক্রম)',
+    bioBn: 'বাণিজ্যিক সম্প্রসারণ, সরবরাহ শৃঙ্খলা এবং ভোক্তা সন্তুষ্টি অর্জনে গুরুত্বপূর্ণ ভূমিকা পালনকারী পরিচালক।',
+    avatarBg: 'bg-gradient-to-br from-cyan-700 to-blue-900'
+  },
+  {
+    id: 'board-7',
+    name: 'Abu Bakkar Siddique',
+    nameBn: 'আবু বক্কার সিদ্দিক',
+    role: 'Director',
+    roleBn: 'পরিচালক',
+    designationBn: 'পরিচালক (মার্কেটিং ও ফিল্ড সেলস)',
+    bioBn: 'গ্রামীণ ও প্রান্তিক বাজারে ভোক্তা আচরণ এবং দেশব্যাপী সেলস রিপ্রেজেন্টেটিভ নেটওয়ার্ক পরিচালনায় পারদর্শী।',
+    avatarBg: 'bg-gradient-to-br from-teal-700 to-slate-900'
+  },
+  {
+    id: 'board-8',
+    name: 'ABM Shariful Alam',
+    nameBn: 'এ.বি.এম শরিফুল আলম',
+    role: 'Director',
+    roleBn: 'পরিচালক',
+    designationBn: 'পরিচালক (প্রশাসন ও পাবলিক রিলেশন্স)',
+    bioBn: 'প্রাতিষ্ঠানিক সম্পর্ক উন্নয়ন, চাষী কল্যাণ নীতি ও টেকসই কর্মপরিবেশ বজায় রাখার দায়িত্বপ্রাপ্ত পরিচালক।',
+    avatarBg: 'bg-gradient-to-br from-sky-700 to-indigo-900'
   }
 ];
 
-export const initialIndustries: IndustryItem[] = [
+export const initialProducts: ProductItem[] = [
   {
-    id: "tax-financial-services",
-    title: "Tax & Financial Services",
-    subtitle: "Corporate taxation, audits, financial projections, and statutory compliance",
-    description: "Assisting corporate entities, financial institutions, and business owners navigate complex regulatory tax codes, wealth reporting, and statutory filings.",
-    icon: "Coins",
-    image: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80",
-    keyConsultingAreas: ["Corporate Income Tax", "Withholding Tax Audits", "TIN & Wealth Filings", "Tax Optimization"],
-    caseHighlight: "Successfully resolved long-standing tax assessments for 35+ corporate clients with 100% compliance."
+    id: 'product-deshi-salt',
+    slug: 'deshi-iodized-salt',
+    name: 'Deshi Iodized Salt',
+    nameBn: 'দেশী আয়োডিনযুক্ত লবণ',
+    brandTitleBn: 'দেশী আয়োডাইজড সল্ট',
+    category: 'edible',
+    categoryLabelBn: 'ভোজ্য লবণ',
+    tagBn: 'জাতীয় মান ও নির্ভরযোগ্য স্বাদ',
+    shortDescBn: 'সঠিক আয়োডিন ও স্বাস্থ্যসম্মত মানসম্পন্ন গৃহস্থালি ভোজ্য লবণ, যা রান্না ও খাবারে আনে সঠিক স্বাদ।',
+    fullDescBn: 'পিওর এন্টারপ্রাইজ লিমিটেডের অন্যতম জনপ্রিয় ব্র্যান্ড "দেশী লবণ"। এতে রয়েছে ইউনিভার্সাল সল্ট আয়োডাইজেশন (USI) নির্দেশিত সঠিক ও সুষম মাত্রার আয়োডিন। কক্সবাজারের নিজস্ব আধুনিক ওয়াশিং ও আয়োডাইজেশন প্ল্যান্টে পরিশোধিত হওয়ায় এটি শতভাগ ব্যাকটেরিয়া ও ক্ষতিকর রাসায়নিকমুক্ত। সাধারণ মধ্যবিত্ত ও পরিবারগুলোর দৈনন্দিন আয়োডিন ঘাটতি পূরণে এটি বিশ্বস্ত সহচর।',
+    keyBenefitsBn: [
+      'সঠিক ও টেকসই মাত্রার আয়োডিন সংমিশ্রণ যা গলগণ্ড ও থাইরয়েড সমস্যা প্রতিরোধ করে',
+      'প্রাকৃতিক উপায়ে ধৌত ও পরিচ্ছন্ন দানাদার ক্রিস্টাল লবণ',
+      'ব্যাকটেরিয়া ও ক্ষতিকারক মাইক্রোব মুক্ত দীর্ঘস্থায়ী খাদ্য মান',
+      'সাশ্রয়ী মূল্যে প্রিমিয়াম পুষ্টি নিশ্চিতকরণ'
+    ],
+    specificationsBn: {
+      'আয়োডিন মাত্রা': 'পিপিএম স্ট্যান্ডার্ড মানদণ্ড অনুযায়ী প্রস্তুত',
+      'লবণাক্ততা (NaCl)': 'উচ্চ বিশুদ্ধ সোডিয়াম ক্লোরাইড',
+      'মেয়াদকাল (Shelf Life)': 'উৎপাদনের তারিখ হতে ২ বছর',
+      'প্যাকেজিং সাইজ': '৫০০ গ্রাম এবং ১ কেজি ফুড-গ্রেড সিল্ড প্যাকেট'
+    },
+    shelfLifeBn: '২ বছর (উৎপাদন তারিখ হতে)',
+    packagingOptionsBn: ['৫০০ গ্রাম রিটেল প্যাক', '১ কেজি প্রিমিয়াম প্যাক', '৫০ কেজি প্রাতিষ্ঠানিক বস্তা'],
+    targetAudienceBn: 'সাধারণ পরিবার, রেস্তোরাঁ ও খাদ্য প্রক্রিয়াজাতকরণ প্রতিষ্ঠান',
+    accentColor: 'from-blue-600 to-cyan-500',
+    image: 'https://images.unsplash.com/photo-1518110925495-5fe2fda0442c?auto=format&fit=crop&w=800&q=80'
   },
   {
-    id: "manufacturing",
-    title: "Manufacturing & Industrial",
-    subtitle: "Factory establishment, layout engineering, and production optimization",
-    description: "End-to-end consulting for industrial machinery installation, greenfield factory development, utility planning, and statutory licensing across Bangladesh.",
-    icon: "Factory",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80",
-    keyConsultingAreas: ["Factory Blueprints", "DoE & Fire Licensing", "Machine Sourcing", "Process SOPs"],
-    caseHighlight: "Designed and facilitated setup of 18+ medium and large-scale manufacturing units in Dhaka and regional industrial parks."
+    id: 'product-shulov-salt',
+    slug: 'shulov-iodized-salt',
+    name: 'Shulov Iodized Salt',
+    nameBn: 'সুলভ আয়োডিনযুক্ত লবণ',
+    brandTitleBn: 'সুলভ আয়োডাইজড সল্ট',
+    category: 'edible',
+    categoryLabelBn: 'ভোজ্য লবণ',
+    tagBn: 'সাশ্রয়ী মূল্যে সঠিক আয়োডিন',
+    shortDescBn: 'প্রান্তিক ও নিম্নবিত্ত জনসাধারণের জন্য সুলভ মূল্যে সঠিক আয়োডিনের নিশ্চয়তাসম্পন্ন খাঁটি লবণ।',
+    fullDescBn: 'বাংলাদেশে দূরদূরান্তের গ্রাম ও প্রান্তিক অঞ্চলের মানুষের কাছে বাজারদরের কারণে অনেক সময় মানসম্পন্ন আয়োডিনযুক্ত লবণ পৌঁছায় না। ইউনিসেফের তথ্যমতে যেখানে ৫৫% সাধারণ লবণে প্রকৃত আয়োডিন থাকে না, সেখানে পিওর এন্টারপ্রাইজ সাশ্রয়ী মূল্যে নিয়ে এসেছে "সুলভ আয়োডিনযুক্ত লবণ"। এটি নিম্ন ও নিম্ন-মধ্যবিত্ত শ্রেণীর ক্রয়ক্ষমতার কথা মাথায় রেখে তৈরি করা হয়েছে যাতে কোনো মানুষ পুষ্টিহীনতায় না ভোগে।',
+    keyBenefitsBn: [
+      'প্রান্তিক জনগোষ্ঠীর বাজেটের সাথে সামঞ্জস্যপূর্ণ অত্যন্ত সুলভ মূল্য',
+      'সরকারি স্ট্যান্ডার্ড অনুযায়ী যথাযথ আয়োডিনের উপস্থিতি নিশ্চিত',
+      'উত্তরাঞ্চল ও প্রত্যন্ত গ্রামের পুষ্টিহীনতা হ্রাসে বিশেষ অবদান',
+      'কক্সবাজারের বিশুদ্ধ কাঁচামাল থেকে সরাসরি প্রস্তুত'
+    ],
+    specificationsBn: {
+      'আয়োডিন উপস্থিতি': 'মানসম্পন্ন আয়োডিন দ্বারা ফর্টিফাইড',
+      'সংরক্ষণ স্থায়িত্ব': 'আর্দ্রতারোধী মজবুত প্যাকেজিং',
+      'শেল্ফ লাইফ': 'উৎপাদনের তারিখ হতে ২ বছর',
+      'ব্যবহার ক্ষেত্র': 'দৈনন্দিন রান্না ও গৃহস্থালি ব্যবহার'
+    },
+    shelfLifeBn: '২ বছর (উৎপাদন তারিখ হতে)',
+    packagingOptionsBn: ['১ কেজি স্ট্যান্ডার্ড প্যাক', '৫০ কেজি বাল্ক ডিলার প্যাক'],
+    targetAudienceBn: 'গ্রামাঞ্চল ও শহরের মূল্য-সংবেদনশীল বৃহৎ ভোক্তা গোষ্ঠী ও পাইকারি বাজার',
+    accentColor: 'from-emerald-600 to-teal-500',
+    image: 'https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=800&q=80'
   },
   {
-    id: "consumer-goods-fmcg",
-    title: "Consumer Goods & FMCG",
-    subtitle: "Product launches, brand profiles, and quality compliance",
-    description: "Strategic consulting for fast-moving consumer goods, personal care brands, and packaged products navigating BSTI compliance and market distribution.",
-    icon: "Sparkles",
-    image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80",
-    keyConsultingAreas: ["BSTI Quality Certification", "Packaging & Label Standards", "Project Feasibility Profiles", "Supply Chain Sourcing"],
-    caseHighlight: "Supported 25+ consumer brands and manufacturing ventures from concept to retail distribution."
+    id: 'product-minamix',
+    slug: 'minamix-cattle-mineral',
+    name: 'Minamix - Mineral Mixture for Cattle',
+    nameBn: 'মিনামিক্স (খনিজ মিশ্রণ)',
+    brandTitleBn: 'মিনামিক্স – গবাদি পশুর অত্যাবশ্যকীয় খনিজ মিশ্রণ',
+    category: 'cattle',
+    categoryLabelBn: 'প্রাণিসম্পদ পুষ্টি',
+    tagBn: 'বিএলআরআই (BLRI) প্রযুক্তি সহায়তায় উদ্ভাবিত অগ্রদূত পণ্য',
+    shortDescBn: 'দুধের এসএনএফ (SNF) বৃদ্ধি, হাড়ের গঠন মজবুতকরণ ও মিল্ক ফিভার প্রতিরোধক বৈপ্লবিক মিনারেল সাপ্লিমেন্ট।',
+    fullDescBn: 'বাংলাদেশ প্রাণিসম্পদ গবেষণা ইনস্টিটিউট (BLRI)-এর কারিগরি ও বৈজ্ঞানিক সহযোগিতায় পিওর এন্টারপ্রাইজ লিমিটেড উদ্ভাবন করেছে "মিনামিক্স (Minamix)"। এটি লবণের গুণমানকে প্রয়োজনীয় মাইক্রো ও ম্যাক্রো মিনারেলস এবং প্রোটিন সাপ্লিমেন্ট দ্বারা ফর্টিফাইড করে তৈরি। এটি ডেইরি গাভী ও গবাদি পশুর খনিজের ঘাটতি পূরণ করে, দুধের উৎপাদন ও এসএনএফ (SNF) উল্লেখযোগ্য হারে বাড়ায়, বাছুরের হাড়ের বৃদ্ধি ত্বরান্বিত করে এবং মিল্ক ফিভারসহ বিভিন্ন রোগ প্রতিরোধ করে। দেশের ক্যাটল ফিড অ্যাডিটিভ ইন্ডাস্ট্রিতে মিনামিক্স একটি একক পথিকৃৎ পণ্য।',
+    keyBenefitsBn: [
+      'বাংলাদেশ প্রাণিসম্পদ গবেষণা ইনস্টিটিউট (BLRI)-এর প্রমাণিত গবেষণালব্ধ ফর্মুলেশন',
+      'দুধের পরিমাণ এবং এসএনএফ (Solid-Not-Fat) দ্রুত বৃদ্ধি করে খামারীদের লাভবান করে',
+      'প্রসবকালীন ও প্রসবোত্তর মিল্ক ফিভার (Milk Fever) সফলভাবে প্রতিরোধ করে',
+      'হাড় ও পেশীর গঠন মজবুত করে এবং প্রজনন ক্ষমতা স্বাভাবিক রাখে',
+      'ডেইরি খামার ছাড়াও ফিড মিল ও মৎস্য খামারে প্রোটিন ও মিনারেল বুস্টার হিসেবে উপযোগী'
+    ],
+    specificationsBn: {
+      'উদ্ভাবন সহযোগী': 'বাংলাদেশ প্রাণিসম্পদ গবেষণা ইনস্টিটিউট (BLRI)',
+      'অনুমোদন': 'প্রাণিসম্পদ অধিদপ্তর (Department of Livestock Services - DLS)',
+      'উপাদানসমূহ': 'ক্যালসিয়াম, ফসফরাস, জিঙ্ক, কপার, কোবাল্ট, আয়োডিন ও প্রোটিন মিশ্রণ',
+      'ব্যবহারবিধি': 'দৈনিক খাবারের সাথে নির্দিষ্ট অনুপাতে মিশ্রণযোগ্য',
+      'শেল্ফ লাইফ': 'উৎপাদনের তারিখ থেকে ২ বছর'
+    },
+    shelfLifeBn: '২ বছর (উৎপাদন তারিখ হতে)',
+    packagingOptionsBn: ['১ কেজি প্যাক', '৫ কেজি খামারী বালতি/প্যাক', '২৫ কেজি কমার্শিয়াল ব্যাগ'],
+    targetAudienceBn: 'ডেইরি খামার, গবাদি পশু মোটাতাজাকরণ প্রকল্প, ফিড মিল ও মৎস্য খামার',
+    accentColor: 'from-amber-600 to-orange-500',
+    image: 'https://images.unsplash.com/photo-1546445317-29f4545e9d53?auto=format&fit=crop&w=800&q=80',
+    isPioneer: true
   },
   {
-    id: "food-agro",
-    title: "Food, Agro & Cold Chain",
-    subtitle: "Agro-processing plants, cold storage setups, and food safety standards",
-    description: "Developing high-feasibility project profiles, technical blueprints, and government subsidy filings for food processing, automated rice mills, and agro infrastructure.",
-    icon: "Wheat",
-    image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80",
-    keyConsultingAreas: ["Agro Project Profiles", "Cold Storage Financing", "BSTI Food Licensing", "Supply Chain Design"],
-    caseHighlight: "Prepared bank loan project documentation for major agro-processing facilities totaling over BDT 150 Crore in sanctioned funds."
-  },
-  {
-    id: "ngo-development",
-    title: "NGO & Development Sector",
-    subtitle: "Donor grant proposals, NGOAB documentation, and MEAL frameworks",
-    description: "Partnering with civil society organizations to design sustainable social programs, donor budgets, and fulfill NGO Affairs Bureau requirements.",
-    icon: "HeartHandshake",
-    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80",
-    keyConsultingAreas: ["Donor Proposal Writing", "FD-6/FD-7 Bureau Filing", "Budget Planning", "Project Impact Evaluation"],
-    caseHighlight: "Facilitated grant approvals and NGOAB documentation for over 40+ community development initiatives."
-  },
-  {
-    id: "sme-entrepreneurs",
-    title: "SME & Entrepreneurship",
-    subtitle: "Startup documentation, investor pitch decks, and SME loans",
-    description: "Empowering emerging entrepreneurs with solid business plans, Bangladesh Bank SME refinance documentation, and investor-ready pitch materials.",
-    icon: "Rocket",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
-    keyConsultingAreas: ["SME Business Plans", "Investor Pitch Decks", "Bank Credit Proposals", "Trade License & Setup"],
-    caseHighlight: "Helped 60+ SMEs secure seed funding and commercial bank working capital loans."
-  },
-  {
-    id: "investors-joint-ventures",
-    title: "Investors & Corporate Groups",
-    subtitle: "Feasibility studies, market entry analysis, and investment advisory",
-    description: "Providing high-level market feasibility studies, joint venture documentation, and risk mitigation strategies for local and international investors entering Bangladesh.",
-    icon: "TrendingUp",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
-    keyConsultingAreas: ["Bankable Feasibility Studies", "JV Agreements", "BIDA Investment Guidance", "Financial Valuations"],
-    caseHighlight: "Conducted market feasibility assessments for multiple industrial expansion projects across high-growth corridors."
+    id: 'product-industrial-salt',
+    slug: 'industrial-salt',
+    name: 'Industrial Salt',
+    nameBn: 'ইন্ডাস্ট্রিয়াল সল্ট (শিল্প লবণ)',
+    brandTitleBn: 'উচ্চ বিশুদ্ধতার ইন্ডাস্ট্রিয়াল ও প্রাতিষ্ঠানিক লবণ',
+    category: 'industrial',
+    categoryLabelBn: 'শিল্প খাত',
+    tagBn: 'টেক্সটাইল, ডাইং ও ট্যানারির নির্ভরযোগ্য কাঁচামাল',
+    shortDescBn: 'টেক্সটাইল, ওয়াশিং প্ল্যান্ট, ট্যানারি ও কেমিক্যাল কারখানার জন্য বিশেষায়িত উচ্চমানের রিফাইন্ড ও ওয়াশড লবণ।',
+    fullDescBn: 'বাংলাদেশের ক্রমবর্ধমান রপ্তানিমুখী টেকসটাইল, ডাইং, চামড়া প্রক্রিয়াজাতকরণ (ট্যানারি), পানি শোধন (Water Softening) ও বিভিন্ন ভারী শিল্পে প্রয়োজন হয় উচ্চ বিশুদ্ধতার ইন্ডাস্ট্রিয়াল সল্ট। পিওর এন্টারপ্রাইজ লিমিটেড কক্সবাজার প্ল্যান্ট থেকে নিজস্ব ল্যাবে গ্রেড নিয়ন্ত্রণ করে বিভিন্ন স্পেসিফিকেশনে শিল্প প্রতিষ্ঠানসমূহকে সরাসরি বাল্ক সাপ্লাই প্রদান করে।',
+    keyBenefitsBn: [
+      'টেক্সটাইল ডাইং প্রক্রিয়ায় রঙের নিখুঁত ফিক্সিং নিশ্চিত করতে সহায়ক',
+      'ট্যানারিতে কাঁচা চামড়া প্রক্রিয়াজাতকরণ ও দীর্ঘস্থায়ী সংরক্ষণে কার্যকর',
+      'ইন্ডাস্ট্রিয়াল ওয়াটার ট্রিটমেন্ট ও ওয়াটার সফটেনিং প্ল্যান্টের জন্য আদর্শ',
+      'বৃহৎ শিল্প প্রতিষ্ঠানের জন্য সার্বক্ষণিক দ্রুত পরিবহন ও বাল্ক সরবরাহ নিশ্চয়তা'
+    ],
+    specificationsBn: {
+      'বিশুদ্ধতা': 'শিল্পের চাহিদামতো উচ্চমাত্রার NaCl কন্টেন্ট',
+      'আর্দ্রতা নিয়ন্ত্রণ': 'লো-ময়েশ্চার ও ড্রাই ক্রিস্টাল অপশন',
+      'সরবরাহ চ্যানেল': 'কক্সবাজার থেকে সরাসরি ট্রাক ও বাল্ক ডেলিভারি',
+      'স্থায়িত্বকাল': '২ বছর'
+    },
+    shelfLifeBn: '২ বছর',
+    packagingOptionsBn: ['৫০ কেজি ভারী ওভেন ব্যাগ', '১ টন জাম্বো ব্যাগ'],
+    targetAudienceBn: 'টেক্সটাইল মিল, ডায়িং ফ্যাক্টরি, ট্যানারি, সাবান কারখানা ও ওয়াটার পিউরিফিকেশন প্ল্যান্ট',
+    accentColor: 'from-slate-700 to-slate-900',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80'
   }
 ];
 
-export const initialWhyChoose: WhyChoosePillar[] = [
+export const initialComplianceCertifications: ComplianceCertification[] = [
   {
-    id: "expertise",
-    title: "Proven Expertise",
-    subtitle: "Technical & Regulatory Mastery",
-    description: "Quarter-century of deep domain mastery across taxation laws, industrial engineering, cGMP compliance, and institutional project financing in Bangladesh.",
-    icon: "Award"
+    id: 'comp-1',
+    titleBn: 'কোম্পানি নিবন্ধন (RJSC)',
+    authorityBn: 'যৌথ মূলধন কোম্পানি ও ফার্মসমূহের পরিদপ্তর (RJSC)',
+    descBn: 'কোম্পানি আইন ১৯৯৪-এর অধীন বিধিবদ্ধভাবে নিবন্ধিত লিমিটেড প্রতিষ্ঠান (কার্যক্রম শুরু: ০১ জানুয়ারি ২০২০)।',
+    badgeBn: 'Company Law 1994 Reg.',
+    icon: 'Building2'
   },
   {
-    id: "reliability",
-    title: "Unwavering Reliability",
-    subtitle: "Dependable Long-Term Support",
-    description: "Consistent, dependable guidance from project inception through licensing, documentation, and operational scale. We stand by our clients at every step.",
-    icon: "ShieldCheck"
+    id: 'comp-2',
+    titleBn: 'প্রাণিসম্পদ অধিদপ্তর অনুমোদন',
+    authorityBn: 'Department of Livestock Services (DLS / DKS)',
+    descBn: 'মিনামিক্স ও গবাদি পশুর খনিজ পুষ্টি উপাদান উৎপাদন ও বাজারজাতকরণের অফিসিয়াল ছাড়পত্র।',
+    badgeBn: 'DLS Authorized',
+    icon: 'ShieldCheck'
   },
   {
-    id: "quality",
-    title: "Gold-Standard Quality",
-    subtitle: "Precision Documentation",
-    description: "Bankable reports, mathematically sound financial models, and error-free regulatory dossiers recognized and accepted by banks, donors, and government bodies.",
-    icon: "FileCheck"
+    id: 'comp-3',
+    titleBn: 'বিএলআরআই (BLRI) প্রযুক্তি সহযোগিতা',
+    authorityBn: 'বাংলাদেশ প্রাণিসম্পদ গবেষণা ইনস্টিটিউট',
+    descBn: 'দেশের শীর্ষ প্রাণিসম্পদ গবেষণা প্রতিষ্ঠানের বিজ্ঞানীদের প্রত্যক্ষ প্রযুক্তি সহায়তায় মিনামিক্স উদ্ভাবিত।',
+    badgeBn: 'BLRI Technical Partner',
+    icon: 'FlaskConical'
   },
   {
-    id: "results",
-    title: "Measurable Results",
-    subtitle: "Business Growth Driven",
-    description: "Solutions designed specifically around commercial viability, loan sanctions, smooth factory commissioning, and tangible enterprise expansion.",
-    icon: "TrendingUp"
+    id: 'comp-4',
+    titleBn: 'টিআইএন ও ভ্যাট নিবন্ধন',
+    authorityBn: 'জাতীয় রাজস্ব বোর্ড (NBR)',
+    descBn: 'নিয়মিত ট্যাক্স আইডেন্টিফিকেশন (TIN) এবং ভ্যালু অ্যাডেড ট্যাক্স (VAT) কমপ্লায়েন্ট কর্পোরেট প্রতিষ্ঠান।',
+    badgeBn: 'TIN & VAT Registered',
+    icon: 'FileCheck'
   },
   {
-    id: "experience",
-    title: "25 Years of Experience",
-    subtitle: "A Heritage of Trust",
-    description: "With 25 years of continuous consultancy operations in Dhaka, our seasoned perspective protects clients from costly missteps and delays.",
-    icon: "History"
-  },
-  {
-    id: "client-centric",
-    title: "Client-Centric Approach",
-    subtitle: "Tailored Solutions",
-    description: "Every business has unique operational realities. We reject generic templates, delivering bespoke strategies aligned with your specific commercial goals.",
-    icon: "Users"
+    id: 'comp-5',
+    titleBn: 'বৈধ পৌর ট্রেড লাইসেন্স',
+    authorityBn: 'স্থানীয় সরকার প্রশাসন',
+    descBn: 'কক্সবাজার কারখানা ও ঢাকা অফিসের হালনাগাদ ও নবায়নকৃত শিল্প ও বাণিজ্যিক ট্রেড লাইসেন্স।',
+    badgeBn: 'Trade License Compliant',
+    icon: 'Award'
   }
 ];
 
-export const initialConsultingSteps: ConsultingStep[] = [
-  {
-    step: "01",
-    title: "Consultation & Discovery",
-    subtitle: "Requirement Understanding",
-    description: "We initiate an in-depth dialogue to thoroughly comprehend your business objectives, operational challenges, regulatory scope, and timeline expectations.",
-    deliverable: "Initial Scope Document & Engagement Roadmap"
-  },
-  {
-    step: "02",
-    title: "Comprehensive Assessment",
-    subtitle: "Technical & Financial Analysis",
-    description: "Our senior consultants analyze regulatory criteria, site conditions, taxation parameters, financial viability, and statutory prerequisites.",
-    deliverable: "Gap Analysis & Feasibility Check Report"
-  },
-  {
-    step: "03",
-    title: "Strategic Blueprint",
-    subtitle: "Bespoke Solution Formulation",
-    description: "We develop a tailor-made consulting strategy, encompassing detailed architectural layouts, financial models, proposal structures, or compliance pathways.",
-    deliverable: "Strategic Action Plan & Execution Matrix"
-  },
-  {
-    step: "04",
-    title: "Documentation & Execution",
-    subtitle: "Precision Delivery",
-    description: "We prepare bankable project profiles, investor pitch decks, donor proposals, or DGDA/BSTI regulatory dossiers with rigorous multi-tier quality checks.",
-    deliverable: "Final Bankable Dossier & Regulatory Filings"
-  },
-  {
-    step: "05",
-    title: "Follow-up & Ongoing Support",
-    subtitle: "Sustained Success",
-    description: "Our commitment extends beyond delivery. We assist during bank presentations, regulatory inspections, donor reviews, and operational scale-up.",
-    deliverable: "Audit Defense, Query Support & Expansion Advisory"
-  }
-];
-
-export const initialProjects: ProjectItem[] = [
-  {
-    id: "proj-1",
-    title: "Turnkey Industrial Manufacturing Unit Project Profile & Setup",
-    industry: "Industrial Manufacturing",
-    clientCategory: "Industrial Manufacturer",
-    servicesProvided: ["Factory Layout Plan", "BSTI & DoE Compliance", "Machinery Sourcing", "Operational SOPs"],
-    description: "Complete turnkey consulting for a 15,000 sq.ft. modern light industrial manufacturing facility in Gazipur, including compliant airflow layout, environmental clearances, and machinery commissioning.",
-    completionYear: "2024",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=700&q=80",
-    isFeatured: true,
-    confidentialNotice: "Client identity protected under professional NDA"
-  },
-  {
-    id: "proj-2",
-    title: "Bank Loan Project Profile for Automatic Agro-Food Processing Plant",
-    industry: "Agro & Food Processing",
-    clientCategory: "Corporate Agro Business",
-    servicesProvided: ["Bankable Project Profile", "Financial Modeling", "DSCR Analysis", "Bank Presentation Support"],
-    description: "Formulation of a comprehensive feasibility study and financial projection for a BDT 45 Crore automated flour and grain processing plant, successfully sanctioned by a leading commercial bank.",
-    completionYear: "2024",
-    image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=700&q=80",
-    isFeatured: true
-  },
-  {
-    id: "proj-3",
-    title: "Corporate Income Tax Optimization & NBR Audit Settlement",
-    industry: "Taxation & Finance",
-    clientCategory: "Import & Export Enterprise",
-    servicesProvided: ["Corporate Tax Assessment", "Withholding Tax Planning", "TCC Processing", "Taxes Zone Representation"],
-    description: "Structured multi-year tax planning and resolved complex withholding tax queries, securing clean Tax Clearance Certificates and substantial allowable rebates under prevailing tax legislation.",
-    completionYear: "2025",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=700&q=80",
-    isFeatured: true
-  },
-  {
-    id: "proj-4",
-    title: "Multi-Year Donor Grant Proposal & NGOAB Approval Dossier",
-    industry: "NGO & Social Development",
-    clientCategory: "National Non-Profit Organization",
-    servicesProvided: ["Grant Proposal Writing", "LogFrame & MEAL Design", "Budgeting", "FD-6 Filing Support"],
-    description: "Developed a comprehensive 3-year community healthcare and skill-development proposal for an international donor consortium, securing approval and full NGO Affairs Bureau clearance.",
-    completionYear: "2023",
-    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=700&q=80",
-    isFeatured: false
-  },
-  {
-    id: "proj-5",
-    title: "Investor Pitch Deck & Corporate Profile for Tech Logistics Venture",
-    industry: "Technology & Logistics",
-    clientCategory: "Growth-Stage Startup",
-    servicesProvided: ["Investor Pitch Deck", "Financial Model & Valuation", "Market Feasibility", "Corporate Profile"],
-    description: "Crafted an executive investor presentation, 5-year unit economic projection, and commercial pitch deck that assisted the client in securing strategic Series-A seed capital.",
-    completionYear: "2024",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80",
-    isFeatured: false
-  },
-  {
-    id: "proj-6",
-    title: "Industrial Raw Material & Chemical Supply Chain Agreement",
-    industry: "Chemicals & Materials",
-    clientCategory: "Consumer Goods Brand",
-    servicesProvided: ["Raw Material Sourcing", "CoA Verification", "Packaging Supply", "Batch Quality Audits"],
-    description: "Established continuous, certified sourcing channels for industrial grade ingredients, emulsifiers, and imported amber glass/PET packaging with zero batch rejection.",
-    completionYear: "2025",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=700&q=80",
-    isFeatured: false
-  }
-];
-
-export const initialCaseStudies: CaseStudyItem[] = [
-  {
-    id: "case-1",
-    title: "Accelerating Factory Licensing & Quality Compliance for a Consumer Goods Unit",
-    industry: "Consumer Goods Manufacturing",
-    challenge: "A newly established manufacturing facility faced severe regulatory delays due to non-compliant factory ventilation layout and unverified product quality dossiers required by BSTI and DoE standards.",
-    approach: "Wings Consultants BD conducted an on-site engineering audit, redesigned the floorplan blueprint to satisfy safety norms, formulated operational SOPs, and represented the client across statutory inspections.",
-    solution: "Delivered compliant architectural drawings, standardized quality dossiers, and facilitated direct technical verification with licensing inspectors.",
-    outcome: "Secured operational certifications within 60 days without structural rebuilding penalties, enabling commercial production ahead of schedule.",
-    metrics: [
-      { label: "Approval Time", value: "60 Days" },
-      { label: "Cost Saved", value: "35%" },
-      { label: "Compliance Score", value: "100% Validated" }
-    ]
-  },
-  {
-    id: "case-2",
-    title: "Securing BDT 350 Million Term Loan for Light Engineering Expansion",
-    industry: "Industrial Manufacturing",
-    challenge: "An established engineering firm required significant debt financing for automated CNC machinery import, but their internal financial projections failed the bank's strict DSCR sensitivity tests.",
-    approach: "Our financial consulting team reconstructed a bankable project profile, factoring in multi-shift production capacity, localized raw material pricing, and 7-year cashflow projections.",
-    solution: "Produced an audited, highly detailed Bank Project Profile and assisted management throughout the bank's credit risk committee evaluations.",
-    outcome: "Full term loan facility approved by the lead commercial bank with competitive interest rates and structured moratorium.",
-    metrics: [
-      { label: "Sanctioned Amount", value: "BDT 35 Cr" },
-      { label: "DSCR Ratio", value: "1.82x" },
-      { label: "Bank Approval", value: "Unanimous" }
-    ]
-  }
-];
-
-export const initialTestimonials: TestimonialItem[] = [
-  {
-    id: "test-1",
-    clientName: "Engr. M. A. Rahman",
-    position: "Managing Director",
-    company: "Industrial Engineering & Agro Ltd.",
-    industry: "Manufacturing & Agro",
-    testimonial: "Wings Consultants BD prepared our bank project profile with extraordinary thoroughness. Their 25 years of domain experience is clearly visible in the financial precision and technical clarity that satisfied the bank's credit committee on the very first submission.",
-    rating: 5,
-    date: "January 2025"
-  },
-  {
-    id: "test-2",
-    clientName: "Dr. K. H. Hossain",
-    position: "Founder & Managing Director",
-    company: "Apex Consumer Products Ltd.",
-    industry: "Consumer Goods & Manufacturing",
-    testimonial: "Navigating regulatory clearances and factory setup for industrial manufacturing is challenging in Bangladesh. Wings Consultants BD guided our facility layout, quality documentation, and licensing seamlessly. Highly recommended for corporate and industrial consulting.",
-    rating: 5,
-    date: "November 2024"
-  },
-  {
-    id: "test-3",
-    clientName: "Syeda Farhana Kabir",
-    position: "Executive Director",
-    company: "Development Action Bangladesh (NGO)",
-    industry: "Non-Profit & NGO",
-    testimonial: "Their NGO programme consulting team developed a winning donor grant proposal for our community initiative. The LogFrame and budget structures were world-class, and their support with NGO Affairs Bureau documentation was invaluable.",
-    rating: 5,
-    date: "August 2024"
-  },
-  {
-    id: "test-4",
-    clientName: "Tanvir Ahmed",
-    position: "Director of Finance",
-    company: "Apex Global Trading & Imports",
-    industry: "Corporate Trade & Taxation",
-    testimonial: "We have entrusted our corporate tax compliance, annual tax returns, and advisory to Wings Consultants BD for several years. Their team is prompt, reliable, and provides proactive solutions that give us complete peace of mind.",
-    rating: 5,
-    date: "February 2025"
-  }
-];
-
-export const initialResources: ResourceArticle[] = [
-  {
-    id: "res-1",
-    title: "Essential Guide to Corporate Tax Return Filing & Compliance in Bangladesh",
-    slug: "corporate-tax-return-filing-guide-bangladesh",
-    category: "Tax & Compliance",
-    excerpt: "A comprehensive breakdown of the Income Tax Act requirements, mandatory filing deadlines, withholding tax audit preparation, and legal deduction strategies for businesses.",
-    content: `Filing corporate tax returns in Bangladesh requires strict adherence to the latest Income Tax legislation. This guide outlines key provisions:
-
-1. Mandatory Corporate Documentation
-Every registered company in Bangladesh must submit audited financial statements, a computed tax calculation sheet, withholding tax certificates (TDS/VDS), and bank reconciliation statements alongside Form 35(B).
-
-2. Important Tax Deadlines & Penalties
-Corporate returns must be filed on or before Tax Day (the 15th day of the 7th month following the end of the income year). Late filings attract statutory penalties and interest under the Income Tax Act.
-
-3. Maximizing Allowable Deductions
-Learn how proper documentation of business expenditures, depreciation allowances on plant & machinery, and amortizations can legitimately reduce taxable profit while maintaining full statutory compliance.
-
-For dedicated assistance with your company's tax assessment, contact Wings Consultants BD.`,
-    readTime: "6 min read",
-    publishDate: "January 2025",
-    author: "Wings Tax Advisory Team",
-    downloadableDocName: "Corporate_Tax_Filing_Checklist_BD.pdf",
-    tags: ["Income Tax", "NBR Compliance", "Corporate Tax", "Tax Returns"]
-  },
-  {
-    id: "res-2",
-    title: "Step-by-Step Guide: Setting Up a Modern Industrial Manufacturing Plant in Bangladesh",
-    slug: "industrial-plant-setup-guide-bangladesh",
-    category: "Industry Setup",
-    excerpt: "From land zoning and industrial factory layout design to DoE clearance and BSTI quality approvals — an authoritative roadmap for prospective industrialists.",
-    content: `The light manufacturing and consumer goods sector in Bangladesh is experiencing rapid domestic growth and export demand.
-
-Key Milestones for Factory Setup:
-1. Architectural & Floor Layout: Designing unidirectional material and personnel flows to optimize productivity and comply with industrial safety guidelines.
-2. Department of Environment (DoE) & Fire Safety Clearance: Securing site clearance, effluent treatment plant (ETP) plans, and structural fire safety approvals.
-3. Quality & Standard Licensing: Preparing standard product dossiers, batch manufacturing records (BMR), and equipment qualification files for BSTI certification.
-4. Machinery Procurement & Trial Commissioning: Sourcing high-efficiency machinery, calibration, and conducting trial production runs.
-
-Wings Consultants BD provides turnkey industrial consultancy from blueprint design to trial batch commissioning.`,
-    readTime: "8 min read",
-    publishDate: "December 2024",
-    author: "Industrial Consultancy Wing",
-    downloadableDocName: "Industrial_Factory_Setup_Checklist.pdf",
-    tags: ["Factory Setup", "Manufacturing", "Industrial", "BSTI", "DoE Clearance"]
-  },
-  {
-    id: "res-3",
-    title: "Key Elements of a Bankable Project Profile for Commercial Bank Loans",
-    slug: "bankable-project-profile-guide",
-    category: "Project Development",
-    excerpt: "Understand what credit risk officers and bank appraisal committees scrutinize in your project feasibility report, from DSCR ratios to realistic break-even analyses.",
-    content: `When commercial banks and financial institutions appraise a project loan, they prioritize repayment capacity, promoter background, and financial realism.
-
-Core Sections Every Project Profile Must Contain:
-- Executive Summary & Promoters' Track Record
-- Technical Assessment: Machinery capacity, utility balance, site accessibility
-- Market Demand & Pricing Sensitivity Analysis
-- Comprehensive Financial Modeling: 5 to 7-year Projected Income Statements, Balance Sheets, Cash Flow Statements
-- Key Financial Ratios: Debt Service Coverage Ratio (DSCR), Break-Even Analysis, Internal Rate of Return (IRR), and Payback Period.
-
-Wings Consultants BD has formulated over 100+ bankable profiles accepted across leading banks in Bangladesh.`,
-    readTime: "7 min read",
-    publishDate: "November 2024",
-    author: "Project Finance Advisory",
-    downloadableDocName: "Bank_Loan_Project_Profile_Template_Guide.pdf",
-    tags: ["Bank Loan", "Project Profile", "Feasibility Study", "Financial Model"]
-  },
-  {
-    id: "res-4",
-    title: "How to Structure an NGO Project Proposal for International Donors",
-    slug: "ngo-project-proposal-writing-guide",
-    category: "NGO Consultancy",
-    excerpt: "A practical guide to crafting winning grant proposals, Logical Frameworks (LogFrames), and fulfilling NGO Affairs Bureau (FD-6) requirements in Bangladesh.",
-    content: `International grant competition demands compelling problem statements supported by verified baseline data and watertight budget allocations.
-
-Key Proposal Components:
-1. Situational Analysis & Problem Justification: Backed by empirical research and community need.
-2. Logical Framework (LogFrame): Aligning inputs, outputs, outcomes, and verifiable indicators.
-3. Activity-Based Multi-Year Budgeting: Ensuring full cost transparency and compliance with donor ceiling guidelines.
-4. NGO Affairs Bureau Alignment: Preparing documentation for swift FD-6 or FD-7 project approvals.
-
-Consult with Wings Consultants BD for professional NGO proposal writing and donor compliance support.`,
-    readTime: "5 min read",
-    publishDate: "October 2024",
-    author: "Development Services Group",
-    downloadableDocName: "NGO_Grant_Proposal_LogFrame_Template.pdf",
-    tags: ["NGO", "Grant Proposal", "LogFrame", "NGO Affairs Bureau"]
-  }
-];
+export const initialSisterConcern: SisterConcernInfo = {
+  name: 'Wings Consultants BD',
+  nameBn: 'উইংস কনসালট্যান্টস বিডি',
+  subtitleBn: 'পিওর এন্টারপ্রাইজ লিমিটেডের সহযোগী প্রতিষ্ঠান (Sister Concern)',
+  experienceYears: 25,
+  descriptionBn: 'উইংস কনসালট্যান্টস বিডি হলো পিওর এন্টারপ্রাইজ লিমিটেডের কৌশলগত সহযোগী কনসালটেন্সি উইং। দীর্ঘ ২৫ বছরের বাস্তব অভিজ্ঞতায় সমৃদ্ধ উইংস কনসালট্যান্টস বাংলাদেশে শিল্প প্রতিষ্ঠান স্থাপন, ইনকাম ট্যাক্স, ভ্যাট, অডিট, আরজেএসসি কমপ্লায়েন্স, ব্যাংক লোন প্রজেক্ট প্রোফাইল এবং বিজনেস ডকুমেন্টেশনের শীর্ষ পেশাদার সমাধান প্রদান করে আসছে।',
+  relationshipBn: 'পিওর এন্টারপ্রাইজের শিল্প ও উৎপাদন সক্ষমতার পাশাপাশি উইংস কনসালট্যান্টস সরবরাহ করে প্রাতিষ্ঠানিক কমপ্লায়েন্স, অর্থায়ন ও আইনগত নির্ভরযোগ্যতা—যা গ্রাহকদের বহুমুখী বাণিজ্যিক সাফল্য নিশ্চিত করে।',
+  servicesBn: [
+    {
+      id: 'wc-srv-1',
+      titleBn: 'আয়কর ও মূসক (Tax & VAT) ব্যবস্থাপনা',
+      descBn: 'কর্পোরেট ও ব্যক্তিগত আয়কর রিটার্ন, ভ্যাট অডিট, উৎসে কর কর্তন ও এনবিআর আপিল সংক্রান্ত পূর্ণাঙ্গ আইনি সহায়তা।',
+      featuresBn: ['কর্পোরেট ট্যাক্স ফাইলিং', 'মাসিক ভ্যাট রিটার্ন ও চালান', 'ট্যাক্স প্ল্যানিং ও আইনগত পরামর্শ'],
+      icon: 'Receipt'
+    },
+    {
+      id: 'wc-srv-2',
+      titleBn: 'শিল্প কারখানা স্থাপন ও লাইসেন্সিং',
+      descBn: 'নতুন কলকারখানার জন্য পরিবেশগত ছাড়পত্র, বিডা (BIDA), ফায়ার লাইসেন্স, বিস্ফোরক ছাড়পত্র ও সরকারি অনুমোদন।',
+      featuresBn: ['ফ্যাক্টরি লেআউট ও অনুমোদন', 'বিডা ও বিসিক সহায়তা', 'পরিবেশ অধিদপ্তর ছাড়পত্র'],
+      icon: 'Factory'
+    },
+    {
+      id: 'wc-srv-3',
+      titleBn: 'ব্যাংক লোন ও প্রজেক্ট প্রোফাইল (Bankable Profile)',
+      descBn: 'ব্যাংক ফাইন্যান্সিং, আইসিবি, ভেঞ্চার ক্যাপিটাল ও দাতা সংস্থার তহবিলের জন্য নিখুঁত ফিজিবিলিটি রিপোর্ট ও প্রজেক্ট ফাইল।',
+      featuresBn: ['১০-বছরের ফাইন্যান্সিয়াল মডেলিং', 'বাজার সম্ভাবনা ও সংবেদনশীলতা বিশ্লেষণ', 'ব্যাংক লোন ডকুমেন্টেশন'],
+      icon: 'FileText'
+    },
+    {
+      id: 'wc-srv-4',
+      titleBn: 'কোম্পানি গঠন ও RJSC কমপ্লায়েন্স',
+      descBn: 'প্রাইভেট ও পাবলিক লিমিটেড কোম্পানি রেজিস্ট্রেশন, সংঘস্মারক (MOA), সংঘবিধি (AOA), শেয়ার ট্রান্সফার ও বার্ষিক রিটার্ন।',
+      featuresBn: ['কোম্পানি রেজিস্ট্রেশন', 'বার্ষিক রিটার্ন ফাইলিং (Form IX/XII)', 'শেয়ারহোল্ডিং রূপান্তর'],
+      icon: 'Building'
+    }
+  ],
+  contactPersonBn: 'কর্পোরেট অ্যাডভাইজরি টিম',
+  phones: ['+880 1730-349633', '+880 1912-345678'],
+  email: 'wingsconsultantsbd@gmail.com',
+  addressBn: 'কর্পোরেট স্যুট, ঢাকা, বাংলাদেশ',
+  synergyHighlightBn: 'পিওর এন্টারপ্রাইজ ও উইংস কনসালট্যান্টসের যৌথ শক্তিতে একটি উৎপাদনমুখী শিল্প প্রতিষ্ঠান পরিচালনার পাশাপাশি সকল আইনি ও আর্থিক দিক নিশ্চিন্তে পরিচালিত হয়।'
+};
 
 export const initialFaqs: FaqItem[] = [
   {
-    id: "faq-1",
-    question: "What consultancy services does Wings Consultants BD provide?",
-    answer: "Wings Consultants BD provides comprehensive corporate solutions across five core practices: (1) Income Tax Consultancy, (2) Company Profile & Investor Pitch Decks, (3) NGO Programme Consultancy, (4) Bankable Project Profile Development, and (5) Raw Materials & Packaging Supply.",
-    category: "General"
+    id: 'faq-1',
+    questionBn: 'পিওর এন্টারপ্রাইজ লিমিটেডের মূল পরিচয় ও কার্যক্রম কী?',
+    answerBn: 'পিওর এন্টারপ্রাইজ লিমিটেড কোম্পানি আইন ১৯৯৪-এর অধীনে নিবন্ধিত একটি প্রাইভেট লিমিটেড কোম্পানি (কার্যক্রম শুরু: ০১ জানুয়ারি ২০২০)। আমরা কক্সবাজারে আধুনিক প্রযুক্তি ব্যবহারের মাধ্যমে বিশুদ্ধ আয়োডিনযুক্ত ভোজ্য লবণ (দেশী ও সুলভ), শিল্প লবণ এবং বিএলআরআই অনুমোদিত ক্যাটল মিনারেল মিশ্রণ "মিনামিক্স" উৎপাদন ও দেশব্যাপী সরবরাহ করে থাকি।',
+    categoryBn: 'কোম্পানি পরিচিতি'
   },
   {
-    id: "faq-2",
-    question: "Do you provide income tax consultancy for both individuals and companies?",
-    answer: "Yes. We offer complete tax services including e-TIN registration, annual income tax return preparation, wealth statements, withholding tax (TDS) management, tax clearance certificates (TCC), and representation before the National Board of Revenue (NBR) for assessment and audit settlement.",
-    category: "Taxation"
+    id: 'faq-2',
+    questionBn: 'মিনামিক্স (Minamix) গবাদি পশুর জন্য কেন এত জরুরি?',
+    answerBn: 'মিনামিক্স বাংলাদেশ প্রাণিসম্পদ গবেষণা ইনস্টিটিউট (BLRI)-এর সরাসরি প্রযুক্তি সহায়তায় উদ্ভাবিত একটি বৈপ্লবিক মিনারেল মিক্সচার। এটি গরুর দুধে সলিড-নট-ফ্যাট (SNF) বৃদ্ধি করে, বাছুরের হাড়ের গঠন মজবুত করে এবং প্রসবকালীন মারাত্মক মিল্ক ফিভার রোগ প্রতিরোধ করে। ডেইরি খামার ও ফিড মিলের জন্য এটি অতুলনীয় ভূমিকা রাখে।',
+    categoryBn: 'পণ্য ও পুষ্টি'
   },
   {
-    id: "faq-3",
-    question: "How do you help with company profiles and investor pitch decks?",
-    answer: "We craft strategic corporate profiles and investor-grade pitch decks. Our team conducts business model analysis, develops 5-year financial projections (including NPV, IRR, and payback calculations), and creates compelling presentations tailored to secure venture capital, bank facilities, or corporate partnerships.",
-    category: "Business Planning"
+    id: 'faq-3',
+    questionBn: 'দেশী ও সুলভ লবণের মধ্যে পার্থক্য কী?',
+    answerBn: '"দেশী আয়োডিনযুক্ত লবণ" হলো সাধারণ মধ্যবিত্ত ও গৃহস্থালির জন্য স্ট্যান্ডার্ড প্রিমিয়াম প্যাকেজিংয়ের লবণ। অন্যদিকে "সুলভ লবণ" বিশেষভাবে তৈরি করা হয়েছে প্রত্যন্ত অঞ্চল ও প্রান্তিক মানুষের কথা ভেবে, যাতে তারা অত্যন্ত সাশ্রয়ী মূল্যে সঠিক মান ও আয়োডিনযুক্ত লবণ পেতে পারেন।',
+    categoryBn: 'পণ্য ও পুষ্টি'
   },
   {
-    id: "faq-4",
-    question: "Can you prepare bankable project profiles for bank loan approvals?",
-    answer: "Yes. With 25 years of experience in project documentation, we develop detailed, bank-compliant feasibility studies and project profiles for industrial factories, agro-food processors, SME loans, cold storage setups, and manufacturing units. Our profiles are widely recognized by commercial banks and financial institutions in Bangladesh.",
-    category: "Project Finance"
+    id: 'faq-4',
+    questionBn: 'লবণ ও মিনামিক্সের শেল্ফ লাইফ (সংরক্ষণ মেয়াদ) কতদিন?',
+    answerBn: 'আমাদের উৎপাদিত লবণ ব্যাকটেরিয়া ও অন্যান্য জীবাণু প্রতিরোধী হওয়ায় এবং মিনামিক্স আর্দ্রতারোধী সিল্ড প্যাকেজিংয়ে প্রস্তুত হওয়ায় উভয় পণ্যের মেয়াদ উৎপাদনের তারিখ হতে ২ বছর পর্যন্ত সম্পূর্ণ কার্যকর ও অক্ষুণ্ণ থাকে।',
+    categoryBn: 'মান ও সংরক্ষণ'
   },
   {
-    id: "faq-5",
-    question: "What support do you provide for industrial project profiles and bank financing?",
-    answer: "We offer comprehensive project modeling including Capex/Opex forecasting, technical infrastructure planning, Debt Service Coverage Ratio (DSCR) calculations, break-even analysis, and presentation support during bank appraisal committee evaluations.",
-    category: "Project Finance"
+    id: 'faq-5',
+    questionBn: 'উইংস কনসালট্যান্টস বিডি (Wings Consultants BD)-এর সাথে পিওর এন্টারপ্রাইজের সম্পর্ক কী?',
+    answerBn: 'উইংস কনসালট্যান্টস বিডি হলো পিওর এন্টারপ্রাইজ লিমিটেডের সহযোগী প্রতিষ্ঠান (Sister Concern)। পিওর এন্টারপ্রাইজ যেখানে মূল বডি হিসেবে উৎপাদন ও কৃষি-পুষ্টির কাজ পরিচালনা করে, উইংস কনসালট্যান্টস সেখানে ২৫ বছরের অভিজ্ঞতায় সমৃদ্ধ পেশাদার ট্যাক্স, ভ্যাট, অডিট, কোম্পানি আইন ও প্রজেক্ট ফাইন্যান্স কনসালটেন্সি সেবা প্রদান করে।',
+    categoryBn: 'সহযোগী প্রতিষ্ঠান'
   },
   {
-    id: "faq-6",
-    question: "Do you provide consultancy support for NGOs and donor projects?",
-    answer: "Yes. We assist NGOs, foundations, and civil society organizations with donor-aligned grant proposal writing, Logical Framework (LogFrame) design, multi-year budget formulation, and statutory documentation for the NGO Affairs Bureau (FD-6 / FD-7 filings).",
-    category: "NGO Services"
-  },
-  {
-    id: "faq-7",
-    question: "Can you supply quality raw materials and packaging materials for manufacturers?",
-    answer: "Yes. We assist manufacturers in sourcing authenticated raw ingredients, industrial chemicals, laboratory tested materials, and customized packaging materials (bottles, glass vials, barrier foil, mono-cartons) with verified Certificates of Analysis (CoA).",
-    category: "Raw Materials"
-  },
-  {
-    id: "faq-8",
-    question: "How can I book a consultation with Wings Consultants BD?",
-    answer: "You can schedule a consultation directly on this website using our 'Get a Consultation' booking form, or call us at +880 1730-349633 / +880 1914-502714, or email us at wingsconsultantsbd@gmail.com. We also welcome scheduled in-person meetings at our Dhaka office.",
-    category: "General"
+    id: 'faq-6',
+    questionBn: 'সারাদেশে ডিলারশিপ বা পাইকারি ক্রয়ের নিয়ম কী?',
+    answerBn: 'আমরা দেশের প্রতিটি জেলা ও উপজেলায় অনুমোদিত ডিলার নিয়োগ করছি। যেকোনো প্রতিষ্ঠিত পাইকারি ব্যবসায়ী, ফিড ডিলার অথবা শিল্প উদ্যোক্তা আমাদের ওয়েবসাইটে থাকা "ডিলারশিপ আবেদন" ফর্ম পূরণ করে অথবা সরাসরি কক্সবাজার প্ল্যান্ট বা ঢাকা অফিসের সাথে ফোনে যোগাযোগ করে ডিলারশিপ গ্রহণ করতে পারেন।',
+    categoryBn: 'ডিলার ও সাপ্লাই'
   }
 ];
 
-export const initialSampleLeads: ConsultationLead[] = [
+export const initialSampleLeads: DealerInquiryLead[] = [
   {
-    id: "lead-101",
-    fullName: "Kazi Nazmul Huda",
-    company: "Green Horizon Agro Industries",
-    email: "nazmul@greenhorizonbd.com",
-    phone: "+880 1819-234567",
-    serviceRequired: "Project Profile Development",
-    budgetRange: "BDT 50,000 - 100,000",
-    projectDescription: "Require bankable project profile for an automated seed processing plant seeking BDT 25 Crore loan from a commercial bank.",
-    preferredDate: "2026-09-02",
-    preferredTime: "11:00 AM",
-    preferredContactMethod: "Phone",
-    status: "New",
-    notes: "Follow-up required on initial technical machinery cost estimate.",
-    assignedStaff: "Senior Financial Consultant",
-    createdAt: "2026-08-27T04:15:00.000Z"
+    id: 'lead-101',
+    fullName: 'জনাব রফিকুল ইসলাম',
+    phone: '+8801711223344',
+    email: 'rafiq.traders@gmail.com',
+    district: 'বগুড়া',
+    businessName: 'মেসার্স রফিক এন্টারপ্রাইজ',
+    inquiryType: 'Dealership Application',
+    interestedProducts: ['দেশী আয়োডিনযুক্ত লবণ', 'মিনামিক্স (খনিজ মিশ্রণ)'],
+    message: 'বগুড়া সদর ও আশপাশের ডেইরি খামারগুলোর জন্য মিনামিক্স ও লবণের পাইকারি ডিলারশিপ নিতে আগ্রহী। বিস্তারিত শর্তাবলী জানতে চাই।',
+    status: 'New',
+    createdAt: '2026-10-27T10:30:00Z'
   },
   {
-    id: "lead-102",
-    fullName: "Begum Dilruba Akhter",
-    company: "Apex Consumer Goods Ltd.",
-    email: "dilruba@apexconsumer.com",
-    phone: "+880 1711-987654",
-    serviceRequired: "Project Profile Development",
-    budgetRange: "BDT 100,000 - 250,000",
-    projectDescription: "Need complete bankable project profile and 5-year financial model for our automated manufacturing unit in Gazipur.",
-    preferredDate: "2026-09-03",
-    preferredTime: "03:30 PM",
-    preferredContactMethod: "WhatsApp",
-    status: "Contacted",
-    notes: "Sent financial model questionnaire. Client confirmed meeting for Wednesday.",
-    assignedStaff: "Financial Advisory Lead",
-    createdAt: "2026-08-26T09:30:00.000Z"
-  },
-  {
-    id: "lead-103",
-    fullName: "Rafiqul Islam",
-    company: "Delta Trade Corporation",
-    email: "rafiq@deltatrade.com.bd",
-    phone: "+880 1912-345678",
-    serviceRequired: "Income Tax Consultancy",
-    budgetRange: "BDT 25,000 - 50,000",
-    projectDescription: "Annual corporate tax return preparation, withholding tax schedule, and NBR tax clearance certificate processing for FY 2025-26.",
-    preferredDate: "2026-09-01",
-    preferredTime: "02:00 PM",
-    preferredContactMethod: "Email",
-    status: "In Progress",
-    notes: "Reviewing draft audit report and previous assessment orders.",
-    assignedStaff: "Senior Tax Consultant",
-    createdAt: "2026-08-25T14:20:00.000Z"
+    id: 'lead-102',
+    fullName: 'ইঞ্জিনিয়ার তানভীর চৌধুরী',
+    phone: '+8801822334455',
+    district: 'নারায়ণগঞ্জ',
+    businessName: 'আল-মদিনা টেক্সটাইল অ্যান্ড ওয়াশিং',
+    inquiryType: 'Institutional Bulk Salt',
+    interestedProducts: ['ইন্ডাস্ট্রিয়াল সল্ট (শিল্প লবণ)'],
+    message: 'আমাদের টেক্সটাইল ডায়িং ইউনিটের জন্য প্রতি মাসে ৩০ মেট্রিক টন ইন্ডাস্ট্রিয়াল ওয়াশড লবণের প্রাতিষ্ঠানিক কোটেশন প্রয়োজন।',
+    status: 'Contacted',
+    notes: 'কক্সবাজার কারখানা থেকে সরাসরি ট্রাক ডেলিভারির দরপত্র পাঠানো হয়েছে।',
+    createdAt: '2026-10-26T14:15:00Z'
   }
 ];

@@ -1,85 +1,66 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import {
   CompanyInfo,
-  ServiceItem,
-  IndustryItem,
-  WhyChoosePillar,
-  ConsultingStep,
-  ProjectItem,
-  CaseStudyItem,
-  TestimonialItem,
-  ResourceArticle,
+  BoardMember,
+  ProductItem,
+  ComplianceCertification,
+  SisterConcernInfo,
   FaqItem,
-  ConsultationLead,
+  DealerInquiryLead,
   LeadStatus
 } from '../types';
 import {
   initialCompanyInfo,
-  initialServices,
-  initialIndustries,
-  initialWhyChoose,
-  initialConsultingSteps,
-  initialProjects,
-  initialCaseStudies,
-  initialTestimonials,
-  initialResources,
+  initialBoardMembers,
+  initialProducts,
+  initialComplianceCertifications,
+  initialSisterConcern,
   initialFaqs,
   initialSampleLeads
 } from '../data/initialData';
 
 interface CmsContextType {
   companyInfo: CompanyInfo;
-  services: ServiceItem[];
-  industries: IndustryItem[];
-  whyChoose: WhyChoosePillar[];
-  consultingSteps: ConsultingStep[];
-  projects: ProjectItem[];
-  caseStudies: CaseStudyItem[];
-  testimonials: TestimonialItem[];
-  resources: ResourceArticle[];
+  boardMembers: BoardMember[];
+  products: ProductItem[];
+  compliances: ComplianceCertification[];
+  sisterConcern: SisterConcernInfo;
   faqs: FaqItem[];
-  leads: ConsultationLead[];
-  
-  // Actions
-  updateCompanyInfo: (updated: Partial<CompanyInfo>) => void;
-  addLead: (lead: Omit<ConsultationLead, 'id' | 'createdAt' | 'status'>) => Promise<string>;
+  leads: DealerInquiryLead[];
+
+  // Mutators & Lead Management
+  addLead: (lead: Omit<DealerInquiryLead, 'id' | 'createdAt' | 'status'>) => Promise<string>;
   updateLeadStatus: (id: string, status: LeadStatus, notes?: string) => void;
   deleteLead: (id: string) => void;
-  
-  // CMS Content Mutators
-  updateService: (updated: ServiceItem) => void;
-  updateProject: (updated: ProjectItem) => void;
-  updateTestimonial: (updated: TestimonialItem) => void;
-  updateFaq: (updated: FaqItem) => void;
-  addFaq: (newFaq: Omit<FaqItem, 'id'>) => void;
-  
-  // Modals & Active View Management
-  activeServiceModal: ServiceItem | null;
-  setActiveServiceModal: (service: ServiceItem | null) => void;
-  isConsultationModalOpen: boolean;
-  setIsConsultationModalOpen: (open: boolean) => void;
-  selectedServiceForBooking: string;
-  setSelectedServiceForBooking: (serviceName: string) => void;
-  isAdminOpen: boolean;
-  setIsAdminOpen: (open: boolean) => void;
-  
-  // Reset
+  updateCompanyInfo: (updated: Partial<CompanyInfo>) => void;
+
+  // Active Modals state
+  selectedProduct: ProductItem | null;
+  setSelectedProduct: (product: ProductItem | null) => void;
+  isDealerModalOpen: boolean;
+  setIsDealerModalOpen: (open: boolean) => void;
+  dealerModalPreselectProduct: string;
+  setDealerModalPreselectProduct: (name: string) => void;
+  isSisterConcernModalOpen: boolean;
+  setIsSisterConcernModalOpen: (open: boolean) => void;
+  isAdminModalOpen: boolean;
+  setIsAdminModalOpen: (open: boolean) => void;
+
+  // Reset function
   resetToDefaults: () => void;
 }
 
 const CmsContext = createContext<CmsContextType | undefined>(undefined);
 
 const STORAGE_KEYS = {
-  COMPANY: 'wings_cms_company_v3',
-  SERVICES: 'wings_cms_services_v3',
-  PROJECTS: 'wings_cms_projects_v3',
-  TESTIMONIALS: 'wings_cms_testimonials_v3',
-  FAQS: 'wings_cms_faqs_v3',
-  LEADS: 'wings_cms_leads_v3'
+  COMPANY: 'pure_enterprise_company_v1',
+  PRODUCTS: 'pure_enterprise_products_v1',
+  BOARD: 'pure_enterprise_board_v1',
+  LEADS: 'pure_enterprise_leads_v1',
+  FAQS: 'pure_enterprise_faqs_v1'
 };
 
 export const CmsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Load from localStorage or default
   const [companyInfo, setCompanyInfo] = useState<CompanyInfo>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEYS.COMPANY);
@@ -89,51 +70,13 @@ export const CmsProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   });
 
-  const [services, setServices] = useState<ServiceItem[]>(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEYS.SERVICES);
-      return saved ? JSON.parse(saved) : initialServices;
-    } catch {
-      return initialServices;
-    }
-  });
+  const [boardMembers] = useState<BoardMember[]>(initialBoardMembers);
+  const [products] = useState<ProductItem[]>(initialProducts);
+  const [compliances] = useState<ComplianceCertification[]>(initialComplianceCertifications);
+  const [sisterConcern] = useState<SisterConcernInfo>(initialSisterConcern);
+  const [faqs] = useState<FaqItem[]>(initialFaqs);
 
-  const [industries] = useState<IndustryItem[]>(initialIndustries);
-  const [whyChoose] = useState<WhyChoosePillar[]>(initialWhyChoose);
-  const [consultingSteps] = useState<ConsultingStep[]>(initialConsultingSteps);
-
-  const [projects, setProjects] = useState<ProjectItem[]>(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEYS.PROJECTS);
-      return saved ? JSON.parse(saved) : initialProjects;
-    } catch {
-      return initialProjects;
-    }
-  });
-
-  const [caseStudies] = useState<CaseStudyItem[]>(initialCaseStudies);
-
-  const [testimonials, setTestimonials] = useState<TestimonialItem[]>(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEYS.TESTIMONIALS);
-      return saved ? JSON.parse(saved) : initialTestimonials;
-    } catch {
-      return initialTestimonials;
-    }
-  });
-
-  const [resources] = useState<ResourceArticle[]>(initialResources);
-
-  const [faqs, setFaqs] = useState<FaqItem[]>(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEYS.FAQS);
-      return saved ? JSON.parse(saved) : initialFaqs;
-    } catch {
-      return initialFaqs;
-    }
-  });
-
-  const [leads, setLeads] = useState<ConsultationLead[]>(() => {
+  const [leads, setLeads] = useState<DealerInquiryLead[]>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEYS.LEADS);
       return saved ? JSON.parse(saved) : initialSampleLeads;
@@ -143,154 +86,80 @@ export const CmsProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   });
 
   // Modal states
-  const [activeServiceModal, setActiveServiceModal] = useState<ServiceItem | null>(null);
-  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
-  const [selectedServiceForBooking, setSelectedServiceForBooking] = useState<string>('Income Tax Consultancy');
-  const [isAdminOpen, setIsAdminOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
+  const [isDealerModalOpen, setIsDealerModalOpen] = useState(false);
+  const [dealerModalPreselectProduct, setDealerModalPreselectProduct] = useState<string>('');
+  const [isSisterConcernModalOpen, setIsSisterConcernModalOpen] = useState(false);
+  const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
 
-  // Sync to storage
-  useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEYS.COMPANY, JSON.stringify(companyInfo));
-    } catch (e) {
-      console.error(e);
-    }
-  }, [companyInfo]);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEYS.SERVICES, JSON.stringify(services));
-    } catch (e) {
-      console.error(e);
-    }
-  }, [services]);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(projects));
-    } catch (e) {
-      console.error(e);
-    }
-  }, [projects]);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEYS.TESTIMONIALS, JSON.stringify(testimonials));
-    } catch (e) {
-      console.error(e);
-    }
-  }, [testimonials]);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEYS.FAQS, JSON.stringify(faqs));
-    } catch (e) {
-      console.error(e);
-    }
-  }, [faqs]);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEYS.LEADS, JSON.stringify(leads));
-    } catch (e) {
-      console.error(e);
-    }
-  }, [leads]);
-
-  // Actions
   const updateCompanyInfo = (updated: Partial<CompanyInfo>) => {
-    setCompanyInfo((prev) => ({ ...prev, ...updated }));
+    setCompanyInfo((prev) => {
+      const next = { ...prev, ...updated };
+      localStorage.setItem(STORAGE_KEYS.COMPANY, JSON.stringify(next));
+      return next;
+    });
   };
 
-  const addLead = async (leadData: Omit<ConsultationLead, 'id' | 'createdAt' | 'status'>): Promise<string> => {
-    const newId = `lead-${Date.now()}`;
-    const newLead: ConsultationLead = {
+  const addLead = async (leadData: Omit<DealerInquiryLead, 'id' | 'createdAt' | 'status'>): Promise<string> => {
+    const newId = 'lead-' + Date.now();
+    const newLead: DealerInquiryLead = {
       ...leadData,
       id: newId,
       status: 'New',
       createdAt: new Date().toISOString()
     };
-    setLeads((prev) => [newLead, ...prev]);
+    const nextLeads = [newLead, ...leads];
+    setLeads(nextLeads);
+    localStorage.setItem(STORAGE_KEYS.LEADS, JSON.stringify(nextLeads));
     return newId;
   };
 
   const updateLeadStatus = (id: string, status: LeadStatus, notes?: string) => {
-    setLeads((prev) =>
-      prev.map((lead) =>
-        lead.id === id ? { ...lead, status, notes: notes !== undefined ? notes : lead.notes } : lead
-      )
-    );
+    const nextLeads = leads.map((l) => (l.id === id ? { ...l, status, notes: notes ?? l.notes } : l));
+    setLeads(nextLeads);
+    localStorage.setItem(STORAGE_KEYS.LEADS, JSON.stringify(nextLeads));
   };
 
   const deleteLead = (id: string) => {
-    setLeads((prev) => prev.filter((lead) => lead.id !== id));
-  };
-
-  const updateService = (updated: ServiceItem) => {
-    setServices((prev) => prev.map((s) => (s.id === updated.id ? updated : s)));
-  };
-
-  const updateProject = (updated: ProjectItem) => {
-    setProjects((prev) => prev.map((p) => (p.id === updated.id ? updated : p)));
-  };
-
-  const updateTestimonial = (updated: TestimonialItem) => {
-    setTestimonials((prev) => prev.map((t) => (t.id === updated.id ? updated : t)));
-  };
-
-  const updateFaq = (updated: FaqItem) => {
-    setFaqs((prev) => prev.map((f) => (f.id === updated.id ? updated : f)));
-  };
-
-  const addFaq = (newFaq: Omit<FaqItem, 'id'>) => {
-    const item: FaqItem = {
-      ...newFaq,
-      id: `faq-${Date.now()}`
-    };
-    setFaqs((prev) => [...prev, item]);
+    const nextLeads = leads.filter((l) => l.id !== id);
+    setLeads(nextLeads);
+    localStorage.setItem(STORAGE_KEYS.LEADS, JSON.stringify(nextLeads));
   };
 
   const resetToDefaults = () => {
-    setCompanyInfo(initialCompanyInfo);
-    setServices(initialServices);
-    setProjects(initialProjects);
-    setTestimonials(initialTestimonials);
-    setFaqs(initialFaqs);
-    setLeads(initialSampleLeads);
     localStorage.clear();
+    setCompanyInfo(initialCompanyInfo);
+    setLeads(initialSampleLeads);
+    setSelectedProduct(null);
+    setIsDealerModalOpen(false);
+    setIsSisterConcernModalOpen(false);
+    setIsAdminModalOpen(false);
   };
 
   return (
     <CmsContext.Provider
       value={{
         companyInfo,
-        services,
-        industries,
-        whyChoose,
-        consultingSteps,
-        projects,
-        caseStudies,
-        testimonials,
-        resources,
+        boardMembers,
+        products,
+        compliances,
+        sisterConcern,
         faqs,
         leads,
-        updateCompanyInfo,
         addLead,
         updateLeadStatus,
         deleteLead,
-        updateService,
-        updateProject,
-        updateTestimonial,
-        updateFaq,
-        addFaq,
-        activeServiceModal,
-        setActiveServiceModal,
-        isConsultationModalOpen,
-        setIsConsultationModalOpen,
-        selectedServiceForBooking,
-        setSelectedServiceForBooking,
-        isAdminOpen,
-        setIsAdminOpen,
+        updateCompanyInfo,
+        selectedProduct,
+        setSelectedProduct,
+        isDealerModalOpen,
+        setIsDealerModalOpen,
+        dealerModalPreselectProduct,
+        setDealerModalPreselectProduct,
+        isSisterConcernModalOpen,
+        setIsSisterConcernModalOpen,
+        isAdminModalOpen,
+        setIsAdminModalOpen,
         resetToDefaults
       }}
     >
@@ -299,7 +168,7 @@ export const CmsProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   );
 };
 
-export const useCms = () => {
+export const useCms = (): CmsContextType => {
   const context = useContext(CmsContext);
   if (!context) {
     throw new Error('useCms must be used within a CmsProvider');

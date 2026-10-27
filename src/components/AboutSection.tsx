@@ -3,55 +3,43 @@ import { useCms } from '../context/CmsContext';
 import {
   ShieldCheck,
   CheckCircle2,
-  Building,
-  FileSpreadsheet,
+  Building2,
   Award,
   ArrowRight,
   TrendingUp,
-  MapPin,
-  Clock,
+  HeartHandshake,
+  Target,
   Sparkles
 } from 'lucide-react';
 
 interface AboutSectionProps {
-  onBookConsultation: () => void;
+  onOpenDealership: () => void;
+  onOpenSisterConcern: () => void;
 }
 
-export const AboutSection: React.FC<AboutSectionProps> = ({ onBookConsultation }) => {
+export const AboutSection: React.FC<AboutSectionProps> = ({
+  onOpenDealership,
+  onOpenSisterConcern
+}) => {
   const { companyInfo } = useCms();
 
-  const coreFocusAreas = [
+  const corePillars = [
     {
-      title: 'Professional Expertise',
-      desc: 'Quarter-century of advisory experience across corporate taxation, statutory filings, and industrial compliance in Bangladesh.'
+      title: 'আয়োডিন ঘাটতি দূরীকরণ',
+      desc: 'ইউনিসেফ ২০১১-এর তথ্যমতে যেখানে বাজারে ৫৫% প্যাকেট লবণে সঠিক আয়োডিন থাকে না, সেখানে আমরা সঠিক ও স্থায়ী মাত্রার আয়োডাইজেশন শতভাগ নিশ্চিত করি।'
     },
     {
-      title: 'Practical Solutions',
-      desc: 'Action-oriented, commercially viable consulting frameworks that bridge regulatory mandates with daily enterprise operations.'
+      title: 'উপকূলীয় চাষীদের ক্ষমতায়ন',
+      desc: 'কক্সবাজারের স্থানীয় লবণ চাষীদের সাথে দীর্ঘমেয়াদী অংশীদারিত্বের মাধ্যমে কাঁচামাল সংগ্রহ এবং তাদের টেকসই জীবিকা নিশ্চিতকরণ।'
     },
     {
-      title: 'Business Documentation',
-      desc: 'Precision-crafted company profiles, investor pitch decks, donor proposals, and bank loan project files that command institutional trust.'
+      title: 'প্রাণিসম্পদ পুষ্টিতে পথিকৃৎ',
+      desc: 'বাংলাদেশ প্রাণিসম্পদ গবেষণা ইনস্টিটিউট (BLRI)-এর বৈজ্ঞানিক সহায়তায় তৈরি মিনামিক্সের মাধ্যমে ডেইরি ও পশুসম্পদে বিপ্লব সাধন।'
     },
     {
-      title: 'Industry Setup & Compliance',
-      desc: 'End-to-end factory layouts, cGMP cleanroom engineering, DGDA drug licensing, BSTI certification, and environmental permits.'
-    },
-    {
-      title: 'Investment Support & Feasibility',
-      desc: 'Comprehensive financial modeling, valuation, sensitivity testing, and joint venture feasibility analysis for local and foreign investors.'
-    },
-    {
-      title: 'Project Development & Growth',
-      desc: 'Holistic business growth blueprints, debt financing documentation, and ongoing follow-up support to scale operations safely.'
+      title: 'সামাজিক ও আর্থিক টেকসই উন্নয়ন',
+      desc: 'পরিবেশ ও সামাজিক ভারসাম্য বজায় রেখে দেশীয় উৎপাদন সক্ষমতা বৃদ্ধি এবং বিদেশ হতে লবণ আমদানির নির্ভরতা হ্রাস করা।'
     }
-  ];
-
-  const milestones = [
-    { year: '1999', title: 'Foundational Advisory', desc: 'Established in Dhaka, specializing in taxation, regulatory documentation, and business registrations.' },
-    { year: '2008', title: 'Industrial & Project Expansion', desc: 'Expanded into industrial project profiles, bank loan documentation, and raw material supply chain consultancy.' },
-    { year: '2016', title: 'Bank Project Finance & NGOs', desc: 'Formulated 100+ bankable project profiles and international donor grant proposals.' },
-    { year: 'Present', title: '25 Years of Trusted Leadership', desc: 'The preferred partner for enterprises, investors, and manufacturers seeking sustainable growth.' }
   ];
 
   return (
@@ -60,162 +48,127 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookConsultation }
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 text-[#0f2c59] text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 text-[#0b1e3b] text-xs font-bold uppercase tracking-wider mb-3">
             <Award className="w-3.5 h-3.5 text-amber-500" />
-            <span>About Wings Consultants BD</span>
+            <span>আমাদের পরিচিতি ও প্রেক্ষাপট</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#0f2c59] tracking-tight">
-            Your Trusted Consulting Partner
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-[#0b1e3b] tracking-tight">
+            পিওর এন্টারপ্রাইজ লিমিটেড
           </h2>
-          <div className="w-20 h-1 bg-amber-400 mx-auto mt-4 rounded-full" />
+          <div className="w-20 h-1 bg-amber-400 mx-auto mt-3 rounded-full" />
           <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
-            Wings Consultants BD is a premier corporate consultancy firm based in Dhaka, providing multidisciplinary business support, taxation management, industrial engineering, and financial documentation for individuals, entrepreneurs, organizations, investors, NGOs, manufacturers, and growing businesses across Bangladesh.
+            কোম্পানি আইন ১৯৯৪-এর অধীন Joint Stock Companies and Firms (RJSC) নিবন্ধিত একটি দায়িত্বশীল প্রাইভেট লিমিটেড কোম্পানি (কার্যক্রম শুরু: ০১ জানুয়ারি ২০২০)।
           </p>
         </div>
 
-        {/* Narrative & Experience Badge Grid */}
+        {/* Narrative Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Visual Story & Timeline Badge */}
+          {/* Left Column: Visual Story & Motto */}
           <div className="lg:col-span-5 space-y-6">
             
-            {/* Experience Card */}
-            <div className="relative rounded-2xl bg-gradient-to-br from-[#0f2c59] via-[#091f3d] to-[#040e1d] text-white p-7 sm:p-8 shadow-xl border border-sky-900/60 overflow-hidden">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-amber-400/10 rounded-full blur-2xl pointer-events-none" />
+            {/* Mission & Motto Highlight Card */}
+            <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#07172b] to-[#0f2c59] text-white shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-36 h-36 bg-amber-400/10 rounded-full blur-2xl" />
               
-              <div className="flex items-center justify-between pb-6 border-b border-white/10">
-                <div>
-                  <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">
-                    Heritage of Excellence
-                  </span>
-                  <h3 className="text-4xl font-serif font-black text-white mt-1">
-                    25 Years
-                  </h3>
-                  <p className="text-sm text-slate-300 font-medium">Of Experience You Can Trust</p>
-                </div>
-                <div className="w-16 h-16 rounded-2xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-400">
-                  <ShieldCheck className="w-9 h-9" />
-                </div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-bold mb-4">
+                <Target className="w-3.5 h-3.5" />
+                <span>কোম্পানির মূল নীতিবাক্য (Motto)</span>
               </div>
 
-              <div className="pt-6 space-y-3.5 text-sm text-slate-200">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                  <span>Headquartered in Dhaka, Bangladesh with nationwide client reach</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                  <span>Proven record in NBR taxation, BSTI / DGDA compliance & bank loans</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                  <span>Strict confidentiality and ethical business consultancy standards</span>
-                </div>
-              </div>
+              <blockquote className="text-xl sm:text-2xl font-bold leading-snug text-white font-serif-heading">
+                “সামাজিক ও পরিবেশগত ভারসাম্য রক্ষা এবং আর্থিক টেকসই উন্নয়ন নিশ্চিত করা।”
+              </blockquote>
 
-              <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
-                <div>
-                  <p className="text-xs text-slate-400">Corporate Motto</p>
-                  <p className="text-sm font-serif italic text-amber-300">Your Vision, Our Expertise</p>
+              <p className="mt-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                বাংলাদেশে প্রতি বছর ২.০ মিলিয়ন মেট্রিক টন লবণের চাহিদা রয়েছে, যার মধ্যে খাদ্য লবণ ০.৯ মিলিয়ন মেট্রিক টন। পিওর এন্টারপ্রাইজ দেশের উত্তরাঞ্চল ও প্রান্তিক সুবিধাবঞ্চিত জনগোষ্ঠীর সুস্বাস্থ্য সুরক্ষায় কেমিক্যালমুক্ত, যথাযথ আয়োডিনযুক্ত লবণ নিয়মিত পৌঁছে দেওয়ার ব্রত নিয়ে এগিয়ে চলেছে।
+              </p>
+
+              <div className="mt-6 pt-5 border-t border-slate-700 flex items-center justify-between text-xs text-sky-200">
+                <div className="flex items-center gap-2">
+                  <Building2 className="w-4 h-4 text-amber-400" />
+                  <span>কক্সবাজার উৎপাদন কমপ্লেক্স</span>
                 </div>
-                <button
-                  onClick={onBookConsultation}
-                  className="px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition-colors cursor-pointer"
-                >
-                  Book Meeting
-                </button>
+                <div className="flex items-center gap-1 font-semibold text-amber-400">
+                  <span>দেশব্যাপী সেলস নেটওয়ার্ক</span>
+                </div>
               </div>
             </div>
 
-            {/* Quick Location & Credential Tag */}
-            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between text-xs text-slate-600">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-sky-600" />
-                <span className="font-semibold text-slate-800">Dhaka, Bangladesh</span>
+            {/* Support to Farmers Card */}
+            <div className="p-5 rounded-2xl bg-amber-50 border border-amber-200 flex items-start gap-4">
+              <div className="w-10 h-10 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                <HeartHandshake className="w-5 h-5" />
               </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-amber-600" />
-                <span>Sat - Thu, 9 AM - 6 PM</span>
+              <div>
+                <h4 className="text-sm font-bold text-amber-950">লবণ চাষীদের উন্নয়ন ও সামাজিক দায়বদ্ধতা</h4>
+                <p className="text-xs text-amber-900/80 mt-1 leading-relaxed">
+                  পিওর এন্টারপ্রাইজ শুধু আয়োডিন ঘাটতি দূর করতেই সীমাবদ্ধ নয়; বরং স্থানীয় লবণ চাষীদের ন্যায্য আয় ও টেকসই উৎপাদন বজায় রাখতে সরাসরি পৃষ্ঠপোষকতা প্রদান করে থাকে।
+                </p>
               </div>
             </div>
+
           </div>
 
-          {/* Right Column: 6 Core Value Pillars */}
-          <div className="lg:col-span-7">
-            <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#0f2c59] mb-6">
-              Our Multi-Disciplinary Consulting Strengths
-            </h3>
+          {/* Right Column: 4 Core Pillars & Objectives */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="space-y-3">
+              <span className="text-xs font-bold tracking-wider uppercase text-sky-600">আমাদের মূল অঙ্গীকার</span>
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">
+                বিশুদ্ধ পুষ্টি ও সামাজিক টেকসই উন্নয়নে ৪টি মূল ভিত্তি
+              </h3>
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+                ব্যবস্থাপনা পরিচালকের সরাসরি তত্ত্বাবধানে কক্সবাজারের নিজস্ব প্ল্যান্টে আধুনিক ওয়াশিং, আয়োডাইজেশন ও ল্যাব টেস্টিং নিশ্চিত করে প্রতিটি প্যাকেট ও ব্যাচ বাজারজাত করা হয়।
+              </p>
+            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {coreFocusAreas.map((item, idx) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              {corePillars.map((pillar, idx) => (
                 <div
                   key={idx}
-                  className="p-4 sm:p-5 rounded-xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-sky-300 hover:shadow-md transition-all duration-200 group"
+                  className="p-4 rounded-xl border border-slate-200 hover:border-sky-400 bg-slate-50/50 hover:bg-sky-50/30 transition-all duration-200 group"
                 >
-                  <div className="flex items-center gap-2.5 mb-2">
-                    <span className="w-2 h-2 rounded-full bg-sky-600 group-hover:bg-amber-500 transition-colors" />
-                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#0f2c59] transition-colors">
-                      {item.title}
-                    </h4>
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 group-hover:scale-110 transition-transform" />
+                    <h4 className="text-sm font-bold text-slate-900">{pillar.title}</h4>
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed pl-4.5">
-                    {item.desc}
+                  <p className="text-xs text-slate-600 leading-relaxed pl-6">
+                    {pillar.desc}
                   </p>
                 </div>
               ))}
             </div>
 
-            {/* Action Bar */}
-            <div className="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="text-center sm:text-left">
-                <p className="text-sm font-bold text-slate-900">
-                  Ready to accelerate your business growth?
-                </p>
-                <p className="text-xs text-slate-500">
-                  Schedule a confidential preliminary assessment with our senior partners.
+            {/* Strategic Sister Concern Callout Box */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-sky-50 to-blue-50 border border-sky-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <div className="text-xs font-bold text-sky-800 uppercase tracking-wider">কর্পোরেট সক্ষমতা ও সহযোগী প্রতিষ্ঠান</div>
+                <h4 className="text-base font-bold text-[#0b1e3b] mt-0.5">Wings Consultants BD — সিস্টার কনসার্ন</h4>
+                <p className="text-xs text-slate-600 mt-1">
+                  ট্যাক্স, ভ্যাট, অডিট, শিল্প কারখানা স্থাপন ও প্রাতিষ্ঠানিক কমপ্লায়েন্সের ২৫ বছরের বিশ্বস্ত নাম।
                 </p>
               </div>
-
               <button
-                onClick={onBookConsultation}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#0f2c59] hover:bg-[#081a33] text-white font-bold text-sm shadow-md transition-colors cursor-pointer"
+                onClick={onOpenSisterConcern}
+                className="shrink-0 px-4 py-2 rounded-xl bg-[#0b1e3b] text-white text-xs font-bold hover:bg-sky-900 transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
               >
-                <span>Learn More & Consult</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>সহযোগী প্রোফাইল</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
-          </div>
-        </div>
 
-        {/* Visual Journey / Timeline */}
-        <div className="mt-16 pt-12 border-t border-slate-200">
-          <div className="text-center mb-8">
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-3 py-1 rounded-full">
-              Quarter-Century Milestone
-            </span>
-            <h3 className="text-2xl font-serif font-bold text-[#0f2c59] mt-2">
-              Our Journey Over 25 Years
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {milestones.map((ms, idx) => (
-              <div
-                key={idx}
-                className="relative p-5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 transition-all duration-200"
+            {/* Buttons */}
+            <div className="pt-2 flex flex-wrap items-center gap-3">
+              <button
+                onClick={onOpenDealership}
+                className="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs sm:text-sm transition-all cursor-pointer shadow-md"
               >
-                <div className="text-2xl font-serif font-black text-amber-600 mb-1">
-                  {ms.year}
-                </div>
-                <h4 className="text-sm font-bold text-slate-900 mb-2">
-                  {ms.title}
-                </h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  {ms.desc}
-                </p>
-              </div>
-            ))}
+                ডিলারশিপ তথ্য ও আবেদন
+              </button>
+            </div>
+
           </div>
+
         </div>
 
       </div>

@@ -1,25 +1,30 @@
 export type LeadStatus = 'New' | 'Contacted' | 'In Progress' | 'Completed' | 'Archived' | 'Cancelled';
 
-export type LeadItem = ConsultationLead;
+export type InquiryType = 'Product Purchase' | 'Dealership Application' | 'Sister Concern Consultation' | 'Institutional Bulk Salt' | 'General';
 
 export interface CompanyInfo {
   name: string;
+  nameBn: string;
   tagline: string;
+  taglineBn: string;
   brandMessage: string;
-  positioning: string;
-  experienceYears: number;
-  experienceBadge: string;
-  location: string;
-  address: string;
+  brandMessageBn: string;
+  positioningBn: string;
+  establishmentYear: number;
+  operationStartDate: string;
+  registrationNumber: string;
+  governingLaw: string;
+  productionCenter: string;
+  corporateOffice: string;
   phones: string[];
   email: string;
   website: string;
-  businessHours: string;
+  businessHoursBn: string;
   stats: {
-    yearsExperience: string;
-    completedProjects: string;
-    industrySectors: string;
-    clientSatisfaction: string;
+    saltIndustryEmployment: string;
+    shelfLifeYears: string;
+    blriPartnership: string;
+    nationwideDealers: string;
   };
   socialLinks: {
     facebook?: string;
@@ -28,119 +33,87 @@ export interface CompanyInfo {
   };
 }
 
-export interface ServiceItem {
+export interface BoardMember {
+  id: string;
+  name: string;
+  nameBn: string;
+  role: string;
+  roleBn: string;
+  designationBn: string;
+  qualificationBn?: string;
+  bioBn: string;
+  avatarBg: string;
+}
+
+export interface ProductItem {
   id: string;
   slug: string;
-  title: string;
-  shortDesc: string;
-  fullDesc: string;
-  icon: string;
-  tag: string;
-  keyServices: string[];
-  deliverables: string[];
-  industriesServed: string[];
-  benefits: string[];
-  ctaText: string;
+  name: string;
+  nameBn: string;
+  brandTitleBn: string;
+  category: 'edible' | 'cattle' | 'industrial';
+  categoryLabelBn: string;
+  tagBn: string;
+  shortDescBn: string;
+  fullDescBn: string;
+  keyBenefitsBn: string[];
+  specificationsBn: { [key: string]: string };
+  shelfLifeBn: string;
+  packagingOptionsBn: string[];
+  targetAudienceBn: string;
+  accentColor: string;
   image: string;
+  isPioneer?: boolean;
 }
 
-export interface IndustryItem {
+export interface ComplianceCertification {
   id: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  icon: string;
-  image: string;
-  keyConsultingAreas: string[];
-  caseHighlight?: string;
-}
-
-export interface WhyChoosePillar {
-  id: string;
-  title: string;
-  subtitle: string;
-  description: string;
+  titleBn: string;
+  authorityBn: string;
+  descBn: string;
+  badgeBn: string;
   icon: string;
 }
 
-export interface ConsultingStep {
-  step: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  deliverable: string;
-}
-
-export interface ProjectItem {
-  id: string;
-  title: string;
-  industry: string;
-  clientCategory: string;
-  servicesProvided: string[];
-  description: string;
-  completionYear: string;
-  image: string;
-  isFeatured?: boolean;
-  confidentialNotice?: string;
-}
-
-export interface CaseStudyItem {
-  id: string;
-  title: string;
-  industry: string;
-  challenge: string;
-  approach: string;
-  solution: string;
-  outcome: string;
-  metrics: { label: string; value: string }[];
-}
-
-export interface TestimonialItem {
-  id: string;
-  clientName: string;
-  position: string;
-  company: string;
-  industry: string;
-  testimonial: string;
-  rating: number;
-  date?: string;
-}
-
-export interface ResourceArticle {
-  id: string;
-  title: string;
-  slug: string;
-  category: 'Tax & Compliance' | 'Business Setup' | 'Industry Setup' | 'Investment' | 'Project Development' | 'NGO Consultancy' | 'Manufacturing' | 'Business Growth';
-  excerpt: string;
-  content: string;
-  readTime: string;
-  publishDate: string;
-  author: string;
-  downloadableDocName?: string;
-  tags: string[];
+export interface SisterConcernInfo {
+  name: string;
+  nameBn: string;
+  subtitleBn: string;
+  experienceYears: number;
+  descriptionBn: string;
+  relationshipBn: string;
+  servicesBn: {
+    id: string;
+    titleBn: string;
+    descBn: string;
+    featuresBn: string[];
+    icon: string;
+  }[];
+  contactPersonBn: string;
+  phones: string[];
+  email: string;
+  addressBn: string;
+  synergyHighlightBn: string;
 }
 
 export interface FaqItem {
   id: string;
-  question: string;
-  answer: string;
-  category: string;
+  questionBn: string;
+  answerBn: string;
+  categoryBn: string;
 }
 
-export interface ConsultationLead {
+export interface DealerInquiryLead {
   id: string;
   fullName: string;
-  company?: string;
-  email: string;
   phone: string;
-  serviceRequired: string;
-  budgetRange?: string;
-  projectDescription: string;
-  preferredDate?: string;
-  preferredTime?: string;
-  preferredContactMethod: 'Phone' | 'Email' | 'WhatsApp';
+  email?: string;
+  district: string;
+  businessName?: string;
+  inquiryType: InquiryType;
+  interestedProducts: string[];
+  message: string;
   status: LeadStatus;
   notes?: string;
-  assignedStaff?: string;
   createdAt: string;
 }
