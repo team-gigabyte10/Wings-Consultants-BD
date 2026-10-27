@@ -89,7 +89,7 @@ export const SisterConcernSection: React.FC<SisterConcernSectionProps> = ({
                 onClick={onOpenSisterConcernModal}
                 className="w-full py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs sm:text-sm transition-all cursor-pointer shadow-md flex items-center justify-center gap-2"
               >
-                <span>উইংস এর পূর্ণাঙ্গ প্রোফাইল</span>
+                <span>উইংস কনসালট্যান্টস প্রোফাইল দেখুন</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

@@ -15,10 +15,9 @@ import { Footer } from './components/Footer';
 
 import { ProductDetailModal } from './components/ProductDetailModal';
 import { DealerModal } from './components/DealerModal';
-import { SisterConcernModal } from './components/SisterConcernModal';
-import { AdminDashboardModal } from './components/AdminDashboardModal';
 import { ProductItem } from './types';
 import { ArrowUp, MessageCircle } from 'lucide-react';
+import { WingsApp } from './wings/WingsApp';
 
 const MainAppContent: React.FC = () => {
   const {
@@ -28,14 +27,27 @@ const MainAppContent: React.FC = () => {
     isDealerModalOpen,
     setIsDealerModalOpen,
     dealerModalPreselectProduct,
-    setDealerModalPreselectProduct,
-    isSisterConcernModalOpen,
-    setIsSisterConcernModalOpen,
-    isAdminModalOpen,
-    setIsAdminModalOpen
+    setDealerModalPreselectProduct
   } = useCms();
 
+  const [currentView, setCurrentView] = useState<'pure-enterprise' | 'wings-consultants'>(() => {
+    return window.location.hash === '#wings-consultants' ? 'wings-consultants' : 'pure-enterprise';
+  });
+
   const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Sync hash changes
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === '#wings-consultants') {
+        setCurrentView('wings-consultants');
+      } else if (currentView === 'wings-consultants' && window.location.hash !== '#wings-consultants') {
+        setCurrentView('pure-enterprise');
+      }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, [currentView]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +61,27 @@ const MainAppContent: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const openWingsWebsite = () => {
+    setCurrentView('wings-consultants');
+    window.location.hash = 'wings-consultants';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const returnToPureEnterprise = () => {
+    setCurrentView('pure-enterprise');
+    window.location.hash = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const scrollToSection = (sectionId: string) => {
+    if (sectionId === 'sister-concern') {
+      const elem = document.getElementById('sister-concern');
+      if (elem) {
+        elem.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+    }
+
     if (sectionId === 'hero' || sectionId === 'top') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
@@ -69,6 +101,12 @@ const MainAppContent: React.FC = () => {
     setIsDealerModalOpen(true);
   };
 
+  // If viewing the full English Wings Consultants BD website:
+  if (currentView === 'wings-consultants') {
+    return <WingsApp onReturnToParent={returnToPureEnterprise} />;
+  }
+
+  // Otherwise, render the Pure Enterprise Limited main body website:
   return (
     <div className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-amber-400 selection:text-slate-950 font-sans antialiased">
       
@@ -82,7 +120,7 @@ const MainAppContent: React.FC = () => {
         <Hero
           onExploreProducts={() => scrollToSection('products')}
           onOpenDealership={() => handleOpenDealership()}
-          onOpenSisterConcern={() => setIsSisterConcernModalOpen(true)}
+          onOpenSisterConcern={openWingsWebsite}
         />
 
         {/* Trust & Key Performance Metrics */}
@@ -91,7 +129,7 @@ const MainAppContent: React.FC = () => {
         {/* About Company, Origin & Mission */}
         <AboutSection
           onOpenDealership={() => handleOpenDealership()}
-          onOpenSisterConcern={() => setIsSisterConcernModalOpen(true)}
+          onOpenSisterConcern={openWingsWebsite}
         />
 
         {/* 4 Core Brands & Products Portfolio */}
@@ -105,7 +143,7 @@ const MainAppContent: React.FC = () => {
 
         {/* Dedicated Sister Concern: Wings Consultants BD */}
         <SisterConcernSection
-          onOpenSisterConcernModal={() => setIsSisterConcernModalOpen(true)}
+          onOpenSisterConcernModal={openWingsWebsite}
         />
 
         {/* Quality, Licenses & Scientific Compliance */}
@@ -129,8 +167,8 @@ const MainAppContent: React.FC = () => {
       {/* 3. Global Footer */}
       <Footer
         onNavigateToSection={scrollToSection}
-        onOpenAdmin={() => setIsAdminModalOpen(true)}
-        onOpenSisterConcern={() => setIsSisterConcernModalOpen(true)}
+        onOpenAdmin={() => {}}
+        onOpenSisterConcern={openWingsWebsite}
       />
 
       {/* 4. Floating WhatsApp & Scroll-to-Top Widgets */}
@@ -172,16 +210,6 @@ const MainAppContent: React.FC = () => {
         isOpen={isDealerModalOpen}
         onClose={() => setIsDealerModalOpen(false)}
         preselectedProduct={dealerModalPreselectProduct}
-      />
-
-      <SisterConcernModal
-        isOpen={isSisterConcernModalOpen}
-        onClose={() => setIsSisterConcernModalOpen(false)}
-      />
-
-      <AdminDashboardModal
-        isOpen={isAdminModalOpen}
-        onClose={() => setIsAdminModalOpen(false)}
       />
 
     </div>

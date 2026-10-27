@@ -140,12 +140,6 @@ export const Footer: React.FC<FooterProps> = ({
 
           <div className="flex items-center gap-6">
             <span>Sister Concern: Wings Consultants BD</span>
-            <button
-              onClick={onOpenAdmin}
-              className="text-slate-400 hover:text-white underline underline-offset-4 cursor-pointer"
-            >
-              প্রশাসনিক লগইন
-            </button>
           </div>
         </div>
 

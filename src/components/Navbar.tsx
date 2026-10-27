@@ -86,12 +86,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
               <Clock className="w-3.5 h-3.5 text-amber-400" />
               <span>{companyInfo.businessHoursBn}</span>
             </div>
-            <button
-              onClick={() => setIsAdminModalOpen(true)}
-              className="text-xs text-slate-400 hover:text-white underline underline-offset-4 cursor-pointer"
-            >
-              এডমিন ড্যাশবোর্ড
-            </button>
           </div>
         </div>
       </div>
