@@ -85,45 +85,10 @@ export const Logo: React.FC<LogoProps> = ({
     </div>
   );
 
-  if (variant === 'pure-brand') {
-    return (
-      <div className={`inline-flex items-center gap-2.5 select-none group ${className}`}>
-        {EmblemSVG}
-        {Wordmark}
-      </div>
-    );
-  }
-
   return (
     <div className={`inline-flex items-center gap-3 select-none group ${className}`}>
       {EmblemSVG}
-      
-      <div className="flex flex-col justify-center">
-        {/* Top: 'pure enterprise' wordmark + Bengali title */}
-        <div className="flex items-center gap-2">
-          {Wordmark}
-          
-          <div className="hidden sm:block h-7 w-[1.5px] bg-slate-300/60 mx-1" />
-
-          <div className="hidden sm:flex flex-col">
-            <span
-              className={`font-bold text-sm sm:text-base leading-tight font-sans ${
-                isLight ? 'text-white' : 'text-[#0b1e3b]'
-              }`}
-            >
-              পিওর এন্টারপ্রাইজ লি:
-            </span>
-            <span className="text-[10px] text-amber-500 font-semibold leading-tight">
-              সহযোগী: Wings Consultants BD
-            </span>
-          </div>
-        </div>
-
-        {/* Mobile subtitle */}
-        <span className="sm:hidden text-[10px] text-amber-500 font-semibold mt-0.5">
-          পিওর এন্টারপ্রাইজ লি: • Wings Consultants
-        </span>
-      </div>
+      {Wordmark}
     </div>
   );
 };

@@ -120,16 +120,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
           ))}
         </nav>
 
-        {/* Desktop CTA Buttons */}
-        <div className="hidden md:flex items-center gap-2.5">
-          <button
-            onClick={() => setIsSisterConcernModalOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold bg-sky-50 text-sky-800 hover:bg-sky-100 border border-sky-200 transition-all cursor-pointer shadow-xs"
-          >
-            <Briefcase className="w-3.5 h-3.5 text-sky-600" />
-            <span>Wings Consultants BD</span>
-          </button>
-
+        {/* Desktop CTA Button */}
+        <div className="hidden md:flex items-center">
           <button
             onClick={() => setIsDealerModalOpen(true)}
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold bg-[#0b1e3b] text-white hover:bg-sky-900 transition-all cursor-pointer shadow-md hover:shadow-lg"
@@ -166,15 +158,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
           </div>
 
           <div className="pt-3 border-t border-slate-100 flex flex-col gap-2.5">
-            <button
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                setIsSisterConcernModalOpen(true);
-              }}
-              className="w-full py-2.5 rounded-lg text-center font-semibold text-sm bg-sky-50 text-sky-800 border border-sky-200"
-            >
-              সহযোগী প্রতিষ্ঠান: Wings Consultants BD
-            </button>
             <button
               onClick={() => {
                 setIsMobileMenuOpen(false);
