@@ -23,7 +23,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
   onClose,
   initialService = 'Income Tax Consultancy'
 }) => {
-  const { services, addLead, companyInfo } = useCms();
+  const { services, sendInquiry, companyInfo } = useCms();
 
   const [fullName, setFullName] = useState('');
   const [company, setCompany] = useState('');
@@ -44,7 +44,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
     setIsSubmitting(true);
     try {
-      await addLead({
+      sendInquiry({
         fullName,
         company,
         phone,
@@ -109,10 +109,10 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                 <CheckCircle2 className="w-10 h-10" />
               </div>
               <h3 className="text-2xl font-serif font-bold text-[#0f2c59]">
-                Consultation Request Confirmed
+                Your Request Is Ready in WhatsApp
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 max-w-sm mx-auto leading-relaxed">
-                Thank you, <strong className="text-slate-800">{fullName}</strong>. Our senior consultant will review your parameters and call you at <strong className="text-slate-800">{phone}</strong>.
+                Thank you, <strong className="text-slate-800">{fullName}</strong>. WhatsApp opened in a new tab with your request. Press <strong className="text-slate-800">Send</strong> there, and a senior consultant will call you at <strong className="text-slate-800">{phone}</strong>.
               </p>
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-500">
                 <p>Hotline: {companyInfo.phones[0]} • Email: {companyInfo.email}</p>
@@ -261,10 +261,10 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                   className="w-full py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#0f2c59] to-[#0284c7] hover:from-[#081a33] hover:to-[#0369a1] shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                 >
                   {isSubmitting ? (
-                    <span>Booking Appointment...</span>
+                    <span>Opening WhatsApp...</span>
                   ) : (
                     <>
-                      <span>Confirm & Book Consultation</span>
+                      <span>Send Request via WhatsApp</span>
                       <Send className="w-4 h-4" />
                     </>
                   )}

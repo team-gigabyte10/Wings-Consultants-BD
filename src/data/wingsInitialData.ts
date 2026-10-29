@@ -8,8 +8,7 @@ import {
   CaseStudyItem,
   TestimonialItem,
   ResourceArticle,
-  FaqItem,
-  ConsultationLead
+  FaqItem
 } from '../wingsTypes';
 
 export const initialCompanyInfo: CompanyInfo = {
@@ -645,59 +644,5 @@ export const initialFaqs: FaqItem[] = [
     question: "How can I book a consultation with Wings Consultants BD?",
     answer: "You can schedule a consultation directly on this website using our 'Get a Consultation' booking form, or call us at +880 1730-349633 / +880 1914-502714, or email us at wingsconsultantsbd@gmail.com. We also welcome scheduled in-person meetings at our Dhaka office.",
     category: "General"
-  }
-];
-
-export const initialSampleLeads: ConsultationLead[] = [
-  {
-    id: "lead-101",
-    fullName: "Kazi Nazmul Huda",
-    company: "Green Horizon Agro Industries",
-    email: "nazmul@greenhorizonbd.com",
-    phone: "+880 1819-234567",
-    serviceRequired: "Project Profile Development",
-    budgetRange: "BDT 50,000 - 100,000",
-    projectDescription: "Require bankable project profile for an automated seed processing plant seeking BDT 25 Crore loan from a commercial bank.",
-    preferredDate: "2026-09-02",
-    preferredTime: "11:00 AM",
-    preferredContactMethod: "Phone",
-    status: "New",
-    notes: "Follow-up required on initial technical machinery cost estimate.",
-    assignedStaff: "Senior Financial Consultant",
-    createdAt: "2026-08-27T04:15:00.000Z"
-  },
-  {
-    id: "lead-102",
-    fullName: "Begum Dilruba Akhter",
-    company: "Apex Consumer Goods Ltd.",
-    email: "dilruba@apexconsumer.com",
-    phone: "+880 1711-987654",
-    serviceRequired: "Project Profile Development",
-    budgetRange: "BDT 100,000 - 250,000",
-    projectDescription: "Need complete bankable project profile and 5-year financial model for our automated manufacturing unit in Gazipur.",
-    preferredDate: "2026-09-03",
-    preferredTime: "03:30 PM",
-    preferredContactMethod: "WhatsApp",
-    status: "Contacted",
-    notes: "Sent financial model questionnaire. Client confirmed meeting for Wednesday.",
-    assignedStaff: "Financial Advisory Lead",
-    createdAt: "2026-08-26T09:30:00.000Z"
-  },
-  {
-    id: "lead-103",
-    fullName: "Rafiqul Islam",
-    company: "Delta Trade Corporation",
-    email: "rafiq@deltatrade.com.bd",
-    phone: "+880 1912-345678",
-    serviceRequired: "Income Tax Consultancy",
-    budgetRange: "BDT 25,000 - 50,000",
-    projectDescription: "Annual corporate tax return preparation, withholding tax schedule, and NBR tax clearance certificate processing for FY 2025-26.",
-    preferredDate: "2026-09-01",
-    preferredTime: "02:00 PM",
-    preferredContactMethod: "Email",
-    status: "In Progress",
-    notes: "Reviewing draft audit report and previous assessment orders.",
-    assignedStaff: "Senior Tax Consultant",
-    createdAt: "2026-08-25T14:20:00.000Z"
   }
 ];

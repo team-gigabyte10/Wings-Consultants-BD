@@ -1,5 +1,3 @@
-export type LeadStatus = 'New' | 'Contacted' | 'In Progress' | 'Completed' | 'Archived' | 'Cancelled';
-
 export type InquiryType = 'Product Purchase' | 'Dealership Application' | 'Sister Concern Consultation' | 'Institutional Bulk Salt' | 'General';
 
 export interface CompanyInfo {
@@ -103,8 +101,7 @@ export interface FaqItem {
   categoryBn: string;
 }
 
-export interface DealerInquiryLead {
-  id: string;
+export interface DealerInquiry {
   fullName: string;
   phone: string;
   email?: string;
@@ -113,7 +110,4 @@ export interface DealerInquiryLead {
   inquiryType: InquiryType;
   interestedProducts: string[];
   message: string;
-  status: LeadStatus;
-  notes?: string;
-  createdAt: string;
 }

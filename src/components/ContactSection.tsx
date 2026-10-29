@@ -15,7 +15,7 @@ import {
 import { InquiryType } from '../types';
 
 export const ContactSection: React.FC = () => {
-  const { companyInfo, addLead } = useCms();
+  const { companyInfo, sendInquiry } = useCms();
 
   const [formData, setFormData] = useState({
     fullName: '',
@@ -56,7 +56,7 @@ export const ContactSection: React.FC = () => {
 
     setIsSubmitting(true);
     try {
-      await addLead({
+      sendInquiry({
         fullName: formData.fullName,
         phone: formData.phone,
         email: formData.email,
@@ -191,10 +191,10 @@ export const ContactSection: React.FC = () => {
               <div className="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-3">
                 <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto" />
                 <h4 className="text-lg font-bold text-emerald-900">
-                  ধন্যবাদ! আপনার বার্তাটি সফলভাবে জমা হয়েছে।
+                  WhatsApp-এ আপনার বার্তা প্রস্তুত
                 </h4>
                 <p className="text-xs text-emerald-800">
-                  পিওর এন্টারপ্রাইজ লিমিটেডের দায়িত্বশীল প্রতিনিধি খুব শীঘ্রই আপনার দেওয়া ফোন নম্বরে যোগাযোগ করবেন।
+                  নতুন ট্যাবে WhatsApp খুলেছে। বার্তাটি পাঠাতে সেখানে Send চাপুন। WhatsApp না খুললে সরাসরি ফোন করুন: {companyInfo.phones[0]}
                 </p>
                 <button
                   onClick={() => setSubmitSuccess(false)}
@@ -320,7 +320,7 @@ export const ContactSection: React.FC = () => {
                   className="w-full py-3.5 rounded-xl bg-[#0b1e3b] text-white font-bold text-sm hover:bg-sky-900 transition-all cursor-pointer shadow-md flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4 text-amber-400" />
-                  <span>{isSubmitting ? 'প্রেরণ করা হচ্ছে...' : 'বার্তা জমা দিন'}</span>
+                  <span>WhatsApp-এ বার্তা পাঠান</span>
                 </button>
 
               </form>

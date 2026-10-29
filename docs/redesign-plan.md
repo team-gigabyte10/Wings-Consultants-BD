@@ -16,6 +16,23 @@ and static deployment.
 | Images | Placeholder images in `public/images/`. Replace them with real photos later. |
 | Router | `react-router` with browser history and an SPA fallback on the host. |
 
+## Status
+
+| Phase | Status |
+|---|---|
+| 1. Clean up | Done |
+| 2. Design system | Done: tokens in `src/index.css`, shared parts in `src/ui/` |
+| 3. Routes and layout | Done: `src/App.tsx`, `src/layouts/` |
+| 4. Pages | Done: `src/pages/`. The old sections are reused inside the pages. |
+| 5. Forms without a backend | Done: `src/lib/inquiry.ts` |
+| 6. SEO, performance, accessibility | Mostly done: per-route meta, JSON-LD, `robots.txt`, `sitemap.xml`, lazy routes, focus ring, reduced motion. A full contrast audit is still open. |
+| 7. Verify and launch | Open: Lighthouse, real-device test, deploy |
+
+Open items:
+- Restyle the old section parts one by one to use the `brand-*` tokens in place of hard-coded colors.
+- Replace the Unsplash placeholder images with real photos.
+- Confirm the production domain. The sitemap and JSON-LD use `https://www.pureenterpriseltd.com`, with Wings at `/wings`.
+
 ## Sitemap
 
 ### Pure Enterprise Limited (Bengali)

@@ -1,7 +1,3 @@
-export type LeadStatus = 'New' | 'Contacted' | 'In Progress' | 'Completed' | 'Archived' | 'Cancelled';
-
-export type LeadItem = ConsultationLead;
-
 export interface CompanyInfo {
   name: string;
   tagline: string;
@@ -127,8 +123,7 @@ export interface FaqItem {
   category: string;
 }
 
-export interface ConsultationLead {
-  id: string;
+export interface ConsultationRequest {
   fullName: string;
   company?: string;
   email: string;
@@ -139,8 +134,4 @@ export interface ConsultationLead {
   preferredDate?: string;
   preferredTime?: string;
   preferredContactMethod: 'Phone' | 'Email' | 'WhatsApp';
-  status: LeadStatus;
-  notes?: string;
-  assignedStaff?: string;
-  createdAt: string;
 }

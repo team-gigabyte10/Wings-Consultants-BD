@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 
 export const ContactSection: React.FC = () => {
-  const { companyInfo, addLead, services } = useCms();
+  const { companyInfo, sendInquiry, services } = useCms();
 
   const [formData, setFormData] = useState({
     fullName: '',
@@ -57,7 +57,7 @@ export const ContactSection: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      await addLead({
+      sendInquiry({
         fullName: formData.fullName,
         company: formData.company,
         email: formData.email,
@@ -231,13 +231,13 @@ export const ContactSection: React.FC = () => {
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
                 <h3 className="text-2xl font-serif font-bold text-[#0f2c59]">
-                  Inquiry Successfully Received
+                  Your Inquiry Is Ready in WhatsApp
                 </h3>
                 <p className="text-sm text-slate-700 max-w-md mx-auto leading-relaxed">
-                  Thank you. Your consultation request has been received by Wings Consultants BD. Our senior advisory team will contact you shortly via your preferred channel.
+                  WhatsApp opened in a new tab with your inquiry. Press Send there, and our senior advisory team will contact you through your preferred channel.
                 </p>
                 <p className="text-xs text-slate-500">
-                  Notification dispatched to: <strong className="text-slate-800">{companyInfo.email}</strong>
+                  No WhatsApp? Email us at <strong className="text-slate-800">{companyInfo.email}</strong>
                 </p>
                 <button
                   onClick={() => setSubmittedSuccess(false)}
@@ -423,10 +423,10 @@ export const ContactSection: React.FC = () => {
                     className="w-full py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#0f2c59] to-[#0284c7] hover:from-[#081a33] hover:to-[#0369a1] shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                   >
                     {isSubmitting ? (
-                      <span>Transmitting Inquiry...</span>
+                      <span>Opening WhatsApp...</span>
                     ) : (
                       <>
-                        <span>Submit Inquiry to Wings Consultants BD</span>
+                        <span>Send Inquiry via WhatsApp</span>
                         <Send className="w-4 h-4" />
                       </>
                     )}

@@ -4,8 +4,7 @@ import {
   ProductItem,
   ComplianceCertification,
   SisterConcernInfo,
-  FaqItem,
-  DealerInquiryLead
+  FaqItem
 } from '../types';
 
 export const initialCompanyInfo: CompanyInfo = {
@@ -370,34 +369,5 @@ export const initialFaqs: FaqItem[] = [
     questionBn: 'সারাদেশে ডিলারশিপ বা পাইকারি ক্রয়ের নিয়ম কী?',
     answerBn: 'আমরা দেশের প্রতিটি জেলা ও উপজেলায় অনুমোদিত ডিলার নিয়োগ করছি। যেকোনো প্রতিষ্ঠিত পাইকারি ব্যবসায়ী, ফিড ডিলার অথবা শিল্প উদ্যোক্তা আমাদের ওয়েবসাইটে থাকা "ডিলারশিপ আবেদন" ফর্ম পূরণ করে অথবা সরাসরি কক্সবাজার প্ল্যান্ট বা ঢাকা অফিসের সাথে ফোনে যোগাযোগ করে ডিলারশিপ গ্রহণ করতে পারেন।',
     categoryBn: 'ডিলার ও সাপ্লাই'
-  }
-];
-
-export const initialSampleLeads: DealerInquiryLead[] = [
-  {
-    id: 'lead-101',
-    fullName: 'জনাব রফিকুল ইসলাম',
-    phone: '+8801711223344',
-    email: 'rafiq.traders@gmail.com',
-    district: 'বগুড়া',
-    businessName: 'মেসার্স রফিক এন্টারপ্রাইজ',
-    inquiryType: 'Dealership Application',
-    interestedProducts: ['দেশী আয়োডিনযুক্ত লবণ', 'মিনামিক্স (খনিজ মিশ্রণ)'],
-    message: 'বগুড়া সদর ও আশপাশের ডেইরি খামারগুলোর জন্য মিনামিক্স ও লবণের পাইকারি ডিলারশিপ নিতে আগ্রহী। বিস্তারিত শর্তাবলী জানতে চাই।',
-    status: 'New',
-    createdAt: '2026-10-27T10:30:00Z'
-  },
-  {
-    id: 'lead-102',
-    fullName: 'ইঞ্জিনিয়ার তানভীর চৌধুরী',
-    phone: '+8801822334455',
-    district: 'নারায়ণগঞ্জ',
-    businessName: 'আল-মদিনা টেক্সটাইল অ্যান্ড ওয়াশিং',
-    inquiryType: 'Institutional Bulk Salt',
-    interestedProducts: ['ইন্ডাস্ট্রিয়াল সল্ট (শিল্প লবণ)'],
-    message: 'আমাদের টেক্সটাইল ডায়িং ইউনিটের জন্য প্রতি মাসে ৩০ মেট্রিক টন ইন্ডাস্ট্রিয়াল ওয়াশড লবণের প্রাতিষ্ঠানিক কোটেশন প্রয়োজন।',
-    status: 'Contacted',
-    notes: 'কক্সবাজার কারখানা থেকে সরাসরি ট্রাক ডেলিভারির দরপত্র পাঠানো হয়েছে।',
-    createdAt: '2026-10-26T14:15:00Z'
   }
 ];

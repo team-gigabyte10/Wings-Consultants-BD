@@ -14,7 +14,7 @@ export const DealerModal: React.FC<DealerModalProps> = ({
   onClose,
   preselectedProduct
 }) => {
-  const { addLead } = useCms();
+  const { sendInquiry, companyInfo } = useCms();
 
   const [formData, setFormData] = useState({
     fullName: '',
@@ -66,7 +66,7 @@ export const DealerModal: React.FC<DealerModalProps> = ({
 
     setIsSubmitting(true);
     try {
-      await addLead({
+      sendInquiry({
         fullName: formData.fullName,
         phone: formData.phone,
         email: formData.email,
@@ -115,10 +115,10 @@ export const DealerModal: React.FC<DealerModalProps> = ({
             <div className="py-8 text-center space-y-4">
               <CheckCircle2 className="w-14 h-14 text-emerald-600 mx-auto" />
               <h4 className="text-xl font-bold text-slate-900">
-                আপনার আবেদনটি গৃহীত হয়েছে!
+                WhatsApp-এ আপনার আবেদন প্রস্তুত
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-md mx-auto">
-                ধন্যবাদ। পিওর এন্টারপ্রাইজ লিমিটেডের ডিলারশিপ ও সেলস ম্যানেজমেন্ট টিম আপনার তথ্যাদি পর্যালোচনা করে আগামী ২৪ ঘণ্টার মধ্যে ফোনে যোগাযোগ করবে।
+                নতুন ট্যাবে WhatsApp খুলেছে। আবেদনটি পাঠাতে সেখানে Send চাপুন। WhatsApp না খুললে সরাসরি ফোন করুন: {companyInfo.phones[0]}
               </p>
               <button
                 onClick={onClose}
@@ -226,7 +226,7 @@ export const DealerModal: React.FC<DealerModalProps> = ({
                 className="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold text-sm hover:from-amber-400 hover:to-amber-500 transition-all cursor-pointer shadow-md flex items-center justify-center gap-2"
               >
                 <Send className="w-4 h-4" />
-                <span>{isSubmitting ? 'প্রক্রিয়াধীন...' : 'আবেদন জমা দিন'}</span>
+                <span>WhatsApp-এ আবেদন পাঠান</span>
               </button>
             </form>
           )}

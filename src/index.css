@@ -1,19 +1,71 @@
 @import "tailwindcss";
 
+/* Each site sets its brand through these variables (see [data-site] below).
+   Shared UI parts use the brand-* utilities, so one part serves both companies. */
+@theme inline {
+  --color-brand: var(--site-brand);
+  --color-brand-dark: var(--site-brand-dark);
+  --color-brand-soft: var(--site-brand-soft);
+  --color-accent: var(--site-accent);
+  --color-accent-soft: var(--site-accent-soft);
+  --font-sans: var(--site-font-sans);
+  --font-display: var(--site-font-display);
+  --font-serif: var(--site-font-display);
+}
+
+@theme {
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.04), 0 8px 24px -12px rgb(15 23 42 / 0.12);
+  --radius-card: 1rem;
+}
+
+:root,
+[data-site="pure"] {
+  --site-brand: #0b1e3b;
+  --site-brand-dark: #07172b;
+  --site-brand-soft: #e8eef8;
+  --site-accent: #f59e0b;
+  --site-accent-soft: #fef3c7;
+  --site-font-sans: 'Hind Siliguri', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --site-font-display: 'Hind Siliguri', 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+[data-site="wings"] {
+  --site-brand: #0f2c59;
+  --site-brand-dark: #081a33;
+  --site-brand-soft: #e6f0fa;
+  --site-accent: #0284c7;
+  --site-accent-soft: #e0f2fe;
+  --site-font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --site-font-display: 'Playfair Display', Georgia, serif;
+}
+
 @layer base {
   body {
-    font-family: 'Hind Siliguri', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-family: var(--site-font-sans);
     color: #0f172a;
-    background-color: #f8fafc;
+    background-color: #ffffff;
   }
 
   h1, h2, h3, h4, .font-serif-heading {
-    font-family: 'Hind Siliguri', 'Playfair Display', Georgia, serif;
     font-weight: 700;
   }
 
+  .font-serif-heading,
   .font-brand-logo {
-    font-family: 'Hind Siliguri', 'Cinzel', serif;
+    font-family: var(--site-font-display);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--site-accent);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
