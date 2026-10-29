@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useCms } from './WingsCmsContext';
+import { HR_TRAINING_PRACTICE } from '../data/wingsInitialData';
 import {
   Phone,
   Mail,
@@ -34,6 +35,7 @@ export const ContactSection: React.FC = () => {
 
   const serviceOptions = [
     ...services.map((s) => s.title),
+    HR_TRAINING_PRACTICE,
     'Custom Industrial & Corporate Advisory',
     'Other Business Solution'
   ];

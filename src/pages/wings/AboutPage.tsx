@@ -4,6 +4,7 @@ import { usePageMeta } from '../../lib/usePageMeta';
 import { PageHero } from '../../ui/PageHero';
 import { AboutSection } from '../../wings/WingsAbout';
 import { ConsultingProcess } from '../../wings/ConsultingProcess';
+import { ExpertsSection } from '../../wings/ExpertsSection';
 
 export default function WingsAboutPage() {
   const { openConsultation } = useCms();
@@ -23,6 +24,7 @@ export default function WingsAboutPage() {
         crumbs={[{ label: 'Home', to: '/wings' }, { label: 'About' }]}
       />
       <AboutSection onBookConsultation={() => openConsultation('Strategic Corporate Planning')} />
+      <ExpertsSection />
       <ConsultingProcess onBookConsultation={() => openConsultation()} />
     </>
   );

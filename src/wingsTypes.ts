@@ -135,3 +135,25 @@ export interface ConsultationRequest {
   preferredTime?: string;
   preferredContactMethod: 'Phone' | 'Email' | 'WhatsApp';
 }
+
+export interface ExpertProfile {
+  id: string;
+  slug: string;
+  name: string;
+  title: string;
+  /** The full list of roles from the CV, shown under the name. */
+  roles: string[];
+  photo: string;
+  summary: string;
+  profile: string;
+  facts: { value: string; label: string }[];
+  expertise: { area: string; scope: string }[];
+  modules: string[];
+  methods: string[];
+  experience: { role: string; organization: string; period: string; detail: string }[];
+  education: string[];
+  sectors: string[];
+  /** The consultation option that the "Book a session" button selects. */
+  consultationTopic: string;
+  linkedin?: string;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useCms } from './WingsCmsContext';
+import { HR_TRAINING_PRACTICE } from '../data/wingsInitialData';
 import {
   X,
   Calendar,
@@ -203,6 +204,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                       {s.title}
                     </option>
                   ))}
+                  <option value={HR_TRAINING_PRACTICE}>{HR_TRAINING_PRACTICE}</option>
                   <option value="General Strategic Business Advisory">General Strategic Business Advisory</option>
                 </select>
               </div>

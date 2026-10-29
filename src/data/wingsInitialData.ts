@@ -8,7 +8,8 @@ import {
   CaseStudyItem,
   TestimonialItem,
   ResourceArticle,
-  FaqItem
+  FaqItem,
+  ExpertProfile
 } from '../wingsTypes';
 
 export const initialCompanyInfo: CompanyInfo = {
@@ -644,5 +645,101 @@ export const initialFaqs: FaqItem[] = [
     question: "How can I book a consultation with Wings Consultants BD?",
     answer: "You can schedule a consultation directly on this website using our 'Get a Consultation' booking form, or call us at +880 1730-349633 / +880 1914-502714, or email us at wingsconsultantsbd@gmail.com. We also welcome scheduled in-person meetings at our Dhaka office.",
     category: "General"
+  }
+];
+
+export const HR_TRAINING_PRACTICE = "HR, Training & Capacity Building";
+
+export const initialExperts: ExpertProfile[] = [
+  {
+    id: "expert-1",
+    slug: "dr-muhammad-abdul-bari",
+    name: "Dr. Muhammad Abdul Bari",
+    title: "HR Expert",
+    roles: [
+      "Professional Trainer",
+      "HRM & Management Consultant",
+      "Development & Capacity-Building Specialist"
+    ],
+    photo: "/images/team/muhammad-abdul-bari.webp",
+    summary:
+      "PhD in Human Resource Management with 19+ years in the NGO and development sector. Leads our HR advisory, leadership training and capacity-building work.",
+    profile:
+      "Senior development and management professional who combines a PhD in Human Resource Management with extensive practical experience in staff development, recruitment, HR systems, programme and project management, organizational effectiveness, strategic partnerships, donor engagement and development finance. Works closely with NGO leadership, management teams, project professionals and community-oriented institutions, and turns complex management and development concepts into practical, participant-focused learning, tools and workplace applications.",
+    facts: [
+      { value: "19+ Years", label: "NGO & development-sector experience" },
+      { value: "PhD", label: "Human Resource Management" },
+      { value: "Senior", label: "Advisory engagement with leadership teams" }
+    ],
+    expertise: [
+      { area: "Strategic HRM & Workforce Development", scope: "HR planning, recruitment and selection, onboarding, performance management, staff development, competency frameworks and retention." },
+      { area: "Leadership & Management", scope: "Leadership effectiveness, supervision, delegation, decision-making, communication, team management and workplace performance." },
+      { area: "Training of Trainers (ToT)", scope: "Training needs assessment, learning objectives, adult-learning principles, session planning, facilitation, presentation and evaluation." },
+      { area: "Organizational Development", scope: "Institutional strengthening, organizational effectiveness, change management, culture, role clarity and performance improvement." },
+      { area: "Programme & Project Management", scope: "Project cycle management, work planning, implementation, monitoring, reporting, coordination and risk management." },
+      { area: "NGO & Development Management", scope: "NGO management, stakeholder engagement, partnership development, donor relations and development-sector practice." },
+      { area: "Resource Mobilization & Partnerships", scope: "Donor engagement, funding readiness, strategic partnerships, proposal concepts and resource mobilization." },
+      { area: "Development Finance & Social Enterprise", scope: "Investment readiness, blended-finance concepts, enterprise development and community-based economic initiatives." }
+    ],
+    modules: [
+      "Strategic Human Resource Management for NGOs and Development Organizations",
+      "Recruitment, Selection, Onboarding and Staff Retention",
+      "Performance Management and Staff Development",
+      "Leadership and Supervisory Skills for NGO Managers",
+      "Team Building, Communication and Workplace Effectiveness",
+      "Training of Trainers (ToT) and Professional Facilitation Skills",
+      "Organizational Development and Change Management",
+      "Project & Programme Management for Development Professionals",
+      "Donor Relations, Strategic Partnerships and Resource Mobilization",
+      "Funding Readiness, Proposal Concepts and Development Finance",
+      "Social Enterprise and Community Enterprise Development",
+      "Professional Ethics, Accountability and Institutional Effectiveness"
+    ],
+    methods: [
+      "Training Needs Assessment (TNA) and competency-gap identification",
+      "Adult learning, participatory facilitation and experience-based learning",
+      "Session design, learning objectives, exercises, case studies and group work",
+      "Executive and management workshops and professional development sessions",
+      "Training materials, presentations, facilitator notes and practical tools",
+      "Pre/post learning checks, participant feedback and training evaluation",
+      "Linking training outcomes to organizational performance and workplace application"
+    ],
+    experience: [
+      {
+        role: "Development & Management Consultant / HRM & Development Finance Consultant",
+        organization: "Work Info, Bangladesh",
+        period: "Current",
+        detail: "Senior advisory support to NGOs, social enterprises and local institutions on HRM, organizational effectiveness, programme and project management, strategic partnerships, donor engagement, resource mobilization, development finance and funding readiness."
+      },
+      {
+        role: "Funding & Investment Consultant",
+        organization: "Ashroy Angon Society (AAS), Bangladesh",
+        period: "2026 – Present",
+        detail: "Institutional funding strategy, partnership development, donor and investor engagement, project concept development and blended funding initiatives in community enterprise, eco-tourism, green value chains and agriculture."
+      },
+      {
+        role: "Senior NGO / Development Management",
+        organization: "NGO & Development Sector, Bangladesh",
+        period: "19+ years",
+        detail: "Progressive experience in staff development, recruitment, HR systems, project and programme management, institutional development, stakeholder coordination, donor relations and partnership building, including senior management responsibilities."
+      }
+    ],
+    education: [
+      "PhD in Human Resource Management — University of Southern California, 2007",
+      "Professional and academic development in HRM, management and development practice"
+    ],
+    sectors: [
+      "NGO & development management",
+      "Human resources & staff development",
+      "Community enterprise",
+      "Climate-smart agriculture",
+      "Renewable energy",
+      "Eco-tourism",
+      "Sustainable livelihoods",
+      "Inclusive finance",
+      "SME & social enterprise",
+      "Institutional capacity building"
+    ],
+    consultationTopic: HR_TRAINING_PRACTICE
   }
 ];

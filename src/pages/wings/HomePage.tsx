@@ -8,6 +8,7 @@ import { ServicesSection } from '../../wings/ServicesSection';
 import { WhyChooseUs } from '../../wings/WhyChooseUs';
 import { TestimonialsSection } from '../../wings/TestimonialsSection';
 import { CTASection } from '../../wings/CTASection';
+import { ExpertsSection } from '../../wings/ExpertsSection';
 
 export default function WingsHomePage() {
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ export default function WingsHomePage() {
       />
       <WhyChooseUs />
       <TestimonialsSection />
+      <ExpertsSection compact />
       <CTASection onBookConsultation={() => openConsultation()} onContactClick={() => navigate('/wings/contact')} />
     </>
   );

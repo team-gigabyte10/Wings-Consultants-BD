@@ -10,6 +10,7 @@ import {
   TestimonialItem,
   ResourceArticle,
   FaqItem,
+  ExpertProfile,
   ConsultationRequest
 } from '../wingsTypes';
 import {
@@ -22,7 +23,8 @@ import {
   initialCaseStudies,
   initialTestimonials,
   initialResources,
-  initialFaqs
+  initialFaqs,
+  initialExperts
 } from '../data/wingsInitialData';
 import { formatInquiry, openWhatsApp } from '../lib/inquiry';
 
@@ -37,6 +39,7 @@ interface CmsContextType {
   testimonials: TestimonialItem[];
   resources: ResourceArticle[];
   faqs: FaqItem[];
+  experts: ExpertProfile[];
 
   /** Opens WhatsApp with the request already written. Nothing is stored. */
   sendInquiry: (request: ConsultationRequest) => void;
@@ -81,6 +84,7 @@ export const CmsProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         testimonials: initialTestimonials,
         resources: initialResources,
         faqs: initialFaqs,
+        experts: initialExperts,
         sendInquiry,
         isConsultationModalOpen,
         openConsultation: (serviceTitle?: string) => {

@@ -20,6 +20,7 @@ const WingsCaseStudies = lazy(() => import('./pages/wings/CaseStudiesPage'));
 const WingsInsights = lazy(() => import('./pages/wings/InsightsPage'));
 const WingsFaq = lazy(() => import('./pages/wings/FaqPage'));
 const WingsContact = lazy(() => import('./pages/wings/ContactPage'));
+const WingsExpertDetail = lazy(() => import('./pages/wings/ExpertDetailPage'));
 
 const NotFound = lazy(() => import('./pages/NotFoundPage'));
 
@@ -47,6 +48,7 @@ export function App() {
           <Route path="wings" element={<WingsLayout />}>
             <Route index element={<WingsHome />} />
             <Route path="about" element={<WingsAbout />} />
+            <Route path="experts/:slug" element={<WingsExpertDetail />} />
             <Route path="services" element={<WingsServices />} />
             <Route path="services/:slug" element={<WingsServiceDetail />} />
             <Route path="industries" element={<WingsIndustries />} />
