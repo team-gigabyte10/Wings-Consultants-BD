@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { usePageMeta } from '../lib/usePageMeta';
 
 export default function NotFoundPage() {
-  usePageMeta({ title: 'Page not found | Pure Enterprise Group', lang: 'en' });
+  usePageMeta({ title: 'Page not found | Pure Enterprise Limited', lang: 'en', noindex: true });
 
   return (
     <div data-site="pure" className="min-h-screen flex items-center justify-center bg-slate-50 px-4">

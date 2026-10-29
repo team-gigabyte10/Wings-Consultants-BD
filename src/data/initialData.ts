@@ -32,7 +32,7 @@ export const initialCompanyInfo: CompanyInfo = {
     nationwideDealers: '৬৪ জেলা'
   },
   socialLinks: {
-    facebook: 'https://facebook.com/pureenterpriselimited',
+    facebook: 'https://www.facebook.com/PureEnterpriseLimited',
     linkedin: 'https://linkedin.com/company/pure-enterprise-limited',
     whatsapp: 'https://wa.me/8801730349633'
   }
@@ -152,7 +152,7 @@ export const initialProducts: ProductItem[] = [
     packagingOptionsBn: ['৫০০ গ্রাম রিটেল প্যাক', '১ কেজি প্রিমিয়াম প্যাক', '৫০ কেজি প্রাতিষ্ঠানিক বস্তা'],
     targetAudienceBn: 'সাধারণ পরিবার, রেস্তোরাঁ ও খাদ্য প্রক্রিয়াজাতকরণ প্রতিষ্ঠান',
     accentColor: 'from-blue-600 to-cyan-500',
-    image: 'https://images.unsplash.com/photo-1518110925495-5fe2fda0442c?auto=format&fit=crop&w=800&q=80'
+    image: '/images/stock/photo-1518110925495-5fe2fda0442c.webp'
   },
   {
     id: 'product-shulov-salt',
@@ -181,7 +181,7 @@ export const initialProducts: ProductItem[] = [
     packagingOptionsBn: ['১ কেজি স্ট্যান্ডার্ড প্যাক', '৫০ কেজি বাল্ক ডিলার প্যাক'],
     targetAudienceBn: 'গ্রামাঞ্চল ও শহরের মূল্য-সংবেদনশীল বৃহৎ ভোক্তা গোষ্ঠী ও পাইকারি বাজার',
     accentColor: 'from-emerald-600 to-teal-500',
-    image: 'https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=800&q=80'
+    image: '/images/stock/photo-1506806732259-39c2d0268443.webp'
   },
   {
     id: 'product-minamix',
@@ -212,7 +212,7 @@ export const initialProducts: ProductItem[] = [
     packagingOptionsBn: ['১ কেজি প্যাক', '৫ কেজি খামারী বালতি/প্যাক', '২৫ কেজি কমার্শিয়াল ব্যাগ'],
     targetAudienceBn: 'ডেইরি খামার, গবাদি পশু মোটাতাজাকরণ প্রকল্প, ফিড মিল ও মৎস্য খামার',
     accentColor: 'from-amber-600 to-orange-500',
-    image: 'https://images.unsplash.com/photo-1546445317-29f4545e9d53?auto=format&fit=crop&w=800&q=80',
+    image: '/images/stock/photo-1546445317-29f4545e9d53.webp',
     isPioneer: true
   },
   {
@@ -242,7 +242,7 @@ export const initialProducts: ProductItem[] = [
     packagingOptionsBn: ['৫০ কেজি ভারী ওভেন ব্যাগ', '১ টন জাম্বো ব্যাগ'],
     targetAudienceBn: 'টেক্সটাইল মিল, ডায়িং ফ্যাক্টরি, ট্যানারি, সাবান কারখানা ও ওয়াটার পিউরিফিকেশন প্ল্যান্ট',
     accentColor: 'from-slate-700 to-slate-900',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80'
+    image: '/images/stock/photo-1581091226825-a6a2a5aee158.webp'
   }
 ];
 

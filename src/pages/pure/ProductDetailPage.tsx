@@ -5,6 +5,8 @@ import { useCms } from '../../context/CmsContext';
 import { usePageMeta } from '../../lib/usePageMeta';
 import { PageHero } from '../../ui/PageHero';
 import { Container } from '../../ui/Container';
+import { JsonLd } from '../../ui/JsonLd';
+import { absoluteUrl } from '../../lib/site';
 
 export default function ProductDetailPage() {
   const { slug } = useParams();
@@ -12,7 +14,7 @@ export default function ProductDetailPage() {
   const product = products.find((p) => p.slug === slug);
 
   usePageMeta({
-    title: product ? `${product.nameBn} | পিওর এন্টারপ্রাইজ লিমিটেড` : 'পিওর এন্টারপ্রাইজ লিমিটেড',
+    title: product ? `${product.nameBn} (${product.name}) | Pure Enterprise Limited` : 'Pure Enterprise Limited',
     description: product?.shortDescBn,
     lang: 'bn'
   });
@@ -23,6 +25,19 @@ export default function ProductDetailPage() {
 
   return (
     <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: product.name,
+          alternateName: product.nameBn,
+          description: product.shortDescBn,
+          image: absoluteUrl(product.image),
+          category: product.categoryLabelBn,
+          brand: { '@type': 'Brand', name: product.brandTitleBn },
+          manufacturer: { '@id': absoluteUrl('/#organization') }
+        }}
+      />
       <PageHero
         eyebrow={`${product.categoryLabelBn} • ${product.tagBn}`}
         title={product.nameBn}

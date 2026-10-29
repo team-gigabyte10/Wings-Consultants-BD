@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
+import { Navigate, Route, Routes } from 'react-router';
 import { PureLayout } from './layouts/PureLayout';
 import { WingsLayout } from './layouts/WingsLayout';
 
@@ -26,42 +26,41 @@ const NotFound = lazy(() => import('./pages/NotFoundPage'));
 
 // Old links used `/#wings-consultants` to open the Wings site.
 const LegacyHashRedirect: React.FC<{ children: React.ReactNode }> = ({ children }) =>
-  window.location.hash === '#wings-consultants' ? <Navigate to="/wings" replace /> : <>{children}</>;
+  typeof window !== 'undefined' && window.location.hash === '#wings-consultants' ? <Navigate to="/wings" replace /> : <>{children}</>;
 
 const PageFallback = () => <div className="min-h-[60vh]" aria-busy="true" />;
 
+/** All routes. The browser wraps them in BrowserRouter, the prerender script in StaticRouter. */
 export function App() {
   return (
-    <BrowserRouter>
-      <Suspense fallback={<PageFallback />}>
-        <Routes>
-          <Route element={<PureLayout />}>
-            <Route index element={<LegacyHashRedirect><PureHome /></LegacyHashRedirect>} />
-            <Route path="about" element={<PureAbout />} />
-            <Route path="products" element={<PureProducts />} />
-            <Route path="products/:slug" element={<PureProductDetail />} />
-            <Route path="dealership" element={<PureDealership />} />
-            <Route path="faq" element={<PureFaq />} />
-            <Route path="contact" element={<PureContact />} />
-          </Route>
+    <Suspense fallback={<PageFallback />}>
+      <Routes>
+        <Route element={<PureLayout />}>
+          <Route index element={<LegacyHashRedirect><PureHome /></LegacyHashRedirect>} />
+          <Route path="about" element={<PureAbout />} />
+          <Route path="products" element={<PureProducts />} />
+          <Route path="products/:slug" element={<PureProductDetail />} />
+          <Route path="dealership" element={<PureDealership />} />
+          <Route path="faq" element={<PureFaq />} />
+          <Route path="contact" element={<PureContact />} />
+        </Route>
 
-          <Route path="wings" element={<WingsLayout />}>
-            <Route index element={<WingsHome />} />
-            <Route path="about" element={<WingsAbout />} />
-            <Route path="experts/:slug" element={<WingsExpertDetail />} />
-            <Route path="services" element={<WingsServices />} />
-            <Route path="services/:slug" element={<WingsServiceDetail />} />
-            <Route path="industries" element={<WingsIndustries />} />
-            <Route path="case-studies" element={<WingsCaseStudies />} />
-            <Route path="insights" element={<WingsInsights />} />
-            <Route path="faq" element={<WingsFaq />} />
-            <Route path="contact" element={<WingsContact />} />
-          </Route>
+        <Route path="wings" element={<WingsLayout />}>
+          <Route index element={<WingsHome />} />
+          <Route path="about" element={<WingsAbout />} />
+          <Route path="experts/:slug" element={<WingsExpertDetail />} />
+          <Route path="services" element={<WingsServices />} />
+          <Route path="services/:slug" element={<WingsServiceDetail />} />
+          <Route path="industries" element={<WingsIndustries />} />
+          <Route path="case-studies" element={<WingsCaseStudies />} />
+          <Route path="insights" element={<WingsInsights />} />
+          <Route path="faq" element={<WingsFaq />} />
+          <Route path="contact" element={<WingsContact />} />
+        </Route>
 
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
   );
 }
 

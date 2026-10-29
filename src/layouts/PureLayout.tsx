@@ -8,6 +8,8 @@ import { SiteHeader, NavItem } from '../ui/SiteHeader';
 import { SiteFooter } from '../ui/SiteFooter';
 import { FloatingActions } from '../ui/FloatingActions';
 import { ScrollToTop } from '../ui/ScrollToTop';
+import { JsonLd } from '../ui/JsonLd';
+import { absoluteUrl } from '../lib/site';
 
 const PureShell: React.FC = () => {
   const { companyInfo, products, isDealerModalOpen, openDealerModal, closeDealerModal, dealerModalPreselectProduct } = useCms();
@@ -28,6 +30,23 @@ const PureShell: React.FC = () => {
   return (
     <div data-site="pure" className="min-h-screen flex flex-col bg-white text-slate-900 font-sans antialiased selection:bg-amber-400 selection:text-slate-950">
       <ScrollToTop />
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          '@id': absoluteUrl('/#organization'),
+          name: 'Pure Enterprise Limited',
+          alternateName: companyInfo.nameBn,
+          url: absoluteUrl('/'),
+          logo: absoluteUrl('/images/brand/pure-enterprise-logo.png'),
+          email: companyInfo.email,
+          telephone: companyInfo.phones[0].replace(/[^0-9+]/g, ''),
+          foundingDate: String(companyInfo.establishmentYear),
+          address: { '@type': 'PostalAddress', addressLocality: "Cox's Bazar", addressCountry: 'BD' },
+          sameAs: [companyInfo.socialLinks.facebook].filter(Boolean),
+          subOrganization: { '@id': absoluteUrl('/wings#organization') }
+        }}
+      />
       <SiteHeader
         site="pure"
         logo={<Logo size="md" />}

@@ -8,20 +8,33 @@ import { ProductsSection } from '../../components/ProductsSection';
 import { SisterConcernSection } from '../../components/SisterConcernSection';
 import { DealerNetworkSection } from '../../components/DealerNetworkSection';
 import { CtaBand } from '../../ui/CtaBand';
+import { JsonLd } from '../../ui/JsonLd';
+import { absoluteUrl } from '../../lib/site';
 
 export default function HomePage() {
   const navigate = useNavigate();
   const { companyInfo, openDealerModal } = useCms();
 
   usePageMeta({
-    title: 'পিওর এন্টারপ্রাইজ লিমিটেড | Pure Enterprise Limited',
+    title: "Pure Enterprise Limited | পিওর এন্টারপ্রাইজ লিমিটেড – Cox's Bazar, Bangladesh",
     description:
-      'পিওর এন্টারপ্রাইজ লিমিটেড — বিশুদ্ধ আয়োডিনযুক্ত লবণ (দেশী ও সুলভ), প্রাণিসম্পদের খনিজ মিশ্রণ মিনামিক্স এবং ইন্ডাস্ট্রিয়াল সল্ট। কক্সবাজার থেকে দেশব্যাপী সরবরাহ।',
+      "Pure Enterprise Limited, Cox's Bazar: পিওর এন্টারপ্রাইজ লিমিটেড — বিশুদ্ধ আয়োডিনযুক্ত লবণ (দেশী ও সুলভ), প্রাণিসম্পদের খনিজ মিশ্রণ মিনামিক্স এবং ইন্ডাস্ট্রিয়াল সল্ট। কক্সবাজার থেকে দেশব্যাপী সরবরাহ।",
     lang: 'bn'
   });
 
   return (
     <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'Pure Enterprise Limited',
+          alternateName: ['পিওর এন্টারপ্রাইজ লিমিটেড', 'Pure Enterprise'],
+          url: absoluteUrl('/'),
+          inLanguage: ['bn', 'en'],
+          publisher: { '@id': absoluteUrl('/#organization') }
+        }}
+      />
       <Hero
         onExploreProducts={() => navigate('/products')}
         onOpenDealership={() => openDealerModal()}

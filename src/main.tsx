@@ -1,10 +1,18 @@
 import {StrictMode} from 'react';
-import {createRoot} from 'react-dom/client';
+import {createRoot, hydrateRoot} from 'react-dom/client';
+import {BrowserRouter} from 'react-router';
 import App from './App.tsx';
 import './index.css';
 
-createRoot(document.getElementById('root')!).render(
+const container = document.getElementById('root')!;
+const app = (
   <StrictMode>
-    <App />
-  </StrictMode>,
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>
 );
+
+// Prerendered pages already contain the HTML, so React attaches to it.
+if (container.hasChildNodes()) hydrateRoot(container, app);
+else createRoot(container).render(app);

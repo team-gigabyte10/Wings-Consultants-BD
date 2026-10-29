@@ -44,6 +44,9 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white leading-[1.2]">
+              <span className="block text-base sm:text-lg font-semibold tracking-wide text-sky-300 mb-2">
+                Pure Enterprise Limited · Cox&apos;s Bazar, Bangladesh
+              </span>
               {companyInfo.nameBn}
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-sky-100 to-amber-300 mt-2 text-2xl sm:text-3xl lg:text-4xl">
                 জাতির সুস্বাস্থ্য, সঠিক পুষ্টি ও টেকসই শিল্প উন্নয়নে অগ্রদূত

@@ -70,7 +70,7 @@ export const initialServices: ServiceItem[] = [
       "Full representation before Taxes Zones and appellate tribunals"
     ],
     ctaText: "Explore Tax Services",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80"
+    image: "/images/stock/photo-1554224155-8d04cb21cd6c.webp"
   },
   {
     id: "company-profile-pitch-deck",
@@ -103,7 +103,7 @@ export const initialServices: ServiceItem[] = [
       "Strong corporate storytelling that commands stakeholder confidence"
     ],
     ctaText: "Build Your Business Profile",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+    image: "/images/stock/photo-1460925895917-afdab827c52f.webp"
   },
   {
     id: "ngo-programme-consultancy",
@@ -136,7 +136,7 @@ export const initialServices: ServiceItem[] = [
       "Rigorous financial transparency and audit-ready documentation"
     ],
     ctaText: "Discuss Your NGO Project",
-    image: "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=800&q=80"
+    image: "/images/stock/photo-1531206715517-5c0ba140b2b8.webp"
   },
   {
     id: "project-profile-development",
@@ -169,7 +169,7 @@ export const initialServices: ServiceItem[] = [
       "Direct advisory on debt structuring and government incentive schemes"
     ],
     ctaText: "Develop Your Project Profile",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
+    image: "/images/stock/photo-1454165804606-c3d57bc86b40.webp"
   },
   {
     id: "raw-materials-packaging-supply",
@@ -202,7 +202,7 @@ export const initialServices: ServiceItem[] = [
       "Consistency in supply ensuring zero factory downtime"
     ],
     ctaText: "Request Material Sourcing",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80"
+    image: "/images/stock/photo-1586528116311-ad8dd3c8310d.webp"
   }
 ];
 
@@ -213,7 +213,7 @@ export const initialIndustries: IndustryItem[] = [
     subtitle: "Corporate taxation, audits, financial projections, and statutory compliance",
     description: "Assisting corporate entities, financial institutions, and business owners navigate complex regulatory tax codes, wealth reporting, and statutory filings.",
     icon: "Coins",
-    image: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80",
+    image: "/images/stock/photo-1450133064473-71024230f91b.webp",
     keyConsultingAreas: ["Corporate Income Tax", "Withholding Tax Audits", "TIN & Wealth Filings", "Tax Optimization"],
     caseHighlight: "Successfully resolved long-standing tax assessments for 35+ corporate clients with 100% compliance."
   },
@@ -223,7 +223,7 @@ export const initialIndustries: IndustryItem[] = [
     subtitle: "Factory establishment, layout engineering, and production optimization",
     description: "End-to-end consulting for industrial machinery installation, greenfield factory development, utility planning, and statutory licensing across Bangladesh.",
     icon: "Factory",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80",
+    image: "/images/stock/photo-1581091226825-a6a2a5aee158.webp",
     keyConsultingAreas: ["Factory Blueprints", "DoE & Fire Licensing", "Machine Sourcing", "Process SOPs"],
     caseHighlight: "Designed and facilitated setup of 18+ medium and large-scale manufacturing units in Dhaka and regional industrial parks."
   },
@@ -233,7 +233,7 @@ export const initialIndustries: IndustryItem[] = [
     subtitle: "Product launches, brand profiles, and quality compliance",
     description: "Strategic consulting for fast-moving consumer goods, personal care brands, and packaged products navigating BSTI compliance and market distribution.",
     icon: "Sparkles",
-    image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80",
+    image: "/images/stock/photo-1556228720-195a672e8a03.webp",
     keyConsultingAreas: ["BSTI Quality Certification", "Packaging & Label Standards", "Project Feasibility Profiles", "Supply Chain Sourcing"],
     caseHighlight: "Supported 25+ consumer brands and manufacturing ventures from concept to retail distribution."
   },
@@ -243,7 +243,7 @@ export const initialIndustries: IndustryItem[] = [
     subtitle: "Agro-processing plants, cold storage setups, and food safety standards",
     description: "Developing high-feasibility project profiles, technical blueprints, and government subsidy filings for food processing, automated rice mills, and agro infrastructure.",
     icon: "Wheat",
-    image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80",
+    image: "/images/stock/photo-1500937386664-56d1dfef3854.webp",
     keyConsultingAreas: ["Agro Project Profiles", "Cold Storage Financing", "BSTI Food Licensing", "Supply Chain Design"],
     caseHighlight: "Prepared bank loan project documentation for major agro-processing facilities totaling over BDT 150 Crore in sanctioned funds."
   },
@@ -253,7 +253,7 @@ export const initialIndustries: IndustryItem[] = [
     subtitle: "Donor grant proposals, NGOAB documentation, and MEAL frameworks",
     description: "Partnering with civil society organizations to design sustainable social programs, donor budgets, and fulfill NGO Affairs Bureau requirements.",
     icon: "HeartHandshake",
-    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80",
+    image: "/images/stock/photo-1488521787991-ed7bbaae773c.webp",
     keyConsultingAreas: ["Donor Proposal Writing", "FD-6/FD-7 Bureau Filing", "Budget Planning", "Project Impact Evaluation"],
     caseHighlight: "Facilitated grant approvals and NGOAB documentation for over 40+ community development initiatives."
   },
@@ -263,7 +263,7 @@ export const initialIndustries: IndustryItem[] = [
     subtitle: "Startup documentation, investor pitch decks, and SME loans",
     description: "Empowering emerging entrepreneurs with solid business plans, Bangladesh Bank SME refinance documentation, and investor-ready pitch materials.",
     icon: "Rocket",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
+    image: "/images/stock/photo-1519389950473-47ba0277781c.webp",
     keyConsultingAreas: ["SME Business Plans", "Investor Pitch Decks", "Bank Credit Proposals", "Trade License & Setup"],
     caseHighlight: "Helped 60+ SMEs secure seed funding and commercial bank working capital loans."
   },
@@ -273,7 +273,7 @@ export const initialIndustries: IndustryItem[] = [
     subtitle: "Feasibility studies, market entry analysis, and investment advisory",
     description: "Providing high-level market feasibility studies, joint venture documentation, and risk mitigation strategies for local and international investors entering Bangladesh.",
     icon: "TrendingUp",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
+    image: "/images/stock/photo-1486406146926-c627a92ad1ab.webp",
     keyConsultingAreas: ["Bankable Feasibility Studies", "JV Agreements", "BIDA Investment Guidance", "Financial Valuations"],
     caseHighlight: "Conducted market feasibility assessments for multiple industrial expansion projects across high-growth corridors."
   }
@@ -371,7 +371,7 @@ export const initialProjects: ProjectItem[] = [
     servicesProvided: ["Factory Layout Plan", "BSTI & DoE Compliance", "Machinery Sourcing", "Operational SOPs"],
     description: "Complete turnkey consulting for a 15,000 sq.ft. modern light industrial manufacturing facility in Gazipur, including compliant airflow layout, environmental clearances, and machinery commissioning.",
     completionYear: "2024",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=700&q=80",
+    image: "/images/stock/photo-1581091226825-a6a2a5aee158.webp",
     isFeatured: true,
     confidentialNotice: "Client identity protected under professional NDA"
   },
@@ -383,7 +383,7 @@ export const initialProjects: ProjectItem[] = [
     servicesProvided: ["Bankable Project Profile", "Financial Modeling", "DSCR Analysis", "Bank Presentation Support"],
     description: "Formulation of a comprehensive feasibility study and financial projection for a BDT 45 Crore automated flour and grain processing plant, successfully sanctioned by a leading commercial bank.",
     completionYear: "2024",
-    image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=700&q=80",
+    image: "/images/stock/photo-1500937386664-56d1dfef3854.webp",
     isFeatured: true
   },
   {
@@ -394,7 +394,7 @@ export const initialProjects: ProjectItem[] = [
     servicesProvided: ["Corporate Tax Assessment", "Withholding Tax Planning", "TCC Processing", "Taxes Zone Representation"],
     description: "Structured multi-year tax planning and resolved complex withholding tax queries, securing clean Tax Clearance Certificates and substantial allowable rebates under prevailing tax legislation.",
     completionYear: "2025",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=700&q=80",
+    image: "/images/stock/photo-1554224155-8d04cb21cd6c.webp",
     isFeatured: true
   },
   {
@@ -405,7 +405,7 @@ export const initialProjects: ProjectItem[] = [
     servicesProvided: ["Grant Proposal Writing", "LogFrame & MEAL Design", "Budgeting", "FD-6 Filing Support"],
     description: "Developed a comprehensive 3-year community healthcare and skill-development proposal for an international donor consortium, securing approval and full NGO Affairs Bureau clearance.",
     completionYear: "2023",
-    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=700&q=80",
+    image: "/images/stock/photo-1488521787991-ed7bbaae773c.webp",
     isFeatured: false
   },
   {
@@ -416,7 +416,7 @@ export const initialProjects: ProjectItem[] = [
     servicesProvided: ["Investor Pitch Deck", "Financial Model & Valuation", "Market Feasibility", "Corporate Profile"],
     description: "Crafted an executive investor presentation, 5-year unit economic projection, and commercial pitch deck that assisted the client in securing strategic Series-A seed capital.",
     completionYear: "2024",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80",
+    image: "/images/stock/photo-1460925895917-afdab827c52f.webp",
     isFeatured: false
   },
   {
@@ -427,7 +427,7 @@ export const initialProjects: ProjectItem[] = [
     servicesProvided: ["Raw Material Sourcing", "CoA Verification", "Packaging Supply", "Batch Quality Audits"],
     description: "Established continuous, certified sourcing channels for industrial grade ingredients, emulsifiers, and imported amber glass/PET packaging with zero batch rejection.",
     completionYear: "2025",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=700&q=80",
+    image: "/images/stock/photo-1586528116311-ad8dd3c8310d.webp",
     isFeatured: false
   }
 ];

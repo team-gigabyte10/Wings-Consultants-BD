@@ -50,6 +50,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreServices, onBookConsultatio
             {/* Main Headline */}
             <div className="space-y-1">
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-black tracking-tight text-[#0f2c59] uppercase leading-tight">
+                <span className="block font-sans normal-case text-lg sm:text-2xl font-bold tracking-normal text-sky-700 mb-2">
+                  Wings Consultants BD
+                </span>
                 YOUR SUCCESS, <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700">
                   OUR COMMITMENT
@@ -127,7 +130,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreServices, onBookConsultatio
               {/* Main Top Showcase: Business Handshake & Meeting */}
               <div className="relative h-56 sm:h-64 overflow-hidden group">
                 <img
-                  src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=80"
+                  src="/images/stock/photo-1521791136064-7986c2920216.webp"
                   alt="Wings Consultants BD - Business Handshake & Advisory"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
@@ -146,7 +149,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreServices, onBookConsultatio
               <div className="grid grid-cols-2 gap-1 p-1 bg-white">
                 <div className="relative h-36 overflow-hidden rounded-lg group">
                   <img
-                    src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=500&q=80"
+                    src="/images/stock/photo-1554224155-8d04cb21cd6c.webp"
                     alt="Financial Calculations and Project Profiles"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -160,7 +163,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreServices, onBookConsultatio
 
                 <div className="relative h-36 overflow-hidden rounded-lg group">
                   <img
-                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80"
+                    src="/images/stock/photo-1581091226825-a6a2a5aee158.webp"
                     alt="Industrial and Manufacturing Facility Setup"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />

@@ -5,8 +5,8 @@ import { useCms } from '../../wings/WingsCmsContext';
 import { usePageMeta } from '../../lib/usePageMeta';
 import { PageHero } from '../../ui/PageHero';
 import { Container } from '../../ui/Container';
-
-const SITE_URL = 'https://www.pureenterpriseltd.com';
+import { JsonLd } from '../../ui/JsonLd';
+import { absoluteUrl } from '../../lib/site';
 
 export default function WingsExpertDetailPage() {
   const { slug } = useParams();
@@ -16,7 +16,8 @@ export default function WingsExpertDetailPage() {
   usePageMeta({
     title: expert ? `${expert.name}, ${expert.title} | Wings Consultants BD` : 'Wings Consultants BD',
     description: expert?.summary,
-    lang: 'en'
+    lang: 'en',
+    image: expert?.photo
   });
 
   if (!expert) return <Navigate to="/wings/about#experts" replace />;
@@ -28,16 +29,16 @@ export default function WingsExpertDetailPage() {
     '@type': 'Person',
     name: expert.name,
     jobTitle: expert.title,
-    image: `${SITE_URL}${expert.photo}`,
-    url: `${SITE_URL}/wings/experts/${expert.slug}`,
-    worksFor: { '@type': 'ProfessionalService', name: 'Wings Consultants BD', url: `${SITE_URL}/wings` },
+    image: absoluteUrl(expert.photo),
+    url: absoluteUrl(`/wings/experts/${expert.slug}`),
+    worksFor: { '@id': absoluteUrl('/wings#organization'), name: 'Wings Consultants BD' },
     knowsAbout: expert.expertise.map((x) => x.area),
     ...(expert.linkedin ? { sameAs: [expert.linkedin] } : {})
   };
 
   return (
     <>
-      <script type="application/ld+json">{JSON.stringify(personLd)}</script>
+      <JsonLd data={personLd} />
 
       <PageHero
         eyebrow={expert.title}

@@ -8,6 +8,8 @@ import { SiteHeader, NavItem } from '../ui/SiteHeader';
 import { SiteFooter } from '../ui/SiteFooter';
 import { FloatingActions } from '../ui/FloatingActions';
 import { ScrollToTop } from '../ui/ScrollToTop';
+import { JsonLd } from '../ui/JsonLd';
+import { absoluteUrl } from '../lib/site';
 
 const WingsShell: React.FC = () => {
   const { companyInfo, services, isConsultationModalOpen, openConsultation, closeConsultation, selectedServiceForBooking } = useCms();
@@ -29,6 +31,22 @@ const WingsShell: React.FC = () => {
   return (
     <div data-site="wings" className="min-h-screen flex flex-col bg-white text-slate-900 font-sans antialiased selection:bg-sky-200 selection:text-slate-950">
       <ScrollToTop />
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'ProfessionalService',
+          '@id': absoluteUrl('/wings#organization'),
+          name: 'Wings Consultants BD',
+          slogan: companyInfo.tagline,
+          url: absoluteUrl('/wings'),
+          image: absoluteUrl('/images/brand/og-image.jpg'),
+          email: companyInfo.email,
+          telephone: companyInfo.phones[0].replace(/[^0-9+]/g, ''),
+          address: { '@type': 'PostalAddress', streetAddress: companyInfo.address, addressLocality: 'Dhaka', addressCountry: 'BD' },
+          areaServed: 'BD',
+          parentOrganization: { '@id': absoluteUrl('/#organization'), name: 'Pure Enterprise Limited' }
+        }}
+      />
       <SiteHeader
         site="wings"
         logo={<Logo size="md" />}
