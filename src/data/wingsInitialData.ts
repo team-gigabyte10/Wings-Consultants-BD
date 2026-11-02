@@ -9,7 +9,10 @@ import {
   TestimonialItem,
   ResourceArticle,
   FaqItem,
-  ExpertProfile
+  ExpertProfile,
+  TrainingStream,
+  ClientPartner,
+  InspirationalQuote
 } from '../wingsTypes';
 
 export const initialCompanyInfo: CompanyInfo = {
@@ -652,10 +655,867 @@ export const HR_TRAINING_PRACTICE = "HR, Training & Capacity Building";
 
 export const initialExperts: ExpertProfile[] = [
   {
+    id: "monirul-hasan",
+    slug: "md-monirul-hasan",
+    name: "Md Monirul Hasan",
+    title: "Executive Director & Lead Consultant",
+    shortRole: "Executive Director and Lead Consultant",
+    academicCredentials: "MBA in Marketing (MIST under Dhaka University), PGDPM",
+    coreExpertise:
+      "Social Business Specialist, Soft Skill, Lifeskill, Theory of Change, Personality Development & Motivational Trainer",
+    highlights: [
+      "Mr. Monirul Hasan, ED and Lead Consultant of Wings Consultants, brings over 15 years of experience across Social Marketing, Category Management, Market Planning, and Advisory.",
+      "His professional journey includes working with BATB (leading MNC in Bangladesh), BRAC (World's No. 1 NGO), and BDJOBS Training.",
+      "He serves as the Managing Director of Pure Enterprise Private Limited (FMCG) and Advisor to Prerona Kallyan Sangstha. He has consulted on key projects for FAO (Rome), NDDB (India), BEPZA, DLS, and Bangladesh Railway.",
+      "Conducted 50+ corporate trainings & workshops, 100+ recruitment evaluations, baseline studies, feasibility reports, and market mapping across all 64 districts of Bangladesh, India, and Bhutan."
+    ],
+    roles: [
+      "Social Business Specialist",
+      "Soft Skill, Lifeskill & Theory of Change Facilitator",
+      "Personality Development & Motivational Trainer",
+      "Managing Director, Pure Enterprise Limited"
+    ],
+    photo: "/images/team/md-monirul-hasan.jpg",
+    summary:
+      "MBA in Marketing (MIST, Dhaka University) and PGDPM with 15+ years of leadership across BATB, BRAC, and BDJOBS Training. Leads corporate strategy, market feasibility, and experiential leadership transformation across all 64 districts of Bangladesh.",
+    profile:
+      "Mr Monirul Hasan, the Executive Director and Lead Consultant of Wings Consultants BD, brings over 15 years of multi-sector experience spanning Social Marketing, Business & Enterprises, Market Mapping & Planning, Category Management, Customer Excellence, Forecasting, Market Research & Feasibility Studies, and Operations Management across BATB, BRAC, and BDJOBS Training.",
+    bioParagraphs: [
+      "Mr Monirul Hasan, the ED and Lead Consultant of Wings Consultants, brings with him over 15 years of working experience in a variety of fields, including Social Marketing, Business and Enterprises, Marketing, Market Mapping and Planning, Training and Workshop, Category Management, Customer Excellence, Forecasting, Market Research and Feasibility Study, Operations Management and Demand-Supply analysis in BATB, one of the leading MNCs in Bangladesh; BRAC, World's No 1 NGO; and BDJOBS Training, the country's leading job and training portal.",
+      "Mr Hasan is the Managing Director of Pure Enterprise Private Limited, a fast moving consumer goods (FMCG) company. He is a big picture thinker, talented and driven to impact, while ensuring compliance to policies and procedures. He is a skilled provider of advanced leadership, guidance and motivation. He has extensive facilitation skills on Teambuilding and Leadership, Blue Ocean Strategy, Game Theory and Personality Development.",
+      "He has participated in more than 50 trainings and workshops, 100 recruitments and took such opportunities as learning processes on related industries. He has consultation experience on FAO (Rome), NDDB (India), BEPZA, DLS and Bangladesh Railway projects. He has survey, analytical research and baseline study experience across RMG, agriculture and FMCG sectors, visiting extensively in most upazillas of all 64 districts of Bangladesh."
+    ],
+    facts: [
+      { value: "15+ Years", label: "MNC, BRAC & enterprise leadership" },
+      { value: "64 Districts", label: "Field research & market mapping" },
+      { value: "50+ Workshops", label: "Corporate trainings & 100+ recruitments" }
+    ],
+    expertise: [
+      { area: "Experiential Learning & Leadership", scope: "Teambuilding, executive leadership, personality development, emotional intelligence and workplace attitude transformation." },
+      { area: "Blue Ocean Strategy & Game Theory", scope: "Strategic business management, competitive differentiation, market creation and high-stakes corporate decision frameworks." },
+      { area: "Market Research & Feasibility Studies", scope: "Nationwide baseline surveys, demand-supply analysis, market mapping and bankable project feasibility assessments." },
+      { area: "Social Business & Enterprise Management", scope: "FMCG operations, social marketing, category management, distribution planning and sustainable rural value chains." },
+      { area: "Donor & Public Sector Consultation", scope: "Advisory and research execution for FAO (Rome), NDDB (India), BEPZA, Department of Livestock Services (DLS) and Bangladesh Railway." },
+      { area: "Theory of Change & NGO Advisory", scope: "Programme design, community mobilization, baseline studies and impact evaluation across RMG, agro and development sectors." }
+    ],
+    modules: [
+      "Blue Ocean Strategy: In Search of Excellence",
+      "Game Theory to Shape Corporate Strategy",
+      "Teambuilding & Managerial Effectiveness through Leadership",
+      "Market Mapping, Segmentation & Planning for Growth",
+      "Selling Excellence: Know to Grow — As You Sow",
+      "Emotional Intelligence & Right Attitude for Right Business",
+      "Social Marketing, Enterprises & Theory of Change",
+      "Customer Acquisition, Retention & Service Excellence"
+    ],
+    methods: [
+      "Experiential 'Learning by Doing' methodology and interactive group simulations",
+      "Authentic Bangladeshi corporate case studies and negotiation role-plays",
+      "Market access mapping and field-tested diagnostic frameworks",
+      "Participatory workshops, psychometric reflection and action planning",
+      "Baseline survey design, analytical research and feasibility modeling"
+    ],
+    experience: [
+      {
+        role: "Executive Director & Lead Consultant",
+        organization: "Wings Consultants BD",
+        period: "Current",
+        detail: "Leads corporate consultancy, feasibility studies, bankable project profiles, NGO advisory and executive training engagements across Bangladesh."
+      },
+      {
+        role: "Managing Director",
+        organization: "Pure Enterprise Limited",
+        period: "2020 – Present",
+        detail: "Directs Cox's Bazar salt production & refinement operations, BLRI-supported Minamix cattle mineral nutrition research, and 64-district distribution network."
+      },
+      {
+        role: "Senior Specialist & Consultant Roles",
+        organization: "BATB, BRAC & BDJOBS Training / FAO, NDDB, BEPZA, DLS, Bangladesh Railway",
+        period: "15+ years",
+        detail: "Extensive track record in social marketing, category management, market feasibility studies, baseline surveys and corporate training across leading MNCs, NGOs and international donor projects."
+      }
+    ],
+    education: [
+      "MBA in Marketing — Military Institute of Science and Technology (MIST) under Dhaka University",
+      "Post Graduate Diploma in Personnel Management (PGDPM)"
+    ],
+    sectors: [
+      "FMCG & Consumer Goods",
+      "Agro & Livestock Value Chains",
+      "RMG & Industrial Manufacturing",
+      "NGO & International Development",
+      "Corporate Training & HRD",
+      "Public Sector & Infrastructure Projects"
+    ],
+    affiliations: [
+      "Executive Member, BUPBGA",
+      "Member, MIST MBA Association",
+      "Deputy Director, Jakat Foundation",
+      "Advisor, Prerona Kallyan Sangstha"
+    ],
+    quote: {
+      text: "Never give up. Today is hard, tomorrow will be worse, but the day after tomorrow will be sunshine.",
+      author: "Jack Ma"
+    },
+    consultationTopic: "Company Profile & Pitch Deck"
+  },
+  {
+    id: "a-saleque",
+    slug: "md-a-saleque",
+    name: "Md A Saleque",
+    title: "Chief Technical Advisor & Senior Consultant",
+    shortRole: "Chief Technical Advisor, ACI Animal Health",
+    academicCredentials: "MBA in Marketing | Doctor of Veterinary Medicine (DVM)",
+    coreExpertise:
+      "Agri-Business, Livestock, Microfinance, Food Security & Sustainable Rural Enterprise Specialist",
+    highlights: [
+      "Chief Technical Advisor at ACI Animal Health; previously served as Adviser (AFSL) at BRAC International, Programme Head (Agro & Salt Industry) at BRAC, and Country Team Coordinator for SAPPLPP.",
+      "Extensive consulting experience across IFAD, DANIDA, UNDP, USAID, WFP, ADB, and World Bank on food security, rural SMEs, poultry, dairy, fisheries, seed, and microfinance.",
+      "Led over 2,000 staff handling nationwide project implementation, management, administration, and financial operations.",
+      "Authored 20+ publications in international journals across Denmark, Indonesia, Malaysia, and India; Co-chairman of FBCCI Standing Committee on Livestock & Poultry."
+    ],
+    roles: [
+      "Agri-Business & Livestock Specialist",
+      "Microfinance & Sustainable Rural Enterprise Advisor",
+      "International Donor Programme Consultant"
+    ],
+    photo: "/images/team/md-a-saleque.jpg",
+    summary:
+      "DVM and MBA in Marketing. Chief Technical Advisor at ACI Animal Health and former Programme Head (Agro & Salt Industry) at BRAC, with 20+ international publications and extensive advisory across IFAD, DANIDA, UNDP, USAID, ADB, and World Bank projects.",
+    profile:
+      "Md A Saleque is the Chief Technical Advisor at ACI Animal Health and a veteran development and agri-business leader who has managed teams of 2,000+ staff across BRAC, BRAC International, and multilateral donor programmes.",
+    bioParagraphs: [
+      "Md A Saleque is the Chief Technical Advisor, ACI Animal Health. He worked in different capacities in various organizations as Adviser, AFSL, BRAC International; Programme Head, Agro & Salt Industry of BRAC; and Country Team Coordinator for SAPPLPP.",
+      "His experience includes working with government, private sector and international organizations (IFAD, DANIDA, UNDP, USAID, WFP, ADB, World Bank) as Moderator, Consultant, resource person, Guest Speaker on food security and food aid, planning and designing of various SMEs for the poor and marginal farmer, rural development, agriculture (Poultry, Dairy, Fisheries, seed), and microfinance. He has led about 2,000 staff handling project implementation, management, administration and finance.",
+      "Mr Saleque has more than 20 publications in reputed journals in Denmark, Indonesia, Malaysia, and India on Microfinance, Poultry Industry, Poultry health and Biosecurity, and Small scale dairy development. He is Co-chairman of FBCCI standing committee on Livestock & Poultry."
+    ],
+    facts: [
+      { value: "2,000+ Staff", label: "Large-scale programme leadership" },
+      { value: "20+ Papers", label: "International journal publications" },
+      { value: "DVM & MBA", label: "Veterinary Science & Marketing" }
+    ],
+    expertise: [
+      { area: "Livestock, Dairy & Poultry Value Chains", scope: "Commercial and smallholder dairy development, poultry biosecurity, feed & mineral nutrition, and animal health systems." },
+      { area: "Agri-Business & Salt Industry Operations", scope: "Enterprise design and operational leadership across agro-processing, seed enterprises and industrial/edible salt programmes." },
+      { area: "International Donor & Multilateral Projects", scope: "Project formulation, evaluation and technical advisory for IFAD, DANIDA, UNDP, USAID, WFP, ADB and World Bank initiatives." },
+      { area: "Microfinance & Rural SME Design", scope: "Designing pro-poor SMEs, rural value chains and inclusive microfinance models for marginal farmers." }
+    ],
+    modules: [
+      "Commercial Dairy & Livestock Enterprise Development",
+      "Poultry Health, Biosecurity & Farm Productivity",
+      "Rural SME Design & Value Chain Financing",
+      "Food Security & Sustainable Agricultural Programme Management"
+    ],
+    methods: [
+      "Technical feasibility & biosecurity audits for agro-livestock projects",
+      "Value-chain mapping for smallholder and commercial farms",
+      "Multi-stakeholder policy moderation and donor coordination"
+    ],
+    experience: [
+      {
+        role: "Chief Technical Advisor",
+        organization: "ACI Animal Health",
+        period: "Current",
+        detail: "Provides top-level technical and strategic direction on animal health, livestock nutrition and agro-industrial growth."
+      },
+      {
+        role: "Adviser (AFSL) & Programme Head (Agro & Salt Industry)",
+        organization: "BRAC & BRAC International",
+        period: "Senior Leadership",
+        detail: "Directed nationwide agro and salt industry programmes and international agriculture, food security and livelihood initiatives leading 2,000+ personnel."
+      },
+      {
+        role: "International Consultant & Country Team Coordinator",
+        organization: "SAPPLPP / IFAD, DANIDA, UNDP, USAID, WFP, ADB, World Bank",
+        period: "Multi-decade",
+        detail: "Technical consultant and resource person on food security, rural SMEs, poultry, dairy, fisheries and microfinance."
+      }
+    ],
+    education: [
+      "MBA in Marketing",
+      "Doctor of Veterinary Medicine (DVM)"
+    ],
+    sectors: [
+      "Livestock, Dairy & Poultry",
+      "Agro & Salt Industry",
+      "Food Security & Rural Development",
+      "Microfinance & SME Development",
+      "International Donor Programmes"
+    ],
+    affiliations: [
+      "Co-chairman, FBCCI Standing Committee on Livestock & Poultry",
+      "Secretary, World's Poultry Science Association (WPSA)",
+      "Treasurer, Poultry Breeder Association"
+    ],
+    quote: {
+      text: "It is hard to accept fail, but it is worse never to have tried to succeed.",
+      author: "Theodore Roosevelt"
+    },
+    consultationTopic: "Project Profile Development"
+  },
+  {
+    id: "mokarrom-hossain",
+    slug: "md-mokarrom-hossain",
+    name: "Md Mokarrom Hossain",
+    title: "Senior Consultant & Technical Advisor",
+    shortRole: "Consultant (Agro & Fisheries Specialist)",
+    academicCredentials: "PhD in Brood Science | M.Sc in Aquaculture | B.Sc. Fisheries (Hons.)",
+    coreExpertise:
+      "Aquaculture, Rural Development, Baseline Surveys, Natural Resources Management & Agro-Production Specialist",
+    highlights: [
+      "Served in senior leadership across local and international NGOs as Deputy Chief of Party at Winrock International, Project Leader at WorldFish, and Program Manager (Agro Production & Fisheries Enterprise) at BRAC.",
+      "Proven achievements across Fisheries Enterprises, Seed Enterprises, Horticulture Nurseries, Tissue Culture Laboratories, and Soil Analysis Laboratories.",
+      "Extensive expertise in community mobilization for rural development and preparing training manuals, feasibility reports, survey questionnaires, and baseline surveys.",
+      "Supported FAO, ActionAid, DANIDA, Winrock International, IFAD, DFID, Ford Foundation, and World Bank projects across the UK, Scotland, Malaysia, Philippines, Thailand, India, and Nepal."
+    ],
+    roles: [
+      "Aquaculture & Fisheries Specialist",
+      "Rural Development & Agro-Production Advisor",
+      "Baseline Surveys & Feasibility Study Expert"
+    ],
+    photo: "/images/team/md-mokarrom-hossain.jpg",
+    summary:
+      "PhD in Brood Science and M.Sc in Aquaculture. Former Deputy Chief of Party at Winrock International, Project Leader at WorldFish, and Program Manager at BRAC with consulting experience across 7+ countries.",
+    profile:
+      "Mr Mokarrom Hossain is a seasoned aquaculture, agro-enterprise, and natural resource management specialist who has led major development programmes at Winrock International, WorldFish, and BRAC.",
+    bioParagraphs: [
+      "Mr Mokarrom Hossain has worked in local and international NGOs as Deputy Chief of Party at Winrock International, Project Leader at WorldFish, Program Manager (Agro Production) of BRAC, and Program Manager (Fisheries Enterprise) of BRAC.",
+      "He has professional achievements across Fisheries Enterprises, Seed Enterprises, Horticulture Nurseries, Tissue Culture Laboratories, and Soil Analysis Laboratories. He has vast capacity in mobilizing community people for rural development initiatives and preparing training manuals, feasibility reports, survey questionnaires, and baseline surveys.",
+      "Mr Mokarrom has supported as Consultant at FAO, ActionAid, DANIDA-GOB-CODEC, WINROCK INTERNATIONAL, IFAD, DFID, Ford Foundation, and World Bank supported projects across the UK, Scotland, Malaysia, Philippines, Thailand, India and Nepal."
+    ],
+    facts: [
+      { value: "PhD", label: "Brood Science & Aquaculture" },
+      { value: "7+ Countries", label: "International project exposure" },
+      { value: "Senior", label: "Winrock, WorldFish & BRAC leadership" }
+    ],
+    expertise: [
+      { area: "Aquaculture & Fisheries Enterprises", scope: "Broodstock science, commercial hatcheries, fisheries value chains and sustainable aquaculture systems." },
+      { area: "Seed, Horticulture & Biotech Labs", scope: "Seed enterprises, horticulture nurseries, tissue culture laboratories and soil analysis facilities." },
+      { area: "Feasibility Reports & Baseline Surveys", scope: "Technical feasibility studies, baseline survey design, questionnaire formulation and impact evaluation." },
+      { area: "Donor Project Proposals & Rural Mobilization", scope: "Grant proposals, training manuals and community mobilization for international development agencies." }
+    ],
+    modules: [
+      "Commercial Aquaculture & Fisheries Enterprise Management",
+      "Baseline Survey Design & Rural Feasibility Studies",
+      "Seed, Horticulture & Agribusiness Value Chain Development",
+      "Community Mobilization & Natural Resource Management"
+    ],
+    methods: [
+      "Empirical baseline surveys and structured field questionnaires",
+      "Technical manual development and participatory farmer/community training",
+      "Laboratory & production systems feasibility assessment"
+    ],
+    experience: [
+      {
+        role: "Deputy Chief of Party / Project Leader",
+        organization: "Winrock International & WorldFish",
+        period: "Senior Leadership",
+        detail: "Directed multi-year international aquaculture, natural resource management and rural livelihood programmes."
+      },
+      {
+        role: "Program Manager (Agro Production & Fisheries Enterprise)",
+        organization: "BRAC",
+        period: "Senior Management",
+        detail: "Managed nationwide fisheries enterprises, seed production, horticulture nurseries, tissue culture and soil testing laboratories."
+      },
+      {
+        role: "International Technical Consultant",
+        organization: "FAO, World Bank, IFAD, DFID, DANIDA, ActionAid & Ford Foundation",
+        period: "Multi-country",
+        detail: "Delivered feasibility reports, baseline surveys and technical consulting across the UK, Scotland, Malaysia, Philippines, Thailand, India, Nepal and Bangladesh."
+      }
+    ],
+    education: [
+      "PhD in Brood Science",
+      "M.Sc in Aquaculture",
+      "B.Sc. in Fisheries (Hons.)"
+    ],
+    sectors: [
+      "Aquaculture & Fisheries",
+      "Agro-Production & Seed Enterprises",
+      "Tissue Culture & Soil Labs",
+      "NGO & Donor Programmes",
+      "Rural Development"
+    ],
+    affiliations: [
+      "Consultant, FAO & World Bank Projects",
+      "Former Deputy Chief of Party, Winrock International",
+      "Former Program Manager, BRAC"
+    ],
+    quote: {
+      text: "Genius is one percent inspiration and ninety-nine percent perspiration.",
+      author: "Thomas A Edison"
+    },
+    consultationTopic: "NGO Programme Consultancy"
+  },
+  {
+    id: "kamrun-nessa-ahmed",
+    slug: "kamrun-nessa-ahmed",
+    name: "Kamrun Nessa Ahmed",
+    title: "Consultant & HR Specialist",
+    shortRole: "Joint Director, HR Dept (NHN - DAB)",
+    academicCredentials: "Honours & Masters in Sociology (DU) | PGDPM (BIM)",
+    coreExpertise:
+      "Human Resource Development, Organizational Policy Formulation, Talent Acquisition & Corporate Culture Transformation",
+    highlights: [
+      "Serves as Joint Director heading the HR Department of National Health Care Network (NHN), a premier enterprise of the Diabetic Association of Bangladesh (DAB).",
+      "Over 20 years of executive HR leadership enhancing organizational capabilities across complex healthcare and institutional networks.",
+      "Extensive track record in HR operations, resource mobilization, staff mentoring, multi-cultural team management, and executive reporting systems.",
+      "Expert in formulating company policies that harmonize corporate objectives with employee welfare under national labor laws and governance best practices."
+    ],
+    roles: [
+      "Human Resource Development Specialist",
+      "Organizational Policy & Labor Law Advisor",
+      "Executive Leadership Mentor"
+    ],
+    photo: "/images/team/kamrun-nessa-ahmed.jpg",
+    summary:
+      "Honours & Masters in Sociology (Dhaka University) and PGDPM (BIM). Over 20 years as Joint Director heading the HR Department of National Health Care Network (NHN), Diabetic Association of Bangladesh.",
+    profile:
+      "Kamrun Nessa Ahmed is a senior HR practitioner and organizational policy specialist with more than two decades of executive HR leadership in large healthcare and institutional networks.",
+    bioParagraphs: [
+      "Kamrun Nessa Ahmed is the Joint Director heading the HR Department of National Health Care Network (NHN), a premier venture of the Diabetic Association of Bangladesh (DAB). She has been working with NHN for more than 20 years, dedicated to enhancing organizational capabilities in complex healthcare environments.",
+      "She has extensive exposure in developing and implementing HR operations, resource mobilization, and quality of operations. She has ability to mentor staff, provide guidance for achieving goals, work with multi-cultural groups, and establish effective reporting and presentation systems.",
+      "She is an expert in building company policies that harmonize corporate objectives with employee benefits within national labor laws and best practices, championing HR as a strategic pillar for institutional longevity."
+    ],
+    facts: [
+      { value: "20+ Years", label: "Executive HR leadership at NHN (DAB)" },
+      { value: "DU & BIM", label: "Sociology (DU) & PGDPM (BIM)" },
+      { value: "HR Policy", label: "Labor law & institutional governance" }
+    ],
+    expertise: [
+      { area: "HR Policy Formulation & Compliance", scope: "Drafting service rules, employee handbooks and HR policies aligned with Bangladesh Labor Law and institutional governance." },
+      { area: "Talent Acquisition & Workforce Planning", scope: "End-to-end recruitment committees, competency grading, onboarding systems and succession planning." },
+      { area: "Performance & Operations Quality", scope: "Appraisal systems, reporting frameworks, staff mentoring and operational quality assurance in complex institutions." },
+      { area: "Employee Welfare & Culture Transformation", scope: "Harmonizing corporate goals with employee benefits, multi-cultural team cohesion and workplace ethics." }
+    ],
+    modules: [
+      "Corporate HR Policy Formulation & Labor Law Compliance",
+      "Strategic Talent Acquisition & Competency-Based Interviewing",
+      "Performance Appraisal Systems & Staff Mentoring",
+      "Workplace Communication, Ethics & Culture Transformation"
+    ],
+    methods: [
+      "Institutional HR audit and policy manual drafting",
+      "Interactive leadership mentoring and supervisory coaching",
+      "Structured reporting and performance evaluation workshops"
+    ],
+    experience: [
+      {
+        role: "Joint Director & Head of HR Department",
+        organization: "National Health Care Network (NHN), Diabetic Association of Bangladesh (DAB)",
+        period: "20+ years",
+        detail: "Leads HR operations, recruitment committees, organizational policy formulation, staff development and quality assurance across NHN healthcare centers."
+      },
+      {
+        role: "Consultant & HR Specialist",
+        organization: "Wings Consultants BD",
+        period: "Current",
+        detail: "Advises corporate and non-profit clients on HR systems, service rules, talent development and organizational restructuring."
+      }
+    ],
+    education: [
+      "M.S.S. & B.S.S. (Hons) in Sociology — University of Dhaka",
+      "Post Graduate Diploma in Personnel Management (PGDPM) — Bangladesh Institute of Management (BIM)"
+    ],
+    sectors: [
+      "Healthcare & Hospital Networks",
+      "Corporate HR & Governance",
+      "NGO & Trust Institutions",
+      "Service Sector Enterprises"
+    ],
+    affiliations: [
+      "Joint Director, HR Department NHN (DAB)",
+      "Member, NHN Recruitment & Policy Committee"
+    ],
+    quote: {
+      text: "The best way to predict the future is to create it.",
+      author: "Peter Drucker"
+    },
+    consultationTopic: HR_TRAINING_PRACTICE
+  },
+  {
+    id: "kawser-uddin-ahmed",
+    slug: "kawser-uddin-ahmed",
+    name: "Kawser Uddin Ahmed",
+    title: "Director, Finance & Banking Consultant",
+    shortRole: "Director, Finance and Consultant",
+    academicCredentials: "Honours & Masters in Geography (JU) | 28 Years Banking Leadership",
+    coreExpertise:
+      "Credit Administration, Risk Management, Central Collection, Recovery, Financial Compliance & Pro-Poor Development",
+    highlights: [
+      "Brings 28 years of senior commercial banking experience across Bangladesh covering credit administration, monitoring, recovery, compliance, and succession planning.",
+      "Held senior leadership positions at Mercantile Bank Limited, Prime Bank Limited, Al-Arafah Islami Bank Limited, and National Credit & Commerce Bank Limited.",
+      "Served as Executive Vice President (EVP), Head of Monitoring & Early Alert Division, and Head of Branch.",
+      "Completed advanced executive programs at BIBM, MBTI, and ABB on Credit Management, Asset Liability Management (ALM), Corporate Governance, and Anti-Money Laundering."
+    ],
+    roles: [
+      "Senior Commercial Banker (Former EVP)",
+      "Credit Administration & Risk Management Specialist",
+      "Corporate Governance & Financial Compliance Advisor"
+    ],
+    photo: "/images/team/kawser-uddin-ahmed.jpg",
+    summary:
+      "28 years of senior banking leadership across Mercantile Bank, Prime Bank, Al-Arafah Islami Bank, and NCC Bank as Executive Vice President, Head of Monitoring & Early Alert, and Head of Branch.",
+    profile:
+      "Mr Kawser Uddin Ahmed brings 28 years of commercial banking leadership in Bangladesh, specializing in credit administration, project loan appraisal, risk management, recovery, and financial compliance.",
+    bioParagraphs: [
+      "Mr Kawser Uddin Ahmed brings with him about 28 years of experience in renowned banks in Bangladesh, covering training, performance management, mentoring, succession planning, credit administration, monitoring, recovery, and compliance.",
+      "His professional journey includes senior leadership roles at Mercantile Bank Limited, Prime Bank Limited, Al-Arafah Islami Bank Limited, and National Credit & Commerce Bank Limited. He has served as Executive Vice President, Head of Monitoring & Early Alert Division, and Head of Branch.",
+      "Mr Ahmed has attended extensive executive programs at BIBM, MBTI, and ABB on Credit Management, Asset Liability Management, Corporate Governance, and Anti-Money Laundering. He has travelled across the UK, USA, Canada, France, UAE, Singapore, Malaysia, and China."
+    ],
+    facts: [
+      { value: "28 Years", label: "Commercial banking leadership" },
+      { value: "Former EVP", label: "Head of Branch & Credit Monitoring" },
+      { value: "BIBM Fellow", label: "Credit, ALM & AML specialist" }
+    ],
+    expertise: [
+      { area: "Credit Administration & Project Appraisal", scope: "Structuring bankable project proposals, DSCR & credit risk evaluation, loan documentation and sanction readiness." },
+      { area: "Risk Management & Early Alert Monitoring", scope: "Portfolio health monitoring, asset-liability management (ALM), non-performing loan prevention and central recovery strategies." },
+      { area: "Corporate Governance & AML Compliance", scope: "Regulatory compliance, Anti-Money Laundering (AML) protocols, internal control and banking ethics." },
+      { area: "Green & Inclusive Financing", scope: "Pro-poor, environment-friendly and gender-sensitive project finance under Bangladesh Bank refinance schemes." }
+    ],
+    modules: [
+      "Credit Management, Loan Appraisal & Documentation",
+      "Early Alert Monitoring, Recovery & Risk Mitigation",
+      "Corporate Governance & Anti-Money Laundering (AML) Compliance",
+      "Bankable Project Profile Structuring for Entrepreneurs"
+    ],
+    methods: [
+      "Bank credit committee simulation and dossier stress-testing",
+      "Financial ratio, cashflow and DSCR sensitivity auditing",
+      "Executive banking workshops and branch leadership coaching"
+    ],
+    experience: [
+      {
+        role: "Executive Vice President / Head of Monitoring & Early Alert / Head of Branch",
+        organization: "Mercantile Bank, Prime Bank, Al-Arafah Islami Bank & NCC Bank Ltd.",
+        period: "28 years",
+        detail: "Held senior executive responsibilities in credit administration, branch management, central collection, recovery, compliance and banker training."
+      },
+      {
+        role: "Director, Finance & Consultant",
+        organization: "Wings Consultants BD",
+        period: "Current",
+        detail: "Leads project finance advisory, bank loan profile appraisal, credit structuring and financial compliance consulting."
+      }
+    ],
+    education: [
+      "M.Sc. & B.Sc. (Hons) in Geography — Jahangirnagar University",
+      "Executive Programs on Credit Management, ALM, Corporate Governance & AML — BIBM, MBTI & ABB"
+    ],
+    sectors: [
+      "Commercial & Islamic Banking",
+      "Project Finance & Syndication",
+      "SME & Green Financing",
+      "Financial Compliance & Audit"
+    ],
+    affiliations: [
+      "Former EVP, Banking Sector Bangladesh",
+      "Fellow, Bangladesh Institute of Bank Management (BIBM)"
+    ],
+    quote: {
+      text: "Try to be fearful when others are greedy and greedy only when others are fearful.",
+      author: "Warren Buffett"
+    },
+    consultationTopic: "Project Profile Development"
+  },
+  {
+    id: "vaskar-saha",
+    slug: "vaskar-saha",
+    name: "Vaskar Saha",
+    title: "Consultant & Director, Finance",
+    shortRole: "Director, Finance and Consultant",
+    academicCredentials: "MBA in Marketing (IBA-DU, Valedictorian EMBA) | B.Sc in Fisheries (DU)",
+    coreExpertise:
+      "Corporate Sales Trainer, Agro-Industry Commercial Specialist, B2B Key Account Management & Market Analysis",
+    highlights: [
+      "Dynamic corporate sales trainer and commercial strategist who has trained and motivated hundreds of sales executives across Bangladesh.",
+      "Over 8 years at BRAC where he served as Manager, Sales and Marketing in the Enterprises wing, generating BDT 10–12 Crore monthly revenue with a 50-member nationwide sales force.",
+      "Serves as Head of Sales and Marketing at P&L International Ltd, managing corporate accounts for food-grade and industrial chemicals.",
+      "Trusted B2B partner to major conglomerates including Abul Khair Group, Perfetti Van Melle BD Ltd, Nabisco, ACME, and Ispahani Foods."
+    ],
+    roles: [
+      "Corporate Sales Trainer & Commercial Strategist",
+      "Agro-Industry & Industrial Chemicals Specialist",
+      "B2B Key Account Management Advisor"
+    ],
+    photo: "/images/team/vaskar-saha.jpg",
+    summary:
+      "MBA in Marketing from IBA, University of Dhaka (EMBA Valedictorian) and B.Sc in Fisheries (DU). Head of Sales & Marketing at P&L International Ltd and former Sales & Marketing Manager at BRAC Enterprises.",
+    profile:
+      "Vaskar Saha is a corporate sales trainer, commercial strategist, and industrial B2B leader who has built and led nationwide sales teams generating BDT 10–12 Crore in monthly revenue at BRAC Enterprises and managed major conglomerate accounts across Bangladesh.",
+    bioParagraphs: [
+      "Vaskar Saha is a dynamic speaker, corporate sales trainer, and commercial strategist who has trained and motivated hundreds of sales executives across Bangladesh.",
+      "Mr Saha has more than 8 years of experience at BRAC (the largest development organization in the world), where he was promoted to Manager, Sales and Marketing in the Enterprises wing, ensuring revenue of BDT 10 to 12 crore per month with a nationwide 50-member sales force.",
+      "In 2018, he joined P&L International Ltd as Head of Sales and Marketing, managing corporate accounts for food-grade and industrial chemicals with major conglomerates including Abul Khair Group, Perfetti Van Melle BD Ltd, Nabisco, ACME, and Ispahani Foods."
+    ],
+    facts: [
+      { value: "IBA-DU", label: "EMBA Valedictorian (19th Batch)" },
+      { value: "BDT 12 Cr/mo", label: "Sales portfolio led at BRAC Enterprises" },
+      { value: "B2B & FMCG", label: "Industrial chemicals & agro-enterprise" }
+    ],
+    expertise: [
+      { area: "Corporate & B2B Key Account Management", scope: "Enterprise sales strategy and supply agreements with top FMCG, food and pharmaceutical conglomerates." },
+      { area: "Nationwide Sales Force Leadership", scope: "Territory design, target cascading, KPI tracking and motivating large field sales teams." },
+      { area: "Food-Grade & Industrial Raw Material Sourcing", scope: "Commercial procurement, technical specification alignment and B2B supply chain management." },
+      { area: "Commercial Feasibility & Revenue Modeling", scope: "Pricing strategy, margin optimization and realistic revenue forecasting for growing enterprises." }
+    ],
+    modules: [
+      "Corporate Sales Excellence & B2B Key Account Mastery",
+      "Territory Sales Management & Revenue Forecasting",
+      "High-Impact Negotiation & Objection Handling",
+      "Sales Force Motivation & Performance Leadership"
+    ],
+    methods: [
+      "Practical field-sales playbooks and territory route optimization",
+      "Real-world B2B account negotiation simulations",
+      "Commercial margin and unit-economics workshops"
+    ],
+    experience: [
+      {
+        role: "Head of Sales & Marketing",
+        organization: "P&L International Ltd.",
+        period: "2018 – Present",
+        detail: "Manages strategic B2B accounts for food-grade and industrial chemicals serving Abul Khair Group, Perfetti Van Melle, Nabisco, ACME and Ispahani Foods."
+      },
+      {
+        role: "Manager, Sales & Marketing (Enterprises Wing)",
+        organization: "BRAC",
+        period: "8+ years",
+        detail: "Led a 50-member nationwide sales team delivering BDT 10–12 Crore monthly turnover across BRAC social enterprises."
+      }
+    ],
+    education: [
+      "MBA in Marketing — Institute of Business Administration (IBA), University of Dhaka (Valedictorian, EMBA 19th Batch)",
+      "B.Sc. in Fisheries — University of Dhaka"
+    ],
+    sectors: [
+      "Industrial & Food-Grade Chemicals",
+      "FMCG & Food Processing",
+      "Agro & Fisheries Enterprises",
+      "B2B Corporate Sales"
+    ],
+    affiliations: [
+      "Valedictorian, IBA-DU EMBA (19th Batch)",
+      "Head of Sales & Marketing, P&L International Ltd",
+      "Former Manager, Sales & Marketing, BRAC Enterprises"
+    ],
+    quote: {
+      text: "If the rate of change on the outside exceeds the rate of change on the inside, the end is near.",
+      author: "Jack Welch"
+    },
+    consultationTopic: "Raw Materials & Packaging Supply"
+  },
+  {
+    id: "suman-chowdhury",
+    slug: "suman-chowdhury",
+    name: "Suman Chowdhury",
+    title: "Consultant & Director, HR & Training",
+    shortRole: "Director, HR and Training",
+    academicCredentials: "MBA in Marketing (CU) | Certified Master Trainer (BRAC & Cent Int'l UK)",
+    coreExpertise:
+      "Certified Master Trainer, Experiential Facilitation, Soft Skills, Leadership & Sales Performance Architect",
+    highlights: [
+      "Over 12 years of experience training sales, marketing, soft skills, and leadership across leading national and multinational companies.",
+      "Facilitator of flagship programs including 'Boost Your Sales: Good to Great', 'Grit for Selling Excellence', 'High Performance Team Building', and 'Essential Habits for Managers'.",
+      "Serves as Manager & In-Charge, Training & Development at Impress-Newtex Composite Textiles Ltd, with prior leadership at Abul Khair Tobacco, Lubna Trading, and Well Group.",
+      "Completed advanced international trainer certifications at IIM, IMA International (UK), and Cent International (UK)."
+    ],
+    roles: [
+      "Certified Master Trainer (BRAC & Cent International UK)",
+      "Soft Skills, Leadership & Sales Performance Architect",
+      "Certified Theory of Change Practitioner"
+    ],
+    photo: "/images/team/suman-chowdhury.jpg",
+    summary:
+      "MBA in Marketing (University of Chittagong) and Certified Master Trainer (Cent International UK & BRAC) with 12+ years leading corporate training & development across textile, FMCG and industrial groups.",
+    profile:
+      "Mr Suman Chowdhury is a Certified Master Trainer with over 12 years of experience designing and facilitating high-energy sales, leadership, and soft-skills transformation programmes for national and multinational companies.",
+    bioParagraphs: [
+      "Mr Suman Chowdhury has vast experience in training sales, marketing, soft skills, and leadership for over 12 years in leading international and national companies. He applies interactive exercises, simulations, and activities to create learning environments full of engagement and lasting behavioral change.",
+      "Mr Chowdhury has facilitated numerous premier programs including 'Boost Your Sales: Good to Great', 'Grit for Selling Excellence', 'High Performance Team Building', 'Essential Habits for Managers', 'Stress Management', and 'Managerial Leadership Courses'.",
+      "He currently serves as Manager & In-Charge, Training & Development at Impress-Newtex Composite Textiles Ltd, with previous career experience at Abul Khair Tobacco, Lubna Trading, and Well Group, alongside advanced international training at IIM, IMA International (UK), and Cent International (UK)."
+    ],
+    facts: [
+      { value: "12+ Years", label: "Corporate L&D and sales training" },
+      { value: "Master Trainer", label: "Cent International (UK) & BRAC" },
+      { value: "IIM & IMA UK", label: "International executive credentials" }
+    ],
+    expertise: [
+      { area: "Experiential Sales & Marketing Facilitation", scope: "Signature programs including 'Boost Your Sales: Good to Great' and 'Grit for Selling Excellence'." },
+      { area: "Managerial Leadership & Team Building", scope: "High-performance team building, supervisory habits, emotional intelligence and stress mastery." },
+      { area: "Industrial & RMG Training Systems", scope: "Establishing structured Training & Development (T&D) departments, TNA and competency matrices in composite textile and manufacturing units." },
+      { area: "Theory of Change & Behavioral Facilitation", scope: "Simulation-driven adult learning that translates classroom concepts into measurable workplace habits." }
+    ],
+    modules: [
+      "Boost Your Sales: Good to Great",
+      "Grit for Selling Excellence",
+      "High Performance Team Building",
+      "Essential Habits for Managers & Managerial Leadership",
+      "Emotional Intelligence, Stress & Time Management",
+      "Workplace Communication & Positive Attitude"
+    ],
+    methods: [
+      "High-engagement experiential simulations and team challenges",
+      "Behavioral role-playing and video/peer feedback clinics",
+      "Structured post-training action plans for workplace retention"
+    ],
+    experience: [
+      {
+        role: "Manager & In-Charge, Training & Development",
+        organization: "Impress-Newtex Composite Textiles Ltd.",
+        period: "Current",
+        detail: "Heads organizational learning, leadership development and workforce skill upgradation."
+      },
+      {
+        role: "Training & Commercial Roles",
+        organization: "Abul Khair Tobacco, Well Group & Lubna Trading",
+        period: "12+ years",
+        detail: "Designed and delivered sales capability, trade marketing and leadership curricula across FMCG and manufacturing conglomerates."
+      }
+    ],
+    education: [
+      "MBA in Marketing — University of Chittagong",
+      "Certified Master Trainer — BRAC & Cent International (UK)",
+      "Advanced Executive Programs — IIM & IMA International (UK)"
+    ],
+    sectors: [
+      "RMG & Composite Textiles",
+      "FMCG & Tobacco",
+      "Retail & Distribution",
+      "Corporate L&D"
+    ],
+    affiliations: [
+      "Master Trainer, Cent International (UK)",
+      "Manager & In-Charge (T&D), Impress-Newtex Composite Textiles Ltd"
+    ],
+    quote: {
+      text: "Your attitude, not your aptitude, will determine your altitude.",
+      author: "Zig Ziglar"
+    },
+    consultationTopic: HR_TRAINING_PRACTICE
+  },
+  {
+    id: "rubaiat-bin-tarik",
+    slug: "rubaiat-bin-tarik",
+    name: "Rubaiat Bin Tarik",
+    title: "Consultant & Director, Marketing & Sales",
+    shortRole: "Director, Marketing and Sales",
+    academicCredentials: "BBA & MBA in Marketing and Finance (IUB)",
+    coreExpertise:
+      "B2B & Government Sales, Channel Distribution, Brand Development, Strategic Pricing & Team Leadership",
+    highlights: [
+      "Over 10 years of commercial and corporate sales leadership across banking, real estate, electrical manufacturing, and technology.",
+      "Progressed through IFIC Bank Ltd, Impress Group, Bay Developments, Core Knowledge Ltd, Sonic Group (leading 100+ sales personnel), and Super Star Group (SSG).",
+      "Managed nationwide corporate and government institutional clients at Super Star Group (SSG) and served as Corporate Sales Manager at BRAC Enterprises.",
+      "Currently serves as Head of Sales at Platform Solutions Limited, specializing in client relationship development, market analysis, and sales force motivation."
+    ],
+    roles: [
+      "Corporate Sales Leader",
+      "Brand Strategist & Channel Distribution Specialist",
+      "B2B & Government Tenders Advisor"
+    ],
+    photo: "/images/team/rubaiat-bin-tarik.jpg",
+    summary:
+      "BBA & MBA in Marketing and Finance from Independent University, Bangladesh (IUB). Over 10 years of corporate sales leadership at IFIC Bank, Super Star Group (SSG), BRAC Enterprises, and Platform Solutions Ltd.",
+    profile:
+      "Rubaiat Bin Tarik is a commercial operations and corporate sales specialist with over a decade of experience leading B2B, government, and channel sales teams across banking, electrical manufacturing, social enterprises, and technology.",
+    bioParagraphs: [
+      "Rubaiat Bin Tarik has more than 10 years of experience in sales and marketing across high-growth corporations. He started his career at IFIC Bank Ltd and advanced through Impress Group (IPOST Services), Bay Developments, Core Knowledge Ltd, Sonic Group (leading 100+ sales personnel), and Super Star Group (SSG).",
+      "At Super Star Group (SSG), he managed corporate and government clients across Bangladesh for industrial lighting and low-voltage electrical systems. He subsequently joined BRAC Enterprises as Corporate Sales Manager and currently serves as Head of Sales at Platform Solutions Limited.",
+      "His key strengths include client relationship development, market analysis, workplace communication, sales force motivation, and strategic brand pricing management."
+    ],
+    facts: [
+      { value: "10+ Years", label: "Corporate & institutional sales leadership" },
+      { value: "100+ Reps", label: "Sales force management experience" },
+      { value: "BBA & MBA", label: "Marketing & Finance (IUB)" }
+    ],
+    expertise: [
+      { area: "B2B & Government Institutional Sales", scope: "Corporate pre-qualification, tender documentation, institutional account management and B2B relationship building." },
+      { area: "Channel Distribution & Brand Pricing", scope: "Dealer network expansion, trade promotion, strategic pricing and go-to-market execution." },
+      { area: "Corporate Profile & Pitch Positioning", scope: "Crafting compelling commercial value propositions, vendor enlistment dossiers and corporate presentations." },
+      { area: "Sales Team Leadership & Motivation", scope: "Recruiting, coaching and driving performance across 100+ member field and corporate sales teams." }
+    ],
+    modules: [
+      "Corporate & Institutional Sales Excellence",
+      "Trade & Retail Marketing with Channel Distribution",
+      "Strategic Brand Management & Pricing Strategy",
+      "Developing Win-Win Corporate Negotiation Skills"
+    ],
+    methods: [
+      "Go-to-market and dealer network diagnostic mapping",
+      "B2B pitch deck and institutional proposal structuring",
+      "Interactive sales call and objection-handling clinics"
+    ],
+    experience: [
+      {
+        role: "Head of Sales",
+        organization: "Platform Solutions Limited",
+        period: "Current",
+        detail: "Directs commercial strategy, enterprise client acquisition and revenue growth."
+      },
+      {
+        role: "Corporate Sales Manager",
+        organization: "BRAC Enterprises & Super Star Group (SSG)",
+        period: "Senior Management",
+        detail: "Managed nationwide corporate and government institutional clients across industrial lighting, electrical systems and enterprise products."
+      },
+      {
+        role: "Sales & Banking Roles",
+        organization: "Sonic Group, Bay Developments, Impress Group & IFIC Bank Ltd.",
+        period: "Career Progression",
+        detail: "Led 100+ sales personnel and built commercial distribution channels across diverse industries."
+      }
+    ],
+    education: [
+      "MBA in Marketing & Finance — Independent University, Bangladesh (IUB)",
+      "BBA in Marketing & Finance — Independent University, Bangladesh (IUB)"
+    ],
+    sectors: [
+      "Industrial & Electrical Manufacturing",
+      "Corporate & Institutional B2B",
+      "Real Estate & Technology",
+      "Banking & Financial Services"
+    ],
+    affiliations: [
+      "Head of Sales, Platform Solutions Ltd",
+      "Former Corporate Sales Manager, BRAC Enterprises",
+      "Former Corporate Manager, Super Star Group (SSG)"
+    ],
+    quote: {
+      text: "If we hire people who are smaller, we shall become a company of dwarfs.",
+      author: "David Ogilvy"
+    },
+    consultationTopic: "Company Profile & Pitch Deck"
+  },
+  {
+    id: "nil-ratan-barai",
+    slug: "nil-ratan-barai",
+    name: "Nil Ratan Barai",
+    title: "Senior Officer, Accounts",
+    shortRole: "Senior Officer, Accounts",
+    academicCredentials: "Master of Commerce in Accounting & Financial Management",
+    coreExpertise:
+      "Corporate Accounting, Financial Reporting, Tax & VAT Documentation, Budgeting & Audit Readiness",
+    highlights: [
+      "Leads day-to-day financial accounting, bookkeeping, and ledger reconciliation for Wings Consultants BD and client engagements.",
+      "Prepares statutory tax computation sheets, withholding tax (TDS/VDS) schedules, and audit-ready financial documentation.",
+      "Supports multi-year donor project budgeting, expenditure tracking, and financial compliance reporting.",
+      "Ensures accuracy, fiscal discipline, and timely settlement across corporate accounts and billing operations."
+    ],
+    roles: [
+      "Senior Officer, Accounts",
+      "Financial Reporting & Tax Documentation Specialist"
+    ],
+    photo: "/images/team/nil-ratan-barai.jpg",
+    summary:
+      "Senior Officer, Accounts at Wings Consultants BD, overseeing corporate accounting, tax and VAT schedules, donor budget tracking, and audit-ready financial documentation.",
+    profile:
+      "Nil Ratan Barai serves as Senior Officer, Accounts at Wings Consultants BD, managing financial accounting, tax compliance schedules, project budget tracking, and statutory audit readiness.",
+    facts: [
+      { value: "Accounts", label: "Financial reporting & ledger control" },
+      { value: "Tax & VAT", label: "TDS/VDS & compliance schedules" },
+      { value: "Audit Ready", label: "Statutory & donor documentation" }
+    ],
+    expertise: [
+      { area: "Corporate Accounting & Bookkeeping", scope: "Financial statements, bank reconciliations, cashflow tracking and voucher management." },
+      { area: "Tax & VAT Schedules", scope: "Supporting corporate and individual tax return computations, TDS/VDS schedules and compliance files." }
+    ],
+    modules: [],
+    methods: [
+      "Double-entry financial verification and statutory audit checklists",
+      "Transparent activity-based budget tracking and variance reporting"
+    ],
+    experience: [
+      {
+        role: "Senior Officer, Accounts",
+        organization: "Wings Consultants BD",
+        period: "Current",
+        detail: "Manages corporate accounts, client billing, tax documentation schedules and financial reporting."
+      }
+    ],
+    education: [
+      "Master of Commerce in Accounting & Financial Management"
+    ],
+    sectors: [
+      "Corporate Accounting",
+      "Taxation & Audit Support",
+      "NGO Financial Compliance"
+    ],
+    consultationTopic: "Income Tax Consultancy"
+  },
+  {
+    id: "kalpona-rani-chakroborti",
+    slug: "kalpona-rani-chakroborti",
+    name: "Kalpona Rani Chakroborti",
+    title: "Officer, Admin",
+    shortRole: "Officer, Admin",
+    academicCredentials: "Bachelor & Master of Social Science | Office & Operations Administration",
+    coreExpertise:
+      "Office Administration, Client Coordination, Workshop Logistics, Documentation & Institutional Support",
+    highlights: [
+      "Oversees daily office administration, front-desk client coordination, and scheduling for Wings Consultants BD.",
+      "Manages logistics, training materials, and participant coordination for corporate workshops and consulting sessions.",
+      "Maintains regulatory dossier archives, project profile bindings, and confidential client records.",
+      "Ensures seamless communication between clients, senior consultants, and regulatory liaison teams."
+    ],
+    roles: [
+      "Officer, Administration",
+      "Client Coordination & Workshop Operations"
+    ],
+    photo: "/images/team/kalpona-rani-chakroborti.jpg",
+    summary:
+      "Officer, Admin at Wings Consultants BD, coordinating office operations, client scheduling, regulatory dossier preparation, and corporate workshop logistics.",
+    profile:
+      "Kalpona Rani Chakroborti serves as Officer, Admin at Wings Consultants BD, ensuring smooth administrative operations, client communication, document management, and training workshop coordination.",
+    facts: [
+      { value: "Admin", label: "Operations & office management" },
+      { value: "Logistics", label: "Workshop & training coordination" },
+      { value: "Client Care", label: "Scheduling & dossier management" }
+    ],
+    expertise: [
+      { area: "Office & Operations Administration", scope: "Day-to-day administrative management, records archival and procurement support." },
+      { area: "Client & Workshop Coordination", scope: "Consultation scheduling, participant registration and training session logistics." }
+    ],
+    modules: [],
+    methods: [
+      "Structured document control and client response tracking",
+      "End-to-end event and workshop readiness checklists"
+    ],
+    experience: [
+      {
+        role: "Officer, Admin",
+        organization: "Wings Consultants BD",
+        period: "Current",
+        detail: "Coordinates office administration, client inquiries, document formatting and workshop logistics."
+      }
+    ],
+    education: [
+      "Master of Social Science (M.S.S.)"
+    ],
+    sectors: [
+      "Corporate Administration",
+      "Client Relations",
+      "Event & Workshop Operations"
+    ],
+    consultationTopic: HR_TRAINING_PRACTICE
+  },
+  {
     id: "expert-1",
     slug: "dr-muhammad-abdul-bari",
     name: "Dr. Muhammad Abdul Bari",
     title: "HR Expert",
+    shortRole: "HR Expert & Management Consultant",
+    academicCredentials: "PhD in Human Resource Management (2007)",
+    coreExpertise:
+      "Strategic HRM, Leadership & Management, Training of Trainers (ToT), Organizational Development & Development Finance",
+    highlights: [
+      "Combines a PhD in Human Resource Management with 19+ years of senior experience in the NGO and development sector in Bangladesh.",
+      "Provides senior advisory support to NGOs, social enterprises, and institutions on HRM, organizational effectiveness, and programme management.",
+      "Serves as Development & Management Consultant at Work Info and Funding & Investment Consultant at Ashroy Angon Society (AAS).",
+      "Designs and facilitates executive workshops on Strategic HRM, Leadership, Training of Trainers (ToT), Donor Relations, and Development Finance."
+    ],
     roles: [
       "Professional Trainer",
       "HRM & Management Consultant",
@@ -741,5 +1601,267 @@ export const initialExperts: ExpertProfile[] = [
       "Institutional capacity building"
     ],
     consultationTopic: HR_TRAINING_PRACTICE
+  }
+];
+
+export const initialTrainingStreams: TrainingStream[] = [
+  {
+    id: "sales-customer-service",
+    title: "Sales and Customer Service",
+    shortDesc: "High-impact salesmanship, retail conversations, client negotiation, and exceptional customer retention strategies.",
+    icon: "TrendingUp",
+    tag: "Revenue & Client Growth",
+    color: "from-blue-600 to-sky-700",
+    courses: [
+      "Sales Techniques for Better Performance",
+      "Excellence in Sales Leadership",
+      "Salesmanship for Professional and Personal Growth",
+      "Selling Skill Development and Salesmanship",
+      "Innovation in Sales Techniques",
+      "Selling Excellence: Know to grow-as you sow",
+      "Effective and Productive Sales Call",
+      "Managing Sales for Growth Opportunities",
+      "Corporate Sales Excellence",
+      "Positive Conversations with Challenging Customers",
+      "Asking Great Sales Questions",
+      "Mastering Conversations in Retail Sales",
+      "Successful Sales Call Habits",
+      "Customer Acquisition and Retention Techniques",
+      "Customer Service Excellence"
+    ],
+    deliverables: [
+      "Field Sales Conversion Playbook",
+      "Objection Handling Frameworks",
+      "Retail & Corporate Pitch Templates",
+      "Customer Lifetime Value (LTV) Toolkits"
+    ],
+    targetAudience: ["Territory Sales Managers", "Corporate Account Executives", "Retail Sales Teams", "Customer Experience Leads"]
+  },
+  {
+    id: "marketing-branding",
+    title: "Marketing and Branding",
+    shortDesc: "Comprehensive market mapping, strategic brand positioning, segmentation, and modern digital trends.",
+    icon: "Megaphone",
+    tag: "Market Penetration",
+    color: "from-amber-600 to-orange-700",
+    courses: [
+      "Marketing for Non-Marketing Professionals",
+      "Market Mapping and Planning for Growth",
+      "Customer Identification by Market Segmentation",
+      "Building Brand from Scratch",
+      "Strategic Brand Management",
+      "Brand Extensions Techniques for Sustainability",
+      "Trade and Retail Marketing with Distribution Ideas",
+      "Capturing Customer Mindset",
+      "Maintain Customer Expectation and Satisfaction",
+      "Service Marketing",
+      "Digital Marketing Trends",
+      "Planning and Implementing Marketing Instruments",
+      "Marketing Plan: Need for Business Gain",
+      "Developing Effective Marketing Strategy",
+      "Strategies for Market Growth",
+      "Marketing is Everything",
+      "Market Access Map: A Tool to Sustain"
+    ],
+    deliverables: [
+      "Go-To-Market Blueprint",
+      "Customer Persona Matrices",
+      "Trade Distribution Route Planning",
+      "Brand Identity Guidelines"
+    ],
+    targetAudience: ["Brand Managers", "Product Marketing Officers", "Entrepreneurs", "Trade Marketing Specialists"]
+  },
+  {
+    id: "management-leadership",
+    title: "Management and Leadership",
+    shortDesc: "Strategic enterprise leadership, Blue Ocean Strategy, Game Theory, and visionary team execution.",
+    icon: "ShieldCheck",
+    tag: "Executive Excellence",
+    color: "from-slate-800 to-slate-950",
+    courses: [
+      "Strategic Business Management",
+      "Blue Ocean Strategy: In Search of Excellence",
+      "Managerial Skills Development",
+      "Managerial Effectiveness through Leadership",
+      "Enterprise Competitiveness",
+      "Effective Team Management",
+      "Game Theory to Shape Strategy",
+      "Entrepreneurship Development",
+      "Team Building Excellence",
+      "Lead Excellence: Drive the Way",
+      "Social Marketing and Enterprises",
+      "Swarm Behavior and Intelligence",
+      "Good to Great: Why Some Companies Make the Leap",
+      "Built to Last: Habits of Visionary Companies",
+      "Setting Team and Employee Goals",
+      "Where to Focus: Weaknesses or Strengths?"
+    ],
+    deliverables: [
+      "Leadership Capability Index",
+      "Blue Ocean Strategy Matrix",
+      "OKRs & KPI Cascading Systems",
+      "Executive Decision Matrix"
+    ],
+    targetAudience: ["C-Suite Executives", "Department Heads", "Mid-Level Managers", "Aspiring Leaders"]
+  },
+  {
+    id: "personality-development",
+    title: "Personality Development",
+    shortDesc: "Emotional intelligence, attitude elevation, change management, and time-stress mastery for workplace success.",
+    icon: "Sparkles",
+    tag: "Human Potential",
+    color: "from-violet-700 to-purple-900",
+    courses: [
+      "Delivering Beyond Yourself",
+      "Emotional Intelligence for Success",
+      "Workplace Communication",
+      "Behavior & Attitude for a Better Workplace",
+      "Right Attitude for Right Business",
+      "Dream, Hope and Passion to be Successful",
+      "Change Management",
+      "Stress and Time Management",
+      "Motivation for Success",
+      "When: The Scientific Secrets of Perfect Timing"
+    ],
+    deliverables: [
+      "Personal Productivity System",
+      "Emotional Agility Roadmap",
+      "Workplace Stress Audit Tool",
+      "Effective Communication Habits"
+    ],
+    targetAudience: ["All Corporate Professionals", "Frontline Staff", "HR Professionals", "Project Teams"]
+  },
+  {
+    id: "advertising-pr",
+    title: "Advertising and PR",
+    shortDesc: "Media analysis, innovative PR campaigns, promotional strategies, and corporate brand advocacy.",
+    icon: "Radio",
+    tag: "Brand Visibility",
+    color: "from-rose-600 to-red-800",
+    courses: [
+      "What to do: Advertising, Promotion or PR?",
+      "Advertising Media Analysis",
+      "New Advertising and PR Ideas",
+      "Trade and Consumer Promotion"
+    ],
+    deliverables: [
+      "Media Budget Optimization Matrix",
+      "PR Crisis Management Protocols",
+      "Campaign ROI Evaluation Guide"
+    ],
+    targetAudience: ["PR Officers", "Media Planners", "Communications Directors", "Creative Directors"]
+  },
+  {
+    id: "communication-relationship",
+    title: "Communication and Relationship",
+    shortDesc: "Win-win negotiation, corporate dialogue mastery, and long-term customer relationship ecosystems.",
+    icon: "MessagesSquare",
+    tag: "Strategic Dialogue",
+    color: "from-teal-600 to-emerald-800",
+    courses: [
+      "Customer Relationship Management (CRM)",
+      "Effective Corporate Communication Skills",
+      "Developing Win-Win Negotiation Skills",
+      "Communication: Connecting to Go Beyond",
+      "Communication and Relationship Management"
+    ],
+    deliverables: [
+      "Corporate Communication Protocol",
+      "Win-Win Negotiation Cheat Sheet",
+      "Stakeholder Engagement Blueprint"
+    ],
+    targetAudience: ["Key Account Managers", "Procurement Officers", "Client Relations Leads", "Negotiators"]
+  },
+  {
+    id: "operations-management",
+    title: "Operations Management",
+    shortDesc: "Total Quality Management (TQM) in light of Toyota Production System (TPS) and lead time optimization.",
+    icon: "Settings",
+    tag: "Operational Efficiency",
+    color: "from-cyan-700 to-blue-900",
+    courses: [
+      "Production and Lead Time Management",
+      "TQM in light of TPS (Toyota Production System)"
+    ],
+    deliverables: [
+      "Lean Production Flow Assessment",
+      "Waste Elimination (Muda) Checklist",
+      "Lead Time Compression Plan"
+    ],
+    targetAudience: ["Factory Managers", "Operations Heads", "Supply Chain Specialists", "Quality Assurance Teams"]
+  }
+];
+
+export const initialClientPartners: ClientPartner[] = [
+  { id: "brac", name: "BRAC", category: "World's #1 Development Organization", tagline: "Empowering People" },
+  { id: "brac-fisheries", name: "BRAC Fisheries", category: "BRAC Social Enterprise", tagline: "Sustainable Aquaculture" },
+  { id: "brac-chicken", name: "BRAC Chicken", category: "Poultry & Agro Enterprise", tagline: "Quality Nutrition" },
+  { id: "brac-solar", name: "BRAC Solar", category: "Renewable Energy", tagline: "Green Power for Bangladesh" },
+  { id: "aarong-dairy", name: "Aarong Dairy", category: "Dairy & FMCG", tagline: "Milk for Good" },
+  { id: "bank-asia", name: "Bank Asia", category: "Commercial Banking", tagline: "Pioneering Agent Banking" },
+  { id: "city-bank", name: "City Bank", category: "Financial Services", tagline: "Making Sense of Money" },
+  { id: "bengal", name: "Bengal Group", category: "Conglomerate & Polymers", tagline: "আস্থা শতভাগ" },
+  { id: "bengal-solar", name: "Bengal Solar", category: "Clean Energy Enterprise", tagline: "Solar Solutions" },
+  { id: "paragon-group", name: "Paragon Group", category: "Agro, Feed & Farming", tagline: "Agricultural Excellence" },
+  { id: "rupayan", name: "Rupayan Group", category: "Real Estate & Infrastructure", tagline: "Building The Nation" },
+  { id: "renata-agro", name: "Renata Agro", category: "Animal Health & Nutrition", tagline: "Scientific Farming" },
+  { id: "aman-cem", name: "Aman Cem", category: "Heavy Industry & Cement", tagline: "Safe & Save" },
+  { id: "anchor-cement", name: "Anchor Cement", category: "Construction Materials", tagline: "Strength & Durability" },
+  { id: "fareast-life", name: "Fareast Islami Life Insurance", category: "Islamic Insurance & Takaful", tagline: "Financial Security" },
+  { id: "axon", name: "Axon Limited", category: "Technology & Communications", tagline: "Connected Solutions" },
+  { id: "eat-fast", name: "eat@", category: "Food & Hospitality", tagline: "food. fun. fast" },
+  { id: "ab-corp", name: "AB Corporation Ltd", category: "Industrial Solutions", tagline: "www.abcorporation.net" },
+  { id: "provet", name: "Provet Resources Ltd", category: "Veterinary & Agro Science", tagline: "Best Additives for Best Feed" },
+  { id: "rel-furniture", name: "REL Furniture Ltd", category: "Commercial & Office Furniture", tagline: "Quality Living" }
+];
+
+export const initialInspirationalQuotes: InspirationalQuote[] = [
+  {
+    quote: "Your attitude, not your aptitude, will determine your altitude.",
+    author: "Zig Ziglar"
+  },
+  {
+    quote: "Nothing is impossible; the word itself says, 'I’m possible!'",
+    author: "Audrey Hepburn"
+  },
+  {
+    quote: "The world is full of magical things patiently waiting for our wits to grow sharper.",
+    author: "Bertrand Russell"
+  },
+  {
+    quote: "No axe is sharp enough to cut the soul who keeps on trying.",
+    author: "Nelson Mandela"
+  },
+  {
+    quote: "High achievement always takes place in the framework of high expectations.",
+    author: "Charles Kettering"
+  },
+  {
+    quote: "Never give up. Today is hard, tomorrow will be worse, but the day after tomorrow will be sunshine.",
+    author: "Jack Ma"
+  },
+  {
+    quote: "It is hard to accept fail, but it is worse never to have tried to succeed.",
+    author: "Theodore Roosevelt"
+  },
+  {
+    quote: "Genius is one percent inspiration and ninety-nine percent perspiration.",
+    author: "Thomas A Edison"
+  },
+  {
+    quote: "The best way to predict the future is to create it.",
+    author: "Peter Drucker"
+  },
+  {
+    quote: "Try to be fearful when others are greedy and greedy only when others are fearful.",
+    author: "Warren Buffett"
+  },
+  {
+    quote: "If the rate of change on the outside exceeds the rate of change on the inside, the end is near.",
+    author: "Jack Welch"
+  },
+  {
+    quote: "If we hire people who are smaller, we shall become a company of dwarfs.",
+    author: "David Ogilvy"
   }
 ];

@@ -4,6 +4,7 @@ import { useCms } from '../../wings/WingsCmsContext';
 import { usePageMeta } from '../../lib/usePageMeta';
 import { PageHero } from '../../ui/PageHero';
 import { ServicesSection } from '../../wings/ServicesSection';
+import { CoursesCatalog } from '../../wings/CoursesCatalog';
 
 export default function WingsServicesPage() {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ export default function WingsServicesPage() {
         onSelectService={(s) => navigate(`/wings/services/${s.slug}`)}
         onBookConsultationForService={(title) => openConsultation(title)}
       />
+      <CoursesCatalog />
     </>
   );
 }

@@ -4,11 +4,16 @@ import { useCms } from '../../wings/WingsCmsContext';
 import { usePageMeta } from '../../lib/usePageMeta';
 import { Hero } from '../../wings/WingsHero';
 import { TrustStats } from '../../wings/WingsTrustStats';
+import { AboutSection } from '../../wings/WingsAbout';
 import { ServicesSection } from '../../wings/ServicesSection';
+import { CoursesCatalog } from '../../wings/CoursesCatalog';
+import { IndustriesSection } from '../../wings/IndustriesSection';
 import { WhyChooseUs } from '../../wings/WhyChooseUs';
-import { TestimonialsSection } from '../../wings/TestimonialsSection';
-import { CTASection } from '../../wings/CTASection';
 import { ExpertsSection } from '../../wings/ExpertsSection';
+import { ClientsSection } from '../../wings/ClientsSection';
+import { TestimonialsSection } from '../../wings/TestimonialsSection';
+import { QuotesSection } from '../../wings/QuotesSection';
+import { CTASection } from '../../wings/CTASection';
 
 export default function WingsHomePage() {
   const navigate = useNavigate();
@@ -25,13 +30,18 @@ export default function WingsHomePage() {
     <>
       <Hero onExploreServices={() => navigate('/wings/services')} onBookConsultation={() => openConsultation()} />
       <TrustStats />
+      <AboutSection onBookConsultation={() => openConsultation('Strategic Corporate Planning')} />
       <ServicesSection
         onSelectService={(s) => navigate(`/wings/services/${s.slug}`)}
         onBookConsultationForService={(title) => openConsultation(title)}
       />
+      <CoursesCatalog />
+      <IndustriesSection onBookConsultation={(indName) => openConsultation(indName)} />
       <WhyChooseUs />
+      <ExpertsSection />
+      <ClientsSection />
       <TestimonialsSection />
-      <ExpertsSection compact />
+      <QuotesSection />
       <CTASection onBookConsultation={() => openConsultation()} onContactClick={() => navigate('/wings/contact')} />
     </>
   );

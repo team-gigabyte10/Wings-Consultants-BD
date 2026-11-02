@@ -5,6 +5,8 @@ import { PageHero } from '../../ui/PageHero';
 import { AboutSection } from '../../wings/WingsAbout';
 import { ConsultingProcess } from '../../wings/ConsultingProcess';
 import { ExpertsSection } from '../../wings/ExpertsSection';
+import { ClientsSection } from '../../wings/ClientsSection';
+import { QuotesSection } from '../../wings/QuotesSection';
 
 export default function WingsAboutPage() {
   const { openConsultation } = useCms();
@@ -25,6 +27,8 @@ export default function WingsAboutPage() {
       />
       <AboutSection onBookConsultation={() => openConsultation('Strategic Corporate Planning')} />
       <ExpertsSection />
+      <ClientsSection />
+      <QuotesSection />
       <ConsultingProcess onBookConsultation={() => openConsultation()} />
     </>
   );

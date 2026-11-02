@@ -11,6 +11,9 @@ import {
   ResourceArticle,
   FaqItem,
   ExpertProfile,
+  TrainingStream,
+  ClientPartner,
+  InspirationalQuote,
   ConsultationRequest
 } from '../wingsTypes';
 import {
@@ -24,7 +27,10 @@ import {
   initialTestimonials,
   initialResources,
   initialFaqs,
-  initialExperts
+  initialExperts,
+  initialTrainingStreams,
+  initialClientPartners,
+  initialInspirationalQuotes
 } from '../data/wingsInitialData';
 import { formatInquiry, openWhatsApp } from '../lib/inquiry';
 
@@ -40,6 +46,9 @@ interface CmsContextType {
   resources: ResourceArticle[];
   faqs: FaqItem[];
   experts: ExpertProfile[];
+  trainingStreams: TrainingStream[];
+  clientPartners: ClientPartner[];
+  inspirationalQuotes: InspirationalQuote[];
 
   /** Opens WhatsApp with the request already written. Nothing is stored. */
   sendInquiry: (request: ConsultationRequest) => void;
@@ -85,6 +94,9 @@ export const CmsProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         resources: initialResources,
         faqs: initialFaqs,
         experts: initialExperts,
+        trainingStreams: initialTrainingStreams,
+        clientPartners: initialClientPartners,
+        inspirationalQuotes: initialInspirationalQuotes,
         sendInquiry,
         isConsultationModalOpen,
         openConsultation: (serviceTitle?: string) => {

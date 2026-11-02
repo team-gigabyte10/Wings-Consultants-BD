@@ -141,11 +141,20 @@ export interface ExpertProfile {
   slug: string;
   name: string;
   title: string;
+  /** Short designation shown in the left-side selector list. */
+  shortRole?: string;
+  /** Academic credentials shown in the right-side header box. */
+  academicCredentials?: string;
+  /** Core expertise line shown in the right-side callout box. */
+  coreExpertise?: string;
+  /** Key career highlights shown with checkmarks in the right-side panel. */
+  highlights?: string[];
   /** The full list of roles from the CV, shown under the name. */
   roles: string[];
   photo: string;
   summary: string;
   profile: string;
+  bioParagraphs?: string[];
   facts: { value: string; label: string }[];
   expertise: { area: string; scope: string }[];
   modules: string[];
@@ -153,7 +162,33 @@ export interface ExpertProfile {
   experience: { role: string; organization: string; period: string; detail: string }[];
   education: string[];
   sectors: string[];
+  affiliations?: string[];
+  quote?: { text: string; author: string };
   /** The consultation option that the "Book a session" button selects. */
   consultationTopic: string;
   linkedin?: string;
+}
+
+export interface TrainingStream {
+  id: string;
+  title: string;
+  shortDesc: string;
+  icon: string;
+  tag: string;
+  color: string;
+  courses: string[];
+  deliverables?: string[];
+  targetAudience?: string[];
+}
+
+export interface ClientPartner {
+  id: string;
+  name: string;
+  category: string;
+  tagline?: string;
+}
+
+export interface InspirationalQuote {
+  quote: string;
+  author: string;
 }
