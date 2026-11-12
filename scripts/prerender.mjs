@@ -28,6 +28,11 @@ function fillTemplate(html, head) {
   replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeText(head.title)}</title>`);
   replace(/<meta property="og:title" content="[^"]*"/, `<meta property="og:title" content="${escapeAttr(head.title)}"`);
   replace(/<meta property="og:image" content="[^"]*"/, `<meta property="og:image" content="${escapeAttr(head.image)}"`);
+  if (head.favicon) {
+    replace(/<link rel="icon" type="image\/png" sizes="32x32" href="[^"]*"/, `<link rel="icon" type="image/svg+xml" sizes="any" href="${escapeAttr(head.favicon)}"`);
+    replace(/<link rel="icon" type="image\/png" sizes="192x192" href="[^"]*"/, `<link rel="icon" type="image/svg+xml" sizes="any" href="${escapeAttr(head.favicon)}"`);
+    replace(/<link rel="apple-touch-icon" href="[^"]*"/, `<link rel="apple-touch-icon" href="${escapeAttr(head.favicon)}"`);
+  }
   if (head.description) {
     replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="${escapeAttr(head.description)}"`);
     replace(/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="${escapeAttr(head.description)}"`);
