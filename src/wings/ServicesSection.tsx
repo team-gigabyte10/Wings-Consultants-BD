@@ -10,7 +10,12 @@ import {
   PackageCheck,
   ArrowRight,
   Sparkles,
-  CheckCircle2
+  CheckCircle2,
+  GraduationCap,
+  Building2,
+  Briefcase,
+  Target,
+  BarChart3
 } from 'lucide-react';
 
 interface ServicesSectionProps {
@@ -26,6 +31,16 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
   const getServiceIcon = (iconName: string) => {
     switch (iconName) {
+      case 'GraduationCap':
+        return GraduationCap;
+      case 'Building2':
+        return Building2;
+      case 'Briefcase':
+        return Briefcase;
+      case 'Target':
+        return Target;
+      case 'BarChart3':
+        return BarChart3;
       case 'Receipt':
         return Receipt;
       case 'Factory':

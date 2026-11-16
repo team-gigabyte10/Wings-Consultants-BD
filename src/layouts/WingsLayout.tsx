@@ -14,13 +14,30 @@ import { absoluteUrl } from '../lib/site';
 const WingsShell: React.FC = () => {
   const { companyInfo, services, isConsultationModalOpen, openConsultation, closeConsultation, selectedServiceForBooking } = useCms();
 
+  const primaryServiceSlugs = [
+    'training',
+    'organization-development',
+    'business-consulting',
+    'strategic-marketing-plan',
+    'research-evaluation'
+  ];
+
+  const serviceNavChildren = primaryServiceSlugs
+    .map((slug) => services.find((s) => s.slug === slug))
+    .filter((s): s is NonNullable<typeof s> => Boolean(s))
+    .map((s) => ({
+      to: `/wings/services/${s.slug}`,
+      label: s.title,
+      desc: s.shortDesc
+    }));
+
   const nav: NavItem[] = [
     { to: '/wings', label: 'Home', end: true },
     { to: '/wings/about', label: 'About' },
     {
       to: '/wings/services',
       label: 'Services',
-      children: services.map((s) => ({ to: `/wings/services/${s.slug}`, label: s.title }))
+      children: serviceNavChildren
     },
     { to: '/wings/industries', label: 'Industries' },
     { to: '/wings/case-studies', label: 'Case Studies' },

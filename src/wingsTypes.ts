@@ -28,6 +28,7 @@ export interface ServiceItem {
   id: string;
   slug: string;
   title: string;
+  category?: string;
   shortDesc: string;
   fullDesc: string;
   icon: string;

@@ -3,11 +3,18 @@ import { Link, NavLink, useLocation } from 'react-router';
 import { ChevronDown, Mail, Menu, Phone, X } from 'lucide-react';
 import { Container } from './Container';
 
+export interface NavItemChild {
+  to: string;
+  label: string;
+  category?: string;
+  desc?: string;
+}
+
 export interface NavItem {
   to: string;
   label: string;
   end?: boolean;
-  children?: { to: string; label: string }[];
+  children?: NavItemChild[];
 }
 
 interface SiteHeaderProps {
@@ -31,6 +38,17 @@ const linkClass = ({ isActive }: { isActive: boolean }) =>
   `relative px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
     isActive ? 'text-brand after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-0.5 after:bg-accent' : 'text-slate-700 hover:text-brand'
   }`;
+
+const groupChildrenByCategory = (children?: NavItemChild[]): [string, NavItemChild[]][] => {
+  if (!children) return [];
+  const map: Record<string, NavItemChild[]> = {};
+  for (const child of children) {
+    const cat = child.category || 'General';
+    if (!map[cat]) map[cat] = [];
+    map[cat].push(child);
+  }
+  return Object.entries(map);
+};
 
 export const SiteHeader: React.FC<SiteHeaderProps> = ({ site, logo, homeTo, homeLabel, nav, cta, phone, email, menuLabel }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -102,24 +120,60 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({ site, logo, homeTo, home
                   </button>
                 </div>
                 {openDropdown === item.to && (
-                  <div className="absolute left-0 top-full pt-2 w-80">
-                    <ul className="bg-white rounded-xl border border-slate-200 shadow-card p-2">
-                      {item.children.map((child) => (
-                        <li key={child.to}>
-                          <NavLink
-                            to={child.to}
-                            className={({ isActive }) =>
-                              `block px-3 py-2 rounded-lg text-sm ${
-                                isActive ? 'bg-brand-soft text-brand font-semibold' : 'text-slate-700 hover:bg-slate-50 hover:text-brand'
-                              }`
-                            }
-                          >
-                            {child.label}
-                          </NavLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  item.children.some((c) => Boolean(c.category)) ? (
+                    <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[580px] z-50">
+                      <div className="bg-white rounded-2xl border border-slate-200 shadow-xl p-4 grid grid-cols-2 gap-4">
+                        {groupChildrenByCategory(item.children).map(([category, items]) => (
+                          <div key={category} className="space-y-1">
+                            <div className="px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100 mb-1">
+                              {category}
+                            </div>
+                            <ul className="space-y-0.5">
+                              {items.map((child) => (
+                                <li key={child.to}>
+                                  <NavLink
+                                    to={child.to}
+                                    className={({ isActive }) =>
+                                      `block px-3 py-2 rounded-lg text-sm transition-colors ${
+                                        isActive ? 'bg-brand-soft text-brand font-semibold' : 'text-slate-700 hover:bg-slate-50 hover:text-brand'
+                                      }`
+                                    }
+                                  >
+                                    <span className="block font-medium leading-snug">{child.label}</span>
+                                    {child.desc && (
+                                      <span className="block text-xs text-slate-400 font-normal mt-0.5 line-clamp-1">{child.desc}</span>
+                                    )}
+                                  </NavLink>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="absolute left-0 top-full pt-2 w-80 z-50">
+                      <ul className="bg-white rounded-xl border border-slate-200 shadow-xl p-2 space-y-0.5">
+                        {item.children.map((child) => (
+                          <li key={child.to}>
+                            <NavLink
+                              to={child.to}
+                              className={({ isActive }) =>
+                                `block px-3 py-2.5 rounded-lg text-sm transition-colors ${
+                                  isActive ? 'bg-brand-soft text-brand font-semibold' : 'text-slate-700 hover:bg-slate-50 hover:text-brand'
+                                }`
+                              }
+                            >
+                              <span className="block font-semibold leading-snug">{child.label}</span>
+                              {child.desc && (
+                                <span className="block text-xs text-slate-500 font-normal mt-0.5 line-clamp-1">{child.desc}</span>
+                              )}
+                            </NavLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )
                 )}
               </div>
             ) : (
@@ -163,12 +217,27 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({ site, logo, homeTo, home
                   {item.label}
                 </NavLink>
                 {item.children && (
-                  <div className="ml-3 border-l border-slate-200 pl-3">
-                    {item.children.map((child) => (
-                      <NavLink key={child.to} to={child.to} className="block px-3 py-1.5 text-sm text-slate-600 hover:text-brand">
-                        {child.label}
-                      </NavLink>
-                    ))}
+                  <div className="ml-3 border-l border-slate-200 pl-3 my-1">
+                    {item.children.some((c) => Boolean(c.category)) ? (
+                      groupChildrenByCategory(item.children).map(([category, items]) => (
+                        <div key={category} className="mt-2 first:mt-0 space-y-0.5">
+                          <div className="px-3 pt-1 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                            {category}
+                          </div>
+                          {items.map((child) => (
+                            <NavLink key={child.to} to={child.to} className="block px-3 py-1.5 text-sm text-slate-600 hover:text-brand">
+                              {child.label}
+                            </NavLink>
+                          ))}
+                        </div>
+                      ))
+                    ) : (
+                      item.children.map((child) => (
+                        <NavLink key={child.to} to={child.to} className="block px-3 py-1.5 text-sm text-slate-600 hover:text-brand">
+                          {child.label}
+                        </NavLink>
+                      ))
+                    )}
                   </div>
                 )}
               </div>

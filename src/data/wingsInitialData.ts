@@ -43,9 +43,180 @@ export const initialCompanyInfo: CompanyInfo = {
 
 export const initialServices: ServiceItem[] = [
   {
+    id: "training-capacity-building",
+    slug: "training",
+    title: "Training & Capacity Building",
+    category: "Strategic, OD & Research",
+    tag: "Capacity Building & HRD",
+    shortDesc: "Executive Coaching, Corporate Workshops, Sales Mastery & Team Competency Programs.",
+    fullDesc: "Empowering corporate enterprises, institutions, and development programs with transformative human resource capacity building. Led by seasoned international master trainers and corporate veterans, our programs combine experiential learning, neuroscience, and organizational behavioral science to build high-performance teams.",
+    icon: "GraduationCap",
+    keyServices: [
+      "Corporate Sales & Customer Service Masterclasses",
+      "Marketing, Brand Strategy & Go-to-Market Workshops",
+      "Executive Leadership, Game Theory & Blue Ocean Strategy",
+      "Workplace Communication & Emotional Intelligence (EQ)",
+      "Advertising, Media Planning & Strategic PR Modules",
+      "Customized In-House Institutional Training Manuals",
+      "Training Needs Assessment (TNA) & Competency Mapping",
+      "Post-Training Impact Evaluation & Performance Tracking"
+    ],
+    deliverables: [
+      "Tailored Participant Toolkits & Certification Dossiers",
+      "Comprehensive Training Needs Assessment (TNA) Report",
+      "Executive Coaching Framework & Individual Action Plans",
+      "Post-Workshop ROI & Competency Evaluation Matrix"
+    ],
+    industriesServed: ["Banking & Financial Institutions", "Multinational Corporations (MNCs)", "FMCG & Retail Groups", "Manufacturing & Textiles", "NGOs & Development Agencies"],
+    benefits: [
+      "Delivered by accredited master trainers with 20+ years of corporate experience",
+      "Practical, actionable case-method frameworks directly applicable to daily operations",
+      "Measurable improvement in employee retention, productivity, and revenue generation"
+    ],
+    ctaText: "Explore Training Programs",
+    image: "/images/stock/photo-1519389950473-47ba0277781c.webp"
+  },
+  {
+    id: "organization-development",
+    slug: "organization-development",
+    title: "Organization Development (OD)",
+    category: "Strategic, OD & Research",
+    tag: "HR Architecture & OD",
+    shortDesc: "HR Policy Formulation, Organizational Restructuring, Performance Appraisal & Change Management.",
+    fullDesc: "Systematic organizational development (OD) and human capital restructuring designed to align workforce capabilities with long-term strategic vision. We architect resilient organizational structures, objective performance appraisal metrics (OKRs/KPIs), salary structures, and corporate governance standards.",
+    icon: "Building2",
+    keyServices: [
+      "Organizational Restructuring & Organogram Optimization",
+      "Comprehensive HR Policy Manuals & Standard Operating Procedures (SOPs)",
+      "Job Evaluation, Grading Systems & Compensation Banding",
+      "KPI / OKR-Based Performance Appraisal System Design",
+      "Change Management & Corporate Culture Transformation",
+      "Succession Planning & Leadership Pipeline Development",
+      "Talent Acquisition Architecture & Executive Search Protocol",
+      "Labor Law Compliance, Code of Conduct & Dispute Settlement Advisory"
+    ],
+    deliverables: [
+      "Board-Approved HR Manual & Organogram Architecture",
+      "Job Description (JD) Library & Competency Grade Framework",
+      "Automated KPI/OKR Scorecard Templates",
+      "Change Management Transition Roadmap"
+    ],
+    industriesServed: ["Conglomerates & Group of Companies", "Pharmaceuticals & Healthcare", "Readymade Garments (RMG)", "Financial Technology & IT", "Educational Institutions"],
+    benefits: [
+      "Elimination of operational redundancies and structural bottlenecks",
+      "Transparent, meritocratic appraisal systems boosting workforce morale",
+      "Full compliance with Bangladesh Labour Act and international labor standards"
+    ],
+    ctaText: "Consult on Organization Development",
+    image: "/images/stock/photo-1521791136064-7986c2920216.webp"
+  },
+  {
+    id: "business-consulting",
+    slug: "business-consulting",
+    title: "Business Consulting",
+    category: "Strategic, OD & Research",
+    tag: "Business Advisory & Feasibility",
+    shortDesc: "Business Setup, Commercial Feasibility, Operational Turnaround & Strategic Advisory.",
+    fullDesc: "Comprehensive business advisory designed to guide entrepreneurs, established enterprises, and international investors through corporate incorporation, commercial feasibility, business model innovation, and operational excellence across Bangladesh.",
+    icon: "Briefcase",
+    keyServices: [
+      "New Venture Establishment & Incorporation Advisory",
+      "Comprehensive Commercial Feasibility & Market Entry Analysis",
+      "Business Model Canvas & Value Proposition Innovation",
+      "Operational Diagnostic & Efficiency Improvement Plans",
+      "Cost Rationalization & Profitability Optimization",
+      "Supply Chain & Distribution Network Structuring",
+      "Corporate Governance & Board Advisory Services",
+      "Joint Venture (JV) Structuring & Commercial Negotiation"
+    ],
+    deliverables: [
+      "Full Commercial Feasibility Dossier",
+      "Operational Excellence Roadmap & Cost-Reduction Matrix",
+      "Commercial Business Plan (1-5 Year Horizon)",
+      "Statutory Licensing & Regulatory Pathway Brief"
+    ],
+    industriesServed: ["Emerging Startups", "Industrial Manufacturers", "Import & Export Trading Houses", "Hospitality & Healthcare Chains", "Commercial Real Estate"],
+    benefits: [
+      "Evidence-backed business strategies mitigating market entry risks",
+      "Rapid statutory navigation and corporate enlistment support",
+      "Pragmatic operational solutions ensuring sustainable bottom-line profitability"
+    ],
+    ctaText: "Discuss Your Business Needs",
+    image: "/images/stock/photo-1486406146926-c627a92ad1ab.webp"
+  },
+  {
+    id: "strategic-marketing-plan",
+    slug: "strategic-marketing-plan",
+    title: "Strategic & Marketing Plan",
+    category: "Strategic, OD & Research",
+    tag: "Strategy & Market Growth",
+    shortDesc: "Go-To-Market Strategy, Brand Architecture, Market Mapping & Competitive Penetration.",
+    fullDesc: "High-impact strategic corporate planning and integrated marketing frameworks that transform business ambitions into measurable market share. We combine rigorous data-driven market mapping, consumer behavioral insight, trade channel design, and multi-channel campaign architectures.",
+    icon: "Target",
+    keyServices: [
+      "Long-Term Corporate Strategic Planning (3-5 Year Horizon)",
+      "Go-To-Market (GTM) Strategy for New Products & Brands",
+      "Market Mapping, Customer Segmentation & Persona Definition",
+      "Brand Architecture, Positioning & Unique Selling Proposition (USP) Design",
+      "Route-to-Market (RTM) & Trade Distribution Channel Planning",
+      "Competitive Intelligence & Market Share Penetration Blueprints",
+      "Integrated Marketing Communications (IMC) & Digital Strategy",
+      "Annual Marketing Budget Optimization & ROI Forecasts"
+    ],
+    deliverables: [
+      "Multi-Year Corporate Strategic Plan Document",
+      "Complete Go-To-Market & Route-to-Market Playbook",
+      "Brand Identity Guidelines & Positioning Matrix",
+      "Trade Marketing & Incentive Scheme Structure"
+    ],
+    industriesServed: ["Consumer Packaged Goods (FMCG)", "Consumer Electronics & Appliances", "Real Estate & Construction", "E-Commerce & Digital Platforms", "Agro-processing & Seeds"],
+    benefits: [
+      "Clear, differentiated market positioning that outpaces competitors",
+      "Direct alignment between marketing expenditures and revenue generation",
+      "Battle-tested distribution strategies designed for Bangladesh's diverse markets"
+    ],
+    ctaText: "Build Your Strategic Plan",
+    image: "/images/stock/photo-1546445317-29f4545e9d53.webp"
+  },
+  {
+    id: "research-evaluation",
+    slug: "research-evaluation",
+    title: "Research & Evaluation",
+    category: "Strategic, OD & Research",
+    tag: "Impact & Baseline Studies",
+    shortDesc: "Baseline Surveys, Mid-Term & Endline Evaluations, MEAL Systems & Socio-Economic Studies.",
+    fullDesc: "Rigorous empirical research, socio-economic surveys, and third-party evaluation services for development agencies, international donors, government bodies, and corporate institutions. We deliver unbiased, methodologically sound assessments using quantitative and qualitative tools.",
+    icon: "BarChart3",
+    keyServices: [
+      "Project Baseline, Midline & Endline Impact Evaluations",
+      "Monitoring, Evaluation, Accountability and Learning (MEAL) Frameworks",
+      "Socio-Economic Baseline Surveys & Household Field Assessments",
+      "Consumer Perception & Market Feasibility Research",
+      "Community Needs Assessment & Stakeholder Mapping",
+      "Third-Party Validation & Grant Compliance Audits",
+      "Data Collection (Digital CAPI / Mobile Surveys) & Statistical Modeling",
+      "Evidence-Based Policy Briefs & Final Evaluation Dissemination"
+    ],
+    deliverables: [
+      "Comprehensive Evaluation Reports (OECD-DAC Criteria Compliant)",
+      "Clean Digital Datasets (SPSS, Stata, Excel) & Codebooks",
+      "Interactive PowerBI / Executive Summary Dashboards",
+      "Actionable Policy Recommendations & Lessons Learned Dossier"
+    ],
+    industriesServed: ["UN Agencies & Bilateral Donors", "International & National NGOs", "Government Ministries & Planning Cells", "Microfinance Institutions (MFIs)", "Corporate CSR Foundations"],
+    benefits: [
+      "Strict compliance with international research ethics and donor standards",
+      "Nationwide field enumerator network covering all 64 districts of Bangladesh",
+      "Actionable, data-backed findings that withstand rigorous donor scrutiny"
+    ],
+    ctaText: "Commission Research & Evaluation",
+    image: "/images/stock/photo-1506806732259-39c2d0268443.webp"
+  },
+  {
     id: "income-tax-consultancy",
     slug: "income-tax-consultancy",
     title: "Income Tax Consultancy",
+    category: "Corporate, Project & Trade",
     tag: "Taxation & Compliance",
     shortDesc: "TIN Registration, Tax Return, Tax Clearance, Tax Advice for Individuals & Organizations.",
     fullDesc: "Comprehensive taxation management ensuring statutory compliance, tax optimization, hassle-free filings, and proactive audit advisory for companies, executives, and high-net-worth individuals in Bangladesh under the Income Tax Act.",
@@ -79,6 +250,7 @@ export const initialServices: ServiceItem[] = [
     id: "company-profile-pitch-deck",
     slug: "company-profile-pitch-deck",
     title: "Company Profile & Pitch Deck",
+    category: "Corporate, Project & Trade",
     tag: "Investment & Documentation",
     shortDesc: "For Investment, Business Proposals, Financial Projections & Feasibility.",
     fullDesc: "Strategic corporate profile writing and high-impact investor pitch decks designed for securing institutional funding, bank credit facilities, joint venture partnerships, and vendor pre-qualifications.",
@@ -112,6 +284,7 @@ export const initialServices: ServiceItem[] = [
     id: "ngo-programme-consultancy",
     slug: "ngo-programme-consultancy",
     title: "NGO Programme Consultancy",
+    category: "Corporate, Project & Trade",
     tag: "Development & Non-Profit",
     shortDesc: "Project Proposal, Programme Design, Budget, Donor Documentation & Monitoring.",
     fullDesc: "Specialized consultancy for national and international non-governmental organizations, foundations, and civil society bodies across Bangladesh. We craft donor-winning grant proposals, logical frameworks (LogFrames), and transparent financial budgets.",
@@ -145,6 +318,7 @@ export const initialServices: ServiceItem[] = [
     id: "project-profile-development",
     slug: "project-profile-development",
     title: "Project Profile Development",
+    category: "Corporate, Project & Trade",
     tag: "Bank Loan & Project Finance",
     shortDesc: "Bank Loan, Industrial, Agro, Food & Other Projects.",
     fullDesc: "Bankable project profile creation for commercial banks, financial institutions (IDCOL, BIFFL), and private equity investors. Includes rigorous market sizing, civil and machinery cost estimations, financial modeling, and DSCR analysis.",
@@ -178,6 +352,7 @@ export const initialServices: ServiceItem[] = [
     id: "raw-materials-packaging-supply",
     slug: "raw-material-packaging-supply",
     title: "Raw Materials & Packaging Supply",
+    category: "Corporate, Project & Trade",
     tag: "Sourcing & Industrial Supply",
     shortDesc: "Supply of Quality Raw Materials, Chemicals & Packaging Materials.",
     fullDesc: "Strategic industrial sourcing and reliable supply chain advisory for premium raw materials, active botanical extracts, industrial chemicals, high-grade glass/PET containers, foil packaging, and custom labels for manufacturers.",
