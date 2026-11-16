@@ -74,7 +74,7 @@ export const initialServices: ServiceItem[] = [
       "Measurable improvement in employee retention, productivity, and revenue generation"
     ],
     ctaText: "Explore Training Programs",
-    image: "/images/stock/photo-1519389950473-47ba0277781c.webp"
+    image: "/images/team/md-monirul-hasan-speech-exact.jpg"
   },
   {
     id: "organization-development",
@@ -851,6 +851,7 @@ export const initialExperts: ExpertProfile[] = [
       "Managing Director, Pure Enterprise Limited"
     ],
     photo: "/images/team/md-monirul-hasan.jpg",
+    actionPhoto: "/images/team/md-monirul-hasan-speech-exact.jpg",
     summary:
       "MBA in Marketing (MIST, Dhaka University) and PGDPM with 15+ years of leadership across BATB, BRAC, and BDJOBS Training. Leads corporate strategy, market feasibility, and experiential leadership transformation across all 64 districts of Bangladesh.",
     profile:

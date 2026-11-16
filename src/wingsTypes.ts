@@ -153,6 +153,7 @@ export interface ExpertProfile {
   /** The full list of roles from the CV, shown under the name. */
   roles: string[];
   photo: string;
+  actionPhoto?: string;
   summary: string;
   profile: string;
   bioParagraphs?: string[];

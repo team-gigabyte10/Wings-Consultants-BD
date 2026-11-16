@@ -161,6 +161,27 @@ export const ExpertsSection: React.FC<{ compact?: boolean }> = () => {
                 ))}
               </ul>
 
+              {/* Action Keynote Photo (if available) */}
+              {selected.actionPhoto && (
+                <div className="mt-6 rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-900/60 shadow-lg relative group">
+                  <div className="relative h-44 sm:h-48 overflow-hidden">
+                    <img
+                      src={selected.actionPhoto}
+                      alt={`${selected.name} - Live Keynote Facilitation`}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-3.5">
+                      <div className="flex items-center justify-between w-full">
+                        <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500 text-slate-950">
+                          Live Keynote &amp; Facilitation
+                        </span>
+                        <span className="text-[10px] text-slate-300 font-medium">50+ Corporate Workshops</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* Quote Banner */}
               {selected.quote && (
                 <div className="mt-7 p-4 sm:p-5 rounded-xl bg-gradient-to-r from-amber-500/15 via-amber-500/10 to-transparent border-l-4 border-amber-500 flex items-start gap-3.5">

@@ -170,13 +170,37 @@ export default function WingsExpertDetailPage() {
           </div>
 
           <aside className="lg:col-span-4 space-y-6">
-            <img
-              src={expert.photo}
-              alt={expert.name}
-              width={350}
-              height={350}
-              className="w-full max-w-sm aspect-square object-cover object-top rounded-2xl border border-slate-200 shadow-card bg-slate-100"
-            />
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-card bg-white">
+              <img
+                src={expert.photo}
+                alt={expert.name}
+                width={350}
+                height={350}
+                className="w-full max-w-sm aspect-square object-cover object-top bg-slate-100"
+              />
+            </div>
+
+            {expert.actionPhoto && (
+              <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-card">
+                <div className="relative h-48 overflow-hidden group">
+                  <img
+                    src={expert.actionPhoto}
+                    alt={`${expert.name} Keynote Speech & Corporate Facilitation`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3.5">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500 text-slate-950">
+                      Live Keynote & Workshop
+                    </span>
+                  </div>
+                </div>
+                <div className="p-4 bg-slate-50 border-t border-slate-200">
+                  <p className="text-xs text-slate-700 font-medium leading-relaxed">
+                    Keynote facilitator on Leadership, Strategy & Team Excellence with 50+ corporate workshops across Bangladesh.
+                  </p>
+                </div>
+              </div>
+            )}
 
             <dl className="grid grid-cols-3 lg:grid-cols-1 gap-3">
               {expert.facts.map((f) => (

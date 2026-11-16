@@ -78,6 +78,41 @@ export const CoursesCatalog: React.FC = () => {
           </p>
         </div>
 
+        {/* Lead Master Trainer Spotlight Banner */}
+        <div className="bg-gradient-to-r from-[#0B1221] to-[#111A2E] text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-xl mb-12 flex flex-col md:flex-row items-center gap-6 sm:gap-8">
+          <div className="relative w-full md:w-64 h-48 sm:h-52 rounded-2xl overflow-hidden shrink-0 border-2 border-amber-500/80 shadow-lg">
+            <img
+              src="/images/team/md-monirul-hasan-speech-exact.jpg"
+              alt="Md Monirul Hasan Keynote Speech"
+              className="w-full h-full object-cover object-top"
+            />
+            <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-amber-500 text-slate-950 text-[10px] font-black uppercase tracking-wider">
+              Lead Master Trainer
+            </div>
+          </div>
+          <div className="space-y-3 flex-1 text-center md:text-left">
+            <div className="text-xs font-bold uppercase tracking-widest text-amber-400">
+              Executive Leadership &amp; Capacity Building
+            </div>
+            <h3 className="text-xl sm:text-2xl font-serif font-bold text-white leading-snug">
+              Experiential Learning Facilitated by Md Monirul Hasan
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
+              15+ years of leadership and corporate training across BATB, BRAC, and BDJOBS Training. Conducted over 50+ corporate workshops, leadership masterclasses, and executive team transformations nationwide.
+            </p>
+            <div className="pt-1 flex flex-wrap items-center justify-center md:justify-start gap-4">
+              <button
+                onClick={() => openConsultation('Training & Capacity Building')}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition-colors cursor-pointer"
+              >
+                <span>Book an In-House Workshop</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+              <span className="text-xs text-slate-400 font-medium">Custom Modules for Corporate Teams</span>
+            </div>
+          </div>
+        </div>
+
         {/* Search & Stream Filter Bar */}
         <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 mb-12 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
           {/* Category Pills */}
