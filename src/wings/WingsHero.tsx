@@ -130,17 +130,20 @@ export const Hero: React.FC<HeroProps> = ({ onExploreServices, onBookConsultatio
               {/* Main Top Showcase: Business Handshake & Meeting */}
               <div className="relative h-56 sm:h-64 overflow-hidden group">
                 <img
-                  src="/images/stock/photo-1521791136064-7986c2920216.webp"
-                  alt="Wings Consultants BD - Business Handshake & Advisory"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  src="/images/team/md-monirul-hasan-speech-exact.jpg"
+                  alt="Md Monirul Hasan Keynote Speech - Wings Consultants BD"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f2c59]/90 via-transparent to-black/30" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0f2c59]/95 via-[#0f2c59]/25 to-transparent" />
                 <div className="absolute bottom-3 left-4 right-4 text-white">
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500 text-slate-900">
-                    Trusted Enterprise Advisory
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500 text-slate-950 inline-block mb-1">
+                    Lead Consultant & Keynote Facilitator
                   </span>
-                  <p className="text-sm font-semibold text-white mt-1 drop-shadow-sm">
-                    Corporate Strategy, Taxation & Statutory Approvals
+                  <p className="text-base font-bold text-white drop-shadow-sm">
+                    Md Monirul Hasan
+                  </p>
+                  <p className="text-xs text-slate-200">
+                    15+ Years Corporate Advisory · BATB, BRAC & BDJOBS Training
                   </p>
                 </div>
               </div>
@@ -149,28 +152,28 @@ export const Hero: React.FC<HeroProps> = ({ onExploreServices, onBookConsultatio
               <div className="grid grid-cols-2 gap-1 p-1 bg-white">
                 <div className="relative h-36 overflow-hidden rounded-lg group">
                   <img
-                    src="/images/stock/photo-1554224155-8d04cb21cd6c.webp"
-                    alt="Financial Calculations and Project Profiles"
+                    src="/images/local-bd/bd-dhaka-corporate-skyline.jpg"
+                    alt="Dhaka Commercial District & Corporate Consulting"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent flex items-end p-2.5">
                     <div>
-                      <p className="text-[11px] font-bold text-amber-300">Tax & Bank Profiles</p>
-                      <p className="text-[10px] text-slate-200">100% Bank-Compliant</p>
+                      <p className="text-[11px] font-bold text-amber-300">Dhaka Corporate Hub</p>
+                      <p className="text-[10px] text-slate-200">Motijheel & Gulshan Advisory</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="relative h-36 overflow-hidden rounded-lg group">
                   <img
-                    src="/images/stock/photo-1581091226825-a6a2a5aee158.webp"
-                    alt="Industrial and Manufacturing Facility Setup"
+                    src="/images/local-bd/bd-industrial-manufacturing.jpg"
+                    alt="Bangladeshi Industrial and Manufacturing Plant Setup"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent flex items-end p-2.5">
                     <div>
                       <p className="text-[11px] font-bold text-sky-300">Industrial & Project Setup</p>
-                      <p className="text-[10px] text-slate-200">Manufacturing, FMCG & Agro</p>
+                      <p className="text-[10px] text-slate-200">Gazipur & Regional Plants</p>
                     </div>
                   </div>
                 </div>

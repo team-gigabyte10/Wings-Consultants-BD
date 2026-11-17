@@ -82,12 +82,12 @@ export const CoursesCatalog: React.FC = () => {
         <div className="bg-gradient-to-r from-[#0B1221] to-[#111A2E] text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-xl mb-12 flex flex-col md:flex-row items-center gap-6 sm:gap-8">
           <div className="relative w-full md:w-64 h-48 sm:h-52 rounded-2xl overflow-hidden shrink-0 border-2 border-amber-500/80 shadow-lg">
             <img
-              src="/images/team/md-monirul-hasan-speech-exact.jpg"
-              alt="Md Monirul Hasan Keynote Speech"
-              className="w-full h-full object-cover object-top"
+              src="/images/local-bd/bd-corporate-boardroom.jpg"
+              alt="Executive Corporate Boardroom Training Session - Wings Consultants BD"
+              className="w-full h-full object-cover"
             />
             <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-amber-500 text-slate-950 text-[10px] font-black uppercase tracking-wider">
-              Lead Master Trainer
+              Executive Workshop
             </div>
           </div>
           <div className="space-y-3 flex-1 text-center md:text-left">
@@ -95,10 +95,10 @@ export const CoursesCatalog: React.FC = () => {
               Executive Leadership &amp; Capacity Building
             </div>
             <h3 className="text-xl sm:text-2xl font-serif font-bold text-white leading-snug">
-              Experiential Learning Facilitated by Md Monirul Hasan
+              Experiential Learning &amp; Corporate Masterclasses
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
-              15+ years of leadership and corporate training across BATB, BRAC, and BDJOBS Training. Conducted over 50+ corporate workshops, leadership masterclasses, and executive team transformations nationwide.
+              20+ years of corporate capacity-building, masterclasses, and executive team transformations across Bangladesh. Explore actionable training modules designed for measurable workforce ROI.
             </p>
             <div className="pt-1 flex flex-wrap items-center justify-center md:justify-start gap-4">
               <button

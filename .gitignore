@@ -7,3 +7,6 @@ coverage/
 .env*
 !.env.example
 dist-server/
+.recall/
+docs/.recall/
+dist.zip
